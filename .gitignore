@@ -179,3 +179,25 @@ ml/experiments/taco_yolo26_detector/runs/**/train_batch*.jpg
 ml/experiments/taco_yolo26_detector/runs/**/val_batch*.jpg
 ml/experiments/taco_yolo26_detector/runs/**/*.cache
 ml/experiments/taco_yolo26_detector/data/prepared/**/*.cache
+
+# ---------------------------------------------------------------------------
+# Final bbox-only YOLO26 Detect experiment
+# ---------------------------------------------------------------------------
+#
+# Images are symlinks / EXIF-normalised copies of the archived source trees and
+# are rebuilt by scripts/build_bbox_dataset.py. Labels, manifests and reports ARE
+# the record and are kept.
+ml/experiments/taco_yolo26_detect_bbox_final/data/images/
+ml/experiments/taco_yolo26_detect_bbox_final/**/*.cache
+
+# Machine-specific: written by scripts/write_dataset_yaml.py, never hand-edited.
+ml/experiments/taco_yolo26_detect_bbox_final/configs/dataset.resolved.yaml
+
+# Pretrained weights are fetched on demand.
+ml/experiments/taco_yolo26_detect_bbox_final/yolo26n.pt
+
+# Per-epoch batch previews Ultralytics regenerates; transient child logs.
+ml/experiments/taco_yolo26_detect_bbox_final/runs/**/train_batch*.jpg
+ml/experiments/taco_yolo26_detect_bbox_final/runs/**/val_batch*.jpg
+ml/experiments/taco_yolo26_detect_bbox_final/reports/child_*.log
+ml/experiments/taco_yolo26_detect_bbox_final/reports/.child_status.json

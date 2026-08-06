@@ -1,0 +1,79 @@
+# BinSight YOLO26n Detect — FINAL training run
+#
+# One run. Not an ablation, not a hyperparameter search. Every value below was
+# checked against Ultralytics 8.4.9 DEFAULT_CFG_DICT before use: all 33 are
+# supported, so nothing was omitted and nothing was substituted.
+
+model: yolo26n.pt          # fresh COCO weights — NOT Run 001/002/768 checkpoints
+data: configs/dataset.resolved.yaml
+task: detect               # hard requirement; asserted before training starts
+
+imgsz: 640
+batch: 4
+device: mps
+
+epochs: 60
+patience: 15
+
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+cos_lr: true
+weight_decay: 0.0005
+warmup_epochs: 3.0
+
+mosaic: 0.5
+close_mosaic: 10
+mixup: 0.0
+copy_paste: 0.0
+
+degrees: 2.0
+translate: 0.10
+scale: 0.40
+shear: 0.0
+perspective: 0.0
+
+fliplr: 0.5
+flipud: 0.0
+
+seed: 42
+deterministic: true
+
+amp: true
+
+workers: 0
+cache: false
+
+save: true
+plots: true
+verbose: true
+
+project: runs
+name: yolo26n_detect_bbox_final_640
+exist_ok: false
+
+# --- Why these values -----------------------------------------------------
+#
+# optimizer: AdamW with an explicit lr0
+#   Earlier runs used `optimizer: auto`, which silently ignores lr0 and picks its
+#   own (~0.000833 here). Naming AdamW explicitly makes 0.001 the value actually
+#   used, so the config and the run agree.
+#
+# imgsz 640
+#   Final target is an iPhone, and the development Mac has ~8.6 GB unified
+#   memory. The 768 attempt was terminated repeatedly under memory pressure.
+#   BinSight also plans guided framing / a central ROI, which recovers some of
+#   what resolution would have bought.
+#
+# mosaic 0.5, scale 0.40
+#   Both below default. 83.5% of this dataset's boxes are already tiny or small;
+#   aggressive tiling and downscaling manufacture more of them. close_mosaic=10
+#   disables mosaic for the final 10 epochs regardless.
+#
+# degrees 2.0
+#   Litter has no canonical orientation, but axis-aligned boxes inflate around a
+#   rotated object, so rotation is kept small.
+#
+# batch 4, workers 0, cache false
+#   Memory-safety on this host. The only permitted fallback is 4 -> 2 on a
+#   genuine MPS OOM during the smoke test. No CPU fallback, no imgsz change.

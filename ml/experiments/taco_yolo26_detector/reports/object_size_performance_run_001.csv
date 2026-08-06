@@ -1,0 +1,5 @@
+bucket,ground_truth,detected,recall
+tiny,137,7,0.0511
+small,46,8,0.1739
+medium,26,8,0.3077
+large,2,1,0.5

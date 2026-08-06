@@ -1,0 +1,35 @@
+{
+  "source_environment": "CreditCardRecognitionNEW3_metal",
+  "cloned_environment": "binsight-trashnet-metal",
+  "versions": {
+    "python": "3.9.7",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "tensorflow": "2.13.1",
+    "keras": "2.13.1",
+    "numpy": "1.24.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "PIL": "11.0.0",
+    "tensorflow-metal": "1.1.0"
+  },
+  "devices": {
+    "all": [
+      "/physical_device:CPU:0",
+      "/physical_device:GPU:0"
+    ],
+    "gpus": [
+      "/physical_device:GPU:0"
+    ],
+    "metal_available": true
+  },
+  "system_memory_gb": 8.0,
+  "checks": {
+    "import_tensorflow": true,
+    "metal_gpu": true,
+    "keras_forward": true,
+    "tflite_convert": true,
+    "tflite_invoke": true
+  },
+  "errors": []
+}

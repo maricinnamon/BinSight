@@ -1,0 +1,2 @@
+annotation_id,image_id,category,target,original_bbox,corrected_bbox,image_width,image_height
+1777,549,Clear plastic bottle,bottle,"171.03,-1.32,518.36,413.43","171.03,0.00,518.36,412.12",842.0,474.0

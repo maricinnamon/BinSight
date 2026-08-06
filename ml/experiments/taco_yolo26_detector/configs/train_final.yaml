@@ -1,0 +1,86 @@
+# BinSight YOLO26n — FINAL training run
+#
+# One run, aimed at the failure Run 002 diagnosed: 86.5% of its false negatives
+# were tiny or small objects and tiny recall was 0.095. Two changes attack that
+# together — 768 px input (more pixels per object) and object-centric training
+# crops (more learnable signal per object) — plus conservative fine-tuning
+# settings suited to a 1804-image dataset on a 9 GB machine.
+#
+# Every parameter below was checked against Ultralytics 8.4.9 DEFAULT_CFG_DICT
+# before use. All are supported; none were invented or substituted.
+
+model: yolo26n.pt          # pretrained COCO weights, NOT Run 001/002 weights
+data: configs/dataset_final.yaml
+task: detect
+
+imgsz: 768
+batch: 4
+
+device: mps
+
+epochs: 70
+patience: 15
+
+optimizer: auto
+lr0: 0.001
+cos_lr: true
+
+mosaic: 0.5
+close_mosaic: 10
+mixup: 0.0
+copy_paste: 0.0
+
+scale: 0.35
+translate: 0.10
+degrees: 3.0
+shear: 0.0
+perspective: 0.0
+
+fliplr: 0.5
+flipud: 0.0
+
+seed: 42
+deterministic: true
+
+amp: true
+
+workers: 0
+cache: false
+
+save: true
+plots: true
+verbose: true
+
+project: runs
+name: yolo26n_final_taco_context_plus_crops_768
+exist_ok: false
+
+# --- Notes on the effective configuration ---------------------------------
+#
+# lr0 AND optimizer=auto TOGETHER
+#   Ultralytics' auto-optimizer selects the optimiser, learning rate and momentum
+#   itself and logs "ignoring 'lr0=...'". So lr0: 0.001 above is recorded as the
+#   intent but is NOT the value used. On this dataset size 8.4.9 picks AdamW at
+#   roughly lr=0.000833 — within about 20% of the requested 0.001, which is why
+#   optimizer: auto was kept rather than forcing the optimiser to honour lr0.
+#   The value actually used is written to the run's own args.yaml.
+#
+# mosaic 0.5 (Run 001/002 used 1.0)
+#   Halved deliberately. Mosaic shrinks objects by tiling four images into one,
+#   which is the exact opposite of what this run is trying to fix. It is reduced
+#   rather than disabled because it still supplies useful scale and occlusion
+#   variety, and close_mosaic=10 turns it off for the final 10 epochs anyway.
+#
+# scale 0.35 (default 0.5)
+#   Narrower random-resize range, same reasoning: aggressive downscaling
+#   manufactures more tiny objects in a run whose whole purpose is to see them.
+#
+# degrees 3.0 (default 0.0)
+#   Small rotations only. Litter has no canonical orientation, but large
+#   rotations combined with axis-aligned boxes inflate every box around a
+#   diagonal object and blur the localisation target.
+#
+# batch 4, workers 0, cache false
+#   Memory safety on ~9 GB unified memory at 768 px. Run 002 was SIGKILLed three
+#   times by the kernel under memory pressure. The only permitted fallback is
+#   batch 4 -> 2 if the smoke test OOMs; no CPU fallback, no resolution change.

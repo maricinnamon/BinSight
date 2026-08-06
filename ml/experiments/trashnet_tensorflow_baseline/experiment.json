@@ -1,0 +1,95 @@
+{
+  "id": "trashnet_tensorflow_baseline",
+  "status": "completed_baseline",
+  "task": "image_classification",
+  "dataset": "TrashNet",
+  "dataset_url": "https://github.com/garythung/trashnet",
+  "dataset_images": 2527,
+  "framework": "TensorFlow",
+  "framework_version": "2.13.1",
+  "keras_version": "2.13.1",
+  "model": "MobileNetV3Small",
+  "input_resolution": [
+    224,
+    224,
+    3
+  ],
+  "classes": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "class_counts": {
+    "cardboard": 403,
+    "glass": 501,
+    "metal": 410,
+    "paper": 594,
+    "plastic": 482,
+    "trash": 137
+  },
+  "split": {
+    "train": 1770,
+    "validation": 378,
+    "test": 379,
+    "seed": 42,
+    "method": "stratified 70/15/15, grouped by content hash"
+  },
+  "training": {
+    "device": "cpu",
+    "metal_gpu_present": true,
+    "metal_used_for_training": false,
+    "metal_note": "tensorflow-metal 1.1.0 aborted mid-training (SIGABRT at batch 32, SIGSEGV at batch 16); the final run used CPU",
+    "stage_a_epochs": 15,
+    "stage_b_epochs": 20,
+    "stage_b_kept": true,
+    "batch_size": 16,
+    "class_weighting": true
+  },
+  "test_accuracy": 0.833773,
+  "macro_f1": 0.804598,
+  "weighted_f1": 0.834113,
+  "per_class_f1": {
+    "cardboard": 0.903226,
+    "glass": 0.835616,
+    "metal": 0.797203,
+    "paper": 0.874251,
+    "plastic": 0.822695,
+    "trash": 0.594595
+  },
+  "confidence_threshold": 0.65,
+  "deployment_format": [
+    "keras",
+    "tflite"
+  ],
+  "selected_tflite_variant": "float16",
+  "selected_model_sha256": "c6cebd0c48d53b09701298a3b07581ab29dfedb31af2a5a63ffedc877032d501",
+  "selected_model_size_bytes": 1935484,
+  "tflite_variants": {
+    "float32": {
+      "accuracy": 0.833773,
+      "macro_f1": 0.804598,
+      "size_bytes": 3760064,
+      "top1_agreement_vs_keras": 1.0
+    },
+    "float16": {
+      "accuracy": 0.831135,
+      "macro_f1": 0.802239,
+      "size_bytes": 1935484,
+      "top1_agreement_vs_keras": 0.997361
+    },
+    "int8": {
+      "accuracy": 0.556728,
+      "macro_f1": 0.484287,
+      "size_bytes": 1235200,
+      "top1_agreement_vs_keras": 0.596306
+    }
+  },
+  "selected_for_production": false,
+  "superseded_by": "taco_yolo26_detector",
+  "primary_limitation": "domain shift between TrashNet-style isolated-object imagery and uncontrolled live-camera scenes",
+  "secondary_limitation": "whole-frame classification cannot localise an object or handle multiple items per frame",
+  "training_date": "2026-08-04T19:31:31.461038+03:00"
+}

@@ -1,0 +1,42 @@
+{
+  "python": "3.11.15",
+  "architecture": "arm64",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "torch": "2.13.0",
+  "torchvision": "0.28.0",
+  "ultralytics": "8.4.9",
+  "mps_built": true,
+  "mps_available": true,
+  "mps_matmul": {
+    "shape": [
+      2048,
+      2048
+    ],
+    "mean": -0.003121,
+    "all_finite": true,
+    "ms": 534.7
+  },
+  "mps_conv_backward": {
+    "output_shape": [
+      4,
+      8,
+      128,
+      128
+    ],
+    "loss": 0.123001,
+    "grad_finite": true,
+    "grad_norm": 0.000396
+  },
+  "yolo26n": {
+    "loaded": true,
+    "task": "detect",
+    "parameters": 2572280,
+    "pretrained_classes": 80
+  },
+  "checks": {
+    "imports": true,
+    "mps_matmul": true,
+    "mps_conv_backward": true,
+    "yolo26n_load": true
+  }
+}

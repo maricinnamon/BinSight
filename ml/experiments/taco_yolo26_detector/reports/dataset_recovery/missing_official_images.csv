@@ -1,0 +1,899 @@
+image_id,file_name,batch,flickr_url,annotations,original_categories,mapped_classes,mapped_annotation_count,width,height
+136,batch_10/000035.jpg,batch_10,https://farm66.staticflickr.com/65535/48693801613_b8d405ab84_o.png,17,Cigarette; Drink can; Normal paper; Plastic film; Pop tab; Tissues,bag_wrapper; can; cigarette,13,1824,4000
+137,batch_10/000036.jpg,batch_10,https://farm66.staticflickr.com/65535/48694141426_b4b9840250_o.png,15,Cigarette; Other carton; Unlabeled litter,carton; cigarette,13,1824,4000
+138,batch_10/000037.jpg,batch_10,https://farm66.staticflickr.com/65535/48694315592_5603672ea3_o.png,5,Cigarette; Other carton,carton; cigarette,5,4000,1824
+139,batch_10/000038.jpg,batch_10,https://farm66.staticflickr.com/65535/48694140996_986fb38cbd_o.png,4,Drink carton; Magazine paper; Normal paper; Unlabeled litter,carton,1,1824,4000
+140,batch_10/000039.jpg,batch_10,https://farm66.staticflickr.com/65535/48693800678_a4a7006013_o.png,1,Plastic bottle cap,bottle_cap,1,1824,4000
+141,batch_10/000040.jpg,batch_10,https://farm66.staticflickr.com/65535/48694128116_c295cf55d0_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,4000,1824
+142,batch_10/000041.jpg,batch_10,https://farm66.staticflickr.com/65535/48694127886_fee8f2515b_o.png,5,Cigarette; Plastic film,bag_wrapper; cigarette,5,1824,4000
+143,batch_10/000042.jpg,batch_10,https://farm66.staticflickr.com/65535/48693787953_1ffb997ded_o.png,3,Other plastic wrapper; Plastic film,bag_wrapper,3,1824,4000
+144,batch_10/000043.jpg,batch_10,https://farm66.staticflickr.com/65535/48693787693_c6e9a06ae0_o.png,7,Cigarette; Plastic film,bag_wrapper; cigarette,7,1824,4000
+145,batch_10/000044.jpg,batch_10,https://farm66.staticflickr.com/65535/48693787208_c59bcdb501_o.png,1,Plastic straw,straw,1,1824,4000
+146,batch_10/000045.jpg,batch_10,https://farm66.staticflickr.com/65535/48694301132_bb5aa14db0_o.png,1,Plastic bottle cap,bottle_cap,1,1824,4000
+147,batch_10/000046.jpg,batch_10,https://farm66.staticflickr.com/65535/48694126861_a3bbcf6bf3_o.png,1,Other carton,carton,1,1824,4000
+148,batch_10/000047.jpg,batch_10,https://farm66.staticflickr.com/65535/48694300517_5dfa59ba1a_o.png,5,Clear plastic bottle; Unlabeled litter,bottle,1,1824,4000
+149,batch_10/000048.jpg,batch_10,https://farm66.staticflickr.com/65535/48693786348_2633a70041_o.png,5,Broken glass; Plastic film; Unlabeled litter,bag_wrapper,2,1824,4000
+150,batch_10/000049.jpg,batch_10,https://farm66.staticflickr.com/65535/48693785608_c8fb278ea2_o.png,2,Other plastic wrapper; Unlabeled litter,bag_wrapper,1,1824,4000
+151,batch_10/000050.jpg,batch_10,https://farm66.staticflickr.com/65535/48694125106_79c15ba838_o.png,10,Plastic film; Unlabeled litter,bag_wrapper,5,4000,1824
+152,batch_10/000051.jpg,batch_10,https://farm66.staticflickr.com/65535/48693785163_b739df76c9_o.png,1,Styrofoam piece,(none),0,4000,1824
+153,batch_10/000052.jpg,batch_10,https://farm66.staticflickr.com/65535/48694124921_28c19480da_o.png,1,Unlabeled litter,(none),0,4000,1824
+154,batch_10/000053.jpg,batch_10,https://farm66.staticflickr.com/65535/48694298392_c71cdab7d4_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+155,batch_10/000054.jpg,batch_10,https://farm66.staticflickr.com/65535/48694123876_c16053ce36_o.png,2,Cigarette; Plastic film,bag_wrapper; cigarette,2,1824,4000
+156,batch_10/000055.jpg,batch_10,https://farm66.staticflickr.com/65535/48693783818_0e191e045d_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+157,batch_10/000056.jpg,batch_10,https://farm66.staticflickr.com/65535/48693783338_c4e0696a7e_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+158,batch_10/000057.jpg,batch_10,https://farm66.staticflickr.com/65535/48693783218_01a308c197_o.png,2,Other plastic; Plastic film,bag_wrapper,1,1824,4000
+159,batch_10/000058.jpg,batch_10,https://farm66.staticflickr.com/65535/48694122896_d6ae2fba66_o.png,1,Plastic film,bag_wrapper,1,1824,4000
+160,batch_10/000059.jpg,batch_10,https://farm66.staticflickr.com/65535/48694122111_80382f6a29_o.png,2,Other plastic; Plastic film,bag_wrapper,1,1824,4000
+161,batch_10/000060.jpg,batch_10,https://farm66.staticflickr.com/65535/48694295637_02e5cd69f5_o.png,1,Plastic film,bag_wrapper,1,1824,4000
+162,batch_10/000061.jpg,batch_10,https://farm66.staticflickr.com/65535/48693781338_271cce87c2_o.png,1,Aluminium foil,(none),0,4000,1824
+163,batch_10/000062.jpg,batch_10,https://farm66.staticflickr.com/65535/48694295157_6a6ba8fe6a_o.png,3,Plastic film; Unlabeled litter,bag_wrapper,2,4000,1824
+164,batch_10/000063.jpg,batch_10,https://farm66.staticflickr.com/65535/48694120661_82710bc62e_o.png,2,Plastic film,bag_wrapper,2,4000,1824
+165,batch_10/000064.jpg,batch_10,https://farm66.staticflickr.com/65535/48694294102_dc1f276f9c_o.png,1,Cigarette,cigarette,1,4000,1824
+166,batch_10/000065.jpg,batch_10,https://farm66.staticflickr.com/65535/48693779858_4591bce6ec_o.png,1,Plastic film,bag_wrapper,1,1824,4000
+167,batch_10/000066.jpg,batch_10,https://farm66.staticflickr.com/65535/48693779363_8497449a95_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+168,batch_10/000067.jpg,batch_10,https://farm66.staticflickr.com/65535/48694293422_024ef2c9b7_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+169,batch_10/000068.jpg,batch_10,https://farm66.staticflickr.com/65535/48694118781_e0394ab271_o.png,1,Plastic film,bag_wrapper,1,1824,4000
+170,batch_10/000069.jpg,batch_10,https://farm66.staticflickr.com/65535/48694118586_120d823fc1_o.png,1,Rope & strings,(none),0,4000,1824
+171,batch_10/000070.jpg,batch_10,https://farm66.staticflickr.com/65535/48693778298_d5e349d94a_o.png,2,Rope & strings; Unlabeled litter,(none),0,4000,1824
+172,batch_10/000071.jpg,batch_10,https://farm66.staticflickr.com/65535/48694118056_1a48640440_o.png,2,Other plastic; Unlabeled litter,(none),0,1824,4000
+173,batch_10/000072.jpg,batch_10,https://farm66.staticflickr.com/65535/48693777473_c09ced10aa_o.png,2,Other plastic; Rope & strings,(none),0,4000,1824
+174,batch_10/000073.jpg,batch_10,https://farm66.staticflickr.com/65535/48693777438_55b7cfaec6_o.png,1,Plastic film,bag_wrapper,1,4000,1824
+175,batch_10/000074.jpg,batch_10,https://farm66.staticflickr.com/65535/48693776523_00f111b724_o.png,1,Other plastic,(none),0,1824,4000
+176,batch_10/000075.jpg,batch_10,https://farm66.staticflickr.com/65535/48694110611_ebca02ff39_o.png,3,Cigarette; Clear plastic bottle,bottle; cigarette,3,1824,4000
+177,batch_10/000076.jpg,batch_10,https://farm66.staticflickr.com/65535/48693770173_c274efda68_o.png,4,Cigarette; Plastic film; Unlabeled litter,bag_wrapper; cigarette,2,1824,4000
+178,batch_10/000077.jpg,batch_10,https://farm66.staticflickr.com/65535/48693769563_1fe44a0cfb_o.png,2,Cigarette; Plastic film,bag_wrapper; cigarette,2,1824,4000
+179,batch_10/000078.jpg,batch_10,https://farm66.staticflickr.com/65535/48694282832_9599474c7a_o.png,1,Other plastic,(none),0,1824,4000
+180,batch_10/000079.jpg,batch_10,https://farm66.staticflickr.com/65535/48694282617_90b703aa9f_o.png,2,Unlabeled litter,(none),0,4000,1824
+181,batch_10/000080.jpg,batch_10,https://farm66.staticflickr.com/65535/48693768413_67bfb29184_o.png,1,Plastic straw,straw,1,1824,4000
+182,batch_10/000081.jpg,batch_10,https://farm66.staticflickr.com/65535/48694282352_424aa2ca6a_o.png,4,Cigarette; Clear plastic bottle; Unlabeled litter,bottle; cigarette,3,4000,1824
+183,batch_10/000082.jpg,batch_10,https://farm66.staticflickr.com/65535/48694282192_beb66aef5f_o.png,1,Other plastic,(none),0,4000,1824
+184,batch_10/000083.jpg,batch_10,https://farm66.staticflickr.com/65535/48694108186_5ef1a2b652_o.png,5,Cigarette; Meal carton,carton; cigarette,5,1824,4000
+185,batch_10/000084.jpg,batch_10,https://farm66.staticflickr.com/65535/48693767773_62338603eb_o.png,5,Garbage bag; Other plastic; Unlabeled litter,bag_wrapper,2,1824,4000
+186,batch_10/000085.jpg,batch_10,https://farm66.staticflickr.com/65535/48694281772_8c09f3d71e_o.png,9,Broken glass; Corrugated carton; Metal bottle cap; Metal lid; Other plastic wrapper; Plastic film; Unlabeled litter,bag_wrapper; bottle_cap; carton,4,1824,4000
+187,batch_10/000086.jpg,batch_10,https://farm66.staticflickr.com/65535/48694281572_345d41b03a_o.png,7,Cigarette; Glass bottle; Other plastic wrapper; Plastic lid; Unlabeled litter,bag_wrapper; bottle; cigarette,5,1824,4000
+188,batch_10/000087.jpg,batch_10,https://farm66.staticflickr.com/65535/48694107641_8bafcd1483_o.png,3,Cigarette; Clear plastic bottle,bottle; cigarette,3,1824,4000
+189,batch_10/000088.jpg,batch_10,https://farm66.staticflickr.com/65535/48694107146_44476e55eb_o.png,2,Other carton; Tissues,carton,1,1824,4000
+190,batch_10/000089.jpg,batch_10,https://farm66.staticflickr.com/65535/48694107166_73969cc1f2_o.png,5,Disposable plastic cup; Rope & strings; Unlabeled litter,cup,2,1824,4000
+191,batch_10/000090.jpg,batch_10,https://farm66.staticflickr.com/65535/48693736813_cf13050e3e_o.png,5,Plastic film; Unlabeled litter,bag_wrapper,1,1824,4000
+192,batch_10/000091.jpg,batch_10,https://farm66.staticflickr.com/65535/48693736598_afa72a67ef_o.png,4,Glass bottle; Plastic film; Tissues; Unlabeled litter,bag_wrapper; bottle,2,4000,1824
+193,batch_10/000092.jpg,batch_10,https://farm66.staticflickr.com/65535/48694076896_4a005b8f0a_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,1824,4000
+194,batch_10/000093.jpg,batch_10,https://farm66.staticflickr.com/65535/48693735933_3218e594b4_o.png,14,Cigarette; Glass bottle; Other plastic wrapper; Plastic film; Unlabeled litter,bag_wrapper; bottle; cigarette,5,4000,1824
+195,batch_10/000094.jpg,batch_10,https://farm66.staticflickr.com/65535/48693735823_46e44e0483_o.png,6,Aluminium blister pack; Disposable plastic cup; Metal bottle cap; Unlabeled litter,bottle_cap; cup,2,1824,4000
+196,batch_10/000095.jpg,batch_10,https://farm66.staticflickr.com/65535/48693734608_0e0ba08e6e_o.png,2,Aluminium foil; Cigarette,cigarette,1,1824,4000
+197,batch_10/000096.jpg,batch_10,https://farm66.staticflickr.com/65535/48694074286_06d624fb18_o.png,6,Broken glass; Cigarette; Disposable plastic cup; Unlabeled litter,cigarette; cup,3,3000,4000
+198,batch_10/000097.jpg,batch_10,https://farm66.staticflickr.com/65535/48693698863_393f5dce3e_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,1824,4000
+199,batch_10/000098.jpg,batch_10,https://farm66.staticflickr.com/65535/48694212912_225d10ccd3_o.png,3,Corrugated carton; Styrofoam piece,carton,2,1824,4000
+200,batch_10/000099.jpg,batch_10,https://farm66.staticflickr.com/65535/48694212917_579129461a_o.png,1,Other plastic wrapper,bag_wrapper,1,1824,4000
+201,batch_11/000000.jpg,batch_11,https://farm66.staticflickr.com/65535/48694212567_1b0faf5af8_o.png,3,Corrugated carton; Styrofoam piece,carton,2,4000,1824
+202,batch_11/000001.jpg,batch_11,https://farm66.staticflickr.com/65535/48693698123_73a7339b12_o.png,3,Corrugated carton; Styrofoam piece,carton,1,1824,4000
+203,batch_11/000002.jpg,batch_11,https://farm66.staticflickr.com/65535/48694211877_ef9246b4b0_o.png,1,Styrofoam piece,(none),0,1824,4000
+204,batch_11/000003.jpg,batch_11,https://farm66.staticflickr.com/65535/48694037636_f732295b0c_o.png,5,Corrugated carton; Styrofoam piece,carton,3,1824,4000
+205,batch_11/000004.jpg,batch_11,https://farm66.staticflickr.com/65535/48693697238_ce2c2fa0da_o.png,2,Corrugated carton; Styrofoam piece,carton,1,1824,4000
+206,batch_11/000005.jpg,batch_11,https://farm66.staticflickr.com/65535/48694037361_913cfbbaa0_o.png,2,Corrugated carton; Styrofoam piece,carton,1,1824,4000
+207,batch_11/000006.jpg,batch_11,https://farm66.staticflickr.com/65535/48694037276_b85b4a80b1_o.png,4,Corrugated carton,carton,4,1824,4000
+208,batch_11/000007.jpg,batch_11,https://farm66.staticflickr.com/65535/48693696873_52fd068ea5_o.png,1,Styrofoam piece,(none),0,1824,4000
+209,batch_11/000008.jpg,batch_11,https://farm66.staticflickr.com/65535/48694211097_b206655baa_o.png,3,Corrugated carton; Styrofoam piece,carton,2,1824,4000
+210,batch_11/000009.jpg,batch_11,https://farm66.staticflickr.com/65535/48694211022_f8c02ca2f1_o.png,2,Corrugated carton; Garbage bag,bag_wrapper; carton,2,1824,4000
+211,batch_11/000010.jpg,batch_11,https://farm66.staticflickr.com/65535/48693696308_f6629f2976_o.png,5,Corrugated carton,carton,5,1824,4000
+212,batch_11/000011.jpg,batch_11,https://farm66.staticflickr.com/65535/48694210407_65e9de586c_o.png,3,Corrugated carton; Pizza box,carton,3,1824,4000
+213,batch_11/000012.jpg,batch_11,https://farm66.staticflickr.com/65535/48693696003_f23c29e8d5_o.png,2,Corrugated carton,carton,2,1824,4000
+214,batch_11/000013.jpg,batch_11,https://farm66.staticflickr.com/65535/48693695908_0101b57186_o.png,2,Corrugated carton,carton,2,1824,4000
+215,batch_11/000014.jpg,batch_11,https://farm66.staticflickr.com/65535/48694209992_d656af41e0_o.png,2,Corrugated carton; Styrofoam piece,carton,1,1824,4000
+216,batch_11/000015.jpg,batch_11,https://farm66.staticflickr.com/65535/48694035426_4f8a93ba7b_o.png,5,Cigarette; Styrofoam piece,cigarette,3,1824,4000
+217,batch_11/000016.jpg,batch_11,https://farm66.staticflickr.com/65535/48694035346_6a5f7ae33a_o.png,2,Corrugated carton; Styrofoam piece,carton,1,4000,1824
+218,batch_11/000017.jpg,batch_11,https://farm66.staticflickr.com/65535/48693694888_4f304d9681_o.png,1,Styrofoam piece,(none),0,1824,4000
+219,batch_11/000018.jpg,batch_11,https://farm66.staticflickr.com/65535/48694208702_4c1ba58555_o.png,7,Plastic film; Scrap metal,bag_wrapper,1,4000,1824
+686,batch_2/000000.JPG,batch_2,https://farm66.staticflickr.com/65535/32911550337_2a87758e0b_o.png,2,Other plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+687,batch_2/000001.JPG,batch_2,https://farm66.staticflickr.com/65535/47855674961_f42f31f1f6_o.png,3,Glass bottle; Other plastic wrapper,bag_wrapper; bottle,3,2448,3264
+688,batch_2/000003.JPG,batch_2,https://farm66.staticflickr.com/65535/40889037473_35965b5a5f_o.png,2,Disposable food container; Other plastic wrapper,bag_wrapper,1,3264,2448
+689,batch_2/000005.JPG,batch_2,https://farm66.staticflickr.com/65535/32911552327_427d92f6da_o.png,7,Crisp packet; Garbage bag; Meal carton; Normal paper; Other carton; Other plastic wrapper; Plastic film,bag_wrapper; carton,6,2448,3264
+690,batch_2/000006.JPG,batch_2,https://farm66.staticflickr.com/65535/46939416605_696f60882c_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+691,batch_2/000007.JPG,batch_2,https://farm66.staticflickr.com/65535/47066236714_a36e827a52_o.png,3,Cigarette; Drink can,can; cigarette,3,2448,3264
+692,batch_2/000008.JPG,batch_2,https://farm66.staticflickr.com/65535/33978354478_f66b605ac1_o.png,2,Other carton,carton,2,2448,3264
+693,batch_2/000009.JPG,batch_2,https://farm66.staticflickr.com/65535/40889040103_a63b5f8f0b_o.png,5,Paper cup; Paper straw; Plastic lid,cup; straw,3,2448,3264
+694,batch_2/000010.JPG,batch_2,https://farm66.staticflickr.com/65535/46939418515_e716753721_o.png,4,Disposable food container; Plastic film; Plastic lid; Unlabeled litter,bag_wrapper,1,3264,2448
+695,batch_2/000012.JPG,batch_2,https://farm66.staticflickr.com/65535/47855679411_7278f2ba45_o.png,1,Meal carton,carton,1,2448,3264
+696,batch_2/000013.JPG,batch_2,https://farm66.staticflickr.com/65535/32911556627_4ff806be8e_o.png,2,Cigarette; Other plastic wrapper,bag_wrapper; cigarette,2,2448,3264
+697,batch_2/000015.JPG,batch_2,https://farm66.staticflickr.com/65535/46939420395_06beac8f89_o.png,1,Other carton,carton,1,2448,3264
+698,batch_2/000016.JPG,batch_2,https://farm66.staticflickr.com/65535/47855681931_c6229fce9e_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+699,batch_2/000017.JPG,batch_2,https://farm66.staticflickr.com/65535/33978359458_4b1381e095_o.png,1,Wrapping paper,(none),0,2448,3264
+700,batch_2/000018.JPG,batch_2,https://farm66.staticflickr.com/65535/32911559587_fdec13f792_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+701,batch_2/000019.JPG,batch_2,https://farm66.staticflickr.com/65535/33978361098_bbf81ef39e_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+702,batch_2/000020.JPG,batch_2,https://farm66.staticflickr.com/65535/40889047093_cba2e7000f_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+703,batch_2/000021.JPG,batch_2,https://farm66.staticflickr.com/65535/40889047743_744374aa82_o.png,3,Disposable plastic cup; Plastic lid; Plastic straw,cup; straw,2,2448,3264
+704,batch_2/000022.JPG,batch_2,https://farm66.staticflickr.com/65535/47855685701_5e54628b35_o.png,4,Food waste; Normal paper; Plastic bottle cap; Unlabeled litter,bottle_cap,1,2448,3264
+705,batch_2/000023.JPG,batch_2,https://farm66.staticflickr.com/65535/40889049683_10739a972c_o.png,3,Crisp packet; Garbage bag,bag_wrapper,3,3264,2448
+706,batch_2/000024.JPG,batch_2,https://farm66.staticflickr.com/65535/32911562237_6714aee967_o.png,4,Glass bottle; Metal bottle cap,bottle; bottle_cap,4,2448,3264
+707,batch_2/000025.JPG,batch_2,https://farm66.staticflickr.com/65535/40889050463_4528cc2e2c_o.png,2,Glass bottle; Unlabeled litter,bottle,1,2448,3264
+708,batch_2/000026.JPG,batch_2,https://farm66.staticflickr.com/65535/47066242794_3cfe79b582_o.png,6,Crisp packet; Drink can; Paper cup; Unlabeled litter,bag_wrapper; can; cup,3,3264,2448
+709,batch_2/000027.JPG,batch_2,https://farm66.staticflickr.com/65535/40889051333_0ecd8d4a91_o.png,5,Drink can,can,5,3264,2448
+710,batch_2/000029.JPG,batch_2,https://farm66.staticflickr.com/65535/32911564227_fdc6cac581_o.png,2,Drink can,can,2,2448,3264
+711,batch_2/000031.JPG,batch_2,https://farm66.staticflickr.com/65535/47855689771_b4abc9779c_o.png,1,Foam food container,(none),0,2448,3264
+712,batch_2/000032.JPG,batch_2,https://farm66.staticflickr.com/65535/40889052653_689d5db6b7_o.png,2,Foam food container; Tissues,(none),0,2448,3264
+713,batch_2/000033.JPG,batch_2,https://farm66.staticflickr.com/65535/32911565907_5506233aea_o.png,9,Cigarette; Drink can; Unlabeled litter,can; cigarette,8,2448,3264
+714,batch_2/000034.JPG,batch_2,https://farm66.staticflickr.com/65535/47855692151_8013afbd28_o.png,8,Cigarette; Glass bottle,bottle; cigarette,8,2448,3264
+715,batch_2/000035.JPG,batch_2,https://farm66.staticflickr.com/65535/40889054403_4e68dbc99b_o.png,5,Drink can; Other carton; Other plastic wrapper; Plastic film,bag_wrapper; can; carton,5,2448,3264
+716,batch_2/000036.JPG,batch_2,https://farm66.staticflickr.com/65535/47803521842_15737756d4_o.png,2,Cigarette; Clear plastic bottle,bottle; cigarette,2,2448,3264
+717,batch_2/000037.JPG,batch_2,https://farm66.staticflickr.com/65535/47066245974_0e67b26327_o.png,2,Clear plastic bottle; Unlabeled litter,bottle,1,2448,3264
+718,batch_2/000038.JPG,batch_2,https://farm66.staticflickr.com/65535/46939431325_6b57c4cb12_o.png,4,Cigarette; Disposable plastic cup; Other plastic,cigarette; cup,3,2448,3264
+719,batch_2/000039.JPG,batch_2,https://farm66.staticflickr.com/65535/40889056553_88ca11b53b_o.png,2,Drink can; Unlabeled litter,can,1,2448,3264
+720,batch_2/000040.JPG,batch_2,https://farm66.staticflickr.com/65535/40889057203_2d0d772075_o.png,1,Disposable plastic cup,cup,1,2448,3264
+721,batch_2/000041.JPG,batch_2,https://farm66.staticflickr.com/65535/32911572207_74ebc2f2e2_o.png,2,Drink can; Pop tab,can,1,2448,3264
+722,batch_2/000042.JPG,batch_2,https://farm66.staticflickr.com/65535/40889058283_5a60b778e8_o.png,2,Cigarette; Drink can,can; cigarette,2,2448,3264
+723,batch_2/000043.JPG,batch_2,https://farm66.staticflickr.com/65535/32911574107_77eb69b244_o.png,2,Drink can,can,2,2448,3264
+724,batch_2/000044.JPG,batch_2,https://farm66.staticflickr.com/65535/46939435375_7d5ca01d5c_o.png,3,Cigarette; Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap; cigarette,3,2448,3264
+725,batch_2/000046.JPG,batch_2,https://farm66.staticflickr.com/65535/47066254014_6559944349_o.png,1,Drink can,can,1,2448,3264
+726,batch_2/000047.JPG,batch_2,https://farm66.staticflickr.com/65535/47803529882_f137b61878_o.png,2,Drink can; Paper cup,can; cup,2,2448,3264
+727,batch_2/000048.JPG,batch_2,https://farm66.staticflickr.com/65535/40889060803_d7c3d2189d_o.png,37,Cigarette; Drink can; Pop tab; Unlabeled litter,can; cigarette,35,2448,3264
+728,batch_2/000050.JPG,batch_2,https://farm66.staticflickr.com/65535/40889061403_e26b8e8ce4_o.png,7,Cigarette; Disposable plastic cup; Plastic lid; Plastic straw,cigarette; cup; straw,6,2448,3264
+729,batch_2/000051.JPG,batch_2,https://farm66.staticflickr.com/65535/46939437955_7a28effbcf_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+730,batch_2/000052.JPG,batch_2,https://farm66.staticflickr.com/65535/47803532112_c4ace4cd6b_o.png,8,Cigarette; Normal paper; Plastic straw,cigarette; straw,7,2448,3264
+731,batch_2/000053.JPG,batch_2,https://farm66.staticflickr.com/65535/47066258334_bbab99c7b0_o.png,3,Metal bottle cap; Plastic straw,bottle_cap; straw,3,2448,3264
+732,batch_2/000054.JPG,batch_2,https://farm66.staticflickr.com/65535/47855707671_4f31623298_o.png,9,Aluminium foil; Plastic film; Plastic lid; Six pack rings; Unlabeled litter,bag_wrapper,3,2448,3264
+733,batch_2/000055.JPG,batch_2,https://farm66.staticflickr.com/65535/47855708551_d34ef0f3da_o.png,1,Plastic lid,(none),0,2448,3264
+734,batch_2/000056.JPG,batch_2,https://farm66.staticflickr.com/65535/47066260544_0ec9e38b58_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+735,batch_2/000057.JPG,batch_2,https://farm66.staticflickr.com/65535/33978375058_b992cd915c_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+736,batch_2/000058.JPG,batch_2,https://farm66.staticflickr.com/65535/47855710851_fb7d20bc58_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+737,batch_2/000059.JPG,batch_2,https://farm66.staticflickr.com/65535/32911587657_1d6ed30260_o.png,4,Disposable plastic cup; Normal paper; Other plastic,cup,2,2448,3264
+738,batch_2/000060.JPG,batch_2,https://farm66.staticflickr.com/65535/46939444585_8ef8fc89be_o.png,1,Unlabeled litter,(none),0,3264,2448
+739,batch_2/000061.JPG,batch_2,https://farm66.staticflickr.com/65535/40889071413_7cc0553b07_o.png,1,Other plastic,(none),0,3264,2448
+740,batch_2/000062.JPG,batch_2,https://farm66.staticflickr.com/65535/46939445485_8c2159d008_o.png,1,Metal bottle cap,bottle_cap,1,3264,2448
+741,batch_2/000063.JPG,batch_2,https://farm66.staticflickr.com/65535/46939445965_86fdbb614c_o.png,1,Metal bottle cap,bottle_cap,1,3264,2448
+742,batch_2/000064.JPG,batch_2,https://farm66.staticflickr.com/65535/46939446335_9266291f59_o.png,1,Normal paper,(none),0,3264,2448
+743,batch_2/000065.JPG,batch_2,https://farm66.staticflickr.com/65535/47855713161_d8566ff444_o.png,2,Cigarette; Plastic film,bag_wrapper; cigarette,2,2448,3264
+744,batch_2/000067.JPG,batch_2,https://farm66.staticflickr.com/65535/40889074593_32c7d897ff_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+745,batch_2/000068.JPG,batch_2,https://farm66.staticflickr.com/65535/32911590747_0148c2506c_o.png,3,Aluminium foil; Corrugated carton,carton,2,2448,3264
+746,batch_2/000069.JPG,batch_2,https://farm66.staticflickr.com/65535/32911591877_76c87459e4_o.png,1,Other carton,carton,1,3264,2448
+747,batch_2/000070.JPG,batch_2,https://farm66.staticflickr.com/65535/47855714981_5f93f55b1f_o.png,1,Crisp packet,bag_wrapper,1,3264,2448
+748,batch_2/000071.JPG,batch_2,https://farm66.staticflickr.com/65535/47855715381_9333869cc8_o.png,1,Plastic straw,straw,1,2448,3264
+749,batch_2/000072.JPG,batch_2,https://farm66.staticflickr.com/65535/47066269614_c86c132a1e_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+750,batch_2/000073.JPG,batch_2,https://farm66.staticflickr.com/65535/40889078143_c8222cc338_o.png,3,Meal carton; Other plastic wrapper; Plastic film,bag_wrapper; carton,3,2448,3264
+751,batch_2/000074.JPG,batch_2,https://farm66.staticflickr.com/65535/47855717521_a445d8354d_o.png,3,Glass bottle; Plastic straw; Unlabeled litter,bottle; straw,2,3264,2448
+752,batch_2/000075.JPG,batch_2,https://farm66.staticflickr.com/65535/40889079393_4dc166cf15_o.png,6,Cigarette; Drink can,can; cigarette,6,3264,2448
+753,batch_2/000076.JPG,batch_2,https://farm66.staticflickr.com/65535/40889079733_96b68dc02a_o.png,3,Cigarette; Clear plastic bottle; Metal bottle cap,bottle; bottle_cap; cigarette,3,3264,2448
+754,batch_2/000077.JPG,batch_2,https://farm66.staticflickr.com/65535/46939449615_99e5e48d6a_o.png,2,Paper bag; Shoe,bag_wrapper,1,2448,3264
+755,batch_2/000079.JPG,batch_2,https://farm66.staticflickr.com/65535/40889080603_cc6d0d0b2c_o.png,5,Cigarette; Other carton; Other plastic bottle; Shoe,bottle; carton; cigarette,4,2448,3264
+756,batch_2/000080.JPG,batch_2,https://farm66.staticflickr.com/65535/47803543742_5b8db45822_o.png,3,Cigarette; Drink can; Unlabeled litter,can; cigarette,2,2448,3264
+757,batch_2/000081.JPG,batch_2,https://farm66.staticflickr.com/65535/33978380738_7aef404481_o.png,2,Cigarette; Crisp packet,bag_wrapper; cigarette,2,2448,3264
+758,batch_2/000082.JPG,batch_2,https://farm66.staticflickr.com/65535/33978381248_30198c2efc_o.png,9,Cigarette; Glass bottle; Plastic film; Unlabeled litter,bag_wrapper; bottle; cigarette,6,2448,3264
+759,batch_2/000083.JPG,batch_2,https://farm66.staticflickr.com/65535/47803546272_9da018c6d8_o.png,1,Other carton,carton,1,2448,3264
+760,batch_2/000085.JPG,batch_2,https://farm66.staticflickr.com/65535/32911601367_cbdc0944fc_o.png,1,Plastic straw,straw,1,2448,3264
+761,batch_2/000086.JPG,batch_2,https://farm66.staticflickr.com/65535/47803548232_fc0b7a1b6e_o.png,2,Drink can; Pop tab,can,1,2448,3264
+762,batch_2/000014.JPG,batch_2,https://farm66.staticflickr.com/65535/40889085893_741f45d8bf_o.png,1,Other plastic wrapper,bag_wrapper,1,2442,2597
+763,batch_2/000030.JPG,batch_2,https://farm66.staticflickr.com/65535/46939452025_536623f1a7_o.png,4,Cigarette; Foam food container; Normal paper; Plastic film,bag_wrapper; cigarette,2,2214,3264
+764,batch_2/000049.JPG,batch_2,https://farm66.staticflickr.com/65535/47066278544_8b37ffcd4f_o.png,10,Cigarette; Clear plastic bottle; Disposable plastic cup; Drink can; Glass bottle; Plastic lid; Plastic straw,bottle; can; cigarette; cup; straw,9,3163,2448
+765,batch_2/000088.JPG,batch_2,https://farm66.staticflickr.com/65535/47066278964_fc9fddac8c_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+766,batch_2/000089.JPG,batch_2,https://farm66.staticflickr.com/65535/40889087173_e64dc1b13b_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+767,batch_2/000090.JPG,batch_2,https://farm66.staticflickr.com/65535/47803550992_b42948d081_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+768,batch_2/000091.JPG,batch_2,https://farm66.staticflickr.com/65535/32911604417_0e6d083ba4_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+769,batch_2/000092.JPG,batch_2,https://farm66.staticflickr.com/65535/32911605027_cb8da2ed42_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+770,batch_2/000093.JPG,batch_2,https://farm66.staticflickr.com/65535/47855726521_bb919bf6f8_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+771,batch_2/000094.JPG,batch_2,https://farm66.staticflickr.com/65535/46939454525_c44b3e0be3_o.png,1,Crisp packet,bag_wrapper,1,3264,2448
+772,batch_2/000095.JPG,batch_2,https://farm66.staticflickr.com/65535/40889089153_25c704c1fc_o.png,1,Crisp packet,bag_wrapper,1,3264,2448
+773,batch_2/000096.JPG,batch_2,https://farm66.staticflickr.com/65535/46939455235_a08e03df35_o.png,2,Meal carton; Plastic film,bag_wrapper; carton,2,3264,2448
+774,batch_2/000097.JPG,batch_2,https://farm66.staticflickr.com/65535/40889089933_cd94012f7b_o.png,1,Meal carton,carton,1,2448,3264
+775,batch_2/000098.JPG,batch_2,https://farm66.staticflickr.com/65535/40889091053_54f5a884ed_o.png,8,Cigarette; Drink can,can; cigarette,8,2448,3264
+776,batch_2/000099.JPG,batch_2,https://farm66.staticflickr.com/65535/33978388948_f66de62af0_o.png,1,Single-use carrier bag,bag_wrapper,1,2448,3264
+777,batch_2/000084.JPG,batch_2,https://farm66.staticflickr.com/65535/46939458455_f45f4e6765_o.png,8,Cigarette; Other plastic wrapper,bag_wrapper; cigarette,8,1925,1408
+778,batch_3/IMG_4972.JPG,batch_3,https://farm66.staticflickr.com/65535/40889120223_4f7d68f146_o.png,2,Cigarette; Pop tab,cigarette,1,2448,3264
+779,batch_3/IMG_4977.JPG,batch_3,https://farm66.staticflickr.com/65535/47855755661_7e607f98f3_o.png,1,Drink can,can,1,2448,3264
+780,batch_3/IMG_4978.JPG,batch_3,https://farm66.staticflickr.com/65535/46939486395_641f3c7739_o.png,2,Drink can; Pop tab,can,1,2448,3264
+781,batch_3/IMG_4980.JPG,batch_3,https://farm66.staticflickr.com/65535/46939487015_c457a93178_o.png,2,Cigarette; Other plastic wrapper,bag_wrapper; cigarette,2,2448,3264
+782,batch_3/IMG_4992.JPG,batch_3,https://farm66.staticflickr.com/65535/32911642107_7f74f08ca0_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+783,batch_3/IMG_4994.JPG,batch_3,https://farm66.staticflickr.com/65535/40889122913_83a60dbeb9_o.png,3,Disposable plastic cup; Glass bottle; Scrap metal,bottle; cup,2,2448,3264
+784,batch_3/IMG_4996.JPG,batch_3,https://farm66.staticflickr.com/65535/47066307114_8f7bcde345_o.png,4,Clear plastic bottle; Drink can; Plastic bottle cap; Pop tab,bottle; bottle_cap; can,3,2448,3264
+785,batch_3/IMG_4997.JPG,batch_3,https://farm66.staticflickr.com/65535/47066308414_294f3bab84_o.png,2,Drink can; Unlabeled litter,can,1,2448,3264
+786,batch_3/IMG_4998.JPG,batch_3,https://farm66.staticflickr.com/65535/33978416818_340d3bdda1_o.png,1,Drink can,can,1,2448,3264
+787,batch_3/IMG_5002.JPG,batch_3,https://farm66.staticflickr.com/65535/47855757651_1aaaf21ec2_o.png,2,Meal carton; Plastic utensils,carton,1,2448,3264
+788,batch_3/IMG_5003.JPG,batch_3,https://farm66.staticflickr.com/65535/33978418908_5e5170668c_o.png,18,Cigarette; Plastic utensils; Unlabeled litter,cigarette,16,2448,3264
+789,batch_3/IMG_5036.JPG,batch_3,https://farm66.staticflickr.com/65535/47803587912_7c8a253afe_o.png,2,Clear plastic bottle; Tissues,bottle,1,2448,3264
+790,batch_3/IMG_5039.JPG,batch_3,https://farm66.staticflickr.com/65535/46939491865_2b5b0c4456_o.png,2,Plastic lid; Unlabeled litter,(none),0,2448,3264
+791,batch_3/IMG_5040.JPG,batch_3,https://farm66.staticflickr.com/65535/46939492365_318519f0a8_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+792,batch_3/IMG_5041.JPG,batch_3,https://farm66.staticflickr.com/65535/46939492805_3a2e9f0b8b_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+793,batch_3/IMG_5042.JPG,batch_3,https://farm66.staticflickr.com/65535/47855759571_3bedc5464d_o.png,1,Glass bottle,bottle,1,2448,3264
+794,batch_3/IMG_5043.JPG,batch_3,https://farm66.staticflickr.com/65535/47066317984_1647e2200f_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+795,batch_3/IMG_5044.JPG,batch_3,https://farm66.staticflickr.com/65535/32911652517_62991dbd02_o.png,1,Other carton,carton,1,2448,3264
+796,batch_3/IMG_5045.JPG,batch_3,https://farm66.staticflickr.com/65535/47855760881_9cb8ef2fb8_o.png,2,Other carton; Other plastic wrapper,bag_wrapper; carton,2,2448,3264
+797,batch_3/IMG_5046.JPG,batch_3,https://farm66.staticflickr.com/65535/47066320004_1855aac82a_o.png,4,Food Can; Glass jar; Metal lid; Pop tab,can,1,2448,3264
+798,batch_3/IMG_5048.JPG,batch_3,https://farm66.staticflickr.com/65535/32911653737_fc63a11d00_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+799,batch_3/IMG_5049.JPG,batch_3,https://farm66.staticflickr.com/65535/47803603292_8e853cffc2_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+800,batch_3/IMG_5050.JPG,batch_3,https://farm66.staticflickr.com/65535/47803604122_8b9b12d84a_o.png,2,Aerosol; Plastic lid,can,1,2448,3264
+801,batch_3/IMG_5051.JPG,batch_3,https://farm66.staticflickr.com/65535/40889139803_21bc7c7c60_o.png,1,Pop tab,(none),0,2448,3264
+802,batch_3/IMG_5052.JPG,batch_3,https://farm66.staticflickr.com/65535/47855767551_c8edd89efa_o.png,1,Meal carton,carton,1,2448,3264
+803,batch_3/IMG_5053.JPG,batch_3,https://farm66.staticflickr.com/65535/46939499105_8d833822af_o.png,3,Clear plastic bottle; Other plastic bottle; Plastic bottle cap,bottle; bottle_cap,3,2448,3264
+804,batch_3/IMG_5054.JPG,batch_3,https://farm66.staticflickr.com/65535/47855768871_e92dd848d5_o.png,6,Disposable plastic cup; Drink can; Paper cup; Plastic lid; Plastic straw; Unlabeled litter,can; cup; straw,4,2448,3264
+805,batch_3/IMG_5055.JPG,batch_3,https://farm66.staticflickr.com/65535/47855769721_b040cec103_o.png,3,Drink can; Pop tab,can,2,2448,3264
+806,batch_3/IMG_5056.JPG,batch_3,https://farm66.staticflickr.com/65535/46939500395_0ccd999165_o.png,1,Disposable plastic cup,cup,1,2448,3264
+807,batch_3/IMG_5057.JPG,batch_3,https://farm66.staticflickr.com/65535/32911663797_dda2faec9a_o.png,1,Drink can,can,1,2448,3264
+808,batch_3/IMG_5058.JPG,batch_3,https://farm66.staticflickr.com/65535/33978435108_b914bc70dc_o.png,1,Drink can,can,1,2448,3264
+809,batch_3/IMG_5060.JPG,batch_3,https://farm66.staticflickr.com/65535/32911665127_a4806a4a08_o.png,4,Cigarette; Disposable food container,cigarette,3,2448,3264
+810,batch_3/IMG_4852.JPG,batch_3,https://farm66.staticflickr.com/65535/46939502215_379cd7fe9b_o.png,2,Cigarette; Plastic lid,cigarette,1,3264,2448
+811,batch_3/IMG_4854.JPG,batch_3,https://farm66.staticflickr.com/65535/33978436608_724c979cdf_o.png,1,Paper cup,cup,1,3264,2448
+812,batch_3/IMG_4855.JPG,batch_3,https://farm66.staticflickr.com/65535/46939502675_aae423bd00_o.png,1,Other carton,carton,1,3264,2448
+813,batch_3/IMG_4856.JPG,batch_3,https://farm66.staticflickr.com/65535/46939502875_00471bb698_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+814,batch_3/IMG_4859.JPG,batch_3,https://farm66.staticflickr.com/65535/32911667437_bb4883fe3b_o.png,2,Plastic film,bag_wrapper,2,2448,3264
+815,batch_3/IMG_4860.JPG,batch_3,https://farm66.staticflickr.com/65535/40889150533_7d16c3ec17_o.png,4,Crisp packet; Plastic film; Tissues,bag_wrapper,2,2448,3264
+816,batch_3/IMG_4862.JPG,batch_3,https://farm66.staticflickr.com/65535/47803608982_b3b6899025_o.png,8,Aluminium foil; Cigarette; Meal carton; Plastic bottle cap,bottle_cap; carton; cigarette,7,2448,3264
+817,batch_3/IMG_4865.JPG,batch_3,https://farm66.staticflickr.com/65535/40889152403_103b3a786e_o.png,2,Other carton; Plastic film,bag_wrapper; carton,2,2448,3264
+818,batch_3/IMG_4868.JPG,batch_3,https://farm66.staticflickr.com/65535/46939504865_7b9ef9e98d_o.png,2,Drink can; Pop tab,can,1,2448,3264
+819,batch_3/IMG_4869.JPG,batch_3,https://farm66.staticflickr.com/65535/32911670987_295dd6bd73_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+820,batch_3/IMG_4874.JPG,batch_3,https://farm66.staticflickr.com/65535/40889157373_60346430b4_o.png,2,Corrugated carton; Plastic film,bag_wrapper; carton,2,2448,3264
+821,batch_3/IMG_4875.JPG,batch_3,https://farm66.staticflickr.com/65535/40889158193_9bd0ae62b7_o.png,2,Corrugated carton; Other carton,carton,2,3264,2448
+822,batch_3/IMG_4876.JPG,batch_3,https://farm66.staticflickr.com/65535/47803615012_9b8ba5b3c5_o.png,2,Disposable food container; Plastic film,bag_wrapper,1,2448,3264
+823,batch_3/IMG_4877.JPG,batch_3,https://farm66.staticflickr.com/65535/47066341784_fd4358784b_o.png,2,Other carton; Plastic film,bag_wrapper; carton,2,2448,3264
+824,batch_3/IMG_4878.JPG,batch_3,https://farm66.staticflickr.com/65535/47803620622_6934a0f8fa_o.png,2,Other carton; Plastic film,bag_wrapper; carton,2,3264,2448
+825,batch_3/IMG_4879.JPG,batch_3,https://farm66.staticflickr.com/65535/47803621202_9819ba551e_o.png,1,Spread tub,(none),0,2448,3264
+826,batch_3/IMG_4883.JPG,batch_3,https://farm66.staticflickr.com/65535/47803622972_44302d1826_o.png,2,Aluminium foil; Other plastic,(none),0,2448,3264
+827,batch_3/IMG_4887.JPG,batch_3,https://farm66.staticflickr.com/65535/46939511145_58870f9c2a_o.png,2,Drink can; Unlabeled litter,can,1,2448,3264
+828,batch_3/IMG_4889.JPG,batch_3,https://farm66.staticflickr.com/65535/33978454068_de5da78a51_o.png,2,Drink can; Unlabeled litter,can,1,2448,3264
+829,batch_3/IMG_4891.JPG,batch_3,https://farm66.staticflickr.com/65535/47066350084_05b10711d2_o.png,3,Cigarette; Plastic film; Unlabeled litter,bag_wrapper; cigarette,2,2448,3264
+830,batch_3/IMG_4893.JPG,batch_3,https://farm66.staticflickr.com/65535/40889171123_fe61c072bb_o.png,2,Clear plastic bottle; Normal paper,bottle,1,2448,3264
+831,batch_3/IMG_4895.JPG,batch_3,https://farm66.staticflickr.com/65535/33978458878_6e9b48299f_o.png,2,Other plastic wrapper; Plastic film,bag_wrapper,2,2448,3264
+832,batch_3/IMG_4897.JPG,batch_3,https://farm66.staticflickr.com/65535/47855798171_edff8bd821_o.png,3,Plastic film,bag_wrapper,3,2448,3264
+833,batch_3/IMG_4898.JPG,batch_3,https://farm66.staticflickr.com/65535/47855798821_c870fb4f0a_o.png,1,Single-use carrier bag,bag_wrapper,1,2448,3264
+834,batch_3/IMG_4901.JPG,batch_3,https://farm66.staticflickr.com/65535/47855799451_044043d7b0_o.png,3,Other carton; Other plastic wrapper; Unlabeled litter,bag_wrapper; carton,2,2448,3264
+835,batch_3/IMG_4902.JPG,batch_3,https://farm66.staticflickr.com/65535/46939522685_8296acd466_o.png,4,Disposable food container; Plastic film; Unlabeled litter,bag_wrapper,2,2448,3264
+836,batch_3/IMG_4907.JPG,batch_3,https://farm66.staticflickr.com/65535/47066359274_028a9de7b7_o.png,1,Aluminium blister pack,(none),0,2448,3264
+837,batch_3/IMG_4911.JPG,batch_3,https://farm66.staticflickr.com/65535/47066359864_d899a7b2ae_o.png,2,Disposable food container; Plastic film,bag_wrapper,1,2448,3264
+838,batch_3/IMG_4913.JPG,batch_3,https://farm66.staticflickr.com/65535/47066361194_ed970d6079_o.png,5,Glass jar; Metal lid; Single-use carrier bag,bag_wrapper,1,2448,3264
+839,batch_3/IMG_4914.JPG,batch_3,https://farm66.staticflickr.com/65535/40889179093_864623dfd3_o.png,5,Glass jar; Metal bottle cap; Metal lid,bottle_cap,1,2448,3264
+840,batch_3/IMG_4915.JPG,batch_3,https://farm66.staticflickr.com/65535/47855803151_1120a0ec5c_o.png,1,Other plastic bottle,bottle,1,2448,3264
+841,batch_3/IMG_4916.JPG,batch_3,https://farm66.staticflickr.com/65535/47803638652_9cdd3b0f82_o.png,2,Disposable food container; Food waste,(none),0,2448,3264
+842,batch_3/IMG_4917.JPG,batch_3,https://farm66.staticflickr.com/65535/46939525955_da58573565_o.png,1,Metal bottle cap,bottle_cap,1,2448,3264
+843,batch_3/IMG_4919.JPG,batch_3,https://farm66.staticflickr.com/65535/47803639262_1f63aeb5b0_o.png,3,Drink can; Pop tab; Unlabeled litter,can,1,2448,3264
+844,batch_3/IMG_4921.JPG,batch_3,https://farm66.staticflickr.com/65535/47066364864_11d5b97bed_o.png,3,Foam food container; Unlabeled litter,(none),0,2448,3264
+845,batch_3/IMG_4922.JPG,batch_3,https://farm66.staticflickr.com/65535/32911699207_5cbaebc862_o.png,2,Disposable plastic cup; Paper straw,cup; straw,2,2448,3264
+846,batch_3/IMG_4924.JPG,batch_3,https://farm66.staticflickr.com/65535/47855805651_1db7f68985_o.png,3,Cigarette; Disposable food container; Plastic film,bag_wrapper; cigarette,2,2448,3264
+847,batch_3/IMG_4926.JPG,batch_3,https://farm66.staticflickr.com/65535/32911701247_1dea0d3dc8_o.png,1,Aluminium foil,(none),0,2448,3264
+848,batch_3/IMG_4928.JPG,batch_3,https://farm66.staticflickr.com/65535/46939529825_f10bdde536_o.png,2,Plastic utensils; Unlabeled litter,(none),0,2448,3264
+849,batch_3/IMG_4932.JPG,batch_3,https://farm66.staticflickr.com/65535/33978469458_a0dee6d229_o.png,5,Cigarette; Clear plastic bottle,bottle; cigarette,5,2448,3264
+850,batch_3/IMG_4934.JPG,batch_3,https://farm66.staticflickr.com/65535/33978469938_c6c1cb997a_o.png,3,Normal paper,(none),0,2448,3264
+851,batch_3/IMG_4936.JPG,batch_3,https://farm66.staticflickr.com/65535/32911705417_0e5cf5edb6_o.png,2,Plastic straw; Unlabeled litter,straw,1,2448,3264
+852,batch_3/IMG_4939.JPG,batch_3,https://farm66.staticflickr.com/65535/47855808451_a26645df5a_o.png,3,Paper bag; Paper cup; Plastic lid,bag_wrapper; cup,2,2448,3264
+853,batch_3/IMG_4941.JPG,batch_3,https://farm66.staticflickr.com/65535/47855809301_f048ba2949_o.png,20,Cigarette; Clear plastic bottle; Glass bottle; Normal paper; Other plastic; Other plastic wrapper; Paper bag; Plastic straw; Pop tab; Shoe; Unlabeled litter,bag_wrapper; bottle; cigarette; straw,7,3264,2448
+854,batch_3/IMG_4961.JPG,batch_3,https://farm66.staticflickr.com/65535/33978471308_9bc844ac9f_o.png,3,Plastic utensils,(none),0,2448,3264
+855,batch_3/IMG_4963.JPG,batch_3,https://farm66.staticflickr.com/65535/46939534205_5b75702eeb_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+856,batch_3/IMG_4964.JPG,batch_3,https://farm66.staticflickr.com/65535/47066372284_5812fe5de3_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+857,batch_3/IMG_4965.JPG,batch_3,https://farm66.staticflickr.com/65535/47855812501_a2199dd0cf_o.png,1,Single-use carrier bag,bag_wrapper,1,3264,2448
+858,batch_3/IMG_4966.JPG,batch_3,https://farm66.staticflickr.com/65535/47855816221_e514c48a18_o.png,4,Other plastic; Plastic film; Unlabeled litter,bag_wrapper,1,3264,2448
+859,batch_3/IMG_4967.JPG,batch_3,https://farm66.staticflickr.com/65535/32911710847_0ed9bcd7ce_o.png,3,Disposable plastic cup; Other plastic; Plastic straw,cup; straw,2,2448,3264
+860,batch_3/IMG_4969.JPG,batch_3,https://farm66.staticflickr.com/65535/40889195133_075461e6f8_o.png,13,Clear plastic bottle; Drink can; Drink carton; Glass bottle; Other plastic wrapper; Paper cup; Unlabeled litter,bag_wrapper; bottle; can; carton; cup,8,2448,3264
+861,batch_3/IMG_4971.JPG,batch_3,https://farm66.staticflickr.com/65535/33978477838_1053ce14ab_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+862,batch_3/IMG_4881.JPG,batch_3,https://farm66.staticflickr.com/65535/47066375304_40fe0f2270_o.png,3,Cigarette; Plastic film; Unlabeled litter,bag_wrapper; cigarette,2,2448,3085
+863,batch_3/IMG_4929.JPG,batch_3,https://farm66.staticflickr.com/65535/47803644762_913412029c_o.png,1,Plastic film,bag_wrapper,1,2448,3011
+864,batch_3/IMG_4950.JPG,batch_3,https://farm66.staticflickr.com/65535/40889197533_32297fa4d0_o.png,3,Plastic film; Tissues,bag_wrapper,1,2448,2607
+865,batch_3/IMG_4857.JPG,batch_3,https://farm66.staticflickr.com/65535/47066375864_74c410d19d_o.png,1,Paper cup,cup,1,3264,2290
+866,batch_3/IMG_4948.JPG,batch_3,https://farm66.staticflickr.com/65535/40889198273_bb2e4823fc_o.png,17,Cigarette; Clear plastic bottle; Drink can; Metal bottle cap; Normal paper; Other plastic; Other plastic wrapper; Plastic bottle cap; Plastic utensils; Unlabeled litter,bag_wrapper; bottle; bottle_cap; can; cigarette,10,2448,2470
+867,batch_3/IMG_5037.JPG,batch_3,https://farm66.staticflickr.com/65535/40889198593_5014359850_o.png,1,Plastic film,bag_wrapper,1,2448,2858
+868,batch_3/IMG_5061.JPG,batch_3,https://farm66.staticflickr.com/65535/47066376694_ff2cb7d598_o.png,2,Egg carton; Garbage bag,bag_wrapper; carton,2,3264,2448
+869,batch_3/IMG_5063.JPG,batch_3,https://farm66.staticflickr.com/65535/47803646592_d05fec505c_o.png,2,Other carton; Plastic lid,carton,1,3264,2448
+870,batch_3/IMG_5064.JPG,batch_3,https://farm66.staticflickr.com/65535/32911713097_ae9c50d665_o.png,2,Disposable food container; Other carton,carton,1,3264,2448
+871,batch_3/IMG_5065.JPG,batch_3,https://farm66.staticflickr.com/65535/33978482718_c393869ff0_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+872,batch_3/IMG_5066.JPG,batch_3,https://farm66.staticflickr.com/65535/47066377524_c3d8721bb5_o.png,3,Other plastic container; Other plastic wrapper; Tupperware,bag_wrapper,1,2448,3264
+873,batch_3/IMG_5067.JPG,batch_3,https://farm66.staticflickr.com/65535/47855823101_0fa023cdee_o.png,4,Aluminium blister pack; Normal paper; Other carton; Plastic film,bag_wrapper; carton,2,2448,3264
+874,batch_3/IMG_5068.JPG,batch_3,https://farm66.staticflickr.com/65535/47855823771_db2a33d946_o.png,7,Magazine paper,(none),0,3264,2448
+875,batch_4/000032.JPG,batch_4,https://farm66.staticflickr.com/65535/46939797665_8338f0c922_o.png,7,Cigarette; Clear plastic bottle; Plastic bottle cap; Wrapping paper,bottle; bottle_cap; cigarette,6,2448,3264
+876,batch_4/000067.JPG,batch_4,https://farm66.staticflickr.com/65535/33978762598_af11912a11_o.png,1,Plastic straw,straw,1,3264,2448
+877,batch_4/000066.JPG,batch_4,https://farm66.staticflickr.com/65535/47803873092_c013017a6a_o.png,5,Other plastic; Plastic film,bag_wrapper,1,3264,2448
+878,batch_4/000000.JPG,batch_4,https://farm66.staticflickr.com/65535/46939799005_790c351021_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+879,batch_4/000002.JPG,batch_4,https://farm66.staticflickr.com/65535/47066625094_39457f89ac_o.png,15,Cigarette; Disposable plastic cup; Normal paper; Plastic film,bag_wrapper; cigarette; cup,14,2448,3264
+880,batch_4/000003.JPG,batch_4,https://farm66.staticflickr.com/65535/32911954707_e03eb0440d_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+881,batch_4/000004.JPG,batch_4,https://farm66.staticflickr.com/65535/47803876032_1d3859d4dc_o.png,6,Cigarette; Magazine paper; Normal paper,cigarette,3,3264,2448
+882,batch_4/000005.JPG,batch_4,https://farm66.staticflickr.com/65535/47803876532_0a3a6fde15_o.png,3,Cigarette; Disposable plastic cup,cigarette; cup,3,3264,2448
+883,batch_4/000006.JPG,batch_4,https://farm66.staticflickr.com/65535/33978766838_64385cd8ac_o.png,1,Other plastic,(none),0,2448,3264
+884,batch_4/000007.JPG,batch_4,https://farm66.staticflickr.com/65535/40889455503_1d3003470a_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+885,batch_4/000008.JPG,batch_4,https://farm66.staticflickr.com/65535/40889456293_6739ab1dea_o.png,1,Plastic straw,straw,1,2448,3264
+886,batch_4/000009.JPG,batch_4,https://farm66.staticflickr.com/65535/40889457013_e2128c4e13_o.png,1,Other plastic,(none),0,2448,3264
+887,batch_4/000010.JPG,batch_4,https://farm66.staticflickr.com/65535/47856074981_8784149ac7_o.png,3,Other plastic,(none),0,2448,3264
+888,batch_4/000011.JPG,batch_4,https://farm66.staticflickr.com/65535/33978770438_1a4377bdd9_o.png,3,Other plastic; Plastic lid,(none),0,2448,3264
+889,batch_4/000012.JPG,batch_4,https://farm66.staticflickr.com/65535/40889459383_ac2446918a_o.png,1,Other plastic,(none),0,2448,3264
+890,batch_4/000013.JPG,batch_4,https://farm66.staticflickr.com/65535/47856078131_c7e5f2c011_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+891,batch_4/000014.JPG,batch_4,https://farm66.staticflickr.com/65535/40889460883_910b5b99fa_o.png,2,Other plastic; Plastic bottle cap,bottle_cap,1,2448,3264
+892,batch_4/000015.JPG,batch_4,https://farm66.staticflickr.com/65535/40889461533_95831c5b8f_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+893,batch_4/000016.JPG,batch_4,https://farm66.staticflickr.com/65535/47803886382_10cab8ea4d_o.png,1,Other plastic,(none),0,3264,2448
+894,batch_4/000018.JPG,batch_4,https://farm66.staticflickr.com/65535/47856081041_d58c0287cc_o.png,1,Other plastic,(none),0,2448,3264
+895,batch_4/000019.JPG,batch_4,https://farm66.staticflickr.com/65535/47803887772_c43c4d142c_o.png,1,Other plastic,(none),0,3264,2448
+896,batch_4/000020.JPG,batch_4,https://farm66.staticflickr.com/65535/46939814465_7b5d4a4660_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+897,batch_4/000021.JPG,batch_4,https://farm66.staticflickr.com/65535/47856083241_b1fdd7edc9_o.png,1,Other plastic,(none),0,3264,2448
+898,batch_4/000022.JPG,batch_4,https://farm66.staticflickr.com/65535/47066634034_7ef8fef17c_o.png,1,Other plastic,(none),0,2448,3264
+899,batch_4/000023.JPG,batch_4,https://farm66.staticflickr.com/65535/47803892332_5218b74150_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+900,batch_4/000025.JPG,batch_4,https://farm66.staticflickr.com/65535/40889465533_947018b23d_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+901,batch_4/000026.JPG,batch_4,https://farm66.staticflickr.com/65535/47803894072_070ca32f9d_o.png,1,Other plastic cup,cup,1,2448,3264
+902,batch_4/000027.JPG,batch_4,https://farm66.staticflickr.com/65535/46939819165_7e0cc3fd81_o.png,1,Other plastic,(none),0,2448,3264
+903,batch_4/000028.JPG,batch_4,https://farm66.staticflickr.com/65535/40889467093_5de26e20dd_o.png,2,Other plastic,(none),0,3264,2448
+904,batch_4/000029.JPG,batch_4,https://farm66.staticflickr.com/65535/47066635224_1ff6c0018f_o.png,4,Other plastic; Plastic film,bag_wrapper,2,3264,2448
+905,batch_4/000031.JPG,batch_4,https://farm66.staticflickr.com/65535/47803897082_b1eb31ef66_o.png,3,Cigarette; Plastic film,bag_wrapper; cigarette,3,3264,2448
+906,batch_4/000034.JPG,batch_4,https://farm66.staticflickr.com/65535/47803897382_4b1f4fba86_o.png,1,Styrofoam piece,(none),0,3264,2448
+907,batch_4/000035.JPG,batch_4,https://farm66.staticflickr.com/65535/33978783508_957241c819_o.png,2,Cigarette; Styrofoam piece,cigarette,1,2448,3264
+908,batch_4/000036.JPG,batch_4,https://farm66.staticflickr.com/65535/40889468983_747baf628d_o.png,1,Other plastic,(none),0,2448,3264
+909,batch_4/000037.JPG,batch_4,https://farm66.staticflickr.com/65535/40889470063_23c48646ed_o.png,1,Rope & strings,(none),0,2448,3264
+910,batch_4/000039.JPG,batch_4,https://farm66.staticflickr.com/65535/47803899312_145ed690c7_o.png,1,Disposable plastic cup,cup,1,3264,2448
+911,batch_4/000040.JPG,batch_4,https://farm66.staticflickr.com/65535/40889471933_38dca54a90_o.png,1,Disposable plastic cup,cup,1,2448,3264
+912,batch_4/000041.JPG,batch_4,https://farm66.staticflickr.com/65535/33978787268_90dd477488_o.png,1,Rope & strings,(none),0,2448,3264
+913,batch_4/000042.JPG,batch_4,https://farm66.staticflickr.com/65535/32911974187_f01175bfcd_o.png,1,Normal paper,(none),0,2448,3264
+914,batch_4/000043.JPG,batch_4,https://farm66.staticflickr.com/65535/47066641944_b6227407d1_o.png,1,Plastic straw,straw,1,2448,3264
+915,batch_4/000045.JPG,batch_4,https://farm66.staticflickr.com/65535/47066643124_9dbf34be52_o.png,3,Plastic film; Plastic straw,bag_wrapper; straw,3,3264,2448
+916,batch_4/000046.JPG,batch_4,https://farm66.staticflickr.com/65535/40889477613_f7fd676b6b_o.png,2,Rope & strings,(none),0,3264,2448
+917,batch_4/000047.JPG,batch_4,https://farm66.staticflickr.com/65535/47066644954_71b5859def_o.png,1,Rope & strings,(none),0,2448,3264
+918,batch_4/000048.JPG,batch_4,https://farm66.staticflickr.com/65535/40889479593_0e919dbcd9_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+919,batch_4/000049.JPG,batch_4,https://farm66.staticflickr.com/65535/47066646504_c173924d8a_o.png,1,Other plastic,(none),0,2448,3264
+920,batch_4/000050.JPG,batch_4,https://farm66.staticflickr.com/65535/47066647264_c1561948ae_o.png,1,Aluminium foil,(none),0,2448,3264
+921,batch_4/000051.JPG,batch_4,https://farm66.staticflickr.com/65535/40889482533_4e8e659fe1_o.png,1,Aluminium foil,(none),0,2448,3264
+922,batch_4/000052.JPG,batch_4,https://farm66.staticflickr.com/65535/32911977467_1b3447816d_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+923,batch_4/000053.JPG,batch_4,https://farm66.staticflickr.com/65535/40889484723_d17e1941c4_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+924,batch_4/000054.JPG,batch_4,https://farm66.staticflickr.com/65535/47066650354_3b1e9ab7d1_o.png,4,Food waste; Other plastic,(none),0,3264,2448
+925,batch_4/000055.JPG,batch_4,https://farm66.staticflickr.com/65535/46939832265_836afa2e5f_o.png,1,Rope & strings,(none),0,3264,2448
+926,batch_4/000056.JPG,batch_4,https://farm66.staticflickr.com/65535/40889486553_93b2491397_o.png,1,Other plastic,(none),0,3264,2448
+927,batch_4/000057.JPG,batch_4,https://farm66.staticflickr.com/65535/46939833575_6fc9851a54_o.png,1,Other plastic,(none),0,2448,3264
+928,batch_4/000058.JPG,batch_4,https://farm66.staticflickr.com/65535/40889487943_24bdaef066_o.png,2,Other carton; Single-use carrier bag,bag_wrapper; carton,2,3264,2448
+929,batch_4/000059.JPG,batch_4,https://farm66.staticflickr.com/65535/47856096221_1ee7cf2bea_o.png,1,Other plastic,(none),0,2448,3264
+930,batch_4/000060.JPG,batch_4,https://farm66.staticflickr.com/65535/47803907022_1e89c609bd_o.png,1,Other plastic,(none),0,3264,2448
+931,batch_4/000061.JPG,batch_4,https://farm66.staticflickr.com/65535/47803907242_75b69d674e_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+932,batch_4/000062.JPG,batch_4,https://farm66.staticflickr.com/65535/40889490713_c46043b6a0_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+933,batch_4/000063.JPG,batch_4,https://farm66.staticflickr.com/65535/33978803298_6108b73e67_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+934,batch_4/000064.JPG,batch_4,https://farm66.staticflickr.com/65535/33978804488_c06f2c60d0_o.png,1,Rope & strings,(none),0,3264,2448
+935,batch_4/000065.JPG,batch_4,https://farm66.staticflickr.com/65535/40889493183_05e3b30c7d_o.png,2,Other plastic,(none),0,3264,2448
+936,batch_4/000068.JPG,batch_4,https://farm66.staticflickr.com/65535/32911983837_8ecd248183_o.png,1,Other plastic,(none),0,2448,3264
+937,batch_4/000069.JPG,batch_4,https://farm66.staticflickr.com/65535/32911984517_32593e20fb_o.png,1,Metal bottle cap,bottle_cap,1,3264,2448
+938,batch_4/000070.JPG,batch_4,https://farm66.staticflickr.com/65535/46939838965_d88f1e3f57_o.png,1,Metal bottle cap,bottle_cap,1,3264,2448
+939,batch_4/000071.JPG,batch_4,https://farm66.staticflickr.com/65535/33978806938_4f8d3bd92d_o.png,1,Tissues,(none),0,3264,2448
+940,batch_4/000072.JPG,batch_4,https://farm66.staticflickr.com/65535/40889496153_91313b392e_o.png,1,Styrofoam piece,(none),0,3264,2448
+941,batch_4/000073.JPG,batch_4,https://farm66.staticflickr.com/65535/33978808168_0fbeeb8eff_o.png,2,Other plastic; Styrofoam piece,(none),0,3264,2448
+942,batch_4/000074.JPG,batch_4,https://farm66.staticflickr.com/65535/33978809298_918877e383_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+943,batch_4/000076.JPG,batch_4,https://farm66.staticflickr.com/65535/47856104631_2684819a91_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+944,batch_4/000077.JPG,batch_4,https://farm66.staticflickr.com/65535/40889498363_1f4a8a33f2_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+945,batch_4/000079.JPG,batch_4,https://farm66.staticflickr.com/65535/40889498863_b10fb3f014_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+946,batch_4/000080.JPG,batch_4,https://farm66.staticflickr.com/65535/33978812298_5d8ceb28c0_o.png,2,Other plastic; Plastic bottle cap,bottle_cap,1,3264,2448
+947,batch_4/000081.JPG,batch_4,https://farm66.staticflickr.com/65535/40889499713_c64833f1ae_o.png,1,Corrugated carton,carton,1,2448,3264
+948,batch_4/000082.JPG,batch_4,https://farm66.staticflickr.com/65535/33978814128_f5e3cdd61b_o.png,2,Cigarette; Disposable plastic cup,cigarette; cup,2,3264,2448
+949,batch_4/000083.JPG,batch_4,https://farm66.staticflickr.com/65535/47803916682_77cfaee5c8_o.png,1,Styrofoam piece,(none),0,3264,2448
+950,batch_4/000084.JPG,batch_4,https://farm66.staticflickr.com/65535/33978816018_19a61da78c_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+951,batch_4/000085.JPG,batch_4,https://farm66.staticflickr.com/65535/46939847035_bd5cfaec87_o.png,3,Cigarette; Drink can,can; cigarette,3,3264,2448
+952,batch_4/000086.JPG,batch_4,https://farm66.staticflickr.com/65535/32911988857_d47303e68f_o.png,1,Disposable food container,(none),0,2448,3264
+953,batch_4/000087.JPG,batch_4,https://farm66.staticflickr.com/65535/33978817518_b7fa165458_o.png,5,Plastic film; Styrofoam piece; Unlabeled litter,bag_wrapper,2,3264,2448
+954,batch_4/000088.JPG,batch_4,https://farm66.staticflickr.com/65535/47803919102_ce2225a2cf_o.png,4,Plastic film; Styrofoam piece,bag_wrapper,2,2448,3264
+955,batch_4/000089.JPG,batch_4,https://farm66.staticflickr.com/65535/46939849795_ab39ab57e3_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+956,batch_4/000090.JPG,batch_4,https://farm66.staticflickr.com/65535/33978819018_75bea1b617_o.png,1,Plastic straw,straw,1,2448,3264
+957,batch_4/000092.JPG,batch_4,https://farm66.staticflickr.com/65535/32911993737_90ac0d8263_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+958,batch_4/000093.JPG,batch_4,https://farm66.staticflickr.com/65535/46939852565_c6906281c9_o.png,2,Cigarette; Plastic film,bag_wrapper; cigarette,2,2448,3264
+959,batch_4/000094.JPG,batch_4,https://farm66.staticflickr.com/65535/47856113491_a195fcc137_o.png,2,Cigarette; Other plastic,cigarette,1,3264,2448
+960,batch_4/000095.JPG,batch_4,https://farm66.staticflickr.com/65535/33978821408_c2e9f8bf78_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+961,batch_4/000096.JPG,batch_4,https://farm66.staticflickr.com/65535/47856114101_99bab43be5_o.png,3,Cigarette; Plastic bottle cap; Pop tab,bottle_cap; cigarette,2,2448,3264
+962,batch_4/000097.JPG,batch_4,https://farm66.staticflickr.com/65535/46939854725_966127311f_o.png,8,Other plastic; Other plastic bottle; Other plastic wrapper; Squeezable tube,bag_wrapper; bottle,2,2448,3264
+963,batch_4/000098.JPG,batch_4,https://farm66.staticflickr.com/65535/32911997887_0c3b0020de_o.png,2,Disposable food container; Plastic film,bag_wrapper,1,2448,3264
+964,batch_5/000071.JPG,batch_5,https://farm66.staticflickr.com/65535/40889529623_48864d0311_o.png,4,Cigarette; Clear plastic bottle; Other plastic,bottle; cigarette,2,2448,3264
+965,batch_5/000072.JPG,batch_5,https://farm66.staticflickr.com/65535/33978843678_e276c6268d_o.png,2,Cigarette; Clear plastic bottle,bottle; cigarette,2,3264,2448
+966,batch_5/000073.JPG,batch_5,https://farm66.staticflickr.com/65535/32912014107_7e5ce18da0_o.png,4,Drink can; Metal bottle cap; Plastic straw; Unlabeled litter,bottle_cap; can; straw,3,2448,3264
+967,batch_5/000074.JPG,batch_5,https://farm66.staticflickr.com/65535/40889532723_7a0224fa2e_o.png,1,Plastic straw,straw,1,2448,3264
+968,batch_5/000075.JPG,batch_5,https://farm66.staticflickr.com/65535/33978845968_ce7e7f1c5d_o.png,1,Rope & strings,(none),0,2448,3264
+969,batch_5/000076.JPG,batch_5,https://farm66.staticflickr.com/65535/33978847108_99587758f0_o.png,1,Plastic straw,straw,1,2448,3264
+970,batch_5/000119.JPG,batch_5,https://farm66.staticflickr.com/65535/32912017357_d5ff7332d6_o.png,2,Cigarette; Other plastic,cigarette,1,3264,2448
+971,batch_5/000079.JPG,batch_5,https://farm66.staticflickr.com/65535/47066690164_7a7429faf5_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+972,batch_5/000081.JPG,batch_5,https://farm66.staticflickr.com/65535/40889536613_eb99c26016_o.png,1,Scrap metal,(none),0,2448,3264
+973,batch_5/000082.JPG,batch_5,https://farm66.staticflickr.com/65535/33978850548_7a1d1bc426_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+974,batch_5/000083.JPG,batch_5,https://farm66.staticflickr.com/65535/32912019897_cb8f112e88_o.png,3,Clear plastic bottle; Plastic bottle cap; Unlabeled litter,bottle; bottle_cap,2,3264,2448
+975,batch_5/000084.JPG,batch_5,https://farm66.staticflickr.com/65535/32912020297_46cc9f2272_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+976,batch_5/000085.JPG,batch_5,https://farm66.staticflickr.com/65535/32912020677_04307671cd_o.png,3,Aluminium foil; Plastic film; Styrofoam piece,bag_wrapper,1,3264,2448
+977,batch_5/000086.JPG,batch_5,https://farm66.staticflickr.com/65535/40889540273_21c18d329e_o.png,1,Other plastic,(none),0,3264,2448
+978,batch_5/000087.JPG,batch_5,https://farm66.staticflickr.com/65535/47856152421_762a6fa982_o.png,1,Disposable food container,(none),0,2448,3264
+979,batch_5/000088.JPG,batch_5,https://farm66.staticflickr.com/65535/33978854668_0e8027793b_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+980,batch_5/000089.JPG,batch_5,https://farm66.staticflickr.com/65535/32912023027_2fc136fb2b_o.png,1,Styrofoam piece,(none),0,3264,2448
+981,batch_5/000090.JPG,batch_5,https://farm66.staticflickr.com/65535/33978856048_5018ec4485_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+982,batch_5/000091.JPG,batch_5,https://farm66.staticflickr.com/65535/46939880475_f1d4f91629_o.png,3,Styrofoam piece; Unlabeled litter,(none),0,3264,2448
+983,batch_5/000092.JPG,batch_5,https://farm66.staticflickr.com/65535/46939881055_0ee475f3c0_o.png,3,Other plastic; Paper bag; Unlabeled litter,bag_wrapper,1,2448,3264
+984,batch_5/000093.JPG,batch_5,https://farm66.staticflickr.com/65535/46939881895_f8ae71a92b_o.png,2,Styrofoam piece,(none),0,3264,2448
+985,batch_5/000094.JPG,batch_5,https://farm66.staticflickr.com/65535/33978858348_0a7151dd69_o.png,2,Plastic bottle cap; Styrofoam piece,bottle_cap,1,3264,2448
+986,batch_5/000095.JPG,batch_5,https://farm66.staticflickr.com/65535/33978858548_6aed38e453_o.png,1,Disposable plastic cup,cup,1,3264,2448
+987,batch_5/000096.JPG,batch_5,https://farm66.staticflickr.com/65535/47066694544_a72c3c22e4_o.png,1,Disposable plastic cup,cup,1,3264,2448
+988,batch_5/000097.JPG,batch_5,https://farm66.staticflickr.com/65535/47856154751_315a779bc7_o.png,1,Other carton,carton,1,3264,2448
+989,batch_5/000098.JPG,batch_5,https://farm66.staticflickr.com/65535/46939882895_b46b84343e_o.png,1,Disposable food container,(none),0,3264,2448
+990,batch_5/000099.JPG,batch_5,https://farm66.staticflickr.com/65535/40889548653_f933f33e08_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+991,batch_5/000100.JPG,batch_5,https://farm66.staticflickr.com/65535/33978858968_be5ccff215_o.png,1,Plastic straw,straw,1,3264,2448
+992,batch_5/000062.JPG,batch_5,https://farm66.staticflickr.com/65535/32912026897_29133e2c10_o.png,1,Other plastic,(none),0,2448,3264
+993,batch_5/000063.JPG,batch_5,https://farm66.staticflickr.com/65535/40889551513_edfb0021ce_o.png,2,Garbage bag; Normal paper,bag_wrapper,1,2448,3264
+994,batch_5/000064.JPG,batch_5,https://farm66.staticflickr.com/65535/47066698454_9cfe3da8eb_o.png,2,Disposable plastic cup; Unlabeled litter,cup,1,2448,3264
+995,batch_5/000066.JPG,batch_5,https://farm66.staticflickr.com/65535/46939886025_abd4f72a7c_o.png,3,Cigarette; Other plastic; Other plastic bottle,bottle; cigarette,2,2448,3264
+996,batch_5/000067.JPG,batch_5,https://farm66.staticflickr.com/65535/47803952762_08875278ee_o.png,6,Cigarette; Clear plastic bottle; Other plastic; Unlabeled litter,bottle; cigarette,2,2448,3264
+997,batch_5/000068.JPG,batch_5,https://farm66.staticflickr.com/65535/33978859878_b20b4bf505_o.png,2,Cigarette; Corrugated carton,carton; cigarette,2,2448,3264
+998,batch_5/000069.JPG,batch_5,https://farm66.staticflickr.com/65535/33978860278_57a88dea2c_o.png,2,Normal paper; Other plastic wrapper,bag_wrapper,1,2448,3264
+999,batch_5/000070.JPG,batch_5,https://farm66.staticflickr.com/65535/47803953922_afbf48b53a_o.png,4,Cigarette; Clear plastic bottle,bottle; cigarette,4,2448,3264
+1000,batch_5/000101.JPG,batch_5,https://farm66.staticflickr.com/65535/47803954422_ef4bbc16e2_o.png,1,Glass bottle,bottle,1,2448,3264
+1001,batch_5/000102.JPG,batch_5,https://farm66.staticflickr.com/65535/40889560513_1ae3cbeca9_o.png,2,Drink carton; Plastic straw,carton; straw,2,3264,2448
+1002,batch_5/000103.JPG,batch_5,https://farm66.staticflickr.com/65535/47066704844_ac0cc8ac92_o.png,2,Drink can; Plastic film,bag_wrapper; can,2,3264,2448
+1003,batch_5/000104.JPG,batch_5,https://farm66.staticflickr.com/65535/40889561193_18325208b2_o.png,3,Corrugated carton; Unlabeled litter,carton,1,3264,2448
+1004,batch_5/000105.JPG,batch_5,https://farm66.staticflickr.com/65535/46939890815_e99237b095_o.png,2,Plastic straw; Squeezable tube,straw,1,3264,2448
+1005,batch_5/000106.JPG,batch_5,https://farm66.staticflickr.com/65535/40889561913_5307f7997f_o.png,6,Other plastic; Plastic film; Unlabeled litter,bag_wrapper,3,3264,2448
+1006,batch_5/000107.JPG,batch_5,https://farm66.staticflickr.com/65535/33978863308_e49d744286_o.png,2,Styrofoam piece; Unlabeled litter,(none),0,3264,2448
+1007,batch_5/000108.JPG,batch_5,https://farm66.staticflickr.com/65535/47066706694_ce03313549_o.png,3,Cigarette; Disposable plastic cup; Unlabeled litter,cigarette; cup,2,2448,3264
+1008,batch_5/000120.JPG,batch_5,https://farm66.staticflickr.com/65535/47803956702_049aef9bc7_o.png,4,Disposable plastic cup; Glass bottle; Unlabeled litter,bottle; cup,3,2448,3264
+1009,batch_5/000110.JPG,batch_5,https://farm66.staticflickr.com/65535/40889564153_9aa3f7cd6f_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1010,batch_5/000111.JPG,batch_5,https://farm66.staticflickr.com/65535/33978864988_76748d62ae_o.png,5,Glass bottle; Plastic bottle cap; Plastic film; Rope & strings; Styrofoam piece,bag_wrapper; bottle; bottle_cap,3,2448,3264
+1011,batch_5/000112.JPG,batch_5,https://farm66.staticflickr.com/65535/33978865458_1706739a49_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1012,batch_5/000113.JPG,batch_5,https://farm66.staticflickr.com/65535/40889565903_b6e50dcb60_o.png,2,Meal carton; Plastic film,bag_wrapper; carton,2,3264,2448
+1013,batch_5/000114.JPG,batch_5,https://farm66.staticflickr.com/65535/46939894765_a89ede7b9e_o.png,6,Cigarette; Clear plastic bottle; Disposable food container; Normal paper; Plastic bottle cap,bottle; bottle_cap; cigarette,3,2448,3264
+1014,batch_5/000115.JPG,batch_5,https://farm66.staticflickr.com/65535/47856167961_9aac7dee05_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1015,batch_5/000116.JPG,batch_5,https://farm66.staticflickr.com/65535/40889567233_57772d7469_o.png,2,Meal carton; Plastic film,bag_wrapper; carton,2,3264,2448
+1016,batch_5/000117.JPG,batch_5,https://farm66.staticflickr.com/65535/46939897105_388a7a223a_o.png,1,Normal paper,(none),0,3264,2448
+1017,batch_5/000118.JPG,batch_5,https://farm66.staticflickr.com/65535/47856169161_6ba04c44c5_o.png,1,Foam cup,cup,1,3264,2448
+1018,batch_5/000000.JPG,batch_5,https://farm66.staticflickr.com/65535/33978867448_812f29c184_o.png,3,Disposable plastic cup; Normal paper; Unlabeled litter,cup,1,2448,3264
+1019,batch_5/000001.JPG,batch_5,https://farm66.staticflickr.com/65535/46939898895_6d9e5b011a_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+1020,batch_5/000002.JPG,batch_5,https://farm66.staticflickr.com/65535/47803959742_0b6c580b42_o.png,2,Drink can; Unlabeled litter,can,1,2448,3264
+1021,batch_5/000004.JPG,batch_5,https://farm66.staticflickr.com/65535/46939901135_bc26f1cbae_o.png,3,Drink can; Other plastic wrapper; Pop tab,bag_wrapper; can,2,3264,2448
+1022,batch_5/000005.JPG,batch_5,https://farm66.staticflickr.com/65535/40889570153_ea44226bfb_o.png,6,Aluminium foil; Clear plastic bottle; Drink can; Metal bottle cap; Paper cup,bottle; bottle_cap; can; cup,4,3264,2448
+1023,batch_5/000006.JPG,batch_5,https://farm66.staticflickr.com/65535/47856171891_ba06951d89_o.png,2,Other plastic wrapper,bag_wrapper,2,2448,3264
+1024,batch_5/000007.JPG,batch_5,https://farm66.staticflickr.com/65535/32912036217_d5657a9d70_o.png,1,Drink can,can,1,3264,2448
+1025,batch_5/000008.JPG,batch_5,https://farm66.staticflickr.com/65535/33978870528_f79fa6d235_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1026,batch_5/000009.JPG,batch_5,https://farm66.staticflickr.com/65535/33978871568_ce1b0dcd4b_o.png,3,Plastic lid; Plastic straw,straw,2,2448,3264
+1027,batch_5/000010.JPG,batch_5,https://farm66.staticflickr.com/65535/47856175311_b24692242a_o.png,3,Cigarette; Six pack rings; Unlabeled litter,cigarette,1,3264,2448
+1028,batch_5/000011.JPG,batch_5,https://farm66.staticflickr.com/65535/32912037837_3f846d74c0_o.png,2,Drink can; Pop tab,can,1,2448,3264
+1029,batch_5/000012.JPG,batch_5,https://farm66.staticflickr.com/65535/32912038327_42b66c91e7_o.png,8,Drink can; Other carton; Other plastic wrapper; Pop tab,bag_wrapper; can; carton,7,2448,3264
+1030,batch_5/000013.JPG,batch_5,https://farm66.staticflickr.com/65535/33978875618_da0fbde399_o.png,1,Drink can,can,1,2448,3264
+1031,batch_5/000014.JPG,batch_5,https://farm66.staticflickr.com/65535/40889571993_bc16e4baf0_o.png,1,Styrofoam piece,(none),0,2448,3264
+1032,batch_5/000015.JPG,batch_5,https://farm66.staticflickr.com/65535/47856178921_9879440339_o.png,14,Aluminium foil; Disposable plastic cup; Drink can; Other carton; Other plastic; Pop tab; Unlabeled litter,can; carton; cup,7,2448,3264
+1033,batch_5/000016.JPG,batch_5,https://farm66.staticflickr.com/65535/33978879488_0055e88548_o.png,2,Drink can; Pop tab,can,1,2448,3264
+1034,batch_5/000017.JPG,batch_5,https://farm66.staticflickr.com/65535/33978880738_f7752223c3_o.png,2,Drink can; Pop tab,can,1,2448,3264
+1035,batch_5/000018.JPG,batch_5,https://farm66.staticflickr.com/65535/47803968782_be6b3b8ab0_o.png,1,Plastic glooves,(none),0,2448,3264
+1036,batch_5/000019.JPG,batch_5,https://farm66.staticflickr.com/65535/47803969562_de0a75fa84_o.png,3,Plastic lid; Plastic straw; Unlabeled litter,straw,1,2448,3264
+1037,batch_5/000020.JPG,batch_5,https://farm66.staticflickr.com/65535/47803970522_61bca0e46d_o.png,7,Cigarette; Crisp packet; Meal carton; Plastic film; Unlabeled litter,bag_wrapper; carton; cigarette,6,2448,3264
+1038,batch_5/000021.JPG,batch_5,https://farm66.staticflickr.com/65535/47803971762_bcd5a627e6_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1039,batch_5/000022.JPG,batch_5,https://farm66.staticflickr.com/65535/47066721294_7feca83d8b_o.png,5,Other plastic wrapper; Paper bag; Plastic film; Single-use carrier bag,bag_wrapper,5,2448,3264
+1040,batch_5/000023.JPG,batch_5,https://farm66.staticflickr.com/65535/47803973502_e59d58cbcf_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1041,batch_5/000024.JPG,batch_5,https://farm66.staticflickr.com/65535/32912047857_9571d702b5_o.png,1,Paper bag,bag_wrapper,1,2448,3264
+1042,batch_5/000025.JPG,batch_5,https://farm66.staticflickr.com/65535/32912048767_1aa69e760e_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1043,batch_5/000026.JPG,batch_5,https://farm66.staticflickr.com/65535/32912049917_7a71692352_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1044,batch_5/000027.JPG,batch_5,https://farm66.staticflickr.com/65535/46939913575_f52efcf897_o.png,3,Glass bottle,bottle,3,2448,3264
+1045,batch_5/000028.JPG,batch_5,https://farm66.staticflickr.com/65535/46939914075_9ef4c6b78d_o.png,3,Cigarette; Clear plastic bottle,bottle; cigarette,3,2448,3264
+1046,batch_5/000029.JPG,batch_5,https://farm66.staticflickr.com/65535/32912051967_85e013f756_o.png,6,Meal carton; Other plastic; Other plastic wrapper; Paper cup; Plastic lid; Plastic straw,bag_wrapper; carton; cup; straw,4,2448,3264
+1047,batch_5/000030.JPG,batch_5,https://farm66.staticflickr.com/65535/46939915655_4d0cb87cc6_o.png,17,Cigarette; Paper cup; Unlabeled litter,cigarette; cup,16,2448,3264
+1048,batch_5/000031.JPG,batch_5,https://farm66.staticflickr.com/65535/47803979812_bd4a56c361_o.png,5,Cigarette; Plastic straw,cigarette; straw,5,2448,3264
+1049,batch_5/000033.JPG,batch_5,https://farm66.staticflickr.com/65535/47803980842_d67678d04c_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1050,batch_5/000034.JPG,batch_5,https://farm66.staticflickr.com/65535/33978890418_499f106e3b_o.png,2,Cigarette; Meal carton,carton; cigarette,2,2448,3264
+1051,batch_5/000035.JPG,batch_5,https://farm66.staticflickr.com/65535/32912055617_3d75ccd505_o.png,2,Paper cup; Plastic lid,cup,1,2448,3264
+1052,batch_5/000036.JPG,batch_5,https://farm66.staticflickr.com/65535/32912056417_027702d667_o.png,8,Drink can; Paper cup; Plastic film; Plastic lid; Unlabeled litter,bag_wrapper; can; cup,5,2448,3264
+1053,batch_5/000037.JPG,batch_5,https://farm66.staticflickr.com/65535/33978892848_e157672b95_o.png,2,Normal paper; Plastic glooves,(none),0,2448,3264
+1054,batch_5/000038.JPG,batch_5,https://farm66.staticflickr.com/65535/47066733514_eed8063a44_o.png,2,Plastic film; Styrofoam piece,bag_wrapper,1,2448,3264
+1055,batch_5/000039.JPG,batch_5,https://farm66.staticflickr.com/65535/47066734734_fc13bc4a3f_o.png,1,Plastic lid,(none),0,2448,3264
+1056,batch_5/000040.JPG,batch_5,https://farm66.staticflickr.com/65535/47856193371_68edd17c45_o.png,3,Drink can; Metal bottle cap; Plastic straw,bottle_cap; can; straw,3,3264,2448
+1057,batch_5/000041.JPG,batch_5,https://farm66.staticflickr.com/65535/46939922555_721190eb65_o.png,3,Paper cup; Unlabeled litter,cup,2,2448,3264
+1058,batch_5/000042.JPG,batch_5,https://farm66.staticflickr.com/65535/47066737454_9c9470d62c_o.png,1,Other plastic,(none),0,2448,3264
+1059,batch_5/000043.JPG,batch_5,https://farm66.staticflickr.com/65535/47803989582_89dda5b02d_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+1060,batch_5/000045.JPG,batch_5,https://farm66.staticflickr.com/65535/47066740174_acf1e51363_o.png,5,Disposable food container; Other plastic; Plastic film,bag_wrapper,2,2448,3264
+1061,batch_5/000046.JPG,batch_5,https://farm66.staticflickr.com/65535/46939925425_ce20b9cd82_o.png,1,Food Can,can,1,2448,3264
+1062,batch_5/000047.JPG,batch_5,https://farm66.staticflickr.com/65535/47066741634_1649c3f40a_o.png,5,Cigarette; Disposable plastic cup; Other plastic; Plastic lid; Unlabeled litter,cigarette; cup,2,2448,3264
+1063,batch_5/000048.JPG,batch_5,https://farm66.staticflickr.com/65535/47856199371_48c343a856_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1064,batch_5/000049.JPG,batch_5,https://farm66.staticflickr.com/65535/33978899298_50a618f462_o.png,13,Cigarette; Corrugated carton; Disposable plastic cup; Normal paper; Paper bag; Paper cup; Plastic lid; Plastic straw; Unlabeled litter,bag_wrapper; carton; cigarette; cup; straw,9,2448,3264
+1065,batch_5/000050.JPG,batch_5,https://farm66.staticflickr.com/65535/47066742954_899a3cae6b_o.png,2,Meal carton; Plastic film,bag_wrapper; carton,2,2448,3264
+1066,batch_5/000051.JPG,batch_5,https://farm66.staticflickr.com/65535/47856201821_e0c10c6b9d_o.png,2,Drink can; Pop tab,can,1,2448,3264
+1067,batch_5/000052.JPG,batch_5,https://farm66.staticflickr.com/65535/33978900708_65b314569d_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1068,batch_5/000054.JPG,batch_5,https://farm66.staticflickr.com/65535/47803997932_5c239d6406_o.png,1,Foam food container,(none),0,2448,3264
+1069,batch_5/000055.JPG,batch_5,https://farm66.staticflickr.com/65535/47856204461_12f6ed89ca_o.png,3,Paper cup; Plastic lid; Plastic straw,cup; straw,2,2448,3264
+1070,batch_5/000056.JPG,batch_5,https://farm66.staticflickr.com/65535/47066745174_ae588a3097_o.png,3,Other carton; Paper cup; Plastic lid,carton; cup,2,2448,3264
+1071,batch_5/000057.JPG,batch_5,https://farm66.staticflickr.com/65535/47066746044_2934b2ea8f_o.png,2,Single-use carrier bag; Spread tub,bag_wrapper,1,2448,3264
+1072,batch_5/000058.JPG,batch_5,https://farm66.staticflickr.com/65535/46939934105_8c96dc218e_o.png,9,Cigarette; Crisp packet,bag_wrapper; cigarette,9,2448,3264
+1073,batch_5/000059.JPG,batch_5,https://farm66.staticflickr.com/65535/46939935055_2b5807711d_o.png,1,Crisp packet,bag_wrapper,1,2448,3264
+1074,batch_5/000060.JPG,batch_5,https://farm66.staticflickr.com/65535/32912071607_76e8a752bd_o.png,2,Disposable plastic cup,cup,2,2448,3264
+1075,batch_5/000061.JPG,batch_5,https://farm66.staticflickr.com/65535/40889596053_a087c16e61_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1076,batch_6/000052.JPG,batch_6,https://farm66.staticflickr.com/65535/33978912708_2f0f04d2c0_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1077,batch_6/000104.JPG,batch_6,https://farm66.staticflickr.com/65535/40889605713_c5a8992f49_o.png,2,Aluminium foil; Clear plastic bottle,bottle,1,2448,3264
+1078,batch_6/000103.JPG,batch_6,https://farm66.staticflickr.com/65535/47066763314_67056fd24f_o.png,5,Clear plastic bottle; Drink carton; Plastic bottle cap; Unlabeled litter,bottle; bottle_cap; carton,3,3264,2448
+1079,batch_6/000102.JPG,batch_6,https://farm66.staticflickr.com/65535/32912089707_02db3fda70_o.png,5,Aerosol; Clear plastic bottle; Normal paper; Plastic film; Single-use carrier bag,bag_wrapper; bottle; can,4,2448,3264
+1080,batch_6/000101.JPG,batch_6,https://farm66.staticflickr.com/65535/46939955465_d0a4870a38_o.png,2,Clear plastic bottle; Other plastic wrapper,bag_wrapper; bottle,2,2624,1968
+1081,batch_6/000100.JPG,batch_6,https://farm66.staticflickr.com/65535/33978915118_ebe103f82b_o.png,2,Clear plastic bottle,bottle,2,3264,2448
+1082,batch_6/000099.JPG,batch_6,https://farm66.staticflickr.com/65535/47856222401_0bd6036b2e_o.png,5,Clear plastic bottle; Drink can; Pop tab,bottle; can,4,2624,1968
+1083,batch_6/000098.JPG,batch_6,https://farm66.staticflickr.com/65535/47066765964_640d18a329_o.png,1,Aluminium foil,(none),0,2448,3264
+1084,batch_6/000097.JPG,batch_6,https://farm66.staticflickr.com/65535/47856223821_9d02b1f829_o.png,7,Clear plastic bottle; Crisp packet; Other plastic wrapper; Plastic bottle cap; Unlabeled litter,bag_wrapper; bottle; bottle_cap,6,3680,2760
+1085,batch_6/000096.JPG,batch_6,https://farm66.staticflickr.com/65535/46939957695_34122d087b_o.png,1,Other carton,carton,1,2448,3264
+1086,batch_6/000095.JPG,batch_6,https://farm66.staticflickr.com/65535/47066767654_14ab3d06dc_o.png,1,Other plastic wrapper,bag_wrapper,1,2624,1968
+1087,batch_6/000094.JPG,batch_6,https://farm66.staticflickr.com/65535/47066768204_10f66f02f3_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1088,batch_6/000093.JPG,batch_6,https://farm66.staticflickr.com/65535/40889609553_961d6ab4a3_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1089,batch_6/000092.JPG,batch_6,https://farm66.staticflickr.com/65535/46939959885_65d9e0bdb8_o.png,3,Other plastic; Plastic lid; Plastic straw,straw,1,2448,3264
+1090,batch_6/000091.JPG,batch_6,https://farm66.staticflickr.com/65535/40889609983_a89569a413_o.png,1,Aluminium foil,(none),0,2448,3264
+1091,batch_6/000090.JPG,batch_6,https://farm66.staticflickr.com/65535/32912095787_1e9a2c02e4_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1092,batch_6/000089.JPG,batch_6,https://farm66.staticflickr.com/65535/47804018642_4d0dfc15cf_o.png,1,Disposable food container,(none),0,2448,3264
+1093,batch_6/000088.JPG,batch_6,https://farm66.staticflickr.com/65535/33978921268_41eba8cf37_o.png,1,Aluminium foil,(none),0,3644,2337
+1094,batch_6/000087.JPG,batch_6,https://farm66.staticflickr.com/65535/32912097377_11a7d46c4e_o.png,3,Clear plastic bottle; Other plastic wrapper,bag_wrapper; bottle,3,2624,1968
+1095,batch_6/000086.JPG,batch_6,https://farm66.staticflickr.com/65535/33978922018_1c003c7d23_o.png,1,Aluminium foil,(none),0,2624,1968
+1096,batch_6/000085.JPG,batch_6,https://farm66.staticflickr.com/65535/47856229231_5c1d80842d_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1097,batch_6/000083.JPG,batch_6,https://farm66.staticflickr.com/65535/32912098647_4e3b57777f_o.png,2,Clear plastic bottle; Other plastic,bottle,1,2867,2756
+1098,batch_6/000082.JPG,batch_6,https://farm66.staticflickr.com/65535/46939963045_7211eea09b_o.png,2,Drink can; Plastic film,bag_wrapper; can,2,3680,2760
+1099,batch_6/000080.JPG,batch_6,https://farm66.staticflickr.com/65535/46939963335_dd4c6f603e_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1100,batch_6/000079.JPG,batch_6,https://farm66.staticflickr.com/65535/40889612323_86bf8fb981_o.png,1,Rope & strings,(none),0,2448,3264
+1101,batch_6/000078.JPG,batch_6,https://farm66.staticflickr.com/65535/47066774434_b932933f37_o.png,5,Aerosol; Clear plastic bottle; Glass bottle,bottle; can,5,2624,1968
+1102,batch_6/000077.JPG,batch_6,https://farm66.staticflickr.com/65535/32912101117_743a26fa9f_o.png,2,Glass bottle; Unlabeled litter,bottle,1,3680,2760
+1103,batch_6/000076.JPG,batch_6,https://farm66.staticflickr.com/65535/47856232351_f798dc2cce_o.png,3,Clear plastic bottle; Glass bottle; Paper cup,bottle; cup,3,2275,3235
+1104,batch_6/000075.JPG,batch_6,https://farm66.staticflickr.com/65535/32912101467_6e69effc32_o.png,1,Corrugated carton,carton,1,2448,3264
+1105,batch_6/000074.JPG,batch_6,https://farm66.staticflickr.com/65535/46939966745_ff2c47e398_o.png,2,Corrugated carton; Other plastic bottle,bottle; carton,2,3264,2448
+1106,batch_6/000073.JPG,batch_6,https://farm66.staticflickr.com/65535/46939967325_3fb88921ab_o.png,3,Clear plastic bottle; Plastic bottle cap; Scrap metal,bottle; bottle_cap,2,3264,2448
+1107,batch_6/000072.JPG,batch_6,https://farm66.staticflickr.com/65535/40889614263_2c83c7bf30_o.png,90,Clear plastic bottle; Drink can; Other plastic; Other plastic bottle; Other plastic wrapper; Paper cup; Plastic bottle cap; Plastic film; Plastic lid; Plastic straw; Unlabeled litter,bag_wrapper; bottle; bottle_cap; can; cup; straw,33,2448,3264
+1108,batch_6/000071.JPG,batch_6,https://farm66.staticflickr.com/65535/32912103027_976a121c96_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+1109,batch_6/000070.JPG,batch_6,https://farm66.staticflickr.com/65535/47804024302_22cfe15e8d_o.png,1,Tupperware,(none),0,2624,1968
+1110,batch_6/000069.JPG,batch_6,https://farm66.staticflickr.com/65535/40889615643_07063485a2_o.png,2,Clear plastic bottle,bottle,2,3264,2448
+1111,batch_6/000068.JPG,batch_6,https://farm66.staticflickr.com/65535/47804024642_590ecdd2e6_o.png,9,Cigarette; Other plastic wrapper; Paper bag; Plastic film; Plastic utensils; Pop tab,bag_wrapper; cigarette,6,3264,2448
+1112,batch_6/000066.JPG,batch_6,https://farm66.staticflickr.com/65535/32912104407_ea5c819bb0_o.png,30,Cigarette; Clear plastic bottle,bottle; cigarette,30,3264,2448
+1113,batch_6/000065.JPG,batch_6,https://farm66.staticflickr.com/65535/47066779864_49002eaafa_o.png,4,Clear plastic bottle; Plastic bottle cap; Single-use carrier bag,bag_wrapper; bottle; bottle_cap,4,2448,3264
+1114,batch_6/000064.JPG,batch_6,https://farm66.staticflickr.com/65535/46939973065_7070d3d15f_o.png,5,Plastic bottle cap; Tupperware; Unlabeled litter,bottle_cap,1,2624,1968
+1115,batch_6/000063.JPG,batch_6,https://farm66.staticflickr.com/65535/40889616813_5e8ab992ac_o.png,1,Foam food container,(none),0,3264,2448
+1116,batch_6/000062.JPG,batch_6,https://farm66.staticflickr.com/65535/40889616963_04d6126223_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1117,batch_6/000061.JPG,batch_6,https://farm66.staticflickr.com/65535/32912105857_0b0f45c141_o.png,2,Disposable food container; Pizza box,carton,1,2448,3264
+1118,batch_6/000060.JPG,batch_6,https://farm66.staticflickr.com/65535/47856242471_a911544457_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1119,batch_6/000059.JPG,batch_6,https://farm66.staticflickr.com/65535/47066782704_0d578a36a6_o.png,3,Corrugated carton,carton,3,3264,2448
+1120,batch_6/000058.JPG,batch_6,https://farm66.staticflickr.com/65535/33978931598_18cb20dc04_o.png,4,Aluminium foil; Clear plastic bottle,bottle,2,2448,3264
+1121,batch_6/000056.JPG,batch_6,https://farm66.staticflickr.com/65535/47066783694_e124995508_o.png,6,Aluminium foil; Clear plastic bottle; Drink carton; Other carton,bottle; carton,4,3264,2448
+1122,batch_6/000055.JPG,batch_6,https://farm66.staticflickr.com/65535/47066784304_0f0a296011_o.png,5,Clear plastic bottle; Glass bottle; Other plastic wrapper; Unlabeled litter,bag_wrapper; bottle,4,3264,2448
+1123,batch_6/000057.JPG,batch_6,https://farm66.staticflickr.com/65535/32912110127_16808ba9e7_o.png,20,Clear plastic bottle; Drink can; Pop tab; Single-use carrier bag,bag_wrapper; bottle; can,13,3264,2448
+1124,batch_6/000054.JPG,batch_6,https://farm66.staticflickr.com/65535/32912110487_067c939d53_o.png,2,Disposable plastic cup; Foam food container,cup,1,3264,2448
+1125,batch_6/000053.JPG,batch_6,https://farm66.staticflickr.com/65535/40889621093_446b5ced95_o.png,1,Aluminium foil,(none),0,2448,3264
+1126,batch_6/000000.JPG,batch_6,https://farm66.staticflickr.com/65535/32912111927_28e2839fa4_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1127,batch_6/000051.JPG,batch_6,https://farm66.staticflickr.com/65535/32912112857_c6c15897f8_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1128,batch_6/000050.JPG,batch_6,https://farm66.staticflickr.com/65535/47066787524_f5b66aa2ba_o.png,1,Other plastic,(none),0,2448,3264
+1129,batch_6/000049.JPG,batch_6,https://farm66.staticflickr.com/65535/47804027952_67cdc7e214_o.png,2,Single-use carrier bag; Unlabeled litter,bag_wrapper,1,2448,3264
+1130,batch_6/000048.JPG,batch_6,https://farm66.staticflickr.com/65535/47804028482_25dba44df4_o.png,1,Disposable food container,(none),0,3264,2448
+1131,batch_6/000047.JPG,batch_6,https://farm66.staticflickr.com/65535/47066789274_3fd0307671_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1132,batch_6/000046.JPG,batch_6,https://farm66.staticflickr.com/65535/32912117297_6c45f530b5_o.png,18,Cigarette; Clear plastic bottle,bottle; cigarette,18,2448,3264
+1133,batch_6/000045.JPG,batch_6,https://farm66.staticflickr.com/65535/47066790184_2477b4512c_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1134,batch_6/000043.JPG,batch_6,https://farm66.staticflickr.com/65535/46939979195_ea795fcdf0_o.png,2,Other plastic wrapper; Plastic film,bag_wrapper,2,3264,2448
+1135,batch_6/000042.JPG,batch_6,https://farm66.staticflickr.com/65535/47856251511_83be241c55_o.png,2,Disposable plastic cup; Foam food container,cup,1,2448,3264
+1136,batch_6/000041.JPG,batch_6,https://farm66.staticflickr.com/65535/47066791774_6e50e6286d_o.png,3,Aluminium foil; Paper bag,bag_wrapper,1,3264,2448
+1137,batch_6/000040.JPG,batch_6,https://farm66.staticflickr.com/65535/32912121107_06ed3f85f8_o.png,1,Drink can,can,1,3680,2760
+1138,batch_6/000039.JPG,batch_6,https://farm66.staticflickr.com/65535/47804031902_dc4fe7b3f7_o.png,2,Aluminium foil,(none),0,3264,2448
+1139,batch_6/000038.JPG,batch_6,https://farm66.staticflickr.com/65535/40889627853_8fe80a1ed2_o.png,3,Clear plastic bottle; Plastic film,bag_wrapper; bottle,3,2624,1968
+1140,batch_6/000037.JPG,batch_6,https://farm66.staticflickr.com/65535/32912123087_34c2480e92_o.png,12,Aerosol; Clear plastic bottle; Crisp packet; Other plastic; Other plastic wrapper; Unlabeled litter,bag_wrapper; bottle; can,6,2624,1968
+1141,batch_6/000036.JPG,batch_6,https://farm66.staticflickr.com/65535/40889628343_8b3f4e784b_o.png,5,Clear plastic bottle; Drink can,bottle; can,5,2624,1968
+1142,batch_6/000035.JPG,batch_6,https://farm66.staticflickr.com/65535/47856253311_62b9986f62_o.png,6,Aluminium foil,(none),0,2448,3264
+1143,batch_6/000034.JPG,batch_6,https://farm66.staticflickr.com/65535/46939984435_3daa96886a_o.png,2,Clear plastic bottle,bottle,2,2448,3264
+1144,batch_6/000033.JPG,batch_6,https://farm66.staticflickr.com/65535/47066795234_d2ecb238d2_o.png,2,Plastic lid; Plastic straw,straw,1,2624,1968
+1145,batch_6/000032.JPG,batch_6,https://farm66.staticflickr.com/65535/47856254581_7e292f18aa_o.png,4,Clear plastic bottle; Unlabeled litter,bottle,2,3264,2448
+1146,batch_6/000031.JPG,batch_6,https://farm66.staticflickr.com/65535/47066796004_01600acd87_o.png,7,Other plastic; Unlabeled litter,(none),0,2448,3264
+1147,batch_6/000029.JPG,batch_6,https://farm66.staticflickr.com/65535/47804035482_c719d035e8_o.png,6,Clear plastic bottle; Crisp packet; Plastic bottle cap; Unlabeled litter,bag_wrapper; bottle; bottle_cap,4,3680,2760
+1148,batch_6/000028.JPG,batch_6,https://farm66.staticflickr.com/65535/46939986275_49e68c07b8_o.png,1,Drink can,can,1,2448,3264
+1149,batch_6/000027.JPG,batch_6,https://farm66.staticflickr.com/65535/32912127567_77eea99af6_o.png,1,Disposable plastic cup,cup,1,3264,2448
+1150,batch_6/000026.JPG,batch_6,https://farm66.staticflickr.com/65535/47066799004_1c72a732ea_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1151,batch_6/000025.JPG,batch_6,https://farm66.staticflickr.com/65535/40889633543_dfa8d6a6b7_o.png,1,Corrugated carton,carton,1,3264,2448
+1152,batch_6/000024.JPG,batch_6,https://farm66.staticflickr.com/65535/47856258921_96c08f057a_o.png,5,Aluminium foil; Drink carton; Food Can; Plastic straw; Pop tab,can; carton; straw,3,2624,1968
+1153,batch_6/000023.JPG,batch_6,https://farm66.staticflickr.com/65535/47804038142_e7cb0ffa8f_o.png,3,Clear plastic bottle; Drink carton; Plastic bottle cap,bottle; bottle_cap; carton,3,3264,2448
+1154,batch_6/000022.JPG,batch_6,https://farm66.staticflickr.com/65535/47066800644_6d005deb0a_o.png,7,Aluminium foil; Paper bag,bag_wrapper,1,2448,3264
+1155,batch_6/000021.JPG,batch_6,https://farm66.staticflickr.com/65535/47804038842_0931dbdf15_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1156,batch_6/000020.JPG,batch_6,https://farm66.staticflickr.com/65535/40889635963_0d1690e9e2_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1157,batch_6/000019.JPG,batch_6,https://farm66.staticflickr.com/65535/47804039552_c3695ae1fa_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1158,batch_6/000018.JPG,batch_6,https://farm66.staticflickr.com/65535/47066802814_6e968fbcd0_o.png,1,Foam food container,(none),0,2448,3264
+1159,batch_6/000017.JPG,batch_6,https://farm66.staticflickr.com/65535/46939990835_7d094db7be_o.png,6,Aluminium foil; Clear plastic bottle; Drink carton; Meal carton,bottle; carton,4,2448,3264
+1160,batch_6/000015.JPG,batch_6,https://farm66.staticflickr.com/65535/40889638173_0ca45fd364_o.png,3,Clear plastic bottle; Glass bottle; Paper cup,bottle; cup,3,2815,2195
+1161,batch_6/000014.JPG,batch_6,https://farm66.staticflickr.com/65535/47066804614_cdb8cde5ec_o.png,7,Cigarette; Clear plastic bottle,bottle; cigarette,7,2448,3264
+1162,batch_6/000013.JPG,batch_6,https://farm66.staticflickr.com/65535/32912131367_1d276577a4_o.png,3,Crisp packet; Drink can,bag_wrapper; can,3,2448,3264
+1163,batch_6/000011.JPG,batch_6,https://farm66.staticflickr.com/65535/33978954158_a444e1a34a_o.png,1,Plastic utensils,(none),0,2448,3264
+1164,batch_6/000010.JPG,batch_6,https://farm66.staticflickr.com/65535/33978955328_207744f7f6_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1165,batch_6/000009.JPG,batch_6,https://farm66.staticflickr.com/65535/47066807424_6d5cc16d42_o.png,1,Corrugated carton,carton,1,3264,2448
+1166,batch_6/000008.JPG,batch_6,https://farm66.staticflickr.com/65535/46939995575_05c18a0df1_o.png,1,Paper cup,cup,1,2624,1968
+1167,batch_6/000007.JPG,batch_6,https://farm66.staticflickr.com/65535/46939995835_1ab0f53e75_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1168,batch_6/000006.JPG,batch_6,https://farm66.staticflickr.com/65535/46939996455_001c43bb07_o.png,4,Clear plastic bottle; Plastic bottle cap; Unlabeled litter,bottle; bottle_cap,3,3264,2448
+1169,batch_6/000005.JPG,batch_6,https://farm66.staticflickr.com/65535/32912132277_a8b0bc31d4_o.png,3,Cigarette; Other plastic wrapper,bag_wrapper; cigarette,3,2448,3264
+1170,batch_6/000003.JPG,batch_6,https://farm66.staticflickr.com/65535/47856270291_f4d44f5558_o.png,2,Cigarette; Plastic utensils,cigarette,1,2448,3264
+1171,batch_6/000002.JPG,batch_6,https://farm66.staticflickr.com/65535/47856271681_632bcfb6da_o.png,2,Corrugated carton,carton,2,3264,2448
+1172,batch_6/000001.JPG,batch_6,https://farm66.staticflickr.com/65535/33978961128_bbb0e1ac21_o.png,5,Normal paper; Other plastic wrapper; Plastic film; Plastic utensils,bag_wrapper,3,2448,3264
+1173,batch_7/000000.JPG,batch_7,https://farm66.staticflickr.com/65535/40889652193_3f37fd3281_o.png,1,Other plastic wrapper,bag_wrapper,1,6000,4000
+1174,batch_7/000001.JPG,batch_7,https://farm66.staticflickr.com/65535/46940011655_5a1f041451_o.png,4,Other plastic; Plastic bottle cap; Plastic straw,bottle_cap; straw,2,6000,4000
+1175,batch_7/000002.JPG,batch_7,https://farm66.staticflickr.com/65535/47804052832_72f1f8e88a_o.png,3,Other plastic; Plastic straw; Unlabeled litter,straw,1,6000,4000
+1176,batch_7/000003.JPG,batch_7,https://farm66.staticflickr.com/65535/40889654633_8e83c5da1f_o.png,1,Metal bottle cap,bottle_cap,1,6000,4000
+1177,batch_7/000004.JPG,batch_7,https://farm66.staticflickr.com/65535/47856286691_1bc191644c_o.png,2,Other plastic; Other plastic wrapper,bag_wrapper,1,6000,4000
+1178,batch_7/000005.JPG,batch_7,https://farm66.staticflickr.com/65535/47804053462_f5ce27b41f_o.png,1,Plastic film,bag_wrapper,1,6000,4000
+1179,batch_7/000006.JPG,batch_7,https://farm66.staticflickr.com/65535/46940016965_702a266c50_o.png,2,Corrugated carton; Other plastic,carton,1,6000,4000
+1180,batch_7/000008.JPG,batch_7,https://farm66.staticflickr.com/65535/47066829914_ea89ccf797_o.png,1,Plastic utensils,(none),0,6000,4000
+1181,batch_7/000010.JPG,batch_7,https://farm66.staticflickr.com/65535/32912148117_c0b1f78723_o.png,3,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,3,6000,4000
+1182,batch_7/000011.JPG,batch_7,https://farm66.staticflickr.com/65535/32912148517_163f3d6451_o.png,1,Drink can,can,1,6000,4000
+1183,batch_7/000012.JPG,batch_7,https://farm66.staticflickr.com/65535/47856290731_9bcd8c16e9_o.png,1,Plastic film,bag_wrapper,1,6000,4000
+1184,batch_7/000013.JPG,batch_7,https://farm66.staticflickr.com/65535/47856291101_09de0e5797_o.png,2,Aluminium foil; Magazine paper,(none),0,3264,2448
+1185,batch_7/000014.JPG,batch_7,https://farm66.staticflickr.com/65535/40889661293_5072c1a7df_o.png,1,Aluminium foil,(none),0,3264,2448
+1186,batch_7/000015.JPG,batch_7,https://farm66.staticflickr.com/65535/46940022135_264b184fce_o.png,2,Unlabeled litter,(none),0,2448,3264
+1187,batch_7/000016.JPG,batch_7,https://farm66.staticflickr.com/65535/32912149767_1a29ed7168_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1188,batch_7/000017.JPG,batch_7,https://farm66.staticflickr.com/65535/46940024775_99b0a2547c_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1189,batch_7/000018.JPG,batch_7,https://farm66.staticflickr.com/65535/46940025455_0e6848f501_o.png,5,Styrofoam piece,(none),0,3264,2448
+1190,batch_7/000019.JPG,batch_7,https://farm66.staticflickr.com/65535/47804057702_8fa9e11eb0_o.png,1,Disposable food container,(none),0,3264,2448
+1191,batch_7/000020.JPG,batch_7,https://farm66.staticflickr.com/65535/32912151417_6d49f60e7b_o.png,1,Styrofoam piece,(none),0,3264,2448
+1192,batch_7/000021.JPG,batch_7,https://farm66.staticflickr.com/65535/40889663323_eb3d4f7105_o.png,4,Normal paper; Styrofoam piece; Unlabeled litter,(none),0,3264,2448
+1193,batch_7/000022.JPG,batch_7,https://farm66.staticflickr.com/65535/47066834024_253bdea94a_o.png,13,Cigarette; Clear plastic bottle; Other plastic; Plastic straw; Tissues; Unlabeled litter,bottle; cigarette; straw,4,3264,2448
+1194,batch_7/000023.JPG,batch_7,https://farm66.staticflickr.com/65535/46940028735_18dc93fb6a_o.png,4,Cigarette; Other carton; Plastic film,bag_wrapper; carton; cigarette,4,2448,3264
+1195,batch_7/000024.JPG,batch_7,https://farm66.staticflickr.com/65535/47066835024_0250e8b49d_o.png,2,Drink can; Unlabeled litter,can,1,3264,2448
+1196,batch_7/000025.JPG,batch_7,https://farm66.staticflickr.com/65535/40889664623_86556a9660_o.png,2,Drink can; Pop tab,can,1,3264,2448
+1197,batch_7/000029.JPG,batch_7,https://farm66.staticflickr.com/65535/47066835484_efe91b4bf9_o.png,3,Paper cup; Plastic lid; Tissues,cup,1,2448,3264
+1198,batch_7/000030.JPG,batch_7,https://farm66.staticflickr.com/65535/46940032185_6e98d92a2a_o.png,1,Disposable plastic cup,cup,1,960,1280
+1199,batch_7/000031.JPG,batch_7,https://farm66.staticflickr.com/65535/40889665973_e0d8ba8656_o.png,2,Paper cup; Plastic lid,cup,1,2448,3264
+1200,batch_7/000033.JPG,batch_7,https://farm66.staticflickr.com/65535/46940033065_254c09e9ee_o.png,3,Disposable plastic cup; Paper cup,cup,3,2448,3264
+1201,batch_7/000034.JPG,batch_7,https://farm66.staticflickr.com/65535/40889667643_312318589a_o.png,1,Metal bottle cap,bottle_cap,1,2448,3264
+1202,batch_7/000035.JPG,batch_7,https://farm66.staticflickr.com/65535/33978983968_155d2e9ff4_o.png,5,Cigarette; Crisp packet; Garbage bag; Other plastic; Paper cup,bag_wrapper; cigarette; cup,4,3264,2448
+1203,batch_7/000036.JPG,batch_7,https://farm66.staticflickr.com/65535/40889669113_39368f357f_o.png,8,Drink carton; Food Can; Meal carton; Other plastic; Plastic film; Plastic straw; Single-use carrier bag,bag_wrapper; can; carton; straw,7,3264,2448
+1204,batch_7/000037.JPG,batch_7,https://farm66.staticflickr.com/65535/47856299771_06f8aab299_o.png,2,Cigarette; Disposable plastic cup,cigarette; cup,2,2448,3264
+1205,batch_7/000038.JPG,batch_7,https://farm66.staticflickr.com/65535/40889670973_c226b8b2bb_o.png,2,Drink carton; Plastic straw,carton; straw,2,2448,3264
+1206,batch_7/000039.JPG,batch_7,https://farm66.staticflickr.com/65535/47066840034_ee45b007ec_o.png,7,Cigarette; Foam food container; Other plastic wrapper; Plastic film; Unlabeled litter,bag_wrapper; cigarette,4,2448,3264
+1207,batch_7/000042.JPG,batch_7,https://farm66.staticflickr.com/65535/47804066252_4527da7bdf_o.png,1,Drink carton,carton,1,2448,3264
+1208,batch_7/000043.JPG,batch_7,https://farm66.staticflickr.com/65535/47804066862_75470bff8a_o.png,11,Cigarette; Other plastic; Paper cup; Unlabeled litter,cigarette; cup,8,2448,3264
+1209,batch_7/000044.JPG,batch_7,https://farm66.staticflickr.com/65535/47804067422_7b1b6b2f23_o.png,8,Cigarette; Clear plastic bottle; Drink carton; Foam cup; Normal paper; Plastic film; Plastic straw,bag_wrapper; bottle; carton; cigarette; cup; straw,7,2448,3264
+1210,batch_7/000045.JPG,batch_7,https://farm66.staticflickr.com/65535/32912159597_c10c9a82dc_o.png,2,Drink carton; Plastic lid,carton,1,2448,3264
+1211,batch_7/000047.JPG,batch_7,https://farm66.staticflickr.com/65535/47066843964_43fa166949_o.png,5,Cigarette; Glass bottle; Normal paper,bottle; cigarette,4,2448,3264
+1212,batch_7/000048.JPG,batch_7,https://farm66.staticflickr.com/65535/32912161537_3819808921_o.png,5,Metal bottle cap; Normal paper; Paper cup; Styrofoam piece; Unlabeled litter,bottle_cap; cup,2,2448,3264
+1213,batch_7/000049.JPG,batch_7,https://farm66.staticflickr.com/65535/40889679993_fcb47865fa_o.png,24,Clear plastic bottle; Other carton; Other plastic; Other plastic wrapper; Paper cup; Plastic bottle cap; Plastic film; Plastic straw; Plastic utensils; Single-use carrier bag; Spread tub; Tissues; Unlabeled litter,bag_wrapper; bottle; bottle_cap; carton; cup; straw,10,2448,3264
+1214,batch_7/000050.JPG,batch_7,https://farm66.staticflickr.com/65535/32912163517_6b0255cb39_o.png,4,Plastic straw; Plastic utensils; Unlabeled litter,straw,1,2448,3264
+1215,batch_7/000051.JPG,batch_7,https://farm66.staticflickr.com/65535/47066847104_e63d7fa88c_o.png,9,Cigarette; Drink carton; Paper cup; Pizza box; Plastic film; Plastic straw; Single-use carrier bag,bag_wrapper; carton; cigarette; cup; straw,9,2448,3264
+1216,batch_7/000052.JPG,batch_7,https://farm66.staticflickr.com/65535/32912165427_1515e6b752_o.png,2,Egg carton; Other plastic,carton,1,3264,2448
+1217,batch_7/000053.JPG,batch_7,https://farm66.staticflickr.com/65535/47856308751_84cc3a6bae_o.png,2,Paper cup; Plastic utensils,cup,1,3264,2448
+1218,batch_7/000054.JPG,batch_7,https://farm66.staticflickr.com/65535/47856309151_43a55b08ae_o.png,2,Other plastic; Single-use carrier bag,bag_wrapper,1,3264,2448
+1219,batch_7/000055.JPG,batch_7,https://farm66.staticflickr.com/65535/40889686743_26a550aa0e_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1220,batch_7/000056.JPG,batch_7,https://farm66.staticflickr.com/65535/40889687973_f662c5bf0f_o.png,1,Spread tub,(none),0,2448,3264
+1221,batch_7/000057.JPG,batch_7,https://farm66.staticflickr.com/65535/46940043775_9501d0198e_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1222,batch_7/000058.JPG,batch_7,https://farm66.staticflickr.com/65535/33978994858_d53fb33a93_o.png,2,Clear plastic bottle; Normal paper,bottle,1,2448,3264
+1223,batch_7/000060.JPG,batch_7,https://farm66.staticflickr.com/65535/47066851724_847beb4507_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1224,batch_7/000062.JPG,batch_7,https://farm66.staticflickr.com/65535/32912172357_8bf4eb3336_o.png,12,Clear plastic bottle; Other plastic wrapper; Plastic bottle cap; Plastic film; Unlabeled litter,bag_wrapper; bottle; bottle_cap,8,2448,3264
+1225,batch_7/000063.JPG,batch_7,https://farm66.staticflickr.com/65535/40889691843_29962d1be8_o.png,2,Plastic straw; Unlabeled litter,straw,1,3264,2448
+1226,batch_7/000064.JPG,batch_7,https://farm66.staticflickr.com/65535/47804074052_5519dc2e3c_o.png,3,Other plastic wrapper; Plastic film,bag_wrapper,3,3264,2448
+1227,batch_7/000065.JPG,batch_7,https://farm66.staticflickr.com/65535/46940047855_eb290f9630_o.png,4,Clear plastic bottle; Plastic bottle cap; Single-use carrier bag; Unlabeled litter,bag_wrapper; bottle; bottle_cap,3,3264,2448
+1228,batch_7/000066.JPG,batch_7,https://farm66.staticflickr.com/65535/32912174767_c4f5cedc6b_o.png,3,Disposable food container; Foam cup; Plastic film,bag_wrapper; cup,2,3264,2448
+1229,batch_7/000067.JPG,batch_7,https://farm66.staticflickr.com/65535/40889692753_a5e4123282_o.png,2,Other plastic; Plastic film,bag_wrapper,1,3264,2448
+1230,batch_7/000068.JPG,batch_7,https://farm66.staticflickr.com/65535/47804075752_b00a05cfc9_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+1231,batch_7/000069.JPG,batch_7,https://farm66.staticflickr.com/65535/32912176267_b3491a2b4b_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1232,batch_7/000070.JPG,batch_7,https://farm66.staticflickr.com/65535/33979000668_8a82711193_o.png,3,Other plastic; Plastic straw; Plastic utensils,straw,1,2448,3264
+1233,batch_7/000071.JPG,batch_7,https://farm66.staticflickr.com/65535/32912177517_397f58d130_o.png,1,Single-use carrier bag,bag_wrapper,1,3264,2448
+1234,batch_7/000072.JPG,batch_7,https://farm66.staticflickr.com/65535/33979002788_57c024baf2_o.png,5,Cigarette; Clear plastic bottle; Other plastic bottle; Unlabeled litter,bottle; cigarette,4,2448,3264
+1235,batch_7/000073.JPG,batch_7,https://farm66.staticflickr.com/65535/47804078612_5d6bd587e1_o.png,5,Cigarette; Drink carton; Plastic bottle cap,bottle_cap; carton; cigarette,5,2448,3264
+1236,batch_7/000075.JPG,batch_7,https://farm66.staticflickr.com/65535/47856319211_dc3a523be8_o.png,2,Glass bottle; Unlabeled litter,bottle,1,3264,2448
+1237,batch_7/000076.JPG,batch_7,https://farm66.staticflickr.com/65535/46940053915_6328b976af_o.png,2,Drink carton; Unlabeled litter,carton,1,2448,3264
+1238,batch_7/000077.JPG,batch_7,https://farm66.staticflickr.com/65535/47804079742_ba556ae1ca_o.png,3,Cigarette; Clear plastic bottle,bottle; cigarette,3,2448,3264
+1239,batch_7/000078.JPG,batch_7,https://farm66.staticflickr.com/65535/32912184137_6d00f72bc6_o.png,20,Clear plastic bottle; Crisp packet; Drink carton; Garbage bag; Other carton; Plastic bottle cap; Plastic film; Plastic straw; Pop tab; Single-use carrier bag,bag_wrapper; bottle; bottle_cap; carton; straw,19,2448,3264
+1240,batch_7/000079.JPG,batch_7,https://farm66.staticflickr.com/65535/32912184997_09fd2ec111_o.png,10,Cigarette; Clear plastic bottle; Drink carton; Paper cup; Plastic film; Unlabeled litter,bag_wrapper; bottle; carton; cigarette; cup,9,2448,3264
+1241,batch_7/000080.JPG,batch_7,https://farm66.staticflickr.com/65535/47856326681_5ce2972505_o.png,4,Aluminium foil; Cigarette; Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap; cigarette,3,3264,2448
+1242,batch_7/000081.JPG,batch_7,https://farm66.staticflickr.com/65535/32912186627_8cb5281952_o.png,4,Drink carton; Garbage bag; Other carton; Paper bag,bag_wrapper; carton,4,2448,3264
+1243,batch_7/000082.JPG,batch_7,https://farm66.staticflickr.com/65535/32912187717_6b2473c4ea_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1244,batch_7/000083.JPG,batch_7,https://farm66.staticflickr.com/65535/32912188217_ca90bbbe64_o.png,3,Broken glass; Cigarette; Plastic film,bag_wrapper; cigarette,2,2448,3264
+1245,batch_7/000084.JPG,batch_7,https://farm66.staticflickr.com/65535/47066863934_9cfdebf1ce_o.png,6,Cigarette; Disposable plastic cup; Plastic lid,cigarette; cup,5,2448,2448
+1246,batch_7/000085.JPG,batch_7,https://farm66.staticflickr.com/65535/47066864244_e7ffb321d4_o.png,20,Cigarette; Clear plastic bottle; Normal paper; Other carton; Other plastic wrapper; Paper cup; Plastic bottle cap; Unlabeled litter,bag_wrapper; bottle; bottle_cap; carton; cigarette; cup,17,2448,3264
+1247,batch_7/000086.JPG,batch_7,https://farm66.staticflickr.com/65535/32912192167_c4327debfc_o.png,4,Cigarette; Metal bottle cap; Normal paper; Paper cup,bottle_cap; cigarette; cup,3,2448,3264
+1248,batch_7/000087.JPG,batch_7,https://farm66.staticflickr.com/65535/47856331951_3b2f3a6dc8_o.png,10,Cigarette; Clear plastic bottle; Disposable plastic cup; Plastic bottle cap; Plastic lid; Plastic straw; Single-use carrier bag,bag_wrapper; bottle; bottle_cap; cigarette; cup; straw,9,3264,2448
+1249,batch_7/000088.JPG,batch_7,https://farm66.staticflickr.com/65535/47066865824_1a91af541f_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1250,batch_7/000089.JPG,batch_7,https://farm66.staticflickr.com/65535/47066866604_813b7f6036_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1251,batch_7/000090.JPG,batch_7,https://farm66.staticflickr.com/65535/40889714083_a6decf1b40_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+1252,batch_7/000091.JPG,batch_7,https://farm66.staticflickr.com/65535/46940062245_4af8a7d9b6_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1253,batch_7/000092.JPG,batch_7,https://farm66.staticflickr.com/65535/32912196167_9db352d672_o.png,5,Drink can; Drink carton; Food Can; Pop tab,can; carton,3,3264,2448
+1254,batch_7/000093.JPG,batch_7,https://farm66.staticflickr.com/65535/33979021108_fe24ced421_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1255,batch_7/000094.JPG,batch_7,https://farm66.staticflickr.com/65535/47856339951_edae5b162b_o.png,1,Paper cup,cup,1,2448,3264
+1256,batch_7/000095.JPG,batch_7,https://farm66.staticflickr.com/65535/47066870424_f4b18db7c1_o.png,1,Drink can,can,1,2448,3264
+1257,batch_7/000096.JPG,batch_7,https://farm66.staticflickr.com/65535/46940063375_9988b86bcb_o.png,3,Cigarette; Drink carton; Glass bottle,bottle; carton; cigarette,3,2448,2448
+1258,batch_7/000097.JPG,batch_7,https://farm66.staticflickr.com/65535/47856343241_e2dcd962c0_o.png,2,Plastic film; Rope & strings,bag_wrapper,1,2448,3264
+1259,batch_7/000098.JPG,batch_7,https://farm66.staticflickr.com/65535/46940064055_c741fddfeb_o.png,1,Other plastic,(none),0,3264,2448
+1260,batch_7/000100.JPG,batch_7,https://farm66.staticflickr.com/65535/40889722163_26bcdec9b1_o.png,1,Other plastic,(none),0,3264,2448
+1261,batch_7/000101.JPG,batch_7,https://farm66.staticflickr.com/65535/46940065025_9025d665aa_o.png,1,Other plastic,(none),0,3264,2448
+1262,batch_7/000102.JPG,batch_7,https://farm66.staticflickr.com/65535/46940065505_a34de25aef_o.png,1,Other plastic,(none),0,3264,2448
+1263,batch_7/000103.JPG,batch_7,https://farm66.staticflickr.com/65535/33979027118_7040a12543_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1264,batch_7/000104.JPG,batch_7,https://farm66.staticflickr.com/65535/33979027518_014d54c907_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1265,batch_7/000106.JPG,batch_7,https://farm66.staticflickr.com/65535/47856346941_16bacabf06_o.png,1,Other plastic,(none),0,3264,2448
+1266,batch_7/000107.JPG,batch_7,https://farm66.staticflickr.com/65535/47066874734_01df709926_o.png,1,Unlabeled litter,(none),0,3264,2448
+1267,batch_7/000108.JPG,batch_7,https://farm66.staticflickr.com/65535/47066875204_4c8b4a0fb1_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1268,batch_7/000109.JPG,batch_7,https://farm66.staticflickr.com/65535/46940068675_47f79154f7_o.png,3,Clear plastic bottle; Plastic bottle cap; Styrofoam piece,bottle; bottle_cap,2,3264,2448
+1269,batch_7/000110.JPG,batch_7,https://farm66.staticflickr.com/65535/47856348611_5233bc9a4c_o.png,2,Other plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+1270,batch_7/000111.JPG,batch_7,https://farm66.staticflickr.com/65535/33979029898_35be6be05f_o.png,1,Disposable plastic cup,cup,1,3264,2448
+1271,batch_7/000112.JPG,batch_7,https://farm66.staticflickr.com/65535/47856349841_d707f04c27_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1272,batch_7/000113.JPG,batch_7,https://farm66.staticflickr.com/65535/46940071105_fabc46023f_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1273,batch_7/000114.JPG,batch_7,https://farm66.staticflickr.com/65535/47066877034_6fdbc4c882_o.png,4,Drink can; Pop tab,can,2,3264,2448
+1274,batch_7/000115.JPG,batch_7,https://farm66.staticflickr.com/65535/46940072385_b0635181a9_o.png,1,Styrofoam piece,(none),0,3264,2448
+1275,batch_7/000117.JPG,batch_7,https://farm66.staticflickr.com/65535/33979031948_0199770283_o.png,1,Styrofoam piece,(none),0,3264,2448
+1276,batch_7/000118.JPG,batch_7,https://farm66.staticflickr.com/65535/46940073945_8c2db71643_o.png,1,Drink can,can,1,3264,2448
+1277,batch_7/000119.JPG,batch_7,https://farm66.staticflickr.com/65535/46940074445_03d9a15940_o.png,1,Glass bottle,bottle,1,3264,2448
+1278,batch_7/000120.JPG,batch_7,https://farm66.staticflickr.com/65535/40889725543_444af0ef2a_o.png,4,Other plastic; Styrofoam piece,(none),0,3264,2448
+1279,batch_7/000121.JPG,batch_7,https://farm66.staticflickr.com/65535/46940075445_b7d560df72_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1280,batch_7/000122.JPG,batch_7,https://farm66.staticflickr.com/65535/47856354081_8cc16e9cfc_o.png,7,Other plastic; Plastic film; Unlabeled litter,bag_wrapper,1,3264,2448
+1281,batch_7/000123.JPG,batch_7,https://farm66.staticflickr.com/65535/33979034868_ef7720c35c_o.png,2,Cigarette; Styrofoam piece,cigarette,1,3264,2448
+1282,batch_7/000124.JPG,batch_7,https://farm66.staticflickr.com/65535/33979035628_e35fa0d1d3_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+1283,batch_7/000125.JPG,batch_7,https://farm66.staticflickr.com/65535/46940077595_b55970cace_o.png,5,Clear plastic bottle; Styrofoam piece,bottle,1,3264,2448
+1284,batch_7/000126.JPG,batch_7,https://farm66.staticflickr.com/65535/47066879264_27a47d945d_o.png,1,Plastic bottle cap,bottle_cap,1,3264,2448
+1285,batch_7/000127.JPG,batch_7,https://farm66.staticflickr.com/65535/33979037178_ede3b99d79_o.png,3,Other plastic; Styrofoam piece,(none),0,2448,3264
+1286,batch_7/000128.JPG,batch_7,https://farm66.staticflickr.com/65535/47066879704_388dc72e49_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1287,batch_7/000129.JPG,batch_7,https://farm66.staticflickr.com/65535/32912209527_32d57d885a_o.png,2,Other plastic wrapper; Styrofoam piece,bag_wrapper,1,3264,2448
+1288,batch_7/000131.JPG,batch_7,https://farm66.staticflickr.com/65535/46940079905_288c12229d_o.png,4,Other plastic; Plastic bottle cap,bottle_cap,2,2448,3264
+1289,batch_7/000132.JPG,batch_7,https://farm66.staticflickr.com/65535/40889729373_ff938be026_o.png,2,Other plastic; Plastic bottle cap,bottle_cap,1,3264,2448
+1290,batch_7/000133.JPG,batch_7,https://farm66.staticflickr.com/65535/47856358351_1d3fdb10a8_o.png,1,Single-use carrier bag,bag_wrapper,1,3264,2448
+1291,batch_7/000134.JPG,batch_7,https://farm66.staticflickr.com/65535/47856358721_83317cd3e7_o.png,4,Other plastic; Other plastic wrapper; Unlabeled litter,bag_wrapper,1,3264,2448
+1292,batch_7/000135.JPG,batch_7,https://farm66.staticflickr.com/65535/33979041238_6ae1947d59_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1293,batch_7/000136.JPG,batch_7,https://farm66.staticflickr.com/65535/47804098422_7cbd7f77b6_o.png,3,Normal paper; Other plastic; Rope & strings,(none),0,3264,2448
+1294,batch_7/000137.JPG,batch_7,https://farm66.staticflickr.com/65535/32912213647_56781c5313_o.png,2,Other plastic,(none),0,3264,2448
+1295,batch_7/000138.JPG,batch_7,https://farm66.staticflickr.com/65535/33979041948_075063cc76_o.png,4,Other plastic; Plastic bottle cap,bottle_cap,1,2448,3264
+1296,batch_7/000139.JPG,batch_7,https://farm66.staticflickr.com/65535/33979042658_1301ffe635_o.png,2,Other plastic,(none),0,2448,3264
+1297,batch_7/000140.JPG,batch_7,https://farm66.staticflickr.com/65535/33979043378_80be38eea5_o.png,2,Other plastic; Plastic bottle cap,bottle_cap,1,2448,3264
+1298,batch_7/000141.JPG,batch_7,https://farm66.staticflickr.com/65535/47856361391_6133694458_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1299,batch_7/000142.JPG,batch_7,https://farm66.staticflickr.com/65535/47856362051_9569ababa5_o.png,1,Styrofoam piece,(none),0,2448,3264
+1300,batch_8/000000.jpg,batch_8,https://farm66.staticflickr.com/65535/47086443184_00fd5a30ed_o.png,3,Normal paper; Paper cup; Unlabeled litter,cup,1,3264,2448
+1301,batch_8/000001.jpg,batch_8,https://farm66.staticflickr.com/65535/46959585555_2af10ae1c1_o.png,1,Squeezable tube,(none),0,2448,3264
+1302,batch_8/000002.jpg,batch_8,https://farm66.staticflickr.com/65535/33998561718_dbb9f17880_o.png,2,Disposable plastic cup; Unlabeled litter,cup,1,3264,2448
+1303,batch_8/000003.jpg,batch_8,https://farm66.staticflickr.com/65535/32931623567_349bc53110_o.png,1,Other plastic wrapper,bag_wrapper,1,3264,2448
+1304,batch_8/000004.jpg,batch_8,https://farm66.staticflickr.com/65535/32931539467_325b683a77_o.png,2,Clear plastic bottle; Rope & strings,bottle,1,3264,2448
+1305,batch_8/000005.jpg,batch_8,https://farm8.staticflickr.com/7894/46958400482_cc3ef72967_o.png,2,Other plastic wrapper; Unlabeled litter,bag_wrapper,1,6000,4000
+1306,batch_8/000006.jpg,batch_8,https://farm8.staticflickr.com/7853/33134854578_83c6107ee8_o.png,1,Paper cup,cup,1,3264,2448
+1307,batch_8/000007.jpg,batch_8,https://farm5.staticflickr.com/4864/31761220157_927fea50b6_o.png,7,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,7,2448,3264
+1308,batch_8/000008.jpg,batch_8,https://farm66.staticflickr.com/65535/48323686032_315cc5ae78_o.png,7,Broken glass; Cigarette; Drink can; Unlabeled litter,can; cigarette,2,2448,3264
+1309,batch_8/000009.jpg,batch_8,https://farm66.staticflickr.com/65535/48323565261_9c3b303684_o.png,2,Drink can; Pop tab,can,1,2448,3264
+1310,batch_8/000010.jpg,batch_8,https://farm66.staticflickr.com/65535/48323686252_54f784fc35_o.png,2,Cigarette; Glass bottle,bottle; cigarette,2,2448,3264
+1311,batch_8/000011.jpg,batch_8,https://farm66.staticflickr.com/65535/48323685157_db9f130c36_o.png,3,Cigarette; Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap; cigarette,3,2448,3264
+1312,batch_8/000012.jpg,batch_8,https://farm66.staticflickr.com/65535/48323564886_80ddb29b7a_o.png,3,Clear plastic bottle; Plastic bottle cap; Unlabeled litter,bottle; bottle_cap,2,2448,3264
+1313,batch_8/000013.jpg,batch_8,https://farm66.staticflickr.com/65535/48323564206_9ca6de49c0_o.png,3,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,3,2448,3264
+1314,batch_8/000014.jpg,batch_8,https://farm66.staticflickr.com/65535/48359667181_39d66180ef_o.png,25,Clear plastic bottle; Drink can; Plastic bottle cap; Pop tab; Unlabeled litter,bottle; bottle_cap; can,14,3264,2448
+1315,batch_8/000015.jpg,batch_8,https://farm66.staticflickr.com/65535/48359206077_37f13b9c52_o.png,3,Cigarette; Drink can,can; cigarette,3,3264,2448
+1316,batch_8/000016.jpg,batch_8,https://farm66.staticflickr.com/65535/48359071261_01dfa93998_o.png,4,Cigarette; Clear plastic bottle; Normal paper; Plastic bottle cap,bottle; bottle_cap; cigarette,3,2448,3264
+1317,batch_8/000017.jpg,batch_8,https://farm66.staticflickr.com/65535/48359070931_fc19b1308e_o.png,2,Drink can,can,2,3264,2448
+1318,batch_8/000018.jpg,batch_8,https://farm66.staticflickr.com/65535/48359205447_c02147fb3e_o.png,1,Drink can,can,1,2448,3264
+1319,batch_8/000019.jpg,batch_8,https://farm66.staticflickr.com/65535/48603732487_6f23c01bff_o.png,3,Cigarette; Disposable food container,cigarette,2,2448,3264
+1320,batch_8/000020.jpg,batch_8,https://farm66.staticflickr.com/65535/48603595451_c54800dccf_o.png,2,Drink can; Glass bottle,bottle; can,2,2448,3264
+1321,batch_8/000021.jpg,batch_8,https://farm66.staticflickr.com/65535/48603732432_bfc37ff751_o.png,54,Broken glass; Cigarette; Glass bottle,bottle; cigarette,3,3264,2448
+1322,batch_8/000022.jpg,batch_8,https://farm66.staticflickr.com/65535/48603595021_8e00d0d942_o.png,1,Disposable plastic cup,cup,1,2448,3264
+1323,batch_8/000023.jpg,batch_8,https://farm66.staticflickr.com/65535/48603731832_eebda68037_o.png,17,Drink carton; Glass bottle; Metal bottle cap; Normal paper; Other plastic wrapper; Scrap metal; Single-use carrier bag; Unlabeled litter,bag_wrapper; bottle; bottle_cap; carton,12,3264,2448
+1324,batch_8/000024.jpg,batch_8,https://farm66.staticflickr.com/65535/48580516777_01a7db04f0_o.png,2,Cigarette; Plastic straw,cigarette; straw,2,2448,3264
+1325,batch_8/000025.jpg,batch_8,https://farm66.staticflickr.com/65535/48580370966_55dc3f02a1_o.png,4,Cigarette; Disposable plastic cup; Other carton,carton; cigarette; cup,4,2448,3264
+1326,batch_8/000026.jpg,batch_8,https://farm66.staticflickr.com/65535/48580516737_80c66b0e5b_o.png,3,Cigarette; Disposable plastic cup; Unlabeled litter,cigarette; cup,2,2448,3264
+1327,batch_8/000027.jpg,batch_8,https://farm66.staticflickr.com/65535/48580370006_e6a08253f9_o.png,5,Cigarette; Clear plastic bottle; Other plastic,bottle; cigarette,4,2448,3264
+1328,batch_8/000028.jpg,batch_8,https://farm66.staticflickr.com/65535/48580369926_b7451dc090_o.png,13,Cigarette; Clear plastic bottle; Drink can; Plastic bottle cap; Pop tab; Tissues; Unlabeled litter,bottle; bottle_cap; can; cigarette,10,2448,3264
+1329,batch_8/000029.jpg,batch_8,https://farm66.staticflickr.com/65535/48580369326_202d20a772_o.png,8,Cigarette; Drink can; Metal bottle cap; Other carton; Pop tab,bottle_cap; can; carton; cigarette,7,2448,3264
+1330,batch_8/000030.jpg,batch_8,https://farm66.staticflickr.com/65535/48580514942_8f80f03fff_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2448,3264
+1331,batch_8/000031.jpg,batch_8,https://farm66.staticflickr.com/65535/48580368601_860dc20f2f_o.png,10,Cigarette; Other plastic bottle; Plastic bottle cap,bottle; bottle_cap; cigarette,10,2448,3264
+1332,batch_8/000032.jpg,batch_8,https://farm66.staticflickr.com/65535/48580513477_e8de2de3b2_o.png,1,Egg carton,carton,1,3264,2448
+1333,batch_8/000033.jpg,batch_8,https://farm66.staticflickr.com/65535/48580367496_f2546055ef_o.png,6,Cigarette; Clear plastic bottle; Other plastic,bottle; cigarette,5,2448,3264
+1334,batch_8/000034.jpg,batch_8,https://farm66.staticflickr.com/65535/48580512617_33271a3a3e_o.png,9,Cigarette; Drink can; Other plastic; Unlabeled litter,can; cigarette,7,2448,3264
+1335,batch_8/000035.jpg,batch_8,https://farm66.staticflickr.com/65535/48580511707_b69cdd6fb5_o.png,10,Glass bottle; Metal bottle cap; Unlabeled litter,bottle; bottle_cap,9,2448,3264
+1336,batch_8/000036.jpg,batch_8,https://farm66.staticflickr.com/65535/48580365266_c5e8d85d49_o.png,5,Glass bottle; Metal bottle cap; Plastic lid,bottle; bottle_cap,4,2448,3264
+1337,batch_8/000037.jpg,batch_8,https://farm66.staticflickr.com/65535/48580510502_c2dfd3703f_o.png,2,Glass bottle; Metal bottle cap,bottle; bottle_cap,2,2448,3264
+1338,batch_8/000038.jpg,batch_8,https://farm66.staticflickr.com/65535/48580510147_6bea407e6f_o.png,3,Glass bottle; Metal bottle cap,bottle; bottle_cap,3,2448,3264
+1339,batch_8/000039.jpg,batch_8,https://farm66.staticflickr.com/65535/48580509912_da2cd98a57_o.png,1,Glass bottle,bottle,1,2448,3264
+1340,batch_8/000040.jpg,batch_8,https://farm66.staticflickr.com/65535/48580509712_4f59b75c30_o.png,4,Clear plastic bottle; Glass bottle; Plastic bottle cap; Unlabeled litter,bottle; bottle_cap,3,2448,3264
+1341,batch_8/000041.jpg,batch_8,https://farm66.staticflickr.com/65535/48580509417_1da18cfdfc_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1342,batch_8/000042.jpg,batch_8,https://farm66.staticflickr.com/65535/48580508057_ccac2d425e_o.png,4,Clear plastic bottle; Other plastic wrapper; Unlabeled litter,bag_wrapper; bottle,3,3264,2448
+1343,batch_8/000043.jpg,batch_8,https://farm66.staticflickr.com/65535/48580362116_a4950646cd_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1344,batch_8/000044.jpg,batch_8,https://farm66.staticflickr.com/65535/48580360331_3377698ab1_o.png,7,Cigarette; Other carton; Other plastic bottle; Other plastic wrapper; Paper cup; Unlabeled litter,bag_wrapper; bottle; carton; cigarette; cup,5,3264,2448
+1345,batch_8/000045.jpg,batch_8,https://farm66.staticflickr.com/65535/48580359636_139186afbf_o.png,1,Clear plastic bottle,bottle,1,3264,2448
+1346,batch_8/000046.jpg,batch_8,https://farm66.staticflickr.com/65535/48580359461_b81bda5aee_o.png,2,Styrofoam piece; Unlabeled litter,(none),0,3264,2448
+1347,batch_8/000047.jpg,batch_8,https://farm66.staticflickr.com/65535/48580359411_8a8dab9f0f_o.png,3,Egg carton; Other plastic bottle; Unlabeled litter,bottle; carton,2,3264,2448
+1348,batch_8/000048.jpg,batch_8,https://farm66.staticflickr.com/65535/48580357701_fed73281c0_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,3264,2448
+1349,batch_8/000049.jpg,batch_8,https://farm66.staticflickr.com/65535/48580502787_a50193331d_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1350,batch_8/000050.jpg,batch_8,https://farm66.staticflickr.com/65535/48580502177_e2990be45f_o.png,1,Drink carton,carton,1,3264,2448
+1351,batch_8/000051.jpg,batch_8,https://farm66.staticflickr.com/65535/48580501497_47c6cb432f_o.png,8,Cigarette; Clear plastic bottle; Other carton; Other plastic bottle; Unlabeled litter,bottle; carton; cigarette,5,2448,3264
+1352,batch_8/000052.jpg,batch_8,https://farm66.staticflickr.com/65535/48580354861_681bbcca1a_o.png,3,Cigarette; Styrofoam piece; Unlabeled litter,cigarette,1,3264,2448
+1353,batch_8/000053.jpg,batch_8,https://farm66.staticflickr.com/65535/48580353981_2fea592dc6_o.png,22,Broken glass; Cigarette; Clear plastic bottle; Garbage bag; Normal paper; Other plastic; Other plastic container; Unlabeled litter,bag_wrapper; bottle; cigarette,7,3264,2448
+1354,batch_8/000054.jpg,batch_8,https://farm66.staticflickr.com/65535/48575542246_bb6a4237a9_o.png,6,Garbage bag; Single-use carrier bag,bag_wrapper,6,1280,960
+1355,batch_8/000055.jpg,batch_8,https://farm66.staticflickr.com/65535/48575538676_0c0c31cf00_o.png,6,Garbage bag; Single-use carrier bag; Unlabeled litter,bag_wrapper,3,1280,960
+1356,batch_8/000056.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477411_04423492c5_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,1200,1600
+1357,batch_8/000057.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477386_2ee2a65c06_o.png,2,Other carton; Unlabeled litter,carton,1,1200,1600
+1358,batch_8/000058.jpg,batch_8,https://farm66.staticflickr.com/65535/48575628687_899fa5201a_o.png,2,Cigarette; Other plastic wrapper,bag_wrapper; cigarette,2,1200,1600
+1359,batch_8/000059.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477451_24a3807f49_o.png,2,Food Can; Other plastic wrapper,bag_wrapper; can,2,1200,1600
+1360,batch_8/000060.jpg,batch_8,https://farm66.staticflickr.com/65535/48575628567_e0b08d9778_o.png,1,Plastic film,bag_wrapper,1,1200,1600
+1361,batch_8/000061.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477266_6a7dc3be3d_o.png,3,Cigarette; Clear plastic bottle; Unlabeled litter,bottle; cigarette,2,1200,1600
+1362,batch_8/000062.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477351_9917df1eb8_o.png,1,Polypropylene bag,bag_wrapper,1,1200,1600
+1363,batch_8/000063.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477211_07e17dde1a_o.png,1,Unlabeled litter,(none),0,1200,1600
+1364,batch_8/000064.jpg,batch_8,https://farm66.staticflickr.com/65535/48575477041_d423fda383_o.png,3,Corrugated carton; Other plastic,carton,1,1200,1600
+1365,batch_8/000065.jpg,batch_8,https://farm66.staticflickr.com/65535/48497546196_2696937a1c_o.png,28,Broken glass; Cigarette; Unlabeled litter,cigarette,1,2448,3264
+1366,batch_8/000066.jpg,batch_8,https://farm66.staticflickr.com/65535/48468031581_a4dd43e15c_o.png,4,Disposable plastic cup; Drink can; Plastic film; Pop tab,bag_wrapper; can; cup,3,2448,3264
+1367,batch_8/000067.jpg,batch_8,https://farm66.staticflickr.com/65535/48468178127_e9db2d479f_o.png,2,Crisp packet; Plastic film,bag_wrapper,2,3264,2448
+1368,batch_8/000068.jpg,batch_8,https://farm66.staticflickr.com/65535/48468031181_52f1641dc6_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1369,batch_8/000069.jpg,batch_8,https://farm66.staticflickr.com/65535/48468031166_43ebe278de_o.png,3,Clear plastic bottle; Other plastic wrapper; Plastic bottle cap,bag_wrapper; bottle; bottle_cap,3,3264,2448
+1370,batch_8/000070.jpg,batch_8,https://farm66.staticflickr.com/65535/48468030946_e19fef1bc4_o.png,1,Six pack rings,(none),0,3264,2448
+1371,batch_8/000071.jpg,batch_8,https://farm66.staticflickr.com/65535/48468177477_23d20384f2_o.png,2,Aluminium foil; Unlabeled litter,(none),0,3264,2448
+1372,batch_8/000072.jpg,batch_8,https://farm66.staticflickr.com/65535/48468030271_50e9804f88_o.png,3,Disposable plastic cup; Drink can; Pop tab,can; cup,2,2448,3264
+1373,batch_8/000073.jpg,batch_8,https://farm66.staticflickr.com/65535/48468030046_3f362d6a86_o.png,14,Cigarette; Disposable plastic cup; Glass bottle; Paper cup; Plastic lid; Plastic straw,bottle; cigarette; cup; straw,12,2448,3264
+1374,batch_8/000074.jpg,batch_8,https://farm66.staticflickr.com/65535/48421449416_66b212c9c0_o.png,4,Drink can; Pop tab,can,3,2268,4032
+1375,batch_8/000075.jpg,batch_8,https://farm66.staticflickr.com/65535/48421448366_89d71bb3b8_o.png,2,Other carton; Plastic film,bag_wrapper; carton,2,2268,4032
+1376,batch_8/000076.jpg,batch_8,https://farm66.staticflickr.com/65535/48421447316_02390bb647_o.png,3,Cigarette; Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap; cigarette,3,2268,4032
+1377,batch_8/000077.jpg,batch_8,https://farm66.staticflickr.com/65535/48421596162_4c07b0a31f_o.png,3,Clear plastic bottle; Other carton; Plastic bottle cap,bottle; bottle_cap; carton,3,2268,4032
+1378,batch_8/000078.jpg,batch_8,https://farm66.staticflickr.com/65535/48421595202_fbd7962475_o.png,1,Other carton,carton,1,2268,4032
+1379,batch_8/000079.jpg,batch_8,https://farm66.staticflickr.com/65535/48421594462_b7396bb0b9_o.png,2,Cigarette; Unlabeled litter,cigarette,1,2268,4032
+1380,batch_8/000080.jpg,batch_8,https://farm66.staticflickr.com/65535/48421443766_ca189946de_o.png,2,Cigarette; Other plastic cup,cigarette; cup,2,2268,4032
+1381,batch_8/000081.jpg,batch_8,https://farm66.staticflickr.com/65535/48421442866_a553ce5fcb_o.png,1,Normal paper,(none),0,2268,4032
+1382,batch_8/000082.jpg,batch_8,https://farm66.staticflickr.com/65535/48421592277_161c8e0859_o.png,1,Plastic glooves,(none),0,2268,4032
+1383,batch_8/000083.jpg,batch_8,https://farm66.staticflickr.com/65535/48421442391_28bdfbcc3a_o.png,2,Drink can; Other plastic bottle,bottle; can,2,2268,4032
+1384,batch_8/000084.jpg,batch_8,https://farm66.staticflickr.com/65535/48421440321_211230cc85_o.png,3,Cigarette; Normal paper; Unlabeled litter,cigarette,1,2268,4032
+1385,batch_8/000085.jpg,batch_8,https://farm66.staticflickr.com/65535/48421439401_8fe13ed833_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,2268,4032
+1386,batch_8/000086.jpg,batch_8,https://farm66.staticflickr.com/65535/48421438401_8b7495ffa9_o.png,1,Plastic film,bag_wrapper,1,2268,4032
+1387,batch_8/000087.jpg,batch_8,https://farm66.staticflickr.com/65535/48421586752_e9898ba6b1_o.png,1,Drink can,can,1,2268,4032
+1388,batch_8/000088.jpg,batch_8,https://farm66.staticflickr.com/65535/48421434836_ce43e85119_o.png,2,Clear plastic bottle; Drink can,bottle; can,2,2268,4032
+1389,batch_8/000089.jpg,batch_8,https://farm66.staticflickr.com/65535/48421583837_5cd38d5e0a_o.png,3,Disposable food container; Glass bottle; Plastic film,bag_wrapper; bottle,2,2268,4032
+1390,batch_8/000090.jpg,batch_8,https://farm66.staticflickr.com/65535/48421433886_3b7dec69fe_o.png,2,Cigarette; Paper bag,bag_wrapper; cigarette,2,2268,4032
+1391,batch_8/000091.jpg,batch_8,https://farm66.staticflickr.com/65535/48421580947_1644365b44_o.png,2,Aluminium foil; Other plastic,(none),0,2268,4032
+1392,batch_8/000092.jpg,batch_8,https://farm66.staticflickr.com/65535/48421580257_5a6487fc09_o.png,2,Other plastic wrapper; Plastic lid,bag_wrapper,1,2268,4032
+1393,batch_8/000093.jpg,batch_8,https://farm66.staticflickr.com/65535/48421579647_70230a17f9_o.png,1,Other carton,carton,1,2268,4032
+1394,batch_8/000094.jpg,batch_8,https://farm66.staticflickr.com/65535/48421429561_719b4d6dbc_o.png,2,Normal paper; Unlabeled litter,(none),0,2268,4032
+1395,batch_8/000095.jpg,batch_8,https://farm66.staticflickr.com/65535/48421576012_85ab389843_o.png,2,Cigarette; Drink can,can; cigarette,2,2268,4032
+1396,batch_8/000096.jpg,batch_8,https://farm66.staticflickr.com/65535/48421426141_b87ed5af80_o.png,1,Other carton,carton,1,2268,4032
+1397,batch_8/000097.jpg,batch_8,https://farm66.staticflickr.com/65535/48421573442_cc2db53d1e_o.png,2,Drink can,can,2,2268,4032
+1398,batch_8/000098.jpg,batch_8,https://farm66.staticflickr.com/65535/48631087622_a8c72343ab_o.png,3,Cigarette; Plastic film,bag_wrapper; cigarette,3,2448,3264
+1399,batch_8/000099.jpg,batch_8,https://farm66.staticflickr.com/65535/48630584228_82e5d5cd4c_o.png,1,Disposable food container,(none),0,3264,2448
+1400,batch_9/000000.jpg,batch_9,https://farm66.staticflickr.com/65535/48630940016_b9e1ef9a59_o.png,3,Plastic film; Spread tub; Tissues,bag_wrapper,1,3264,2448
+1401,batch_9/000001.jpg,batch_9,https://farm66.staticflickr.com/65535/48631087367_49ef8daac1_o.png,2,Cigarette; Drink can,can; cigarette,2,3264,2448
+1402,batch_9/000002.jpg,batch_9,https://farm66.staticflickr.com/65535/48631087177_ec909610c0_o.png,3,Other plastic wrapper; Plastic film,bag_wrapper,3,2448,3264
+1403,batch_9/000003.jpg,batch_9,https://farm66.staticflickr.com/65535/48631086512_a50cb346ba_o.png,3,Plastic film; Unlabeled litter,bag_wrapper,2,2448,3264
+1404,batch_9/000004.jpg,batch_9,https://farm66.staticflickr.com/65535/48631088062_bde362d125_o.png,3,Cigarette; Clear plastic bottle,bottle; cigarette,3,3264,2448
+1405,batch_9/000005.jpg,batch_9,https://farm66.staticflickr.com/65535/48630584588_d3d3069e96_o.png,1,Clear plastic bottle,bottle,1,2448,3264
+1406,batch_9/000006.jpg,batch_9,https://farm66.staticflickr.com/65535/48631087892_5d58474562_o.png,3,Plastic film; Unlabeled litter,bag_wrapper,1,2448,3264
+1407,batch_9/000007.jpg,batch_9,https://farm66.staticflickr.com/65535/48630584528_5571f181d8_o.png,2,Disposable food container; Other plastic wrapper,bag_wrapper,1,3264,2448
+1408,batch_9/000008.jpg,batch_9,https://farm66.staticflickr.com/65535/48631087802_ed7a430d6c_o.png,13,Aluminium foil; Clear plastic bottle; Disposable food container; Garbage bag; Metal bottle cap; Other plastic; Other plastic bottle; Plastic bottle cap; Plastic lid; Unlabeled litter,bag_wrapper; bottle; bottle_cap,8,2448,3264
+1409,batch_9/000009.jpg,batch_9,https://farm66.staticflickr.com/65535/48631087652_863708b0ab_o.png,2,Drink carton; Plastic straw,carton; straw,2,3264,2448
+1410,batch_9/000010.jpg,batch_9,https://farm66.staticflickr.com/65535/48661121653_79173c2920_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,3264,2448
+1411,batch_9/000011.jpg,batch_9,https://farm66.staticflickr.com/65535/48661121523_fd2b86359b_o.png,4,Cigarette; Plastic film,bag_wrapper; cigarette,4,3264,2448
+1412,batch_9/000012.jpg,batch_9,https://farm66.staticflickr.com/65535/48661475816_0577d0f142_o.png,1,Plastic film,bag_wrapper,1,3264,2448
+1413,batch_9/000013.jpg,batch_9,https://farm66.staticflickr.com/65535/48661121463_b3d33466ba_o.png,2,Cigarette; Unlabeled litter,cigarette,1,3264,2448
+1414,batch_9/000014.jpg,batch_9,https://farm66.staticflickr.com/65535/48661623482_181f92dac0_o.png,4,Other plastic; Other plastic wrapper,bag_wrapper,3,3264,2448
+1415,batch_9/000015.jpg,batch_9,https://farm66.staticflickr.com/65535/48661623337_4c9a52f748_o.png,1,Tissues,(none),0,2448,3264
+1416,batch_9/000016.jpg,batch_9,https://farm66.staticflickr.com/65535/48661120928_8f632238d0_o.png,2,Single-use carrier bag; Unlabeled litter,bag_wrapper,1,2448,3264
+1417,batch_9/000017.jpg,batch_9,https://farm66.staticflickr.com/65535/48661475296_b17f58a81f_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1418,batch_9/000018.jpg,batch_9,https://farm66.staticflickr.com/65535/48661120728_f7c528fa42_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1419,batch_9/000019.jpg,batch_9,https://farm66.staticflickr.com/65535/48661474541_aaf06db781_o.png,1,Scrap metal,(none),0,3264,2448
+1420,batch_9/000020.jpg,batch_9,https://farm66.staticflickr.com/65535/48661120173_2c8f2ece60_o.png,2,Plastic film; Single-use carrier bag,bag_wrapper,2,2448,3264
+1421,batch_9/000021.jpg,batch_9,https://farm66.staticflickr.com/65535/48661474051_bea9fe3dd9_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1422,batch_9/000022.jpg,batch_9,https://farm66.staticflickr.com/65535/48661474066_745ae3c4c9_o.png,3,Cigarette; Other plastic; Plastic film,bag_wrapper; cigarette,2,3264,2448
+1423,batch_9/000023.jpg,batch_9,https://farm66.staticflickr.com/65535/48661119843_b2f842d089_o.png,4,Other plastic; Plastic film; Styrofoam piece,bag_wrapper,1,3264,2448
+1424,batch_9/000024.jpg,batch_9,https://farm66.staticflickr.com/65535/48661621627_e7fcc9e1e7_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1425,batch_9/000025.jpg,batch_9,https://farm66.staticflickr.com/65535/48661621677_8f9172da78_o.png,2,Other plastic wrapper; Plastic film,bag_wrapper,2,2448,3264
+1426,batch_9/000026.jpg,batch_9,https://farm66.staticflickr.com/65535/48661620607_66e17ff27e_o.png,2,Cigarette; Plastic bottle cap,bottle_cap; cigarette,2,2448,3264
+1427,batch_9/000027.jpg,batch_9,https://farm66.staticflickr.com/65535/48661118368_275249b03b_o.png,4,Metal bottle cap; Plastic film; Tissues,bag_wrapper; bottle_cap,3,2448,3264
+1428,batch_9/000028.jpg,batch_9,https://farm66.staticflickr.com/65535/48661472601_da581e965b_o.png,9,Cigarette; Plastic film; Styrofoam piece,bag_wrapper; cigarette,4,2448,3264
+1429,batch_9/000029.jpg,batch_9,https://farm66.staticflickr.com/65535/48661472556_abfbe9dba0_o.png,7,Cigarette; Other plastic; Unlabeled litter,cigarette,3,2448,3264
+1430,batch_9/000030.jpg,batch_9,https://farm66.staticflickr.com/65535/48661472181_4163d42657_o.png,2,Plastic film,bag_wrapper,2,2448,3264
+1431,batch_9/000031.jpg,batch_9,https://farm66.staticflickr.com/65535/48661117953_8e92649fdc_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,2448,3264
+1432,batch_9/000032.jpg,batch_9,https://farm66.staticflickr.com/65535/48661112023_59702379f8_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1433,batch_9/000033.jpg,batch_9,https://farm66.staticflickr.com/65535/48661466251_2f9747d3d3_o.png,1,Rope & strings,(none),0,2448,3264
+1434,batch_9/000034.jpg,batch_9,https://farm66.staticflickr.com/65535/48661111858_782e757d67_o.png,1,Other plastic wrapper,bag_wrapper,1,2448,3264
+1435,batch_9/000035.jpg,batch_9,https://farm66.staticflickr.com/65535/48661466086_8086776a25_o.png,2,Cigarette; Plastic film,bag_wrapper; cigarette,2,2448,3264
+1436,batch_9/000036.jpg,batch_9,https://farm66.staticflickr.com/65535/48661613027_687cb22b7c_o.png,2,Plastic film,bag_wrapper,2,2448,3264
+1437,batch_9/000037.jpg,batch_9,https://farm66.staticflickr.com/65535/48661464666_a26507f9ff_o.png,1,Plastic bottle cap,bottle_cap,1,2448,3264
+1438,batch_9/000038.jpg,batch_9,https://farm66.staticflickr.com/65535/48661612797_f824a867d6_o.png,2,Plastic film; Rope & strings,bag_wrapper,1,2448,3264
+1439,batch_9/000039.jpg,batch_9,https://farm66.staticflickr.com/65535/48661109873_9c934aff63_o.png,4,Cigarette; Other plastic,cigarette,3,2448,3264
+1440,batch_9/000040.jpg,batch_9,https://farm66.staticflickr.com/65535/48661463921_da93bc4992_o.png,2,Cigarette; Plastic straw,cigarette; straw,2,2448,3264
+1441,batch_9/000041.jpg,batch_9,https://farm66.staticflickr.com/65535/48661463696_64195973f4_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1442,batch_9/000042.jpg,batch_9,https://farm66.staticflickr.com/65535/48661463441_0876971357_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1443,batch_9/000043.jpg,batch_9,https://farm66.staticflickr.com/65535/48661109043_40197b57bd_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1444,batch_9/000044.jpg,batch_9,https://farm66.staticflickr.com/65535/48661610782_bc4b167c68_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1445,batch_9/000045.jpg,batch_9,https://farm66.staticflickr.com/65535/48661462046_03ca5e609f_o.png,1,Plastic film,bag_wrapper,1,2448,3264
+1446,batch_9/000046.jpg,batch_9,https://farm66.staticflickr.com/65535/48661610292_bb6f2c45ff_o.png,2,Plastic film,bag_wrapper,2,2448,3264
+1447,batch_9/000047.jpg,batch_9,https://farm66.staticflickr.com/65535/48661107683_df3ca3d67e_o.png,2,Plastic film,bag_wrapper,2,2448,3264
+1448,batch_9/000048.jpg,batch_9,https://farm66.staticflickr.com/65535/48661609897_85a25fb8c5_o.png,2,Other plastic; Plastic straw,straw,1,2448,3264
+1449,batch_9/000049.jpg,batch_9,https://farm66.staticflickr.com/65535/48661106913_d8b8d2fb33_o.png,1,Unlabeled litter,(none),0,3264,2448
+1450,batch_9/000050.jpg,batch_9,https://farm66.staticflickr.com/65535/48661293747_2c11e20d88_o.png,4,Corrugated carton; Unlabeled litter,carton,1,3264,2448
+1451,batch_9/000051.jpg,batch_9,https://farm66.staticflickr.com/65535/48660791883_3ffe983e03_o.png,4,Cigarette; Glass bottle; Unlabeled litter,bottle; cigarette,3,3264,2448
+1452,batch_9/000052.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146636_6755009c62_o.png,2,Cigarette; Wrapping paper,cigarette,1,3264,2448
+1453,batch_9/000053.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146641_5ddf208a42_o.png,12,Cigarette; Drink carton; Plastic film; Plastic straw; Unlabeled litter,bag_wrapper; carton; cigarette; straw,11,3264,2448
+1454,batch_9/000054.jpg,batch_9,https://farm66.staticflickr.com/65535/48661293662_b753a8b75c_o.png,9,Cigarette; Metal bottle cap; Pop tab; Unlabeled litter,bottle_cap; cigarette,5,3264,2448
+1455,batch_9/000055.jpg,batch_9,https://farm66.staticflickr.com/65535/48661293702_b24d653e50_o.png,2,Disposable plastic cup; Tissues,cup,1,3264,2448
+1456,batch_9/000056.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146561_678685d2ec_o.png,4,Other plastic; Other plastic wrapper; Tissues; Unlabeled litter,bag_wrapper,1,2448,3264
+1457,batch_9/000057.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146521_fae03a7ab8_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,3264,2448
+1458,batch_9/000058.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146486_a2592c8b6a_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,2448,3264
+1459,batch_9/000059.jpg,batch_9,https://farm66.staticflickr.com/65535/48661146411_80fb7e453a_o.png,2,Plastic film; Unlabeled litter,bag_wrapper,1,2448,3264
+1460,batch_9/000060.jpg,batch_9,https://farm66.staticflickr.com/65535/48661293432_105e6755b3_o.png,3,Other plastic wrapper; Plastic film; Unlabeled litter,bag_wrapper,2,2448,3264
+1461,batch_9/000061.jpg,batch_9,https://farm66.staticflickr.com/65535/48661145926_06ecb3feeb_o.png,6,Cigarette; Other plastic wrapper; Tissues; Unlabeled litter,bag_wrapper; cigarette,4,2448,3264
+1462,batch_9/000062.jpg,batch_9,https://farm66.staticflickr.com/65535/48660791058_1a48a85d2e_o.png,2,Meal carton; Plastic film,bag_wrapper; carton,2,2448,3264
+1463,batch_9/000063.jpg,batch_9,https://farm66.staticflickr.com/65535/48661145516_8e55309f72_o.png,3,Other carton; Plastic film,bag_wrapper; carton,3,2448,3264
+1464,batch_9/000064.jpg,batch_9,https://farm66.staticflickr.com/65535/48661292292_b21a53dba6_o.png,2,Disposable plastic cup; Drink can,can; cup,2,3264,2448
+1465,batch_9/000065.jpg,batch_9,https://farm66.staticflickr.com/65535/48660790128_13b5c04bf2_o.png,3,Cigarette; Disposable plastic cup; Normal paper,cigarette; cup,2,2448,3264
+1466,batch_9/000066.jpg,batch_9,https://farm66.staticflickr.com/65535/48660789403_53f6cfb013_o.png,2,Cigarette; Disposable plastic cup,cigarette; cup,2,2448,3264
+1467,batch_9/000067.jpg,batch_9,https://farm66.staticflickr.com/65535/48701177861_1a443d3999_o.png,4,Clear plastic bottle; Normal paper; Plastic bottle cap; Rope & strings,bottle; bottle_cap,2,1824,4000
+1468,batch_9/000068.jpg,batch_9,https://farm66.staticflickr.com/65535/48700840063_b4cf0c525b_o.png,1,Other plastic wrapper,bag_wrapper,1,1824,4000
+1469,batch_9/000069.jpg,batch_9,https://farm66.staticflickr.com/65535/48700838798_9f713c4ed5_o.png,2,Clear plastic bottle; Plastic lid,bottle,1,1824,4000
+1470,batch_9/000070.jpg,batch_9,https://farm66.staticflickr.com/65535/48701346187_26cbd6457b_o.png,6,Clear plastic bottle; Plastic bottle cap; Plastic film; Plastic lid; Unlabeled litter,bag_wrapper; bottle; bottle_cap,3,1824,4000
+1471,batch_9/000071.jpg,batch_9,https://farm66.staticflickr.com/65535/48701175011_f932992201_o.png,3,Clear plastic bottle; Plastic film; Single-use carrier bag,bag_wrapper; bottle,3,1824,4000
+1472,batch_9/000072.jpg,batch_9,https://farm66.staticflickr.com/65535/48701345227_579ddf962c_o.png,2,Other plastic; Unlabeled litter,(none),0,4000,1824
+1473,batch_9/000073.jpg,batch_9,https://farm66.staticflickr.com/65535/48700836778_3920267548_o.png,2,Corrugated carton; Plastic film,bag_wrapper; carton,2,1824,4000
+1474,batch_9/000074.jpg,batch_9,https://farm66.staticflickr.com/65535/48701344242_f7378a84f3_o.png,4,Clear plastic bottle; Glass bottle; Unlabeled litter,bottle,3,1824,4000
+1475,batch_9/000075.jpg,batch_9,https://farm66.staticflickr.com/65535/48700836023_994dd1492a_o.png,4,Clear plastic bottle; Glass bottle; Other plastic wrapper,bag_wrapper; bottle,4,1824,4000
+1476,batch_9/000076.jpg,batch_9,https://farm66.staticflickr.com/65535/48701343067_88f33263b3_o.png,2,Glass bottle; Tissues,bottle,1,4000,1824
+1477,batch_9/000077.jpg,batch_9,https://farm66.staticflickr.com/65535/48701326172_fe3f8c8d59_o.png,1,Plastic bottle cap,bottle_cap,1,4000,1824
+1478,batch_9/000078.jpg,batch_9,https://farm66.staticflickr.com/65535/48701155661_e238f03cbc_o.png,3,Cigarette; Single-use carrier bag,bag_wrapper; cigarette,3,1824,4000
+1479,batch_9/000079.jpg,batch_9,https://farm66.staticflickr.com/65535/48700818638_7773caa29b_o.png,2,Clear plastic bottle; Plastic bottle cap,bottle; bottle_cap,2,1824,4000
+1480,batch_9/000080.jpg,batch_9,https://farm66.staticflickr.com/65535/48701155311_07b7b7ef6e_o.png,15,Aluminium foil; Cigarette; Metal bottle cap; Plastic film; Unlabeled litter,bag_wrapper; bottle_cap; cigarette,12,1824,4000
+1481,batch_9/000081.jpg,batch_9,https://farm66.staticflickr.com/65535/48700818213_71910d8399_o.png,2,Other plastic; Other plastic wrapper,bag_wrapper,1,1824,4000
+1482,batch_9/000082.jpg,batch_9,https://farm66.staticflickr.com/65535/48701154906_35114544f9_o.png,1,Other plastic wrapper,bag_wrapper,1,1824,4000
+1483,batch_9/000083.jpg,batch_9,https://farm66.staticflickr.com/65535/48700817128_af2b8b731e_o.png,1,Drink can,can,1,1824,4000
+1484,batch_9/000084.jpg,batch_9,https://farm66.staticflickr.com/65535/48700816643_db15bbdcc9_o.png,11,Aluminium foil; Clear plastic bottle; Other carton; Plastic bottle cap; Scrap metal; Styrofoam piece; Unlabeled litter,bottle; bottle_cap; carton,4,1824,4000
+1485,batch_9/000085.jpg,batch_9,https://farm66.staticflickr.com/65535/48700815863_f4cb105e91_o.png,5,Cigarette; Other carton,carton; cigarette,5,4000,1824
+1486,batch_9/000086.jpg,batch_9,https://farm66.staticflickr.com/65535/48700815618_fa6abfa23f_o.png,9,Cigarette; Other carton; Other plastic wrapper,bag_wrapper; carton; cigarette,9,1824,4000
+1487,batch_9/000087.jpg,batch_9,https://farm66.staticflickr.com/65535/48701322747_1014b86cb9_o.png,3,Aluminium foil; Other plastic; Tissues,(none),0,1824,4000
+1488,batch_9/000088.jpg,batch_9,https://farm66.staticflickr.com/65535/48701151906_55c2752d73_o.png,10,Cigarette; Corrugated carton; Metal bottle cap; Normal paper; Plastic lid; Tissues; Unlabeled litter,bottle_cap; carton; cigarette,3,1824,4000
+1489,batch_9/000089.jpg,batch_9,https://farm66.staticflickr.com/65535/48701321702_9157c0b323_o.png,2,Other plastic bottle; Unlabeled litter,bottle,1,1824,4000
+1490,batch_9/000090.jpg,batch_9,https://farm66.staticflickr.com/65535/48701150606_9fe350c857_o.png,5,Clear plastic bottle; Drink can; Plastic bottle cap; Plastic film; Unlabeled litter,bag_wrapper; bottle; bottle_cap; can,4,1824,4000
+1491,batch_9/000091.jpg,batch_9,https://farm66.staticflickr.com/65535/48701320722_b6e48c93e4_o.png,1,Clear plastic bottle,bottle,1,4000,1824
+1492,batch_9/000092.jpg,batch_9,https://farm66.staticflickr.com/65535/48701320322_7735360c2b_o.png,1,Clear plastic bottle,bottle,1,1824,4000
+1493,batch_9/000093.jpg,batch_9,https://farm66.staticflickr.com/65535/48701320137_bfd555a59b_o.png,3,Glass bottle; Other plastic bottle; Plastic bottle cap,bottle; bottle_cap,3,1824,4000
+1494,batch_9/000094.jpg,batch_9,https://farm66.staticflickr.com/65535/48701149411_a6f0dbbfe0_o.png,3,Clear plastic bottle; Glass bottle; Plastic film,bag_wrapper; bottle,3,4000,1824
+1495,batch_9/000095.jpg,batch_9,https://farm66.staticflickr.com/65535/48701319937_6b08f3c258_o.png,9,Drink carton; Other plastic wrapper; Plastic straw; Unlabeled litter,bag_wrapper; carton; straw,5,1824,4000
+1496,batch_9/000096.jpg,batch_9,https://farm66.staticflickr.com/65535/48701319357_26d0f2bf0b_o.png,1,Plastic straw,straw,1,1824,4000
+1497,batch_9/000097.jpg,batch_9,https://farm66.staticflickr.com/65535/48694319577_067fa55e95_o.png,3,Glass bottle; Metal bottle cap,bottle; bottle_cap,3,4000,1824
+1498,batch_9/000098.jpg,batch_9,https://farm66.staticflickr.com/65535/48693804538_6aa092c617_o.png,2,Drink carton; Plastic bottle cap,bottle_cap; carton,2,1824,4000
+1499,batch_9/000099.jpg,batch_9,https://farm66.staticflickr.com/65535/48701147541_75b5ee2c81_o.png,3,Glass bottle; Other carton; Other plastic wrapper,bag_wrapper; bottle; carton,3,1824,4000

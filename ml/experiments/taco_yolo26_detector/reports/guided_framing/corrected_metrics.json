@@ -1,0 +1,92 @@
+{
+  "note": "target-only per-object recall; central ROI scored over all 405 objects",
+  "full_frame": {
+    "found": 62,
+    "recall": 0.15308641975308643,
+    "tiny": 0.09881422924901186,
+    "small": 0.225,
+    "medium": 0.2909090909090909,
+    "large": 0.17647058823529413,
+    "precision": 0.4697,
+    "map50": 0.1233
+  },
+  "object_guided_roi": {
+    "found": 60,
+    "recall": 0.14814814814814814,
+    "tiny": 0.1067193675889328,
+    "small": 0.225,
+    "medium": 0.23636363636363636,
+    "large": 0.11764705882352941,
+    "precision": 0.3581,
+    "map50": 0.1847
+  },
+  "central_roi": {
+    "90%": {
+      "recall": 0.16790123456790124,
+      "tiny": 0.1067193675889328,
+      "small": 0.2875,
+      "medium": 0.2909090909090909,
+      "large": 0.11764705882352941,
+      "precision": 0.4416,
+      "map50": 0.1337,
+      "lost": 15,
+      "tp": 68,
+      "fp": 86
+    },
+    "75%": {
+      "recall": 0.17777777777777778,
+      "tiny": 0.1067193675889328,
+      "small": 0.3125,
+      "medium": 0.3090909090909091,
+      "large": 0.17647058823529413,
+      "precision": 0.4235,
+      "map50": 0.1332,
+      "lost": 53,
+      "tp": 72,
+      "fp": 98
+    },
+    "60%": {
+      "recall": 0.14320987654320988,
+      "tiny": 0.1067193675889328,
+      "small": 0.2,
+      "medium": 0.2545454545454545,
+      "large": 0.058823529411764705,
+      "precision": 0.4234,
+      "map50": 0.1219,
+      "lost": 90,
+      "tp": 58,
+      "fp": 79
+    }
+  },
+  "paired": {
+    "missed_both": 305,
+    "rescued_by_guided_roi": 38,
+    "lost_by_guided_roi": 40,
+    "found_both": 22,
+    "by_bucket": {
+      "tiny": {
+        "False_False": 210,
+        "True_True": 9,
+        "True_False": 16,
+        "False_True": 18
+      },
+      "medium": {
+        "False_False": 32,
+        "False_True": 7,
+        "True_False": 10,
+        "True_True": 6
+      },
+      "small": {
+        "False_False": 49,
+        "False_True": 13,
+        "True_False": 13,
+        "True_True": 5
+      },
+      "large": {
+        "False_False": 14,
+        "True_False": 1,
+        "True_True": 2
+      }
+    }
+  }
+}

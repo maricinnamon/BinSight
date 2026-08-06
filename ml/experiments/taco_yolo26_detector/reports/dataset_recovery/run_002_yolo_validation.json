@@ -1,0 +1,60 @@
+{
+  "dataset": "data/prepared_run_002",
+  "classes": [
+    "bag_wrapper",
+    "bottle",
+    "bottle_cap",
+    "can",
+    "carton",
+    "cigarette",
+    "cup",
+    "straw"
+  ],
+  "checks": [
+    "5 values per row",
+    "class id within range",
+    "finite coordinates",
+    "x_center/y_center in [0,1]",
+    "0 < width,height <= 1",
+    "reconstructed box inside image",
+    "no orphan labels",
+    "no image without a label",
+    "no dangling image symlink",
+    "no image shared between splits"
+  ],
+  "totals": {
+    "label_files": 1082,
+    "boxes": 2671,
+    "images": 1082
+  },
+  "per_split": {
+    "train": {
+      "images": 748,
+      "labels": 748,
+      "boxes": 1861
+    },
+    "val": {
+      "images": 168,
+      "labels": 168,
+      "boxes": 405
+    },
+    "test": {
+      "images": 166,
+      "labels": 166,
+      "boxes": 405
+    }
+  },
+  "per_class": {
+    "bag_wrapper": 762,
+    "bottle": 349,
+    "bottle_cap": 238,
+    "can": 235,
+    "carton": 221,
+    "cigarette": 537,
+    "cup": 176,
+    "straw": 153
+  },
+  "problems": [],
+  "problem_count": 0,
+  "ok": true
+}

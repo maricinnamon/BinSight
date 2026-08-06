@@ -1,0 +1,47 @@
+# BinSight TrashNet classifier — every tunable value for a run.
+# Reproduce a run with: make all CONFIG=configs/default.yaml
+
+data:
+  image_size: 224
+  # 16, not 32: this Mac has 8 GB of unified memory and batch 32 aborted
+  # tensorflow-metal (SIGABRT) partway through stage A. See reports/environment_report.txt.
+  batch_size: 16
+  train_fraction: 0.70
+  val_fraction: 0.15
+  test_fraction: 0.15
+  seed: 42
+  # Caching the decoded validation/test tensors costs ~230 MB each and was a
+  # contributing factor in the OOM abort. Re-decoding is cheap here.
+  cache: false
+
+model:
+  backbone: MobileNetV3Small
+  dropout: 0.25
+  # MobileNetV3's rescaling lives inside the graph, so the exported model takes
+  # raw 0-255 RGB and the Swift side has no constants to get wrong.
+  bake_preprocessing: true
+
+train:
+  stage_a:
+    epochs: 15
+    learning_rate: 0.001
+    patience: 5
+  stage_b:
+    epochs: 20
+    learning_rate: 0.00001
+    patience: 6
+  fine_tune_fraction: 0.30
+  use_class_weights: true
+  batch_size_ladder: [16, 8, 4]
+
+export:
+  model_name: binsight_trashnet
+  model_version: 1.0.0
+  # Max absolute drop a quantised model may show vs float32, in percentage
+  # points, on BOTH accuracy and macro F1.
+  max_quantisation_degradation_pp: 2.0
+  representative_samples: 200
+
+inference:
+  # Matches ScannerConfiguration.minimumConfidence in the iOS app.
+  confidence_threshold: 0.65

@@ -1,0 +1,41 @@
+{
+  "note": "Development benchmark on the training Mac (CPU, XNNPACK). NOT iPhone latency \u2014 no on-device measurement has been taken.",
+  "host": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "batch_size": 1,
+  "runs": 100,
+  "results": {
+    "float32": {
+      "runs": 100,
+      "mean_ms": 3.563,
+      "median_ms": 3.422,
+      "p95_ms": 4.204,
+      "min_ms": 3.312,
+      "max_ms": 7.448,
+      "size_bytes": 3760064,
+      "size_mb": 3.76
+    },
+    "float16": {
+      "runs": 100,
+      "mean_ms": 3.462,
+      "median_ms": 3.432,
+      "p95_ms": 3.717,
+      "min_ms": 3.314,
+      "max_ms": 3.896,
+      "size_bytes": 1935484,
+      "size_mb": 1.935
+    },
+    "int8": {
+      "runs": 100,
+      "mean_ms": 6.037,
+      "median_ms": 5.568,
+      "p95_ms": 7.516,
+      "min_ms": 5.312,
+      "max_ms": 27.539,
+      "size_bytes": 1235200,
+      "size_mb": 1.235
+    }
+  }
+}

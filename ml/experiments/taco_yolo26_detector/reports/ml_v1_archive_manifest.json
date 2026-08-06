@@ -1,0 +1,129 @@
+{
+  "archived_at": "2026-08-06T20:59:34+03:00",
+  "purpose": "Archival snapshot of the BinSight ML v1 branch. Every run below is preserved, including the ones that failed \u2014 they are the engineering history and the reason the next branch is designed the way it is.",
+  "experiments": {
+    "trashnet_tensorflow_baseline": {
+      "status": "completed",
+      "task": "whole-image classification",
+      "model": "MobileNetV3Small",
+      "test_accuracy": 0.8338,
+      "macro_f1": 0.8046,
+      "weighted_f1": 0.8341,
+      "artefacts": [
+        "models/keras/binsight_trashnet.keras",
+        "models/tflite/*.tflite"
+      ],
+      "why_not_selected": "Classifies the whole frame; cannot localise, cannot handle multiple items, cannot say 'nothing here'. In-distribution accuracy did not survive uncontrolled camera scenes."
+    },
+    "yolo26n_run_001": {
+      "status": "completed",
+      "epochs_completed": 64,
+      "epochs_configured": 100,
+      "best_epoch": 44,
+      "early_stopped": true,
+      "stop_reason": "Ultralytics early stopping, patience 20",
+      "training_hours": 1.59,
+      "imgsz": 640,
+      "batch": 8,
+      "dataset": "partial TACO, 509 images / 1290 boxes (Flickr HTTP 429 losses)",
+      "best_validation_metrics": {
+        "precision": 0.43878,
+        "recall": 0.26196,
+        "map50": 0.28611,
+        "map50_95": 0.21205
+      },
+      "test_metrics": {
+        "precision": 0.269626,
+        "recall": 0.185333,
+        "map50": 0.200694,
+        "map50_95": 0.158616,
+        "f1": 0.219671,
+        "map75": 0.169647
+      },
+      "best_pt": {
+        "path": "runs/yolo26n_run_001/weights/best.pt",
+        "sha256": "304aefbd0014b6e4e436e16d4c0b5d84ada6f46bb4d15c5d94a4494fc1039a69",
+        "bytes": 5370245
+      },
+      "last_pt": {
+        "path": "runs/yolo26n_run_001/weights/last.pt",
+        "sha256": "6fb8b0c71356361117d1cc871c2802375a179f7df6c193e1c0c2b09ca040c69e",
+        "bytes": 5370245
+      }
+    },
+    "yolo26n_run_002_full_taco_640": {
+      "status": "incomplete_due_to_host_memory_pressure",
+      "epochs_completed": 24,
+      "epochs_configured": 100,
+      "best_epoch": 20,
+      "early_stopped": false,
+      "interruption_reason": "SIGKILL from macOS memory pressure, three times (during epochs 13, 24 and 25). No Python traceback, no MPS diagnostic and no OOM message in any log \u2014 the process simply stopped mid-batch. An iOS Simulator and xcodebuild workload was active on the same ~8.6 GB machine. Resumed twice from last.pt, then paused by decision for analysis.",
+      "imgsz": 640,
+      "batch": 8,
+      "training_hours": 2.184,
+      "dataset": "recovered TACO, 1082 images / 2671 boxes (86.7% of official records)",
+      "best_validation_metrics": {
+        "precision": 0.52226,
+        "recall": 0.26998,
+        "map50": 0.29421,
+        "map50_95": 0.2237
+      },
+      "test_metrics": {
+        "precision": 0.315835,
+        "recall": 0.247013,
+        "map50": 0.210504,
+        "map50_95": 0.145282,
+        "f1": 0.277216,
+        "map75": 0.163656
+      },
+      "selected_as_deployment_candidate": true,
+      "best_pt": {
+        "path": "runs/yolo26n_run_002_full_taco_640/weights/best.pt",
+        "sha256": "3f470d1abaf8bd615783a68836eefcf482bd771a437a91254d1a6f07c2ed276f",
+        "bytes": 15721410
+      },
+      "last_pt": {
+        "path": "runs/yolo26n_run_002_full_taco_640/weights/last.pt",
+        "sha256": "f5da05b54fb23c34747c1370b11bbe2b6d802f9f4fef0814dffd6b94fa8daf68",
+        "bytes": 15721922
+      }
+    },
+    "yolo26n_final_taco_context_plus_crops_768": {
+      "status": "incomplete_due_to_host_memory_pressure",
+      "epochs_completed": 14,
+      "epochs_configured": 70,
+      "best_epoch": 14,
+      "early_stopped": false,
+      "interruption_reason": "SIGKILL at 99% of epoch 15 (batch 447/451), same signature: no traceback, no OOM message. Fourth such kill in the project. Not resumed \u2014 training was stopped by decision because the 768 configuration is not reliably completable on this host.",
+      "imgsz": 768,
+      "batch": 4,
+      "training_hours": 1.581,
+      "dataset": "748 scenes + 1056 object-centric train-only crops (median target 29x larger)",
+      "best_validation_metrics": {
+        "precision": 0.4273,
+        "recall": 0.25164,
+        "map50": 0.23511,
+        "map50_95": 0.17032
+      },
+      "test_metrics": null,
+      "test_metrics_note": "never evaluated on test \u2014 an incomplete run is not a result",
+      "best_pt": {
+        "path": "runs/yolo26n_final_taco_context_plus_crops_768/weights/best.pt",
+        "sha256": "4e2e8cdc75497e21890190b999f5dbee714a5f67c562b5027659362a989bf8fd",
+        "bytes": 15731778
+      },
+      "last_pt": {
+        "path": "runs/yolo26n_final_taco_context_plus_crops_768/weights/last.pt",
+        "sha256": "4e2e8cdc75497e21890190b999f5dbee714a5f67c562b5027659362a989bf8fd",
+        "bytes": 15731778
+      }
+    }
+  },
+  "deployment_candidate": {
+    "path": "ml/experiments/taco_yolo26_detector/models/final/binsight_yolo26n_deployment.pt",
+    "sha256": "3f470d1abaf8bd615783a68836eefcf482bd771a437a91254d1a6f07c2ed276f",
+    "source": "yolo26n_run_002_full_taco_640/weights/best.pt (epoch 20)",
+    "readiness": "research_only"
+  },
+  "retention_policy": "Nothing is deleted. Failed and incomplete runs are kept with their weights, results.csv, args.yaml and plots, because the reason a run failed is part of the record."
+}

@@ -1,0 +1,173 @@
+{
+  "run": "yolo26n_run_001",
+  "weights": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_001/weights/best.pt",
+  "imgsz": 640,
+  "val": {
+    "overall": {
+      "precision": 0.448261,
+      "recall": 0.261892,
+      "map50": 0.286104,
+      "map50_95": 0.212003,
+      "f1": 0.330622,
+      "map75": 0.23566
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "class": "bag_wrapper",
+        "precision": 0.448808,
+        "recall": 0.265625,
+        "f1": 0.333732,
+        "ap50": 0.249881,
+        "ap50_95": 0.194097
+      },
+      {
+        "class_id": 1,
+        "class": "bottle",
+        "precision": 0.793825,
+        "recall": 0.347826,
+        "f1": 0.483708,
+        "ap50": 0.446495,
+        "ap50_95": 0.340749
+      },
+      {
+        "class_id": 2,
+        "class": "bottle_cap",
+        "precision": 0.602508,
+        "recall": 0.583333,
+        "f1": 0.592766,
+        "ap50": 0.579689,
+        "ap50_95": 0.399814
+      },
+      {
+        "class_id": 3,
+        "class": "can",
+        "precision": 0.682534,
+        "recall": 0.52381,
+        "f1": 0.59273,
+        "ap50": 0.627728,
+        "ap50_95": 0.543851
+      },
+      {
+        "class_id": 4,
+        "class": "carton",
+        "precision": 0.450667,
+        "recall": 0.214286,
+        "f1": 0.290461,
+        "ap50": 0.184515,
+        "ap50_95": 0.127502
+      },
+      {
+        "class_id": 5,
+        "class": "cigarette",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.039965,
+        "ap50_95": 0.017868
+      },
+      {
+        "class_id": 6,
+        "class": "cup",
+        "precision": 0.226678,
+        "recall": 0.076923,
+        "f1": 0.114866,
+        "ap50": 0.046469,
+        "ap50_95": 0.032777
+      },
+      {
+        "class_id": 7,
+        "class": "straw",
+        "precision": 0.381071,
+        "recall": 0.083333,
+        "f1": 0.13676,
+        "ap50": 0.114092,
+        "ap50_95": 0.039365
+      }
+    ]
+  },
+  "test": {
+    "overall": {
+      "precision": 0.269626,
+      "recall": 0.185333,
+      "map50": 0.200694,
+      "map50_95": 0.158616,
+      "f1": 0.219671,
+      "map75": 0.169647
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "class": "bag_wrapper",
+        "precision": 0.396841,
+        "recall": 0.119403,
+        "f1": 0.183572,
+        "ap50": 0.161281,
+        "ap50_95": 0.115578
+      },
+      {
+        "class_id": 1,
+        "class": "bottle",
+        "precision": 0.561812,
+        "recall": 0.333333,
+        "f1": 0.418414,
+        "ap50": 0.457165,
+        "ap50_95": 0.419386
+      },
+      {
+        "class_id": 2,
+        "class": "bottle_cap",
+        "precision": 0.473954,
+        "recall": 0.379927,
+        "f1": 0.421764,
+        "ap50": 0.32644,
+        "ap50_95": 0.22881
+      },
+      {
+        "class_id": 3,
+        "class": "can",
+        "precision": 0.23736,
+        "recall": 0.15,
+        "f1": 0.183829,
+        "ap50": 0.134363,
+        "ap50_95": 0.103082
+      },
+      {
+        "class_id": 4,
+        "class": "carton",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.018921,
+        "ap50_95": 0.016747
+      },
+      {
+        "class_id": 5,
+        "class": "cigarette",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.003851,
+        "ap50_95": 0.001464
+      },
+      {
+        "class_id": 6,
+        "class": "cup",
+        "precision": 0.487038,
+        "recall": 0.5,
+        "f1": 0.493434,
+        "ap50": 0.48372,
+        "ap50_95": 0.376076
+      },
+      {
+        "class_id": 7,
+        "class": "straw",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.019815,
+        "ap50_95": 0.007786
+      }
+    ]
+  }
+}

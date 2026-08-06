@@ -1,0 +1,16 @@
+{
+  "official_image_records": 1500,
+  "official_annotations": 4784,
+  "resolved_ok": 1300,
+  "missing": 200,
+  "unreadable": 0,
+  "dimension_mismatch": 0,
+  "by_source": {
+    "zenodo_archive": 715,
+    "flickr_partial": 585
+  },
+  "annotations_on_available_images": 4040,
+  "annotations_lost_to_missing_images": 744,
+  "duplicate_content_hashes": 0,
+  "coverage_pct": 86.67
+}

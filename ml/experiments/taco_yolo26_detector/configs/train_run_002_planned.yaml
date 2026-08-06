@@ -1,0 +1,79 @@
+# BinSight YOLO26n — Training Run 002 (PLANNED — not yet executed)
+#
+# The controlled follow-up to Run 001: one variable changes, the dataset. Every
+# training parameter below is copied from what Run 001 actually ran with —
+# `runs/yolo26n_run_001/args.yaml`, the file Ultralytics wrote after resolving
+# its own defaults — rather than from what Run 001's config asked for. The two
+# agree here, but reading the resolved file is the only way to be sure.
+#
+# Nothing in this file has been executed. No Run 002 metrics exist.
+
+model: yolo26n.pt          # pretrained COCO weights, NOT run_001/weights/best.pt
+data: configs/dataset_run_002.yaml
+task: detect
+
+epochs: 100
+patience: 20
+imgsz: 640
+batch: 8
+device: mps
+workers: 4
+seed: 42
+deterministic: true
+pretrained: true
+save: true
+plots: true
+verbose: true
+project: runs
+name: yolo26n_run_002_full_taco_640
+exist_ok: false
+
+# --- What changed from Run 001, and what deliberately did not -------------
+#
+# CHANGED — the dataset, and only the dataset
+#   509 images / 1290 annotations  ->  1082 images / 2671 annotations (2.07x).
+#   Sources: the archived Zenodo TACO release plus the images the Flickr
+#   download did manage to fetch. See reports/dataset_recovery/.
+#
+# UNCHANGED — imgsz 640
+#   Still the Ultralytics default and still the realistic mobile target. Run
+#   001's config named 768 as the first thing to try if small objects were the
+#   failure mode, and the size analysis says they are: 38.4% of objects in the
+#   recovered dataset are COCO-small, cigarette 96.5%. Resolution is
+#   nonetheless held fixed here on purpose — changing data and input size in
+#   the same run would make the result uninterpretable. 768 is Run 003.
+#
+# UNCHANGED — the eight classes, including cigarette
+#   Class IDs are identical to Run 001 (class_mapping_run_002.yaml is
+#   byte-identical to class_mapping.yaml), so per-class metrics from the two
+#   runs are directly comparable. Dropping cigarette would improve the headline
+#   mAP by removing the hardest class rather than by detecting anything better;
+#   see reports/dataset_recovery/cigarette_ablation_plan.md for how to measure
+#   that properly instead of assuming it.
+#
+# UNCHANGED — batch 8, workers 4, seed 42, all loss gains, all augmentation
+#   Same 8 GB M1, same Ultralytics 8.4.9 defaults. Run 001's `cls_pw` finding
+#   still holds: the parameter does not exist in this version.
+#
+# INITIALISATION — yolo26n.pt, not Run 001's best.pt
+#   Fine-tuning from best.pt would carry Run 001's fit to its 509-image subset
+#   into Run 002 and confound the comparison; the two runs would no longer
+#   differ by one variable. Starting from the same COCO weights keeps the
+#   experiment controlled, and leaves Run 001's weights untouched.
+#
+# --- How to run it, when the decision to run it is made -------------------
+#
+#   yolo detect train \
+#     model=yolo26n.pt \
+#     data=configs/dataset_run_002.yaml \
+#     epochs=100 patience=20 imgsz=640 batch=8 \
+#     device=mps workers=4 seed=42 deterministic=True \
+#     project=runs name=yolo26n_run_002_full_taco_640
+#
+# --- Reading the result honestly ------------------------------------------
+#
+# The recovered test set is harder than Run 001's, not merely bigger: the
+# small-object share rose from 29.1% to 38.4% because the images Flickr refused
+# were not a random sample. A flat or slightly lower headline mAP would still be
+# consistent with a better detector. Compare per class and per size bucket, not
+# on one number. See run_001_vs_full_object_sizes.md.

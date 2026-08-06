@@ -1,0 +1,10 @@
+class_id,class,run_001_annotations,run_002_annotations,annotation_delta,annotation_multiplier,run_001_images,run_002_images,image_delta,image_multiplier
+0,bag_wrapper,430,762,332,1.77,221,454,233,2.05
+1,bottle,152,349,197,2.3,126,261,135,2.07
+2,bottle_cap,130,238,108,1.83,108,198,90,1.83
+3,can,129,235,106,1.82,83,156,73,1.88
+4,carton,85,221,136,2.6,62,160,98,2.58
+5,cigarette,186,537,351,2.89,65,173,108,2.66
+6,cup,83,176,93,2.12,68,147,79,2.16
+7,straw,95,153,58,1.61,55,106,51,1.93
+,TOTAL,1290,2671,1381,2.07,,,,

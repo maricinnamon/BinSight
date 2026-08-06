@@ -1,0 +1,27 @@
+# Ultralytics dataset definition — BinSight final detector.
+#
+# Same eight classes and same IDs as Run 001 and Run 002: the taxonomy has not
+# moved, so per-class numbers stay comparable across the whole experiment series.
+#
+# train/ holds the 748 original recovered-TACO training scenes PLUS 1056
+# object-centric crops generated only from those same training images.
+# val/ and test/ are byte-identical to Run 002's — original full scenes only, no
+# crops, no oversampling — so the final metrics describe real contextual
+# detection rather than the augmentation.
+#
+# configs/dataset.yaml (Run 001) and configs/dataset_run_002.yaml are untouched.
+
+path: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/data/prepared_final
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: bag_wrapper
+  1: bottle
+  2: bottle_cap
+  3: can
+  4: carton
+  5: cigarette
+  6: cup
+  7: straw

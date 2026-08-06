@@ -1,0 +1,38 @@
+{
+  "material": {
+    "class_counts": {
+      "plastic": 2251,
+      "metal": 550,
+      "glass": 254,
+      "cardboard": 206,
+      "paper": 179
+    },
+    "classes": 5,
+    "included_annotations": 3440,
+    "excluded_annotations": 1231,
+    "review_annotations": 112,
+    "unmapped_categories": [],
+    "smallest_class": 179,
+    "largest_class": 2251,
+    "imbalance_ratio": 12.58
+  },
+  "object": {
+    "class_counts": {
+      "other_litter": 2090,
+      "bag_wrapper": 872,
+      "cigarette": 667,
+      "bottle": 438,
+      "can": 273,
+      "carton": 251,
+      "cup": 192
+    },
+    "classes": 7,
+    "included_annotations": 4783,
+    "excluded_annotations": 0,
+    "review_annotations": 0,
+    "unmapped_categories": [],
+    "smallest_class": 192,
+    "largest_class": 2090,
+    "imbalance_ratio": 10.89
+  }
+}

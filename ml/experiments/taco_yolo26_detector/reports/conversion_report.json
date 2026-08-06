@@ -1,0 +1,41 @@
+{
+  "image_strategy": "symlink",
+  "classes": [
+    "bag_wrapper",
+    "bottle",
+    "bottle_cap",
+    "can",
+    "carton",
+    "cigarette",
+    "cup",
+    "straw"
+  ],
+  "annotations_written": 1290,
+  "per_class": {
+    "bottle": 152,
+    "carton": 85,
+    "bottle_cap": 130,
+    "can": 129,
+    "cup": 83,
+    "bag_wrapper": 430,
+    "straw": 95,
+    "cigarette": 186
+  },
+  "images_per_split": {
+    "train": 368,
+    "val": 84,
+    "test": 57
+  },
+  "images_exif_normalised": {
+    "train": 99,
+    "test": 12,
+    "val": 22
+  },
+  "skipped": {
+    "unmapped_category": 1640,
+    "image_not_in_split": 1854
+  },
+  "clipped": 1,
+  "clip_tolerance_px": 1.0,
+  "note": "Source images and annotations are never modified. Clipped boxes are listed with original and corrected coordinates in reports/clipped_annotations.csv. Images whose EXIF orientation disagrees with annotations.json are written as rotation-baked copies; the rest are symlinked."
+}

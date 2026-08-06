@@ -1,0 +1,8 @@
+bag_wrapper
+bottle
+bottle_cap
+can
+carton
+cigarette
+cup
+straw

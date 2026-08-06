@@ -1,0 +1,25 @@
+{
+  "source": "https://zenodo.org/records/3354286",
+  "doi": "10.5281/zenodo.3354286",
+  "archive_url": "https://zenodo.org/api/records/3354286/files/TACO.zip/content",
+  "archive_name": "TACO.zip",
+  "published_md5": "5c674548402b142d5a27a1f7b6a653f3",
+  "rationale": "Archived release instead of per-image Flickr requests: reproducible, checksummed, and immune to the HTTP 429 rate limiting that cost Run 001 898 of 1500 images.",
+  "download": {
+    "ok": true,
+    "elapsed_seconds": 201.4,
+    "bytes": 1110286487
+  },
+  "archive_bytes": 1110286487,
+  "archive_mb": 1110.3,
+  "calculated_md5": "5c674548402b142d5a27a1f7b6a653f3",
+  "md5_matches_published": true,
+  "calculated_sha256": "d2aaa74a415fec447ab7a2a31237f9b545ec44729295b898bf6960fdfde32377",
+  "extraction": {
+    "ok": true,
+    "entries": 1038
+  },
+  "extracted_image_files": 715,
+  "extracted_bytes": 1042261065,
+  "verified": true
+}

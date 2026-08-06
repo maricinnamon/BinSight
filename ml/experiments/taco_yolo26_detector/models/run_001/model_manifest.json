@@ -1,0 +1,164 @@
+{
+  "model_family": "YOLO26n",
+  "task": "detect",
+  "pretrained_source": "yolo26n.pt (Ultralytics 8.4.9 assets, COCO-pretrained)",
+  "run": "yolo26n_run_001",
+  "run_directory": "runs/yolo26n_run_001",
+  "target_classes": [
+    "bag_wrapper",
+    "bottle",
+    "bottle_cap",
+    "can",
+    "carton",
+    "cigarette",
+    "cup",
+    "straw"
+  ],
+  "imgsz": 640,
+  "batch": 8,
+  "device": "mps",
+  "epochs_configured": 100,
+  "epochs_completed": 64,
+  "best_epoch": 44,
+  "training_hours": 1.59,
+  "dataset_snapshot": {
+    "splits": {
+      "train": {
+        "images": 368,
+        "annotations": 878
+      },
+      "val": {
+        "images": 84,
+        "annotations": 201
+      },
+      "test": {
+        "images": 57,
+        "annotations": 211
+      }
+    },
+    "taco_commit_sha": "29de1a9ba05a647b83a90f18d7772e20bb23d846",
+    "class_mapping_sha256": "b9bd9a952bb763bf3e2e70fe5e9350ec096e5f8076ceb7755874f8881b159496",
+    "dataset_yaml_sha256": "46d2b27771cf27eb9b7dcc4fa9a26a491c13972bf810edad47285b6f08163322",
+    "split_seed": 42
+  },
+  "weights": {
+    "best": {
+      "path": "runs/yolo26n_run_001/weights/best.pt",
+      "bytes": 5370245,
+      "mb": 5.37,
+      "sha256": "304aefbd0014b6e4e436e16d4c0b5d84ada6f46bb4d15c5d94a4494fc1039a69"
+    },
+    "last": {
+      "path": "runs/yolo26n_run_001/weights/last.pt",
+      "bytes": 5370245,
+      "mb": 5.37,
+      "sha256": "6fb8b0c71356361117d1cc871c2802375a179f7df6c193e1c0c2b09ca040c69e"
+    }
+  },
+  "validation_metrics": {
+    "precision": 0.448261,
+    "recall": 0.261892,
+    "map50": 0.286104,
+    "map50_95": 0.212003,
+    "f1": 0.330622,
+    "map75": 0.23566
+  },
+  "test_metrics": {
+    "precision": 0.269626,
+    "recall": 0.185333,
+    "map50": 0.200694,
+    "map50_95": 0.158616,
+    "f1": 0.219671,
+    "map75": 0.169647
+  },
+  "per_class_test": [
+    {
+      "class_id": 0,
+      "class": "bag_wrapper",
+      "precision": 0.396841,
+      "recall": 0.119403,
+      "f1": 0.183572,
+      "ap50": 0.161281,
+      "ap50_95": 0.115578
+    },
+    {
+      "class_id": 1,
+      "class": "bottle",
+      "precision": 0.561812,
+      "recall": 0.333333,
+      "f1": 0.418414,
+      "ap50": 0.457165,
+      "ap50_95": 0.419386
+    },
+    {
+      "class_id": 2,
+      "class": "bottle_cap",
+      "precision": 0.473954,
+      "recall": 0.379927,
+      "f1": 0.421764,
+      "ap50": 0.32644,
+      "ap50_95": 0.22881
+    },
+    {
+      "class_id": 3,
+      "class": "can",
+      "precision": 0.23736,
+      "recall": 0.15,
+      "f1": 0.183829,
+      "ap50": 0.134363,
+      "ap50_95": 0.103082
+    },
+    {
+      "class_id": 4,
+      "class": "carton",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ap50": 0.018921,
+      "ap50_95": 0.016747
+    },
+    {
+      "class_id": 5,
+      "class": "cigarette",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ap50": 0.003851,
+      "ap50_95": 0.001464
+    },
+    {
+      "class_id": 6,
+      "class": "cup",
+      "precision": 0.487038,
+      "recall": 0.5,
+      "f1": 0.493434,
+      "ap50": 0.48372,
+      "ap50_95": 0.376076
+    },
+    {
+      "class_id": 7,
+      "class": "straw",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ap50": 0.019815,
+      "ap50_95": 0.007786
+    }
+  ],
+  "recommended_confidence_threshold": {
+    "balanced": 0.15,
+    "balanced_precision": 0.5,
+    "balanced_recall": 0.3315,
+    "high_precision": 0.25,
+    "high_precision_precision": 0.6145,
+    "high_precision_recall": 0.2757,
+    "note": "Chosen from the validation sweep, not carried over from the classifier's 0.65."
+  },
+  "mac_mps_benchmark": {
+    "mean_ms": 48.252,
+    "median_ms": 48.488,
+    "p95_ms": 54.344,
+    "approx_fps": 20.62
+  },
+  "selected_for_deployment": false
+}

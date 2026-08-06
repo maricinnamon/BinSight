@@ -1,0 +1,94 @@
+{
+  "run": "yolo26n_run_001",
+  "epochs_configured": 100,
+  "epochs_completed": 64,
+  "best_epoch": 44,
+  "early_stopping_patience": 20,
+  "early_stopped": true,
+  "training_hours": 1.59,
+  "device": "mps",
+  "imgsz": 640,
+  "batch": 8,
+  "workers": 4,
+  "seed": 42,
+  "deterministic": true,
+  "class_weighting": {
+    "used": false,
+    "reason": "imbalance 5.18x is moderate; cls_pw does not exist in Ultralytics 8.4.9 (checked against DEFAULT_CFG_DICT)"
+  },
+  "augmentation": {
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4,
+    "degrees": 0.0,
+    "translate": 0.1,
+    "scale": 0.5,
+    "shear": 0.0,
+    "perspective": 0.0,
+    "flipud": 0.0,
+    "fliplr": 0.5,
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "copy_paste": 0.0,
+    "erasing": 0.4,
+    "auto_augment": "randaugment"
+  },
+  "validation_metrics": {
+    "precision": 0.448261,
+    "recall": 0.261892,
+    "map50": 0.286104,
+    "map50_95": 0.212003,
+    "f1": 0.330622,
+    "map75": 0.23566
+  },
+  "test_metrics": {
+    "precision": 0.269626,
+    "recall": 0.185333,
+    "map50": 0.200694,
+    "map50_95": 0.158616,
+    "f1": 0.219671,
+    "map75": 0.169647
+  },
+  "error_counts": {
+    "tp": 24,
+    "fp": 18,
+    "fn": 171,
+    "confusions": 16,
+    "low_iou": 2
+  },
+  "size_recall": [
+    {
+      "bucket": "tiny",
+      "ground_truth": 137,
+      "detected": 7,
+      "recall": 0.0511
+    },
+    {
+      "bucket": "small",
+      "ground_truth": 46,
+      "detected": 8,
+      "recall": 0.1739
+    },
+    {
+      "bucket": "medium",
+      "ground_truth": 26,
+      "detected": 8,
+      "recall": 0.3077
+    },
+    {
+      "bucket": "large",
+      "ground_truth": 2,
+      "detected": 1,
+      "recall": 0.5
+    }
+  ],
+  "recommended_thresholds": {
+    "balanced": 0.15,
+    "balanced_precision": 0.5,
+    "balanced_recall": 0.3315,
+    "high_precision": 0.25,
+    "high_precision_precision": 0.6145,
+    "high_precision_recall": 0.2757,
+    "note": "Chosen from the validation sweep, not carried over from the classifier's 0.65."
+  }
+}

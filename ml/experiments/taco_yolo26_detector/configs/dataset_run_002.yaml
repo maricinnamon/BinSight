@@ -1,0 +1,26 @@
+# Ultralytics dataset definition for BinSight TACO detector, Run 002.
+#
+# Same eight classes in the same ID order as Run 001 — `configs/class_mapping.yaml`
+# and `configs/class_mapping_run_002.yaml` are byte-identical (SHA-256
+# b9bd9a952bb763bf3e2e70fe5e9350ec096e5f8076ceb7755874f8881b159496), so per-class
+# numbers from the two runs line up.
+#
+# What changed is only the data underneath: 1082 images instead of 509, built by
+# scripts/prepare_run_002.py from the recovered official images.
+#
+# Run 001's configs/dataset.yaml is untouched and still points at data/prepared.
+
+path: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/data/prepared_run_002
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: bag_wrapper
+  1: bottle
+  2: bottle_cap
+  3: can
+  4: carton
+  5: cigarette
+  6: cup
+  7: straw

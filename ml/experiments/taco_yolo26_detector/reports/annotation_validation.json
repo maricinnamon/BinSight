@@ -1,0 +1,18 @@
+{
+  "annotations_checked": 4784,
+  "valid": 4783,
+  "invalid": 1,
+  "bounds_tolerance_px": 1.0,
+  "checks": [
+    "width > 0",
+    "height > 0",
+    "finite coordinates",
+    "bbox within image bounds (\u00b11 px)",
+    "category_id resolves",
+    "image_id resolves"
+  ],
+  "problem_breakdown": {
+    "y < 0 (-1.3166667)": 1
+  },
+  "policy": "Source annotations are never modified. Invalid rows are recorded here and excluded from conversion; any deterministic clipping applied later is logged with original and corrected coordinates."
+}

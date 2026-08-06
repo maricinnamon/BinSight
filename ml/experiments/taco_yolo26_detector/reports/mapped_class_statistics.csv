@@ -1,0 +1,9 @@
+class_id,class,annotations,unique_images,train,val,test,pct_of_annotations,median_rel_bbox_area
+0,bag_wrapper,430,221,299,64,67,33.33,0.01319
+1,bottle,152,126,105,23,24,11.78,0.034434
+2,bottle_cap,130,108,87,24,19,10.08,0.005362
+3,can,129,83,88,21,20,10.0,0.029951
+4,carton,85,62,58,14,13,6.59,0.028058
+5,cigarette,186,65,128,30,28,14.42,0.000338
+6,cup,83,68,58,13,12,6.43,0.021124
+7,straw,95,55,55,12,28,7.36,0.00811

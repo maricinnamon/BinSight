@@ -1,0 +1,3 @@
+image,class,confidence,iou
+batch_11_000094.jpg,bottle,0.2951,0.4704
+batch_7_000078.JPG,carton,0.3851,0.4876

@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "verified_by_execution": true,
+  "model": {
+    "name": "binsight_trashnet",
+    "version": "1.0.0",
+    "file": "binsight_trashnet.tflite",
+    "backbone": "MobileNetV3Small",
+    "quantization": "float16",
+    "training_date": "2026-08-04T19:31:31.461038+03:00",
+    "size_bytes": 1935484,
+    "sha256": "c6cebd0c48d53b09701298a3b07581ab29dfedb31af2a5a63ffedc877032d501"
+  },
+  "labels": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "input": {
+    "name": "serving_default_image:0",
+    "shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "dtype": "float32",
+    "color_order": "RGB",
+    "layout": "NHWC",
+    "value_range": [
+      0.0,
+      255.0
+    ],
+    "resize": "bilinear to 224x224",
+    "crop": "centre crop of the aspect-fill preview region, then the reticle square; see PreviewCropGeometry/FrameCropPlan in the iOS app",
+    "preprocessing_note": "MobileNetV3 preprocessing is baked into the graph. Pass raw 0-255 RGB float32 pixels; do NOT normalise on the client.",
+    "quantization": {
+      "scale": 0.0,
+      "zero_point": 0
+    }
+  },
+  "output": {
+    "name": "StatefulPartitionedCall_1:0",
+    "shape": [
+      1,
+      6
+    ],
+    "dtype": "float32",
+    "activation": "softmax",
+    "is_logits": false,
+    "quantization": {
+      "scale": 0.0,
+      "zero_point": 0
+    },
+    "labels_in_index_order": [
+      "cardboard",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "trash"
+    ]
+  },
+  "inference": {
+    "recommended_confidence_threshold": 0.65,
+    "below_threshold_behaviour": "show 'Not sure' rather than a class"
+  },
+  "metrics": {
+    "keras_test_accuracy": 0.8337730870712401,
+    "keras_macro_f1": 0.8045976948453584,
+    "tflite_test_accuracy": 0.8311345646437994,
+    "tflite_macro_f1": 0.8022385501114169
+  },
+  "runtime": {
+    "requires_select_tf_ops": false,
+    "target_ops": "TFLITE_BUILTINS"
+  },
+  "selection": {
+    "selected": "float16",
+    "source_file": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/trashnet_classifier/models/tflite/binsight_trashnet_float16.tflite",
+    "source_sha256": "c6cebd0c48d53b09701298a3b07581ab29dfedb31af2a5a63ffedc877032d501",
+    "ranking": [
+      {
+        "name": "float32",
+        "size_bytes": 3760064,
+        "accuracy": 0.8337730870712401,
+        "macro_f1": 0.8045976948453584,
+        "accuracy_drop_pp": 0.0,
+        "macro_f1_drop_pp": 0.0,
+        "float_io": true,
+        "rejected_because": []
+      },
+      {
+        "name": "float16",
+        "size_bytes": 1935484,
+        "accuracy": 0.8311345646437994,
+        "macro_f1": 0.8022385501114169,
+        "accuracy_drop_pp": 0.264,
+        "macro_f1_drop_pp": 0.236,
+        "float_io": true,
+        "rejected_because": []
+      },
+      {
+        "name": "int8",
+        "size_bytes": 1235200,
+        "accuracy": 0.5567282321899736,
+        "macro_f1": 0.4842869589996906,
+        "accuracy_drop_pp": 27.704,
+        "macro_f1_drop_pp": 32.031,
+        "float_io": true,
+        "rejected_because": [
+          "accuracy down 27.70pp (> 2.0)",
+          "macro F1 down 32.03pp (> 2.0)"
+        ]
+      }
+    ],
+    "rule": "reject on failed contract or >2.0pp drop in accuracy OR macro F1 vs float32; then prefer float I/O; then smallest file"
+  },
+  "numerical_validation": {
+    "top1_agreement_vs_keras": 0.9973614775725593,
+    "max_abs_prob_diff_vs_keras": 0.04137510061264038,
+    "mean_abs_prob_diff_vs_keras": 0.0009943763725459576
+  },
+  "per_class_f1": {
+    "cardboard": 0.9032258064516129,
+    "glass": 0.8299319727891157,
+    "metal": 0.7887323943661971,
+    "paper": 0.874251497005988,
+    "plastic": 0.8226950354609929,
+    "trash": 0.5945945945945946
+  }
+}

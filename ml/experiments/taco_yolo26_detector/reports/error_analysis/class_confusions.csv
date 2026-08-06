@@ -1,0 +1,17 @@
+image,ground_truth_class,predicted_class,confidence,iou
+batch_11_000031.jpg,carton,can,0.8452,0.9506
+batch_11_000089.jpg,carton,can,0.8807,0.9652
+batch_12_000003.jpg,cigarette,bag_wrapper,0.6155,0.9019
+batch_12_000054.jpg,cup,can,0.3854,0.9465
+batch_12_000094.jpg,bottle,can,0.7776,0.9306
+batch_13_000026.jpg,bottle,bag_wrapper,0.367,0.9768
+batch_13_000026.jpg,can,bag_wrapper,0.2804,0.96
+batch_13_000042.jpg,bottle,bag_wrapper,0.5496,0.9168
+batch_14_000021.jpg,carton,can,0.5672,0.9271
+batch_14_000021.jpg,can,bottle,0.2776,0.9644
+batch_14_000079.jpg,can,bag_wrapper,0.4672,0.665
+batch_15_000040.jpg,cup,bottle_cap,0.3818,0.9386
+batch_1_000003.jpg,cup,can,0.8893,0.9771
+batch_1_000045.jpg,can,carton,0.2707,0.9555
+batch_1_000091.JPG,bottle_cap,can,0.2519,0.9244
+batch_1_000117.JPG,cup,bottle_cap,0.5953,0.9378

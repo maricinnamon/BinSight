@@ -1,0 +1,17 @@
+{
+  "official_annotation_file": "data/source/TACO/data/annotations.json",
+  "annotation_sha256": "ac1ec605c9e1fcda767970de3457c69b4a43b62c02aca8c4c80f51d1b5ae8449",
+  "official_image_records": 1500,
+  "official_annotation_records": 4784,
+  "official_categories": 60,
+  "local_image_files": 602,
+  "missing_image_records": 898,
+  "local_annotations_any_category": 1926,
+  "mapped_annotations_full_dataset": 3144,
+  "mapped_annotations_locally_available": 1290,
+  "mapped_annotations_lost_to_missing_images": 1854,
+  "failed_flickr_downloads": 898,
+  "download_error_breakdown": {
+    "HTTP 429": 898
+  }
+}

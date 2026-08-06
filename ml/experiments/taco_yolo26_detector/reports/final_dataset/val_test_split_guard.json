@@ -1,0 +1,8 @@
+{
+  "recorded_at": "2026-08-06T16:46:17+03:00",
+  "purpose": "val/test manifests must be byte-identical after training",
+  "hashes": {
+    "data/splits/run_002/val.txt": "caa9071432e1dc4f10aacf32251859666df08f8b6deab96de132e8d6b4909d14",
+    "data/splits/run_002/test.txt": "351ba211c35d8f17a8e73ef8f5ff1d00aa48f00df442a58972a03a52719dcf13"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "classes": [
+    "bag_wrapper",
+    "bottle",
+    "bottle_cap",
+    "can",
+    "carton",
+    "cigarette",
+    "cup",
+    "straw"
+  ],
+  "checks": [
+    "5 values per row",
+    "class id within range",
+    "finite coordinates",
+    "x_center/y_center in [0,1]",
+    "0 < width,height <= 1",
+    "reconstructed box inside image",
+    "no orphan labels",
+    "no image without a label"
+  ],
+  "totals": {
+    "label_files": 509,
+    "boxes": 1290,
+    "images": 509
+  },
+  "per_split": {
+    "train": {
+      "images": 368,
+      "labels": 368,
+      "boxes": 878
+    },
+    "val": {
+      "images": 84,
+      "labels": 84,
+      "boxes": 201
+    },
+    "test": {
+      "images": 57,
+      "labels": 57,
+      "boxes": 211
+    }
+  },
+  "per_class": {
+    "bag_wrapper": 430,
+    "bottle": 152,
+    "bottle_cap": 130,
+    "can": 129,
+    "carton": 85,
+    "cigarette": 186,
+    "cup": 83,
+    "straw": 95
+  },
+  "problems": [],
+  "problem_count": 0,
+  "ok": true
+}

@@ -1,0 +1,22 @@
+{
+  "note": "Mac/MPS development benchmark. NOT iPhone latency and NOT a Neural Engine measurement \u2014 no on-device benchmark has been taken.",
+  "host": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "weights": "runs/yolo26n_run_001/weights/best.pt",
+  "weights_bytes": 5370245,
+  "weights_mb": 5.37,
+  "sha256": "304aefbd0014b6e4e436e16d4c0b5d84ada6f46bb4d15c5d94a4494fc1039a69",
+  "device": "mps",
+  "imgsz": 640,
+  "batch": 1,
+  "warmup_runs": 15,
+  "measured_runs": 100,
+  "mean_ms": 48.252,
+  "median_ms": 48.488,
+  "p95_ms": 54.344,
+  "min_ms": 41.429,
+  "max_ms": 59.674,
+  "approx_fps": 20.62
+}

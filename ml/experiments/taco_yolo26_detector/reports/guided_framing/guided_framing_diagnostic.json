@@ -1,0 +1,157 @@
+{
+  "disclaimer": "PRODUCT DIAGNOSTIC. Only the full-frame row is a test-set result. ROI rows measure a different question \u2014 how the model behaves under BinSight's guided-camera UX \u2014 and must never be reported as standard test performance.",
+  "weights": "runs/yolo26n_run_002_full_taco_640/weights/best.pt",
+  "imgsz": 640,
+  "conf": 0.25,
+  "test_images": 166,
+  "test_objects": 405,
+  "full_frame": {
+    "precision": 0.4697,
+    "recall": 0.1531,
+    "f1": 0.2309,
+    "map50": 0.1233,
+    "tp": 62,
+    "fp": 70,
+    "fn": 343,
+    "bucket_recall": {
+      "tiny": 0.0988,
+      "small": 0.225,
+      "medium": 0.2909,
+      "large": 0.1765
+    },
+    "bucket_truth": {
+      "tiny": 253,
+      "small": 80,
+      "medium": 55,
+      "large": 17
+    }
+  },
+  "object_guided_roi": {
+    "precision": 0.3581,
+    "recall": 0.2741,
+    "f1": 0.3105,
+    "map50": 0.1847,
+    "tp": 111,
+    "fp": 199,
+    "fn": 294,
+    "bucket_recall": {
+      "tiny": 0.1067,
+      "small": 0.225,
+      "medium": 0.2364,
+      "large": 0.1176
+    },
+    "bucket_truth": {
+      "tiny": 253,
+      "small": 80,
+      "medium": 55,
+      "large": 17
+    },
+    "target_area_gain": {
+      "median": 22.2,
+      "mean": 64.1,
+      "context_factor": 2.5
+    }
+  },
+  "central_roi": {
+    "90%": {
+      "precision": 0.4416,
+      "recall": 0.1744,
+      "f1": 0.25,
+      "map50": 0.1337,
+      "tp": 68,
+      "fp": 86,
+      "fn": 322,
+      "bucket_recall": {
+        "tiny": 0.113,
+        "small": 0.2911,
+        "medium": 0.2909,
+        "large": 0.1176
+      },
+      "bucket_truth": {
+        "tiny": 239,
+        "small": 79,
+        "medium": 55,
+        "large": 17
+      },
+      "objects_lost_outside_roi": 15,
+      "objects_retained": 390
+    },
+    "75%": {
+      "precision": 0.4235,
+      "recall": 0.2045,
+      "f1": 0.2759,
+      "map50": 0.1332,
+      "tp": 72,
+      "fp": 98,
+      "fn": 280,
+      "bucket_recall": {
+        "tiny": 0.1292,
+        "small": 0.3378,
+        "medium": 0.3269,
+        "large": 0.1765
+      },
+      "bucket_truth": {
+        "tiny": 209,
+        "small": 74,
+        "medium": 52,
+        "large": 17
+      },
+      "objects_lost_outside_roi": 53,
+      "objects_retained": 352
+    },
+    "60%": {
+      "precision": 0.4234,
+      "recall": 0.1841,
+      "f1": 0.2566,
+      "map50": 0.1219,
+      "tp": 58,
+      "fp": 79,
+      "fn": 257,
+      "bucket_recall": {
+        "tiny": 0.1459,
+        "small": 0.2353,
+        "medium": 0.3111,
+        "large": 0.0588
+      },
+      "bucket_truth": {
+        "tiny": 185,
+        "small": 68,
+        "medium": 45,
+        "large": 17
+      },
+      "objects_lost_outside_roi": 90,
+      "objects_retained": 315
+    }
+  },
+  "paired_per_object": {
+    "missed_both": 305,
+    "rescued_by_guided_roi": 38,
+    "lost_by_guided_roi": 40,
+    "found_both": 22,
+    "by_bucket": {
+      "tiny": {
+        "False_False": 210,
+        "True_True": 9,
+        "True_False": 16,
+        "False_True": 18
+      },
+      "medium": {
+        "False_False": 32,
+        "False_True": 7,
+        "True_False": 10,
+        "True_True": 6
+      },
+      "small": {
+        "False_False": 49,
+        "False_True": 13,
+        "True_False": 13,
+        "True_True": 5
+      },
+      "large": {
+        "False_False": 14,
+        "True_False": 1,
+        "True_True": 2
+      }
+    }
+  }
+}

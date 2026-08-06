@@ -1,0 +1,58 @@
+{
+  "run": "run_002",
+  "decision": "TRAIN",
+  "reason": "Run 003 justified: tiny_recall_below, small_recall_below, tiny_small_fn_share_above. Tiny recall 0.0949 (threshold 0.20), small recall 0.2125 (threshold 0.30), tiny+small share of false negatives 86.5% (threshold 40%). Run 002 misses gate A on: map50_95, recall, tiny_recall.",
+  "gate_a_skip_if_all_pass": {
+    "map50_95": {
+      "value": 0.145282,
+      "threshold": 0.3,
+      "passes": false
+    },
+    "recall": {
+      "value": 0.247013,
+      "threshold": 0.35,
+      "passes": false
+    },
+    "tiny_recall": {
+      "value": 0.0949,
+      "threshold": 0.2,
+      "passes": false
+    }
+  },
+  "gate_a_all_pass": false,
+  "gate_b_train_if_any_true": {
+    "tiny_recall_below": {
+      "value": 0.0949,
+      "threshold": 0.2,
+      "triggered": true
+    },
+    "small_recall_below": {
+      "value": 0.2125,
+      "threshold": 0.3,
+      "triggered": true
+    },
+    "tiny_small_fn_share_above": {
+      "value": 0.8645,
+      "threshold": 0.4,
+      "triggered": true
+    }
+  },
+  "gate_b_any_triggered": true,
+  "competing_explanations": {
+    "class_confusion_share_of_detections": 0.2652,
+    "class_confusion_dominant": false,
+    "false_negative_share_of_ground_truth": 0.7654
+  },
+  "false_negatives_by_bucket": {
+    "tiny": 218,
+    "medium": 32,
+    "small": 50,
+    "large": 10
+  },
+  "size_recall": {
+    "tiny": 0.0949,
+    "small": 0.2125,
+    "medium": 0.2727,
+    "large": 0.2353
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "image_strategy": "symlink",
+  "output": "data/prepared_run_002",
+  "classes": [
+    "bag_wrapper",
+    "bottle",
+    "bottle_cap",
+    "can",
+    "carton",
+    "cigarette",
+    "cup",
+    "straw"
+  ],
+  "annotations_written": 2671,
+  "per_class": {
+    "bag_wrapper": 762,
+    "bottle": 349,
+    "bottle_cap": 238,
+    "can": 235,
+    "carton": 221,
+    "cigarette": 537,
+    "cup": 176,
+    "straw": 153
+  },
+  "images_per_split": {
+    "train": 748,
+    "test": 166,
+    "val": 168
+  },
+  "images_exif_normalised": {
+    "train": 339,
+    "val": 76,
+    "test": 73
+  },
+  "images_by_source_tree": {
+    "official_complete": 600,
+    "raw": 482
+  },
+  "skipped": {
+    "unmapped_category": 1640,
+    "image_unavailable": 473
+  },
+  "clipped": 1,
+  "clip_tolerance_px": 1.0,
+  "note": "Same conversion rules as Run 001. Source images and annotations are never modified; Run 001's data/prepared/ is not written. Images whose EXIF orientation disagrees with annotations.json become rotation-baked copies, the rest are symlinked."
+}

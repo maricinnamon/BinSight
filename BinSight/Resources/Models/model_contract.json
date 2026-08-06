@@ -80,7 +80,7 @@
   },
   "selection": {
     "selected": "float16",
-    "source_file": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/trashnet_classifier/models/tflite/binsight_trashnet_float16.tflite",
+    "source_file": "ml/trashnet_classifier/models/tflite/binsight_trashnet_float16.tflite",
     "source_sha256": "c6cebd0c48d53b09701298a3b07581ab29dfedb31af2a5a63ffedc877032d501",
     "ranking": [
       {

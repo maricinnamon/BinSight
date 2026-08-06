@@ -19,7 +19,7 @@
     "cup",
     "straw"
   ],
-  "dataset_root": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/data/prepared_run_002",
+  "dataset_root": "<PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/data/prepared_run_002",
   "dataset_counts": {
     "train": {
       "images": 748,

@@ -4,7 +4,7 @@
 # non-zero exit code on a real failure, so `make all` stops at the first problem.
 
 ENV      ?= binsight-trashnet-metal
-CONDA    ?= /Users/marina/miniforge3/bin/conda
+CONDA    ?= conda
 PY        = PYTHONHASHSEED=42 $(CONDA) run -n $(ENV) --no-capture-output python
 CONFIG   ?= configs/default.yaml
 

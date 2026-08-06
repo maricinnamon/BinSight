@@ -179,3 +179,5 @@ ml/experiments/taco_yolo26_detector/runs/**/train_batch*.jpg
 ml/experiments/taco_yolo26_detector/runs/**/val_batch*.jpg
 ml/experiments/taco_yolo26_detector/runs/**/*.cache
 ml/experiments/taco_yolo26_detector/data/prepared/**/*.cache
+ml/experiments/taco_yolo26_detector/data/prepared_run_002/**/*.cache
+ml/experiments/taco_yolo26_detector/data/prepared_final/**/*.cache

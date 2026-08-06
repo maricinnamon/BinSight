@@ -10,7 +10,7 @@
 #
 # Run 001's configs/dataset.yaml is untouched and still points at data/prepared.
 
-path: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/data/prepared_run_002
+path: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/data/prepared_run_002
 train: images/train
 val: images/val
 test: images/test
@@ -24,3 +24,11 @@ names:
   5: cigarette
   6: cup
   7: straw
+
+# NOTE ON `path:` — <PROJECT_ROOT> is a PLACEHOLDER, not a usable path.
+# The absolute path was redacted before publishing this repository. Substitute
+# the repository root before use, e.g.:
+#   sed -i '' "s|<PROJECT_ROOT>|$(git rev-parse --show-toplevel)|" <this file>
+# Ultralytics resolves a *relative* `path:` against its own DATASETS_DIR setting,
+# not against this file's location, which is why a plain relative path is wrong
+# here rather than merely inconvenient.

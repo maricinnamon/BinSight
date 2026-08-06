@@ -1,6 +1,6 @@
 {
   "run": "yolo26n_run_001",
-  "weights": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_001/weights/best.pt",
+  "weights": "<PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_001/weights/best.pt",
   "imgsz": 640,
   "val": {
     "overall": {

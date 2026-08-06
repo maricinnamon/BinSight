@@ -1,7 +1,7 @@
 task: detect
 mode: train
-model: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640/weights/last.pt
-data: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/configs/dataset_run_002.yaml
+model: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640/weights/last.pt
+data: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/configs/dataset_run_002.yaml
 epochs: 100
 time: null
 patience: 20
@@ -12,7 +12,7 @@ save_period: -1
 cache: false
 device: mps
 workers: 0
-project: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs
+project: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs
 name: yolo26n_run_002_full_taco_640
 exist_ok: false
 pretrained: true
@@ -24,7 +24,7 @@ single_cls: false
 rect: false
 cos_lr: false
 close_mosaic: 10
-resume: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640/weights/last.pt
+resume: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640/weights/last.pt
 amp: true
 fraction: 1.0
 profile: false
@@ -106,4 +106,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640
+save_dir: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_002_full_taco_640

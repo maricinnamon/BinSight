@@ -95,7 +95,7 @@
   },
   "candidates": {
     "float32": {
-      "path": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/trashnet_classifier/models/tflite/binsight_trashnet_float32.tflite",
+      "path": "<PROJECT_ROOT>/ml/trashnet_classifier/models/tflite/binsight_trashnet_float32.tflite",
       "size_bytes": 3760064,
       "size_mb": 3.76,
       "sha256": "de62bad3accc1bcb9a2f3c95abd10c164c01bc551c69a4e67d2b98eee3ca3204",
@@ -169,7 +169,7 @@
       "mean_abs_prob_diff_vs_keras": 4.003391893547814e-07
     },
     "float16": {
-      "path": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/trashnet_classifier/models/tflite/binsight_trashnet_float16.tflite",
+      "path": "<PROJECT_ROOT>/ml/trashnet_classifier/models/tflite/binsight_trashnet_float16.tflite",
       "size_bytes": 1935484,
       "size_mb": 1.935,
       "sha256": "c6cebd0c48d53b09701298a3b07581ab29dfedb31af2a5a63ffedc877032d501",
@@ -243,7 +243,7 @@
       "mean_abs_prob_diff_vs_keras": 0.0009943763725459576
     },
     "int8": {
-      "path": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/trashnet_classifier/models/tflite/binsight_trashnet_int8.tflite",
+      "path": "<PROJECT_ROOT>/ml/trashnet_classifier/models/tflite/binsight_trashnet_int8.tflite",
       "size_bytes": 1235200,
       "size_mb": 1.235,
       "sha256": "46a4249d86a4cba5355f799ed9a9c9c584270439b0d0f73d091ef0ffe2bf261a",

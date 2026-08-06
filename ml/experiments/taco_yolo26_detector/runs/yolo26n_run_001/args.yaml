@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolo26n.pt
-data: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/configs/dataset.yaml
+data: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/configs/dataset.yaml
 epochs: 100
 time: null
 patience: 20
@@ -12,7 +12,7 @@ save_period: -1
 cache: false
 device: mps
 workers: 4
-project: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs
+project: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs
 name: yolo26n_run_001
 exist_ok: false
 pretrained: true
@@ -106,4 +106,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_001
+save_dir: <PROJECT_ROOT>/ml/experiments/taco_yolo26_detector/runs/yolo26n_run_001

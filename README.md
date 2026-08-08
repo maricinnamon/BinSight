@@ -1,3 +1,20 @@
+## Status
+
+**The app ships without a model.** `ScannerView.makeClassifier()` returns `nil`,
+so the camera runs and the scanner reports its `.modelUnavailable` state rather
+than inventing labels. Nothing is recognised — that is the intended current
+behaviour, not a bug.
+
+The ML experiments that previously lived in `ml/` (a TrashNet TensorFlow
+classifier and three TACO YOLO26 detector runs) were removed from the working
+tree to reclaim disk. They remain in Git history and on GitHub; nothing is lost.
+The last commit containing them is `05eb8ed`.
+
+To restore recognition: implement `WasteClassifying`, return it from
+`makeClassifier()`, and add the runtime back to the `Podfile`. The engine, the
+prediction smoother and every test above that seam are written against the
+protocol and need no changes.
+
 # BinSight
 
 An iOS app that points the camera at a single piece of waste and tells you which bin it

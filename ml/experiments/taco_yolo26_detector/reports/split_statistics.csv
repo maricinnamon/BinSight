@@ -1,9 +1,0 @@
-class_id,class,total_annotations,train_annotations,train_images,val_annotations,val_images,test_annotations,test_images,train_pct,val_pct,test_pct
-0,bag_wrapper,430,299,165,64,40,67,16,69.5,14.9,15.6
-1,bottle,152,105,86,23,18,24,22,69.1,15.1,15.8
-2,bottle_cap,130,87,77,24,14,19,17,66.9,18.5,14.6
-3,can,129,88,58,21,17,20,8,68.2,16.3,15.5
-4,carton,85,58,41,14,10,13,11,68.2,16.5,15.3
-5,cigarette,186,128,44,30,11,28,10,68.8,16.1,15.1
-6,cup,83,58,47,13,10,12,11,69.9,15.7,14.5
-7,straw,95,55,43,12,8,28,4,57.9,12.6,29.5

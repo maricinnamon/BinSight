@@ -103,10 +103,11 @@ struct ClassificationResultMappingTests {
         #expect(order[5] == .generalWaste)
     }
 
-    @Test("The canonical order matches the trained model's labels.txt")
+    @Test("The canonical order is the contract any future model must satisfy")
     func matchesLabelsFile() {
         // These are TrashNet's own class-directory names, which is what the
-        // trained model emits and what ml/experiments/trashnet_tensorflow_baseline/labels.txt holds.
+        // any bundled model must emit. No model ships today, so this pins the
+        // contract rather than checking a file: a future classifier has to match it.
         let labels = WasteCategory.modelOutputOrder.map(\.modelLabel)
         #expect(labels == ["cardboard", "glass", "metal", "paper", "plastic", "trash"])
     }

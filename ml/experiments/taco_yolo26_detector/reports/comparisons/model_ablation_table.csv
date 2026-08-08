@@ -1,3 +1,0 @@
-run,dataset,imgsz,precision,recall,map50,map50_95,tiny_recall,small_recall,mps_p50_ms,winner
-yolo26n_run_001,partial TACO (509 img),640,0.2696,0.1853,0.2007,0.1586,0.0511,0.1739,48.488,
-yolo26n_run_002_full_taco_640,recovered TACO (1082 img),640,0.3158,0.247,0.2105,0.1453,0.0949,0.2125,,

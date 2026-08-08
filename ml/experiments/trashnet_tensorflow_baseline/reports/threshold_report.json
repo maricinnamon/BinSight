@@ -1,7 +1,0 @@
-{
-  "threshold": 0.65,
-  "coverage": 0.8733509234828496,
-  "accuracy_above_threshold": 0.8912386706948641,
-  "accuracy_below_threshold": 0.4375,
-  "note": "Coverage is the fraction of test images the app would name a class for. The rest would show 'Not sure'."
-}

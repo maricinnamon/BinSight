@@ -1,2 +1,0 @@
-annotation_id,image_id,category_id,category_name,bbox,image_width,image_height,problems
-1777,549,5,Clear plastic bottle,"[171.03125, -1.3166667, 518.35625, 413.4333367]",842,474,y < 0 (-1.3166667)

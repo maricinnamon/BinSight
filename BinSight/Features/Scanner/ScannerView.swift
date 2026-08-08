@@ -40,20 +40,22 @@ struct ScannerView: View {
         _engine = State(initialValue: engine ?? LiveScanEngine(classifier: Self.makeClassifier()))
     }
 
-    /// The live classifier, or `nil` when one cannot be built.
+    /// The live classifier, or `nil` when there is none.
     ///
-    /// Returning `nil` — a missing model, a labels file that does not match the
-    /// output tensor, a failed interpreter — leaves the engine in its honest
-    /// `.modelUnavailable` state rather than pretending to classify. It is
-    /// never a crash: a broken bundle should degrade the screen, not the app.
+    /// **Placeholder.** No model currently ships with the app, so this returns
+    /// `nil` and the engine settles into its honest `.modelUnavailable` state:
+    /// the camera runs, the screen says the classifier is unavailable, and
+    /// nothing is recognised. That is deliberate — an app that silently shows
+    /// invented labels is worse than one that admits it has no model.
+    ///
+    /// To restore recognition, build a type conforming to `WasteClassifying`
+    /// and return it here. Nothing else in the pipeline changes: the engine,
+    /// the smoother and every test above this line are written against the
+    /// protocol, not against any particular runtime.
     private static func makeClassifier() -> WasteClassifying? {
-        do {
-            return try LiteRTWasteClassifier()
-        } catch {
-            Logger(subsystem: "com.marynaantonevych.BinSight", category: "classifier")
-                .error("Classifier unavailable: \(String(describing: error), privacy: .public)")
-            return nil
-        }
+        Logger(subsystem: "com.marynaantonevych.BinSight", category: "classifier")
+            .notice("No classifier bundled — running in placeholder mode.")
+        return nil
     }
 
     private var displayState: ScannerDisplayState {

@@ -1,4 +1,6 @@
-# BinSight
+# ♻️ BinSight
+
+> 📱 **iOS app** · 🧠 **YOLO26n object detection** · 🍎 **CoreML** · 🎯 **Real-time, fully on-device**
 
 **On-device waste detection for iOS.** BinSight points the iPhone camera at a
 scene and draws live bounding boxes around **paper**, **plastic** and **metal**,
@@ -10,43 +12,47 @@ The detector localises *and* classifies in a single pass. There is no second
 classification stage, no segmentation, and — because YOLO26 is end-to-end — no
 non-maximum suppression anywhere in the app.
 
+> 🎯 **Held-out test mAP@50:** 0.6480 · **mAP@50-95:** 0.4620
+> 📐 **PyTorch → CoreML mean box IoU:** 0.9928
+> 🔒 **Deployment:** fully on-device CoreML inference, no network
+
 ---
 
-## Demo
+## 🎥 Demo
 
 Not yet recorded. A screenshot or capture will be added once the app has been
 filmed on a physical device; nothing is linked here that does not exist.
 
 ---
 
-## Features
+## ✨ Features
 
-- Real-time detection from the live camera at ~4 inferences/second
-- Bounding boxes with class name and confidence (`Plastic 81%`)
-- Three materials: paper, plastic, metal
-- Fully on-device CoreML inference — no network, no server, no account
-- Bounded memory: one inference in flight, newest frame only, no frame backlog
-- Honest failure states: camera denied, camera unavailable, model unavailable
-
----
-
-## ML pipeline
-
-```
-Roboflow object-detection dataset (6 classes)
-   ↓  deterministic filtering + class remapping (seed 42, grouped split)
-3-class detection dataset — 5,074 images / 16,173 boxes
-   ↓  fine-tuning from COCO-pretrained yolo26n.pt
-YOLO26n detector, nc=3
-   ↓  held-out test evaluation
-   ↓  FP16 CoreML export (.mlpackage)
-   ↓  PyTorch ↔ CoreML parity validation
-iOS app — AVCaptureSession → letterbox → CoreML → SwiftUI overlay
-```
+- 📷 **Live camera detection** — ~4 inferences/second from the video feed
+- 🏷️ **Boxes, class and confidence** — drawn as an overlay (`Plastic 81%`)
+- 📦 **Three material classes** — paper, plastic and metal
+- 🍎 **Fully on-device CoreML** — no network, no server, no account
+- 🧊 **Bounded memory** — one inference in flight, newest frame only, no backlog
+- 🚦 **Honest failure states** — camera denied, camera unavailable, model unavailable
 
 ---
 
-## Dataset
+## 🧠 ML pipeline
+
+```
+📦  Roboflow object-detection dataset (6 classes)
+     ↓  🧹 deterministic filtering + class remapping (seed 42, grouped split)
+🗂️  3-class detection dataset — 5,074 images / 16,173 boxes
+     ↓  🧠 fine-tuning from COCO-pretrained yolo26n.pt
+🤖  YOLO26n detector, nc=3
+     ↓  📊 held-out test evaluation
+     ↓  🍎 FP16 CoreML export (.mlpackage)
+     ↓  🔬 PyTorch ↔ CoreML parity validation
+📱  iOS app — AVCaptureSession → letterbox → CoreML → SwiftUI overlay
+```
+
+---
+
+## 📦 Dataset
 
 | | |
 |---|---|
@@ -64,7 +70,9 @@ re-reads everything from disk independently of the preparation script and checks
 label geometry, field counts, orphans, corrupt images and cross-split content
 hashes. It reports 0 corrupt images, 0 invalid labels and 0 leakage.
 
-### Source and attribution
+<a id="source-and-attribution"></a>
+
+### 📜 Source and attribution
 
 This project uses a **filtered and re-mapped subset** of a third-party dataset.
 It does not claim ownership of the source data.
@@ -93,18 +101,18 @@ class incoherent. `scripts/prepare_waste_dataset.py` reads the source class orde
 from the source `data.yaml` instead of hardcoding it, because hardcoding the
 final order onto source ids would have mislabelled the dataset silently.
 
-**The raw dataset is not committed** — 123 MB of images and labels. The
+⚠️ **The raw dataset is not committed** — 123 MB of images and labels. The
 preparation and validation scripts, `data.yaml`, the manifest and the reports
 are, so the dataset can be rebuilt. See [Reproducing the ML work](#reproducing-the-ml-work).
 
-Full detail: [`datasets/binsight_waste_3class/dataset_report.md`](datasets/binsight_waste_3class/dataset_report.md).
+📄 Full detail: [`datasets/binsight_waste_3class/dataset_report.md`](datasets/binsight_waste_3class/dataset_report.md).
 
 ---
 
-## Model
+## 🤖 Model
 
-**YOLO26n, fine-tuned from official COCO-pretrained weights. Not trained from
-scratch.**
+> 🧠 **YOLO26n, fine-tuned from official COCO-pretrained weights. Not trained
+> from scratch.**
 
 | | |
 |---|---|
@@ -114,16 +122,16 @@ scratch.**
 | Best epoch | 25 (no early stopping; 22 of 25 epochs set a new best) |
 | Duration | 6.85 h |
 
-The training script refuses to start unless the checkpoint is genuinely
+🛡️ The training script refuses to start unless the checkpoint is genuinely
 pretrained: it asserts the checkpoint dict is present, the head is `Detect`, and
 the BatchNorm running statistics are non-trivial — an untrained model has exactly
 zero means and unit variances.
 
-Full detail: [`reports/yolo26n_training_report.md`](reports/yolo26n_training_report.md).
+📄 Full detail: [`reports/yolo26n_training_report.md`](reports/yolo26n_training_report.md).
 
 ---
 
-## Results
+## 📊 Results
 
 Validation guided checkpoint selection, so **the held-out test split is the
 headline number** — quoting validation as final performance would report a figure
@@ -148,14 +156,14 @@ Per class, on the held-out test split:
 The val→test drop (mAP50-95 0.5070 → 0.4620) is about 0.045 — modest, and
 consistent with mild selection bias rather than overfitting.
 
-`metal` is the strongest class on both splits: cans and foil have hard edges and
-consistent specular highlights. `paper` is the weakest, with recall of exactly
-0.50 — it is deformable, often crumpled, and shades into cardboard, a class the
-taxonomy deliberately excludes.
+🥇 `metal` is the strongest class on both splits: cans and foil have hard edges
+and consistent specular highlights. `paper` is the weakest, with recall of
+exactly 0.50 — it is deformable, often crumpled, and shades into cardboard, a
+class the taxonomy deliberately excludes.
 
 ---
 
-## CoreML parity
+## 🔬 CoreML export & parity
 
 Converting PyTorch → CoreML can silently transpose coordinates, reorder classes
 or quantise a model into uselessness, and none of that shows up as an error. So
@@ -178,45 +186,45 @@ translucent plastic bag labelled `paper 0.278` by PyTorch and `plastic 0.284` by
 CoreML: the same box, a genuine near-tie tipped by FP16 rounding. The two extra
 CoreML detections both sit within 0.04 of the 0.25 threshold.
 
-Confident detections are unaffected — the strongest example of each class
+✅ Confident detections are unaffected — the strongest example of each class
 reproduces at IoU ≥ 0.9967 with confidence deltas under 0.0005.
 
-Full detail: [`reports/coreml_export_report.md`](reports/coreml_export_report.md).
+📄 Full detail: [`reports/coreml_export_report.md`](reports/coreml_export_report.md).
 
 ---
 
-## iOS inference architecture
+## 📱 iOS inference architecture
 
 ```
-AVCaptureSession        1280×720, rotated to portrait 720×1280 BGRA, 4 fps
-        ↓
-letterbox to 640×640    scale = min(640/w, 640/h), centred, RGB(114,114,114) pad
-        ↓               for 720×1280: scale 0.5, padX 140, padY 0
-BinSightYOLO26n         CoreML ML Program, FP16, computeUnits = .all
-        ↓
-[1, 300, 6]             rows of [x1, y1, x2, y2, confidence, class_id]
-        ↓
-confidence ≥ 0.25       plus finite / x2>x1 / y2>y1 / known-class checks
-        ↓
-xyxy un-letterbox       (v − pad) / scale, clamped to the frame
-        ↓
-preview projection      buffer pixels → aspect-fill preview points
-        ↓
-SwiftUI overlay         box + class + confidence
+🎥  AVCaptureSession     1280×720, rotated to portrait 720×1280 BGRA, 4 fps
+         ↓
+🖼️  letterbox to 640×640  scale = min(640/w, 640/h), centred, RGB(114,114,114) pad
+         ↓                for 720×1280: scale 0.5, padX 140, padY 0
+🍎  BinSightYOLO26n      CoreML ML Program, FP16, computeUnits = .all
+         ↓
+🔢  [1, 300, 6]          rows of [x1, y1, x2, y2, confidence, class_id]
+         ↓
+🎚️  confidence ≥ 0.25    plus finite / x2>x1 / y2>y1 / known-class checks
+         ↓
+📐  xyxy un-letterbox    (v − pad) / scale, clamped to the frame
+         ↓
+🗺️  preview projection   buffer pixels → aspect-fill preview points
+         ↓
+🖥️  SwiftUI overlay      box + class + confidence
 ```
 
 Four things that are easy to get wrong, and how this app handles them:
 
-- **No app-side NMS.** YOLO26 is end-to-end (`end2end = True`); the rows are
+- 🚫 **No app-side NMS.** YOLO26 is end-to-end (`end2end = True`); the rows are
   already deduplicated and Ultralytics forces `nms=False` when exporting. Adding
   NMS would suppress genuinely overlapping objects — one evaluation image has 11
   valid overlapping `metal` boxes.
-- **No manual normalisation.** The exported input layer carries `scale = 1/255`.
+- 🔢 **No manual normalisation.** The exported input layer carries `scale = 1/255`.
   Dividing again in Swift would hand the model a near-black image.
-- **Boxes are xyxy, not xywh.** Ultralytics' own `postprocess` docstring says
+- 📐 **Boxes are xyxy, not xywh.** Ultralytics' own `postprocess` docstring says
   xywh; for this checkpoint that is wrong, and decoding as xywh yields negative
   coordinates. Verified empirically against PyTorch.
-- **The output feature name is not hardcoded.** The exported tensor is called
+- 🏷️ **The output feature name is not hardcoded.** The exported tensor is called
   `var_1441`, which is compiler-generated and unstable across re-exports; it is
   resolved from `MLModelDescription` at load time.
 
@@ -225,13 +233,13 @@ points. The preview is `.resizeAspectFill`, so it shows a *centre crop* — scal
 by `previewSize / bufferSize` is wrong by a translation as well as a scale, and a
 unit test exists specifically to prove the naive version is wrong.
 
-Full detail: [`docs/DETECTION_PIPELINE.md`](docs/DETECTION_PIPELINE.md).
+📄 Full detail: [`docs/DETECTION_PIPELINE.md`](docs/DETECTION_PIPELINE.md).
 
 ---
 
-## Performance
+## ⚡ Performance
 
-> **Measured on the iOS Simulator, which has no Neural Engine.** These are not
+> ⚠️ **Measured on the iOS Simulator, which has no Neural Engine.** These are not
 > iPhone figures. Physical-device latency has not been measured yet.
 
 Observed across several runs of the `inferenceLatency` test (10 iterations after
@@ -252,17 +260,19 @@ reused; nothing is allocated per frame.
 
 ---
 
-## Tech stack
+<a id="tech-stack"></a>
 
-**iOS** — Swift 5, SwiftUI, AVFoundation, CoreML, CoreImage, CoreVideo,
+## 🧰 Tech stack
+
+📱 **iOS** — Swift 5, SwiftUI, AVFoundation, CoreML, CoreImage, CoreVideo,
 swift-testing, XCTest (UI tests). iOS 17+.
 
-**ML** — Python 3.11, PyTorch 2.13 (MPS), Ultralytics 8.4.9, coremltools 9.0,
+🐍 **ML** — Python 3.11, PyTorch 2.13 (MPS), Ultralytics 8.4.9, coremltools 9.0,
 NumPy, OpenCV, Pillow, PyYAML.
 
 ---
 
-## Repository structure
+## 📁 Repository structure
 
 ```
 BinSight/                      iOS app
@@ -282,7 +292,7 @@ reports/                       training and CoreML export reports
 docs/                          architecture, model card, device testing
 ```
 
-### Release artifacts
+### 🎁 Release artifacts
 
 Two, both committed, and they are the only two:
 
@@ -298,9 +308,9 @@ survives in Git without the 460 MB of training output around it. With it
 committed, CoreML can be re-exported, and the model re-evaluated, **without
 retraining**.
 
-**`runs/` is not committed** — 460 MB of `last.pt`, 25 per-epoch checkpoints from
-`save_period=1`, batch previews and plots. Only the final checkpoint above is
-preserved.
+⚠️ **`runs/` is not committed** — 460 MB of `last.pt`, 25 per-epoch checkpoints
+from `save_period=1`, batch previews and plots. Only the final checkpoint above
+is preserved.
 
 `scripts/export_yolo26n_coreml.py` writes its output to `models/coreml/`, which is
 then copied into `BinSight/Resources/Models/`. Only the app's copy is tracked —
@@ -308,7 +318,7 @@ committing both would put two byte-identical 4.8 MB blobs in Git. The small JSON
 files in `models/coreml/` are the export and parity verification record and *are*
 committed.
 
-**Retired code.** `LiveScanEngine`, `WasteClassifying`, `MockWasteClassifier`,
+🗄️ **Retired code.** `LiveScanEngine`, `WasteClassifying`, `MockWasteClassifier`,
 `PredictionSmoother` and `ScoreVector` implemented an earlier six-class TrashNet
 classifier. They are disconnected from the production runtime — nothing in the
 shipping path constructs them and no model backs them — but they still compile
@@ -317,7 +327,9 @@ with the behaviour those tests document.
 
 ---
 
-## Reproducing the ML work
+<a id="reproducing-the-ml-work"></a>
+
+## 🧪 Reproducing the ML work
 
 Requires a Python environment with the packages listed under
 [Tech stack](#tech-stack), and the source archive from Roboflow (link above)
@@ -335,7 +347,7 @@ python scripts/verify_coreml_parity.py       # PyTorch ↔ CoreML parity
 python scripts/make_ios_test_fixtures.py     # regenerate the Swift test fixtures
 ```
 
-Steps up to and including training are only needed to reproduce the model from
+⏭️ Steps up to and including training are only needed to reproduce the model from
 scratch. Because `models/pytorch/BinSightYOLO26n.pt` is committed, the export,
 parity and fixture steps can be run directly against it:
 
@@ -349,14 +361,14 @@ Then copy the exported package into the app target:
 rm -rf BinSight/Resources/Models/BinSightYOLO26n.mlpackage && cp -R models/coreml/BinSightYOLO26n.mlpackage BinSight/Resources/Models/
 ```
 
-**Training is not bit-reproducible.** The seed is fixed at 42 and the split is
+⚠️ **Training is not bit-reproducible.** The seed is fixed at 42 and the split is
 deterministic, but PyTorch's MPS backend does not guarantee deterministic
 reductions, so metrics will land close to — not identically on — the figures
 above. The dataset build *is* deterministic and its manifest is committed.
 
 ---
 
-## Running the iOS app
+## 🚀 Running the iOS app
 
 Requires Xcode 16+ and a device or simulator on iOS 17+.
 
@@ -364,9 +376,9 @@ Requires Xcode 16+ and a device or simulator on iOS 17+.
 open BinSight.xcworkspace
 ```
 
-Build the `BinSight` scheme. Open the **workspace**, not the `.xcodeproj`.
+Build the `BinSight` scheme. 📌 Open the **workspace**, not the `.xcodeproj`.
 
-The camera is only available on a physical device — the simulator has none, so
+📷 The camera is only available on a physical device — the simulator has none, so
 the app there shows its camera-unavailable state, which is the designed
 behaviour. On first launch the app asks for camera permission
 (`NSCameraUsageDescription`: *"BinSight uses the camera to classify waste items
@@ -381,44 +393,44 @@ xcodebuild -workspace BinSight.xcworkspace -scheme BinSight -destination 'platfo
 
 ---
 
-## Limitations
+## ⚠️ Limitations
 
-- **Three materials only.** Paper, plastic and metal. Cardboard, glass and
+- 📦 **Three materials only.** Paper, plastic and metal. Cardboard, glass and
   organic waste are outside the taxonomy — the detector will either miss them or
   force them into one of the three classes.
-- **This is not a recycling authority.** Guidance shown in the app is generic
+- ⚖️ **This is not a recycling authority.** Guidance shown in the app is generic
   material advice, never a particular council's rules.
-- **Recall is 0.578 on the held-out test split.** Roughly two in five annotated
+- 🎯 **Recall is 0.578 on the held-out test split.** Roughly two in five annotated
   objects are missed at the 0.25 threshold. It finds things reliably; it does not
   find everything.
-- **Paper is the hardest class** (AP50-95 0.4386, recall 0.50) and is the one
+- 📄 **Paper is the hardest class** (AP50-95 0.4386, recall 0.50) and is the one
   most often confused with plastic on translucent or crumpled items.
-- **Domain gap.** Training imagery is product-style photography at 416×416, not
+- 🔀 **Domain gap.** Training imagery is product-style photography at 416×416, not
   handheld camera frames at arm's length under kitchen lighting. Live performance
   can be expected to fall short of the test figures.
-- **Device latency is unmeasured.** The numbers above are simulator numbers.
-- **Live behaviour has been confirmed only qualitatively.** A signed build was
+- ⏱️ **Device latency is unmeasured.** The numbers above are simulator numbers.
+- 👁️ **Live behaviour has been confirmed only qualitatively.** A signed build was
   run on an iPhone 15: boxes appear, track objects, stay aligned near the frame
   edges, and paper/plastic/metal are labelled correctly. No quantitative
   device-side accuracy or latency measurement has been taken.
 
 ---
 
-## Future work
+## 🔮 Future work
 
-- Expand the taxonomy — cardboard and glass are the obvious next two
-- Collect real handheld camera-domain images to close the domain gap
-- Measure and optimise latency on device; consider INT8 if it is justified
-- Record a demo capture
+- 🧩 Expand the taxonomy — cardboard and glass are the obvious next two
+- 📸 Collect real handheld camera-domain images to close the domain gap
+- ⚡ Measure and optimise latency on device; consider INT8 if it is justified
+- 🎬 Record a demo capture
 
 ---
 
-## Licence and attribution
+## 📜 Licence and attribution
 
 The dataset is third-party and separately licensed — see
 [Source and attribution](#source-and-attribution) and
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-Ultralytics YOLO26 and the weights derived from it are **AGPL-3.0**, which the
+⚖️ Ultralytics YOLO26 and the weights derived from it are **AGPL-3.0**, which the
 exported CoreML package inherits. That is a genuine constraint on redistributing
 this app, and it is recorded rather than glossed over.

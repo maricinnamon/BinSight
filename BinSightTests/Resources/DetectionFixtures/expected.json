@@ -1,0 +1,86 @@
+{
+  "generatedBy": "scripts/make_ios_test_fixtures.py",
+  "package": "models/coreml/BinSightYOLO26n.mlpackage",
+  "outputFeature": "var_1441",
+  "confidenceThreshold": 0.25,
+  "coordinateSpace": "source-image pixels, origin top-left",
+  "fixtures": [
+    {
+      "image": "confident_paper.jpg",
+      "sourceWidth": 416,
+      "sourceHeight": 416,
+      "note": "square 416x416 \u2014 letterbox needs no padding",
+      "expected": [
+        {
+          "className": "paper",
+          "classID": 0,
+          "confidence": 0.9619,
+          "x": 0.0,
+          "y": 0.57,
+          "width": 415.02,
+          "height": 415.43
+        }
+      ]
+    },
+    {
+      "image": "confident_plastic.jpg",
+      "sourceWidth": 416,
+      "sourceHeight": 416,
+      "note": "square 416x416 \u2014 letterbox needs no padding",
+      "expected": [
+        {
+          "className": "plastic",
+          "classID": 1,
+          "confidence": 0.959,
+          "x": 132.6,
+          "y": 23.24,
+          "width": 149.17,
+          "height": 68.66
+        },
+        {
+          "className": "plastic",
+          "classID": 1,
+          "confidence": 0.5107,
+          "x": 117.41,
+          "y": 22.99,
+          "width": 181.11,
+          "height": 367.33
+        }
+      ]
+    },
+    {
+      "image": "confident_metal.jpg",
+      "sourceWidth": 416,
+      "sourceHeight": 416,
+      "note": "square 416x416 \u2014 letterbox needs no padding",
+      "expected": [
+        {
+          "className": "metal",
+          "classID": 2,
+          "confidence": 0.9756,
+          "x": 116.02,
+          "y": 37.62,
+          "width": 177.12,
+          "height": 302.33
+        }
+      ]
+    },
+    {
+      "image": "portrait_frame.jpg",
+      "sourceWidth": 720,
+      "sourceHeight": 1280,
+      "note": "portrait 720x1280 \u2014 the capture shape; letterbox pads x by 140",
+      "expected": [
+        {
+          "className": "metal",
+          "classID": 2,
+          "confidence": 0.9463,
+          "x": 205.5,
+          "y": 342.75,
+          "width": 305.0,
+          "height": 527.25
+        }
+      ]
+    }
+  ]
+}

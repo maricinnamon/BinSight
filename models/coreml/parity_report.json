@@ -1,0 +1,823 @@
+{
+  "sample": {
+    "count": 10,
+    "seed": 42,
+    "conf": 0.25,
+    "iou_threshold": 0.5,
+    "images": [
+      "plastic1146_jpg.rf.b01cd2d83a0ca471c71e9bebf8cd8552.jpg",
+      "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg",
+      "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg",
+      "paper2255_jpg.rf.5e6a14f53f14d0394bac2d95eba1e665.jpg",
+      "plastic92_jpg.rf.80ff2ef902acd67cad017d715f225230.jpg",
+      "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg",
+      "plastic571_jpg.rf.8d3e0a8cfa8cb972e42bcda100a9f2bd.jpg",
+      "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg",
+      "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg",
+      "plastic823_jpg.rf.6956a1b3b790a58668edc24e981014e2.jpg"
+    ]
+  },
+  "matching": "greedy highest-IoU on geometry alone; class compared afterwards",
+  "totals": {
+    "torch_detections": 27,
+    "coreml_detections": 29,
+    "matched": 27,
+    "class_agreement_pct": 96.3,
+    "class_agreements": 26,
+    "class_flips": 1,
+    "mean_iou": 0.9928,
+    "min_iou": 0.9771,
+    "mean_abs_conf_delta": 0.01717,
+    "max_abs_conf_delta": 0.09654,
+    "unmatched_torch": 0,
+    "unmatched_coreml": 2
+  },
+  "class_disagreements": [
+    {
+      "image": "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg",
+      "iou": 0.986,
+      "torch": {
+        "class": "paper",
+        "confidence": 0.27766
+      },
+      "coreml": {
+        "class": "plastic",
+        "confidence": 0.28418
+      }
+    }
+  ],
+  "result": "PASS",
+  "failures": [],
+  "per_image": [
+    {
+      "image": "plastic1146_jpg.rf.b01cd2d83a0ca471c71e9bebf8cd8552.jpg",
+      "torch": 8,
+      "coreml": 9,
+      "matched": 8,
+      "mean_iou": 0.9891,
+      "unmatched_torch": [],
+      "unmatched_coreml": [
+        {
+          "class_id": 1,
+          "class_name": "plastic",
+          "confidence": 0.29199,
+          "bbox_xyxy": [
+            4.71,
+            0.0,
+            410.15,
+            413.07
+          ]
+        }
+      ]
+    },
+    {
+      "image": "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg",
+      "torch": 0,
+      "coreml": 0,
+      "matched": 0,
+      "mean_iou": null,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg",
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "mean_iou": 0.9974,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "paper2255_jpg.rf.5e6a14f53f14d0394bac2d95eba1e665.jpg",
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "mean_iou": 0.9935,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "plastic92_jpg.rf.80ff2ef902acd67cad017d715f225230.jpg",
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "mean_iou": 0.9975,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg",
+      "torch": 3,
+      "coreml": 3,
+      "matched": 3,
+      "mean_iou": 0.9933,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "plastic571_jpg.rf.8d3e0a8cfa8cb972e42bcda100a9f2bd.jpg",
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "mean_iou": 0.9977,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg",
+      "torch": 0,
+      "coreml": 0,
+      "matched": 0,
+      "mean_iou": null,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    },
+    {
+      "image": "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg",
+      "torch": 11,
+      "coreml": 12,
+      "matched": 11,
+      "mean_iou": 0.9935,
+      "unmatched_torch": [],
+      "unmatched_coreml": [
+        {
+          "class_id": 2,
+          "class_name": "metal",
+          "confidence": 0.25195,
+          "bbox_xyxy": [
+            47.17,
+            0.69,
+            174.53,
+            106.03
+          ]
+        }
+      ]
+    },
+    {
+      "image": "plastic823_jpg.rf.6956a1b3b790a58668edc24e981014e2.jpg",
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "mean_iou": 0.9973,
+      "unmatched_torch": [],
+      "unmatched_coreml": []
+    }
+  ],
+  "torch_predictions": {
+    "plastic1146_jpg.rf.b01cd2d83a0ca471c71e9bebf8cd8552.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.35571,
+        "bbox_xyxy": [
+          33.38,
+          306.96,
+          178.76,
+          415.65
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.35177,
+        "bbox_xyxy": [
+          13.48,
+          0.0,
+          414.06,
+          414.29
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.34809,
+        "bbox_xyxy": [
+          0.35,
+          109.09,
+          155.21,
+          409.87
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.34109,
+        "bbox_xyxy": [
+          103.99,
+          161.94,
+          268.94,
+          414.38
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.32142,
+        "bbox_xyxy": [
+          13.29,
+          0.0,
+          163.7,
+          185.92
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.29858,
+        "bbox_xyxy": [
+          6.51,
+          0.0,
+          252.38,
+          291.74
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.28101,
+        "bbox_xyxy": [
+          334.63,
+          1.39,
+          415.74,
+          284.86
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.28032,
+        "bbox_xyxy": [
+          2.33,
+          0.0,
+          163.02,
+          197.89
+        ]
+      }
+    ],
+    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [],
+    "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.95098,
+        "bbox_xyxy": [
+          14.85,
+          56.24,
+          355.54,
+          416.0
+        ]
+      }
+    ],
+    "paper2255_jpg.rf.5e6a14f53f14d0394bac2d95eba1e665.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.96112,
+        "bbox_xyxy": [
+          68.59,
+          61.31,
+          291.35,
+          415.13
+        ]
+      }
+    ],
+    "plastic92_jpg.rf.80ff2ef902acd67cad017d715f225230.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.91387,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          409.64,
+          411.32
+        ]
+      }
+    ],
+    "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.56453,
+        "bbox_xyxy": [
+          42.16,
+          21.24,
+          365.85,
+          163.59
+        ]
+      },
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.49866,
+        "bbox_xyxy": [
+          44.16,
+          21.43,
+          365.17,
+          163.7
+        ]
+      },
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.27766,
+        "bbox_xyxy": [
+          43.15,
+          215.05,
+          364.14,
+          396.71
+        ]
+      }
+    ],
+    "plastic571_jpg.rf.8d3e0a8cfa8cb972e42bcda100a9f2bd.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.96163,
+        "bbox_xyxy": [
+          93.64,
+          57.0,
+          370.06,
+          412.94
+        ]
+      }
+    ],
+    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [],
+    "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg": [
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.72341,
+        "bbox_xyxy": [
+          1.02,
+          0.53,
+          61.42,
+          56.38
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.62388,
+        "bbox_xyxy": [
+          117.95,
+          192.92,
+          177.63,
+          273.28
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.57909,
+        "bbox_xyxy": [
+          21.5,
+          50.6,
+          57.31,
+          142.81
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.45522,
+        "bbox_xyxy": [
+          67.4,
+          1.09,
+          173.04,
+          60.36
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.44026,
+        "bbox_xyxy": [
+          2.7,
+          138.7,
+          70.86,
+          181.41
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.38754,
+        "bbox_xyxy": [
+          257.1,
+          343.88,
+          323.46,
+          392.59
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.37779,
+        "bbox_xyxy": [
+          298.12,
+          133.86,
+          415.26,
+          414.54
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.36429,
+        "bbox_xyxy": [
+          280.04,
+          129.09,
+          412.21,
+          412.49
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.3076,
+        "bbox_xyxy": [
+          159.84,
+          47.03,
+          279.37,
+          323.5
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.30192,
+        "bbox_xyxy": [
+          57.02,
+          110.74,
+          115.38,
+          200.26
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25928,
+        "bbox_xyxy": [
+          96.7,
+          126.68,
+          158.38,
+          215.94
+        ]
+      }
+    ],
+    "plastic823_jpg.rf.6956a1b3b790a58668edc24e981014e2.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.96011,
+        "bbox_xyxy": [
+          94.82,
+          162.16,
+          302.8,
+          322.75
+        ]
+      }
+    ]
+  },
+  "coreml_predictions": {
+    "plastic1146_jpg.rf.b01cd2d83a0ca471c71e9bebf8cd8552.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.37109,
+        "bbox_xyxy": [
+          104.24,
+          163.31,
+          269.1,
+          414.38
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.36719,
+        "bbox_xyxy": [
+          33.31,
+          307.29,
+          178.91,
+          416.0
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.34375,
+        "bbox_xyxy": [
+          0.41,
+          108.88,
+          154.86,
+          409.5
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.32617,
+        "bbox_xyxy": [
+          12.03,
+          0.0,
+          407.88,
+          416
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.3252,
+        "bbox_xyxy": [
+          12.72,
+          0.0,
+          163.96,
+          186.22
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.30176,
+        "bbox_xyxy": [
+          6.83,
+          0.0,
+          252.69,
+          294.45
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.29297,
+        "bbox_xyxy": [
+          335.4,
+          1.38,
+          415.68,
+          287.46
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.29199,
+        "bbox_xyxy": [
+          4.71,
+          0.0,
+          410.15,
+          413.07
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.28809,
+        "bbox_xyxy": [
+          2.15,
+          0.0,
+          163.56,
+          198.25
+        ]
+      }
+    ],
+    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [],
+    "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.94922,
+        "bbox_xyxy": [
+          14.46,
+          56.39,
+          355.88,
+          416
+        ]
+      }
+    ],
+    "paper2255_jpg.rf.5e6a14f53f14d0394bac2d95eba1e665.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.95801,
+        "bbox_xyxy": [
+          68.33,
+          61.43,
+          292.34,
+          415.35
+        ]
+      }
+    ],
+    "plastic92_jpg.rf.80ff2ef902acd67cad017d715f225230.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.91504,
+        "bbox_xyxy": [
+          0.0,
+          0.0,
+          410.15,
+          410.8
+        ]
+      }
+    ],
+    "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.58594,
+        "bbox_xyxy": [
+          41.76,
+          21.21,
+          365.95,
+          163.72
+        ]
+      },
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.49609,
+        "bbox_xyxy": [
+          43.55,
+          21.29,
+          365.3,
+          163.72
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.28418,
+        "bbox_xyxy": [
+          42.09,
+          214.99,
+          362.7,
+          397.8
+        ]
+      }
+    ],
+    "plastic571_jpg.rf.8d3e0a8cfa8cb972e42bcda100a9f2bd.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.96191,
+        "bbox_xyxy": [
+          93.44,
+          57.28,
+          370.18,
+          413.07
+        ]
+      }
+    ],
+    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [],
+    "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg": [
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.73535,
+        "bbox_xyxy": [
+          1.0,
+          0.51,
+          61.47,
+          56.51
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.60352,
+        "bbox_xyxy": [
+          118.14,
+          193.05,
+          177.78,
+          273.16
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.58008,
+        "bbox_xyxy": [
+          21.45,
+          50.62,
+          57.32,
+          142.84
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.44043,
+        "bbox_xyxy": [
+          279.82,
+          129.11,
+          412.1,
+          412.43
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.42383,
+        "bbox_xyxy": [
+          2.64,
+          138.69,
+          70.89,
+          181.19
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.4082,
+        "bbox_xyxy": [
+          257.24,
+          343.85,
+          323.38,
+          392.6
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.40039,
+        "bbox_xyxy": [
+          67.32,
+          1.08,
+          173.22,
+          60.0
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.32617,
+        "bbox_xyxy": [
+          57.04,
+          110.83,
+          115.29,
+          200.36
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.30957,
+        "bbox_xyxy": [
+          159.49,
+          47.29,
+          279.18,
+          322.24
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.28125,
+        "bbox_xyxy": [
+          297.54,
+          134.14,
+          415.35,
+          414.05
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.2627,
+        "bbox_xyxy": [
+          96.85,
+          126.91,
+          158.6,
+          215.64
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25195,
+        "bbox_xyxy": [
+          47.17,
+          0.69,
+          174.53,
+          106.03
+        ]
+      }
+    ],
+    "plastic823_jpg.rf.6956a1b3b790a58668edc24e981014e2.jpg": [
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.95898,
+        "bbox_xyxy": [
+          94.9,
+          162.26,
+          302.9,
+          322.56
+        ]
+      }
+    ]
+  }
+}

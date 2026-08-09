@@ -4,6 +4,17 @@ import os
 
 /// Drives the live loop: camera frames in, a stable display state out.
 ///
+/// > **Retired from the production runtime.** BinSight now detects rather than
+/// > classifies: `ScannerView` drives `LiveDetectionEngine` and the bundled
+/// > YOLO26 CoreML detector, and nothing in the shipping path constructs this
+/// > type any more. It is kept, along with `WasteClassifying`,
+/// > `MockWasteClassifier`, `PredictionSmoother` and `ScoreVector`, because
+/// > those types are covered by a working test suite that still documents how
+/// > the single-label pipeline behaved — deleting them would remove tests
+/// > without replacing what they proved. Nothing here loads a model: the
+/// > classifier seam has had no implementation since the LiteRT runtime was
+/// > removed.
+///
 /// ## Backpressure
 ///
 /// There is no queue and no explicit "am I busy" flag. The loop `await`s each
@@ -237,13 +248,5 @@ final class LiveScanEngine {
             previewSize: geometry.previewSize,
             bufferSize: bufferSize
         )
-    }
-}
-
-private extension Duration {
-    /// Seconds as a `Double`, from the component representation.
-    var seconds: TimeInterval {
-        let (whole, attoseconds) = components
-        return TimeInterval(whole) + TimeInterval(attoseconds) / 1e18
     }
 }

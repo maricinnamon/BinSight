@@ -1,0 +1,84 @@
+{
+  "source": {
+    "weights": "runs/detect/binsight_yolo26n_pretrained_final/weights/best.pt",
+    "sha256": "958e49a5fc8358442497bcb9ce98ca9b8e48a6a1da3bfb92539ac9d14f58ed67",
+    "size_bytes": 5385157,
+    "task": "detect",
+    "model_class": "DetectionModel",
+    "head_class": "Detect",
+    "nc": 3,
+    "names": {
+      "0": "paper",
+      "1": "plastic",
+      "2": "metal"
+    },
+    "parameters": 2504970,
+    "end2end": true,
+    "max_det": 300,
+    "reg_max": 1,
+    "strides": [
+      8,
+      16,
+      32
+    ]
+  },
+  "export_options": {
+    "format": "coreml",
+    "imgsz": 640,
+    "half": true,
+    "int8": false,
+    "nms": false,
+    "nms_reason": "forced False by Ultralytics for end2end models",
+    "batch": 1,
+    "dynamic": false,
+    "device": "cpu"
+  },
+  "coreml": {
+    "path": "models/coreml/BinSightYOLO26n.mlpackage",
+    "spec_version": 6,
+    "inputs": [
+      {
+        "name": "image",
+        "kind": "imageType",
+        "width": 640,
+        "height": 640,
+        "colorspace": "RGB"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "var_1441",
+        "kind": "multiArrayType",
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "dtype": "FLOAT32"
+      }
+    ],
+    "short_description": "Ultralytics YOLO26n model trained on /Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/datasets/binsight_waste_3class/data.yaml",
+    "author": "Ultralytics",
+    "license": "AGPL-3.0 License (https://ultralytics.com/license)",
+    "user_defined_metadata": {
+      "com.github.apple.coremltools.source_dialect": "TorchScript",
+      "stride": "32",
+      "date": "2026-08-09T21:59:50.762427",
+      "batch": "1",
+      "end2end": "True",
+      "imgsz": "[640, 640]",
+      "task": "detect",
+      "com.github.apple.coremltools.conversion_date": "2026-08-09",
+      "args": "{'batch': 1, 'half': True, 'int8': False, 'dynamic': False, 'nms': False}",
+      "docs": "https://docs.ultralytics.com",
+      "channels": "3",
+      "com.github.apple.coremltools.version": "9.0",
+      "names": "{0: 'paper', 1: 'plastic', 2: 'metal'}",
+      "com.github.apple.coremltools.source": "torch==2.13.0"
+    },
+    "tree_sha256": "161cad1b14ff12238129636d06d03ffc0c9a0648ac5e6d286572e82b5969e088",
+    "size_bytes": 5005354,
+    "file_count": 3
+  },
+  "ultralytics_wrote": "runs/detect/binsight_yolo26n_pretrained_final/weights/best.mlpackage"
+}

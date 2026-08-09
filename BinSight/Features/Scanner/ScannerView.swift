@@ -17,10 +17,17 @@ import os
 /// bin, and light text alone survives only one of those.
 struct ScannerView: View {
     @State private var camera: ScannerCameraModel
-    @State private var engine: LiveScanEngine
+    @State private var engine: LiveDetectionEngine
     /// Non-nil only when a preview, UI test or the DEBUG menu is driving.
+    ///
+    /// When set, the screen renders the **pinned** presentation — reticle and
+    /// `ResultCard` — rather than the live detector. That keeps every existing
+    /// preview and UI test meaningful without a camera or a model, and it is the
+    /// only path on which `ScannerDisplayState` still drives the UI.
     @State private var manualState: ScannerDisplayState?
     @State private var announcer = ResultAnnouncer()
+    /// Last set of class ids announced, so VoiceOver is not spammed per frame.
+    @State private var lastAnnouncedMaterials: Set<Int> = []
 
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -31,33 +38,28 @@ struct ScannerView: View {
     init(
         initialState: ScannerDisplayState? = nil,
         camera: ScannerCameraModel? = nil,
-        engine: LiveScanEngine? = nil
+        engine: LiveDetectionEngine? = nil
     ) {
         _manualState = State(initialValue: initialState)
         // Built here rather than as default arguments: default-argument
         // expressions are evaluated outside the main actor.
         _camera = State(initialValue: camera ?? ScannerCameraModel())
-        _engine = State(initialValue: engine ?? LiveScanEngine(classifier: Self.makeClassifier()))
+        // A pinned screen must not load CoreML: previews and UI tests run
+        // without the model and should stay that way.
+        _engine = State(initialValue: engine ?? (initialState == nil
+            ? LiveDetectionEngine.makeDefault()
+            : LiveDetectionEngine.preview()))
     }
 
-    /// The live classifier, or `nil` when there is none.
-    ///
-    /// **Placeholder.** No model currently ships with the app, so this returns
-    /// `nil` and the engine settles into its honest `.modelUnavailable` state:
-    /// the camera runs, the screen says the classifier is unavailable, and
-    /// nothing is recognised. That is deliberate — an app that silently shows
-    /// invented labels is worse than one that admits it has no model.
-    ///
-    /// To restore recognition, build a type conforming to `WasteClassifying`
-    /// and return it here. Nothing else in the pipeline changes: the engine,
-    /// the smoother and every test above this line are written against the
-    /// protocol, not against any particular runtime.
-    private static func makeClassifier() -> WasteClassifying? {
-        Logger(subsystem: "com.marynaantonevych.BinSight", category: "classifier")
-            .notice("No classifier bundled — running in placeholder mode.")
-        return nil
+    /// True while the live detector is the thing on screen.
+    private var isLive: Bool {
+        manualState == nil && camera.unavailableReason == nil && camera.state.isRunning
     }
 
+    /// The pinned/unavailable presentation state.
+    ///
+    /// Only consulted when the live detector is *not* driving: a camera problem,
+    /// a model problem, or a deliberately pinned screen.
     private var displayState: ScannerDisplayState {
         if let reason = camera.unavailableReason {
             return .unavailable(reason)
@@ -65,7 +67,10 @@ struct ScannerView: View {
         if let manualState {
             return manualState
         }
-        return engine.state
+        if case .unavailable(let reason) = engine.status {
+            return .unavailable(reason)
+        }
+        return camera.state.isRunning ? .scanning : .ready
     }
 
     private var isReady: Bool {
@@ -75,13 +80,24 @@ struct ScannerView: View {
     /// The class accent currently in play, if any. Used sparingly — the reticle
     /// and the result icon — rather than tinting the whole screen.
     private var activeAccent: Color? {
-        displayState.result?.category.accent
+        if let result = displayState.result { return result.category.accent }
+        return engine.detections.first?.detectedClass.wasteCategory.accent
     }
 
     var body: some View {
         ZStack(alignment: .top) {
             background
                 .ignoresSafeArea()
+
+            // Above the preview, below the chrome: boxes must sit on the image
+            // they describe, but must never cover the result surface.
+            if isLive {
+                DetectionOverlayView(
+                    detections: engine.detections,
+                    sourceSize: engine.sourceSize
+                )
+                .ignoresSafeArea()
+            }
 
             scrims
                 .ignoresSafeArea()
@@ -113,6 +129,9 @@ struct ScannerView: View {
         }
         .onChange(of: displayState) { _, state in
             announce(state)
+        }
+        .onChange(of: engine.detections) { _, detections in
+            announceDetections(detections)
         }
         .onChange(of: scenePhase) { _, phase in
             switch phase {
@@ -188,27 +207,27 @@ struct ScannerView: View {
 
     private var scannerArea: some View {
         VStack(spacing: 14) {
-            ZStack {
-                // The stand-in object is a cue that there is no camera yet —
-                // it has no business sitting on top of a live preview.
-                if !camera.state.isRunning {
-                    SampleObjectSilhouette()
+            // The reticle described the square region the old classifier cropped
+            // to. The detector reads the whole frame and draws its own boxes, so
+            // showing a fixed square over a live preview would be claiming a
+            // framing rule that no longer exists. It stays only for the pinned
+            // and camera-less screens, where it is still an honest placeholder.
+            if !isLive {
+                ZStack {
+                    // The stand-in object is a cue that there is no camera yet —
+                    // it has no business sitting on top of a live preview.
+                    if !camera.state.isRunning {
+                        SampleObjectSilhouette()
+                    }
+                    ScannerReticle(isScanning: displayState.isScanning, accent: activeAccent)
                 }
-                ScannerReticle(isScanning: displayState.isScanning, accent: activeAccent)
-            }
-            .aspectRatio(1, contentMode: .fit)
-            .frame(maxWidth: 320)
-            // Report where the reticle actually is, so the classified region is
-            // the region the person is aiming at. See FrameCropPlan.
-            .background {
-                GeometryReader { proxy in
-                    Color.clear
-                        .onAppear { reportGeometry(proxy) }
-                        .onChange(of: proxy.size) { _, _ in reportGeometry(proxy) }
-                }
+                .aspectRatio(1, contentMode: .fit)
+                .frame(maxWidth: 320)
+            } else {
+                Spacer(minLength: 0)
             }
 
-            Text("Point at one item")
+            Text(isLive ? "Point at paper, plastic or metal" : "Point at one item")
                 .font(BinSightTheme.rounded(.subheadline, weight: .semibold))
                 .foregroundStyle(BinSightTheme.onCamera)
                 .multilineTextAlignment(.center)
@@ -218,15 +237,14 @@ struct ScannerView: View {
                 // gradients do not reach, and a camera frame can be any
                 // brightness. Light text plus a shadow is not enough.
                 .background(Capsule().fill(BinSightTheme.ink.opacity(0.45)))
-                // Only a light de-emphasis once a result is up: dimming further
-                // fades the scrim along with the text and destroys the contrast
-                // the scrim exists to provide.
-                .opacity(displayState.showsConfidence ? 0.8 : 1)
+                // Fade it once boxes are on screen: the overlay is the answer,
+                // and a standing instruction competes with it.
+                .opacity(engine.detections.isEmpty ? 1 : 0.55)
                 .accessibilityIdentifier(isReady ? "scanner.ready" : "scanner.instruction")
 
             #if DEBUG
             if camera.state.isRunning {
-                DebugPerformanceOverlay(metrics: engine.metrics)
+                DebugDetectionOverlay(metrics: engine.metrics)
             }
             #endif
         }
@@ -234,11 +252,23 @@ struct ScannerView: View {
     }
 
     /// The result panel plus the privacy line, grouped as one glass region.
+    ///
+    /// Two cards, one slot: the detector's summary while it is running, and the
+    /// original `ResultCard` for every pinned or unavailable screen — which is
+    /// what keeps the camera-denied, camera-unavailable and model-unavailable
+    /// states (and their UI tests) working unchanged.
     private var resultSurface: some View {
         GlassGroup(spacing: 14) {
             VStack(spacing: 10) {
-                ResultCard(state: displayState) { recovery in
-                    handle(recovery)
+                if isLive {
+                    DetectionSummaryCard(
+                        detections: engine.detections,
+                        isRunning: engine.status.isRunning
+                    )
+                } else {
+                    ResultCard(state: displayState) { recovery in
+                        handle(recovery)
+                    }
                 }
                 PrivacyChip(text: "Frames stay on this iPhone.", systemImage: "lock.fill")
             }
@@ -263,11 +293,22 @@ struct ScannerView: View {
         AccessibilityNotification.Announcement(phrase).post()
     }
 
-    private func reportGeometry(_ proxy: GeometryProxy) {
-        let frame = proxy.frame(in: .global)
-        let screen = UIScreen.main.bounds.size
-        guard frame.width > 0, screen.width > 0 else { return }
-        engine.updateGeometry(previewSize: screen, reticleRect: frame)
+    /// Announces the set of materials in view when it changes.
+    ///
+    /// Deliberately keyed on the *set*, not on the boxes: a hand-held phone
+    /// changes the number and position of boxes several times a second, and
+    /// announcing that would make VoiceOver unusable. "Plastic and metal" only
+    /// fires when the answer actually changes.
+    private func announceDetections(_ detections: [Detection]) {
+        let materials = Set(detections.map(\.classID))
+        guard materials != lastAnnouncedMaterials else { return }
+        lastAnnouncedMaterials = materials
+        guard !materials.isEmpty else { return }
+
+        let names = DetectedClass.allCases
+            .filter { materials.contains($0.rawValue) }
+            .map(\.displayName)
+        AccessibilityNotification.Announcement(names.formatted(.list(type: .and))).post()
     }
 
     private func syncEngine(with state: CameraState) {
@@ -303,7 +344,7 @@ private func previewScanner(
     ScannerView(
         initialState: state,
         camera: .preview(camera),
-        engine: .preview(state)
+        engine: .preview()
     )
 }
 

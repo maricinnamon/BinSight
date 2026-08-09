@@ -1,22 +1,48 @@
 # BinSight — physical device testing
 
-> ## Status: ALL RESULTS PENDING
+> ## Status: FUNCTIONAL CHECK PASSED — quantitative measurements still pending
 >
-> **No physical-device session has been run.** Every measurement below is a
-> blank to be filled in, not a result. Nothing in this file has been observed.
+> A signed Debug build was run on an **iPhone 15** and the detection path was
+> confirmed working by direct observation. **No timing or accuracy has been
+> measured on device**, so every number below is still a blank.
 >
-> Two things block a session, both carried over from earlier phases:
+> The two blockers that previously prevented a session are both resolved:
 >
-> 1. **There is no model.** Phase 3's notebook has never been executed, so
->    `ml/artifacts/BinSightWasteClassifier.tflite` does not exist and no LiteRT
->    runtime is linked. The app currently reports "Classifier unavailable" by
->    design — see `LiveScanEngine`.
-> 2. **Device signing is not configured.** `DEVELOPMENT_TEAM` is unset, so
->    `xcodebuild -destination 'generic/platform=iOS'` fails with *"Signing for
->    'BinSight' requires a development team."*
+> 1. ~~There is no model.~~ **Resolved.** `BinSightYOLO26n.mlpackage` is bundled
+>    in the app target and compiles to `BinSightYOLO26n.mlmodelc`. The detection
+>    path is `LiveDetectionEngine` → `YOLODetectionService`; the old LiteRT
+>    classifier is retired and no TFLite runtime is linked.
+> 2. ~~Device signing is not configured.~~ **Resolved.** `DEVELOPMENT_TEAM` is
+>    set and automatic provisioning signs the target.
 >
-> Until both are resolved, latency and stability cannot be measured, and none
-> may be estimated from Simulator behaviour.
+> Latency in this file must be measured on the device. The Simulator figures in
+> the README (58–136 ms model, 116–191 ms end-to-end) are Simulator figures and
+> may not be copied here.
+>
+> ### Functional check — iPhone 15, signed Debug build
+>
+> | Check | Result |
+> |---|---|
+> | Live preview opens, camera permission granted | **PASS** |
+> | Detections appear | **PASS** |
+> | Boxes align with the objects | **PASS** |
+> | `paper` detected and labelled correctly | **PASS** |
+> | `plastic` detected and labelled correctly | **PASS** |
+> | `metal` detected and labelled correctly | **PASS** |
+> | Multiple objects shown with separate boxes | **PASS** |
+> | Boxes stay reasonably aligned near the preview edges | **PASS** |
+>
+> This is a **qualitative** result, reported by the person holding the phone. It
+> establishes that the pipeline is correct end to end — letterbox, decode,
+> un-letterbox and preview projection all agree with what the camera sees — but
+> it is not a measurement. Nothing here should be quoted as device accuracy.
+>
+> ### Still outstanding
+>
+> - on-device inference latency and sustained frame rate
+> - thermal behaviour over a long session
+> - battery drain
+> - behaviour in poor light and at distance
 
 ---
 

@@ -1,0 +1,83 @@
+{
+  "source_root": "/Users/marina/MY_PROJECTS/BinSight_iOS_with_tflite/datasets/_tmp/garbage_source/GARBAGE CLASSIFICATION",
+  "source_classes": [
+    "BIODEGRADABLE",
+    "CARDBOARD",
+    "GLASS",
+    "METAL",
+    "PAPER",
+    "PLASTIC"
+  ],
+  "source_id_to_final": {
+    "3": 2,
+    "4": 0,
+    "5": 1
+  },
+  "final_classes": {
+    "0": "paper",
+    "1": "plastic",
+    "2": "metal"
+  },
+  "split_strategy": "re-split 80/10/10, seed 42, stratified by dominant class, grouped by source image identity",
+  "seed": 42,
+  "counts": {
+    "train": {
+      "images": 4059,
+      "boxes": 13072
+    },
+    "val": {
+      "images": 507,
+      "boxes": 1435
+    },
+    "test": {
+      "images": 508,
+      "boxes": 1666
+    }
+  },
+  "per_class": {
+    "train": {
+      "metal": 4703,
+      "plastic": 4860,
+      "paper": 3509
+    },
+    "val": {
+      "metal": 544,
+      "paper": 394,
+      "plastic": 497
+    },
+    "test": {
+      "metal": 594,
+      "paper": 484,
+      "plastic": 588
+    }
+  },
+  "per_class_total": {
+    "metal": 5841,
+    "plastic": 5945,
+    "paper": 4387
+  },
+  "stats": {
+    "source_labels": 10464,
+    "source_boxes": 74090,
+    "removed_excluded_boxes": 57914,
+    "images_removed_no_target": 5390,
+    "invalid_boxes_dropped": 3,
+    "duplicate_images_dropped": 0
+  },
+  "duplicate_content_groups": 0,
+  "problems": [
+    {
+      "file": "paper1805_jpeg.rf.3cbe8e415d51c085ff0165a12cea5880.txt",
+      "problem": "invalid geometry: 0.30649038461538464,0.14903846153846154,0.0,0.004807692307692308"
+    },
+    {
+      "file": "paper787_jpg.rf.a776cf355b31868a4cfda6ff51850600.txt",
+      "problem": "invalid geometry: 0.9495192307692307,0.8545673076923077,0.004807692307692308,0.0"
+    },
+    {
+      "file": "paper1430_jpg.rf.4da0e71eab5e1a13f510f439c7d7fd28.txt",
+      "problem": "invalid geometry: 0.054086538461538464,0.046875,0.0,0.006009615384615385"
+    }
+  ],
+  "problem_count": 3
+}

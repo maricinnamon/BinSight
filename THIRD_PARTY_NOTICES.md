@@ -1,49 +1,55 @@
 # Third-party notices
 
-BinSight uses the third-party assets and software listed here. None of it is
-redistributed in this repository — the dataset is downloaded at training time,
-and the libraries are installed from their package indexes.
+BinSight uses the third-party assets and software listed here.
+
+The **dataset is not redistributed** in this repository — it is prepared from a
+separately downloaded archive — and the Python libraries are installed from their
+package indexes. The one third-party artifact that *is* committed is the exported
+CoreML model, which is derived from Ultralytics YOLO26 weights; see the licence
+note below, because it carries a real obligation.
 
 ---
 
-## TrashNet (dataset)
+## Garbage Classification 3 (dataset)
 
-- **Source:** <https://github.com/garythung/trashnet>
-- **Archive used:** `data/dataset-resized.zip` (512×384 JPEGs, 42.8 MB, 2 527 images)
-- **Mirror of the full-resolution set:** <https://huggingface.co/datasets/garythung/trashnet>
-- **Author:** Gary Thung (with Mindy Yang)
-- **Licence:** MIT
+- **Source:** <https://universe.roboflow.com/material-identification/garbage-classification-3/dataset/2>
+- **Workspace / project:** `material-identification` / `garbage-classification-3`, version 2
+- **Hosted by:** Roboflow Universe
+- **Licence:** **CC BY 4.0**
 
-The TrashNet README requests that users of the dataset cite the repository:
+The licence was read from the `roboflow:` block of the source `data.yaml`, not
+assumed. CC BY 4.0 requires attribution, which this notice and the README
+provide.
 
-> If you are using the dataset, please give a citation of this repository.
+**Use in BinSight.** A filtered and re-mapped subset is used. Of the six source
+classes, `BIODEGRADABLE`, `CARDBOARD` and `GLASS` are excluded entirely, and
+`METAL`, `PAPER` and `PLASTIC` are kept and renumbered to `2`, `0` and `1`
+respectively. Only bounding-box coordinates and class ids are used; images are
+not modified beyond the resizing and augmentation Ultralytics applies during
+training. Neither the source archive nor any image from it is committed —
+`scripts/prepare_waste_dataset.py` rebuilds the prepared dataset from the
+archive. See
+[`datasets/binsight_waste_3class/dataset_report.md`](datasets/binsight_waste_3class/dataset_report.md)
+for the full provenance record, including the archive's SHA-256.
 
-**Citation**
-
-```
-Gary Thung and Mindy Yang. TrashNet: dataset of images of trash.
-https://github.com/garythung/trashnet
-```
-
-**Use in BinSight.** The dataset is downloaded at training time by
-`ml/notebooks/train_binsight_classifier.ipynb`. Neither the archive nor any
-image from it is committed to this repository. The class folder `trash` is
-mapped to the internal label `general_waste` and displayed as "General waste";
-no image content is modified beyond resizing and standard augmentation during
-training.
+BinSight claims no ownership of the source dataset.
 
 ---
 
-## EfficientNet-Lite0 pretrained weights
+## Ultralytics YOLO26 (model and library)
 
-- **Preset:** `efficientnet_lite0_ra_imagenet`
-- **Distributed by:** [KerasHub](https://keras.io/keras_hub/) (`keras-hub`)
-- **Architecture:** EfficientNet-Lite, from *EfficientNet: Rethinking Model
-  Scaling for Convolutional Neural Networks* (Tan & Le, 2019)
-- **Pretraining data:** ImageNet-1k, RandAugment recipe
-- **Licence:** Apache License 2.0 (KerasHub and its distributed weights)
+- **Source:** <https://github.com/ultralytics/ultralytics> (version 8.4.9)
+- **Pretrained weights:** `yolo26n.pt`, COCO-pretrained, from `ultralytics/assets` v8.4.0
+- **Licence:** **AGPL-3.0**
 
-Weights are downloaded by the notebook at training time and are not committed.
+**This matters for redistribution.** The bundled model
+`BinSight/Resources/Models/BinSightYOLO26n.mlpackage` is a fine-tune of
+AGPL-3.0-licensed COCO-pretrained weights, and the exported package records that
+licence in its own metadata (`AGPL-3.0 License (https://ultralytics.com/license)`).
+The AGPL obligations follow the derived weights. Distributing this app publicly
+would require either complying with AGPL-3.0 or obtaining an Ultralytics
+Enterprise Licence. This project is a portfolio piece and is not distributed
+through the App Store.
 
 ---
 
@@ -51,14 +57,34 @@ Weights are downloaded by the notebook at training time and are not committed.
 
 | Package | Licence |
 |---|---|
-| TensorFlow / LiteRT | Apache License 2.0 |
-| Keras | Apache License 2.0 |
-| KerasHub | Apache License 2.0 |
+| Ultralytics (YOLO26) | AGPL-3.0 |
+| PyTorch | BSD 3-Clause |
+| coremltools | BSD 3-Clause |
 | NumPy | BSD 3-Clause |
-| pandas | BSD 3-Clause |
-| scikit-learn | BSD 3-Clause |
-| Matplotlib | Matplotlib License (BSD-style) |
+| OpenCV (`opencv-python`) | Apache License 2.0 |
 | Pillow | MIT-CMU |
+| PyYAML | MIT |
 
-The iOS application target itself has **no third-party runtime dependencies**.
-It uses only Apple frameworks.
+The iOS application target has **no third-party runtime dependencies**. It uses
+only Apple frameworks — SwiftUI, AVFoundation, CoreML, CoreImage, CoreVideo. The
+`Podfile` is retained but declares no pods.
+
+---
+
+## Historical
+
+Earlier phases of this project used a TrashNet-based six-class TensorFlow
+classifier with EfficientNet-Lite0 weights, and a TACO-based YOLO26 detector.
+Neither ships in the current app and neither is present in the working tree; both
+remain in Git history. The notices below are kept so that history stays
+attributable.
+
+**TrashNet** — <https://github.com/garythung/trashnet>, Gary Thung and Mindy
+Yang, MIT licence. The README asks that users of the dataset cite the repository.
+
+**EfficientNet-Lite0** — preset `efficientnet_lite0_ra_imagenet`, distributed by
+[KerasHub](https://keras.io/keras_hub/), Apache License 2.0, pretrained on
+ImageNet-1k.
+
+**TACO** — <http://tacodataset.org>, Pedro F. Proença and Pedro Simões,
+CC BY 4.0.

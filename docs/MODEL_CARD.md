@@ -1,184 +1,177 @@
-# Model Card — BinSightWasteClassifier
+# Model card — BinSightYOLO26n
 
-> ## ⚠️ Status: NOT TRAINED — this card is an empty template
->
-> **No model exists yet.** The training notebook
-> ([`ml/notebooks/train_binsight_classifier.ipynb`](../ml/notebooks/train_binsight_classifier.ipynb))
-> has been written and statically validated but **never executed**.
->
-> Every field below marked `NOT MEASURED` is a placeholder. Fill them from
-> `ml/artifacts/metrics.json` after a real run — do not estimate, infer from
-> published TrashNet results, or copy numbers from a paper. If a number is not
-> in your own `metrics.json`, it does not belong on this card.
-
----
+Every figure here is measured. Nothing is estimated, borrowed from a paper, or
+carried over from an earlier experiment.
 
 ## Model details
 
 | | |
 |---|---|
-| **Name** | BinSightWasteClassifier |
-| **Version** | 1.0.0 (unreleased) |
-| **Author** | Maryna Antonevych |
-| **Type** | Single-label image classification, 6 classes |
-| **Architecture** | EfficientNet-Lite0, ImageNet-pretrained, transfer-learned |
-| **Backbone preset** | `efficientnet_lite0_ra_imagenet` (KerasHub 0.30.0) |
-| **Format** | LiteRT / TFLite |
-| **Quantisation** | `NOT MEASURED` — selected candidate |
-| **File size** | `NOT MEASURED` |
-| **SHA256** | `NOT MEASURED` |
-| **Trained on** | `NOT MEASURED` — date, GPU type, wall-clock duration |
+| **Name** | BinSightYOLO26n |
+| **Task** | Object detection (bounding box + class + confidence) |
+| **Architecture** | YOLO26n Detect, Ultralytics 8.4.9 |
+| **Parameters** | 2,504,970 |
+| **Training type** | **Transfer learning / fine-tuning from COCO-pretrained `yolo26n.pt`. NOT trained from scratch.** |
+| **Classes** | 3 — `0 paper`, `1 plastic`, `2 metal` |
+| **Input** | 640×640 RGB |
+| **Deployed format** | CoreML `.mlpackage`, ML Program, FP16, spec v6 (iOS 16+), 4.8 MB |
+| **PyTorch release artifact** | `models/pytorch/BinSightYOLO26n.pt` — 5,385,157 bytes, SHA-256 `958e49a5fc8358442497bcb9ce98ca9b8e48a6a1da3bfb92539ac9d14f58ed67` |
+| **CoreML release artifact** | `BinSight/Resources/Models/BinSightYOLO26n.mlpackage` — 4.8 MB |
+| **Provenance** | byte-identical copy of the training run's `best.pt`; `runs/` itself is not committed |
+| **Framework at training** | PyTorch 2.13.0, MPS (Apple M1) |
+
+### End-to-end / NMS-free
+
+`head.end2end = True`. The checkpoint carries a one-to-one head and emits
+already-deduplicated detections, so no non-maximum suppression is applied at
+export or in the app. Ultralytics enforces this: `'nms=True' is not available for
+end2end models. Forcing 'nms=False'`.
+
+### Output contract
+
+One MultiArray, `[1, 300, 6]`, FP32. Each row is
+`[x1, y1, x2, y2, confidence, class_id]` in 640×640 input-pixel space, where 300
+is `head.max_det`.
+
+Boxes are **xyxy corners**, not xywh — Ultralytics' own `Detect.postprocess`
+docstring says xywh, and for this checkpoint that is wrong. Confidence is already
+the maximum class probability; no sigmoid or softmax is applied. All 300 rows are
+always returned, padded with low-scoring entries, so a confidence threshold is
+required.
 
 ## Intended use
 
-**In scope.** A portfolio demonstration inside the BinSight iOS app: a person
-points the camera at *one* discarded item and gets a suggested material category
-plus a confidence score, computed entirely on device.
+A portfolio demonstration of on-device detection: pointing an iPhone at everyday
+waste and seeing paper, plastic and metal localised in real time.
 
-**Out of scope.**
-
-- Anything that determines what actually goes in a bin. Recycling rules are
-  local, change often, and are not a function of material alone.
-- Regulatory, commercial or industrial waste sorting.
-- Multiple items in one frame — the model predicts a single label.
-- Hazardous-material identification (batteries, chemicals, medical waste, sharps).
-- Any use where a wrong answer has a cost beyond mild inconvenience.
-
-The app labels its guidance as generic and non-local, and this must stay true of
-any surface that presents these predictions.
-
-## Classes
-
-Output index order — this is the contract the app depends on, and it is **not**
-alphabetical:
-
-| Index | Internal label | App label |
-|---:|---|---|
-| 0 | `cardboard` | Cardboard |
-| 1 | `glass` | Glass |
-| 2 | `metal` | Metal |
-| 3 | `paper` | Paper |
-| 4 | `plastic` | Plastic |
-| 5 | `general_waste` | General waste |
-
-`general_waste` is TrashNet's `trash` class, renamed.
+**Not intended** as a recycling authority. Guidance shown in the app is generic
+material advice and never a particular council's rules. Not validated for
+industrial sorting, waste auditing, or any decision with a material consequence.
 
 ## Training data
 
-**TrashNet** — <https://github.com/garythung/trashnet>, `dataset-resized.zip`
-(512×384 JPEGs). MIT licence; the repository asks to be cited. See
-[`THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md).
-
-| Class | Images |
-|---|---:|
-| cardboard | 403 |
-| glass | 501 |
-| metal | 410 |
-| paper | 594 |
-| plastic | 482 |
-| trash → general_waste | 137 |
-| **Total** | **2 527** |
-
-*(Counted directly from the archive. The notebook re-counts at run time and
-records the result in `metrics.json`; if those numbers ever disagree with this
-table, `metrics.json` is authoritative.)*
-
-Split: stratified 70 / 15 / 15, seed 42, asserted disjoint. Manifest at
-`ml/artifacts/split_manifest.csv`.
-
-Class imbalance is ≈4.3× (paper vs trash), which triggers balanced class
-weighting.
-
-## Evaluation results
-
-**`NOT MEASURED` — the notebook has not been run.**
-
-Fill from `ml/artifacts/metrics.json`:
-
-| Metric | Value |
+| | |
 |---|---|
-| Test images | `NOT MEASURED` |
-| Accuracy | `NOT MEASURED` |
-| Macro F1 | `NOT MEASURED` |
-| Weighted F1 | `NOT MEASURED` |
+| Source | Roboflow Universe `material-identification/garbage-classification-3` v2, CC BY 4.0 |
+| Prepared images | 5,074 |
+| Bounding boxes | 16,173 |
+| Split | 4,059 train / 507 val / 508 test |
+| Split method | 80/10/10, seed 42, stratified by dominant class, grouped by source image |
 
-### Per-class
+Three of six source classes are excluded (`BIODEGRADABLE`, `CARDBOARD`, `GLASS`);
+the rest are renumbered. The split is grouped by source-image identity so that
+augmented variants of one photo cannot straddle train and test. Independent
+validation reports 0 corrupt images, 0 invalid labels and 0 cross-split leakage.
 
-| Class | Precision | Recall | F1 | Support |
-|---|---|---|---|---|
-| cardboard | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-| glass | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-| metal | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-| paper | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-| plastic | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-| general_waste | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` | `NOT MEASURED` |
-
-Plots (produced by a run): `confusion_matrix.png`,
-`confusion_matrix_normalized.png`, `training_curves.png` in `ml/artifacts/`.
-
-### Keras vs TFLite agreement
+## Training configuration
 
 | | |
 |---|---|
-| Comparison batch size | `NOT MEASURED` |
-| Max abs. probability difference | `NOT MEASURED` |
-| Mean abs. probability difference | `NOT MEASURED` |
-| Top-1 agreement | `NOT MEASURED` |
+| Epochs | 25 (completed; no early stopping) |
+| Best epoch | 25 |
+| Batch | 4 |
+| Image size | 640 |
+| Optimizer | AdamW (auto), cosine decay |
+| Augmentation | mosaic 0.3, disabled for the final 5 epochs (`close_mosaic=5`) |
+| Seed | 42 |
+| Duration | 6.85 h |
+
+606 of 708 tensors transferred from the pretrained checkpoint; the 102 skipped
+are the class-count-dependent head, adapted 80 → 3.
+
+## Evaluation
+
+Validation guided checkpoint selection, so **the held-out test split is the
+reportable figure**.
+
+| Metric | Validation | **Held-out test** |
+|---|---:|---:|
+| Precision | 0.7086 | **0.6817** |
+| Recall | 0.6045 | **0.5777** |
+| mAP50 | 0.6779 | **0.6480** |
+| mAP75 | 0.5450 | **0.4809** |
+| mAP50-95 | 0.5070 | **0.4620** |
+
+Per class, held-out test (508 images, 1,666 instances):
+
+| Class | Precision | Recall | F1 | AP50 | AP50-95 |
+|---|---:|---:|---:|---:|---:|
+| paper | 0.6519 | 0.5000 | 0.5660 | 0.5713 | 0.4386 |
+| plastic | 0.6822 | 0.5629 | 0.6169 | 0.6568 | 0.4349 |
+| metal | 0.7108 | 0.6700 | 0.6898 | 0.7159 | 0.5126 |
+
+Evaluation threshold: confidence 0.25 — the same value the app ships with.
+
+## PyTorch → CoreML agreement
+
+10 deterministic held-out images (seed 42), matched on geometry alone with class
+compared afterwards:
+
+| | |
+|---|---|
+| PyTorch detections | 27 |
+| CoreML detections | 29 |
+| Geometry-matched | 27 / 27 |
+| Class agreement | 96.30% (26/27) |
+| Mean matched-box IoU | 0.9928 (min 0.9771) |
+| Mean confidence delta | 0.017 (max 0.097) |
+
+The single class disagreement is a translucent plastic bag at IoU 0.986 —
+`paper 0.278` in PyTorch, `plastic 0.284` in CoreML — a genuine near-tie tipped
+by FP16 rounding. Both extra CoreML detections sit within 0.04 of the threshold.
+Confident detections reproduce at IoU ≥ 0.9967 with confidence deltas below
+0.0005, so export error is confined to the low-confidence band.
+
+## Performance
+
+Measured on the **iOS Simulator**, which has no Neural Engine. Physical-device
+latency has **not** been measured.
+
+| | |
+|---|---|
+| Letterbox (CoreImage) | 3–4 ms |
+| CoreML inference | 58–136 ms |
+| End-to-end | 116–191 ms (≈ 5.2–8.6 /s) |
+
+The range is wide because the Simulator shares the host CPU; it is reported as a
+range rather than a single figure because a single figure would be a fiction.
 
 ## Limitations
 
-These hold regardless of what the test accuracy turns out to be.
+**Three materials only.** Cardboard, glass and organic waste are outside the
+taxonomy. Cardboard is the sharpest risk: it is visually adjacent to paper and
+was deliberately excluded, so cardboard in frame may be detected as `paper`.
 
-**Domain shift is the dominant limitation.** TrashNet images are studio-like:
-one object, centred, well lit, plain white background, consistent distance. Real
-BinSight input is none of those things. Expect a substantial drop on handheld
-photos from:
+**Recall is 0.578 on held-out test.** Roughly two in five annotated objects are
+missed at the 0.25 threshold.
 
-- **Clutter** — several items in frame, patterned worktops. The model has never
-  seen a background that carries information.
-- **Lighting** — tungsten, evening light, on-device flash, shadows cast by the
-  phone. Colour-temperature shifts hit glass-vs-plastic hardest, since both are
-  judged largely on transparency and specular highlights.
-- **Partial objects** — items held close enough to crop, or half inside a bin.
-- **Packaging locality** — TrashNet is one collector's mid-2010s
-  American/European packaging. Composites (coffee cups, crisp packets, Tetra Pak)
-  barely appear, and those are exactly the items people are unsure about.
+**`paper` is the weakest class** (AP50-95 0.4386, recall exactly 0.50). It is
+deformable, often crumpled, and shades into both cardboard and translucent
+plastic.
 
-**Other limitations.**
+**Domain shift is the dominant limitation.** The training imagery is
+product-style photography at 416×416 — largely single objects, clean
+backgrounds, even lighting. The app runs on handheld camera frames at arm's
+length under whatever light is available, with clutter and motion blur. Live
+performance should be expected to fall short of the test figures, and the test
+figures should not be quoted as in-app accuracy.
 
-- **Small dataset.** 2 527 images total; `general_waste` has 137. That class is
-  a residual category rather than a material, so it has both the least data and
-  the least coherent visual definition.
-- **Single label.** No "several items" or "I don't know" class. The app handles
-  uncertainty with a confidence threshold in the UI, not in the model.
-- **No fairness or geographic evaluation.** The dataset's provenance is one
-  contributor's collection; no assessment has been made of how performance
-  varies by region, packaging market, or camera hardware.
-- **The confidence score is not calibrated.** Softmax outputs are not
-  probabilities of being correct, and no calibration (temperature scaling,
-  reliability diagram) has been done.
-- **No real-world evaluation set exists.** Measuring the drop described above
-  needs a hand-collected BinSight test set. There isn't one.
+**Crowded scenes produce many overlapping boxes.** This is correct behaviour for
+an NMS-free detector — one evaluation image legitimately contains 11 overlapping
+`metal` detections — but the app caps the overlay at 10 boxes for legibility.
 
-## Ethical and practical considerations
+**Not evaluated for fairness or demographic bias.** The subject matter is objects
+rather than people, but no analysis of geographic or packaging-market bias in the
+source dataset has been done, and packaging design varies considerably by region.
 
-Giving someone a confident wrong answer about disposal is worse than giving them
-none — it can contaminate a recycling stream, and it erodes trust in the whole
-category of tool. The app therefore presents guidance as generic, never as local
-law, and declines to name a class below its confidence threshold.
+## Provenance
 
-Camera frames are processed on device and never leave the phone. There is no
-telemetry, no upload, and no account.
+- Training: [`reports/yolo26n_training_report.md`](../reports/yolo26n_training_report.md)
+- CoreML export and parity: [`reports/coreml_export_report.md`](../reports/coreml_export_report.md)
+- Dataset: [`datasets/binsight_waste_3class/dataset_report.md`](../datasets/binsight_waste_3class/dataset_report.md)
+- iOS pipeline: [`docs/DETECTION_PIPELINE.md`](DETECTION_PIPELINE.md)
 
-## Not production-ready
+## Licence
 
-This is a portfolio demonstration. It has not been evaluated on real-world
-input, its confidence is uncalibrated, and its training data does not represent
-the packaging any particular user will encounter. It should not be shipped as
-authoritative disposal advice.
-
-## Reproducing
-
-See [`ml/README.md`](../ml/README.md). Notebook, pinned environment, split
-manifest and fixed seed (42) are all in the repository; the dataset is
-downloaded at run time and never committed.
+The model derives from Ultralytics COCO-pretrained weights and inherits
+**AGPL-3.0**. See [`THIRD_PARTY_NOTICES.md`](../THIRD_PARTY_NOTICES.md).

@@ -36,8 +36,8 @@ xcuserdata/
 Packages/
 Package.resolved
 
-# CocoaPods — if pods are ever added, the installed sources stay out of the
-# repository, but Podfile and Podfile.lock are committed.
+# CocoaPods — the installed sources stay out of the repository, but Podfile and
+# Podfile.lock are committed. No pods are currently declared.
 Pods/
 
 # Carthage
@@ -56,150 +56,79 @@ fastlane/test_output
 *~
 
 # ---------------------------------------------------------------------------
-# Machine learning (ml/)
+# Python (dataset preparation, training, export — scripts/)
 # ---------------------------------------------------------------------------
-
-# Python environments and caches
-ml/.venv/
 .venv/
-ml/**/__pycache__/
 __pycache__/
+*.py[cod]
 .ipynb_checkpoints/
+.pytest_cache/
 
-# Scratch directory the notebook writes to (dataset, checkpoints, SavedModel,
-# losing candidates). Nothing in here belongs in the repository.
-ml/work/
-work/
-
-# Downloaded dataset and archives — never commit the data
-ml/**/dataset-resized/
-ml/**/dataset-original/
+# Downloaded archives are never committed.
 *.zip
 *.tar
 *.tar.gz
 *.7z
 
-# Training checkpoints and intermediate model formats.
-# Note: NOT a blanket `*.keras` — the baseline experiment's trained model is a
-# committed portfolio artefact. Only regenerable scratch is ignored here.
-*.weights.h5
-*.ckpt
-saved_model/
-ml/**/saved_model/
-
-# ---------------------------------------------------------------------------
-# ML experiments (ml/experiments/*)
-# ---------------------------------------------------------------------------
-#
-# Rule of thumb: ignore anything large that a documented command can regenerate;
-# keep anything a reader needs to understand or audit the experiment without
-# re-running it.
-
-# Datasets — never committed. Downloaded by scripts/prepare_dataset.py.
-ml/**/data/raw/
-ml/**/data/processed/
-
-# Training scratch. Checkpoints are ~12 MB and the SavedModel is a rebuildable
-# intermediate: both come back from the committed .keras model.
-ml/**/models/keras/checkpoints/
-ml/**/models/saved_model/
-ml/**/checkpoints/
-ml/**/*.weights.h5
-
-# Python caches
-ml/**/__pycache__/
-ml/**/.pytest_cache/
-__pycache__/
-*.py[cod]
-.ipynb_checkpoints/
-.pytest_cache/
-.DS_Store
-
-# Kept on purpose — these ARE the experiment record, ~17 MB in total:
-#   models/keras/binsight_trashnet.keras        the trained model (4.2 MB)
-#   models/tflite/*.tflite                      all four conversion candidates
-#   reports/**                                  metrics, figures, predictions,
-#                                               per-epoch logs, dataset manifest
-#   labels.txt, model_contract.json, configs/   the deployment contract
-#   environment.yml, requirements-lock.txt      the pinned environment
-# No Git LFS needed at this size.
-
-# The Conda environment itself lives outside the repository by design.
-
-# ---------------------------------------------------------------------------
-# TACO YOLO26 detector experiment
-# ---------------------------------------------------------------------------
-
-# Cloned TACO repository and downloaded Flickr images — never committed.
-ml/experiments/taco_yolo26_detector/data/source/
-ml/experiments/taco_yolo26_detector/data/raw/
-
-# Dataset recovery: the downloaded Zenodo archive and its extracted images.
-# ~1 GB of pixels that scripts/recover_official_dataset.py fetches on demand and
-# verifies against a published MD5.
-ml/experiments/taco_yolo26_detector/data/downloads/
-ml/experiments/taco_yolo26_detector/data/official_complete/
-
-# Prepared images are symlinks or EXIF-normalised copies of the above — for both
-# runs. NOT a blanket `data/prepared*`, which would also swallow the labels.
-ml/experiments/taco_yolo26_detector/data/prepared/images/
-ml/experiments/taco_yolo26_detector/data/prepared_run_002/images/
-
-# Pretrained weights are downloaded on demand — but NOT a blanket `*.pt`, which
-# would also swallow the trained run weights below (the same trap `*.keras` set
-# for the TensorFlow baseline).
+# Pretrained weights are fetched on demand by the training script.
 yolo26n.pt
-ml/experiments/taco_yolo26_detector/yolo*.pt
-
-# Kept on purpose:
-#   data/prepared/labels/            Run 001 YOLO labels (~510 text files)
-#   data/prepared_run_002/labels/    Run 002 YOLO labels (1082 text files, 4 MB)
-#   data/splits/, data/splits/run_002/   split manifests for both runs
-#   data/partial_run_001/            symlinks + README naming Run 001's dataset
-#   configs/                         dataset*.yaml, class_mapping*.yaml, classes.txt
-#   reports/                         taxonomy, validation, statistics, sample renders
-#   reports/dataset_recovery/        recovery audit, manifests, plans
-#   scripts/, tests/, README.md, environment.yml, requirements-lock.txt
-#
-# reports/dataset_recovery/official_image_manifest.csv is 240 KB and is kept
-# deliberately: it is the per-image record of what was recovered, from which
-# source, and at what hash. Without it "86.7% recovered" is an unverifiable claim.
-
-# The selected deployment candidate is a committed portfolio artefact (15.7 MB).
-# Stated explicitly because the yolo*.pt rule above must never swallow it.
-!ml/experiments/taco_yolo26_detector/models/final/binsight_yolo26n_deployment.pt
-
-# Final dataset: crops are regenerable from build_final_dataset.py; labels and the
-# crop provenance manifest are the audit record and are kept.
-ml/experiments/taco_yolo26_detector/data/prepared_final/images/
-
-# YOLO training runs: keep metrics, plots and weights; drop bulky per-epoch
-# batch previews that Ultralytics regenerates.
-ml/experiments/taco_yolo26_detector/runs/**/train_batch*.jpg
-ml/experiments/taco_yolo26_detector/runs/**/val_batch*.jpg
-ml/experiments/taco_yolo26_detector/runs/**/*.cache
-ml/experiments/taco_yolo26_detector/data/prepared/**/*.cache
-ml/experiments/taco_yolo26_detector/data/prepared_run_002/**/*.cache
-ml/experiments/taco_yolo26_detector/data/prepared_final/**/*.cache
 
 # ---------------------------------------------------------------------------
-# Final bbox-only YOLO26 Detect experiment
+# Dataset (datasets/binsight_waste_3class)
 # ---------------------------------------------------------------------------
 #
-# Images are symlinks / EXIF-normalised copies of the archived source trees and
-# are rebuilt by scripts/build_bbox_dataset.py. Labels, manifests and reports ARE
-# the record and are kept.
-ml/experiments/taco_yolo26_detect_bbox_final/data/images/
-ml/experiments/taco_yolo26_detect_bbox_final/**/*.cache
+# 5,074 images and their labels — 123 MB — do not belong in a portfolio
+# repository. Everything needed to rebuild them byte-for-byte IS committed: the
+# preparation script, the validator, data.yaml and the reports. See the README
+# for the reproduction commands.
+datasets/_tmp/
+datasets/**/images/
+datasets/**/labels/
 
-# Machine-specific: written by scripts/write_dataset_yaml.py, never hand-edited.
-ml/experiments/taco_yolo26_detect_bbox_final/configs/dataset.resolved.yaml
+# ...but keep the small reproducibility metadata trackable. Stated explicitly
+# because the two rules above are broad.
+!datasets/binsight_waste_3class/data.yaml
+!datasets/binsight_waste_3class/dataset_report.md
+!datasets/binsight_waste_3class/manifest.csv
+!datasets/binsight_waste_3class/prepare_summary.json
+!datasets/binsight_waste_3class/validation_report.json
 
-# Pretrained weights are fetched on demand.
-ml/experiments/taco_yolo26_detect_bbox_final/yolo26n.pt
+# ---------------------------------------------------------------------------
+# Training runs (runs/)
+# ---------------------------------------------------------------------------
+#
+# 460 MB of Ultralytics output: best.pt, last.pt, 25 per-epoch checkpoints from
+# save_period=1, batch previews and plots. The deployable artifact is the
+# CoreML package, which IS committed; the training record that matters is
+# reports/yolo26n_training_report.md, which carries the metrics and the
+# checkpoint's SHA-256.
+runs/
 
-# Per-epoch batch previews Ultralytics regenerates; transient child logs.
-ml/experiments/taco_yolo26_detect_bbox_final/runs/**/train_batch*.jpg
-ml/experiments/taco_yolo26_detect_bbox_final/runs/**/val_batch*.jpg
-ml/experiments/taco_yolo26_detect_bbox_final/reports/child_*.log
-ml/experiments/taco_yolo26_detect_bbox_final/reports/.child_status.json
+# Generated preview and parity renders. Regenerated by
+# scripts/evaluate_yolo26n.py and scripts/verify_coreml_parity.py.
+artifacts/
+
+# ---------------------------------------------------------------------------
+# Release artifacts and export workspace (models/)
+# ---------------------------------------------------------------------------
+#
+# Two release artifacts ARE committed, and they are the only two:
+#
+#     models/pytorch/BinSightYOLO26n.pt                     <- 5.1 MB, the
+#         accepted training checkpoint, byte-identical to
+#         runs/.../weights/best.pt (sha256 958e49a5…4f58ed67). Preserved here so
+#         the release model survives without committing the 460 MB runs/ tree.
+#
+#     BinSight/Resources/Models/BinSightYOLO26n.mlpackage   <- 4.8 MB, what the
+#         iOS target compiles and bundles.
+#
+# `scripts/export_yolo26n_coreml.py` writes its output to models/coreml/, which
+# is then copied into the app target. Tracking that too would put two
+# byte-identical 4.8 MB copies in Git, so the export output is ignored while the
+# small JSON beside it — the verification record — is kept.
+models/coreml/*.mlpackage/
+
+# Kept on purpose — the CoreML model the iOS target compiles and bundles.
+# Stated explicitly so no future rule can quietly drop the app's only model.
+!BinSight/Resources/Models/
+!BinSight/Resources/Models/**

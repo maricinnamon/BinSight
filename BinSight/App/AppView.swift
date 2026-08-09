@@ -15,7 +15,8 @@ struct AppView: View {
             ScannerView(
                 initialState: scenario.scannerState,
                 camera: .preview(scenario.cameraState),
-                engine: .preview(scenario.scannerState)
+                // Pinned: never loads CoreML, so UI tests stay hardware-free.
+                engine: .preview()
             )
         } else {
             ScannerView()

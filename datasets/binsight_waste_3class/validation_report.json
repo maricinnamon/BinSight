@@ -1,0 +1,57 @@
+{
+  "result": "PASS",
+  "failures": [],
+  "counts": {
+    "train": {
+      "images": 4059,
+      "boxes": 13072
+    },
+    "val": {
+      "images": 507,
+      "boxes": 1435
+    },
+    "test": {
+      "images": 508,
+      "boxes": 1666
+    }
+  },
+  "per_class": {
+    "train": {
+      "paper": 3509,
+      "metal": 4703,
+      "plastic": 4860
+    },
+    "val": {
+      "metal": 544,
+      "paper": 394,
+      "plastic": 497
+    },
+    "test": {
+      "metal": 594,
+      "paper": 484,
+      "plastic": 588
+    }
+  },
+  "per_class_total": {
+    "paper": 4387,
+    "metal": 5841,
+    "plastic": 5945
+  },
+  "class_distribution_pct": {
+    "paper": 27.13,
+    "metal": 36.12,
+    "plastic": 36.76
+  },
+  "class_ids_seen": [
+    0,
+    1,
+    2
+  ],
+  "field_count_histogram": {
+    "5": 16173
+  },
+  "duplicate_content_within_split": 0,
+  "identical_images_across_splits": 0,
+  "problem_count": 0,
+  "problems": []
+}

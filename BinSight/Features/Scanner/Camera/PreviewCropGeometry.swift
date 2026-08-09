@@ -95,6 +95,57 @@ enum PreviewCropGeometry {
         return clampedToUnitSquare(mapped)
     }
 
+    /// Maps a rect in **buffer pixel** coordinates to the aspect-fill preview's
+    /// own coordinate space, in points.
+    ///
+    /// This is the inverse of `visibleRect` and the transform the detection
+    /// overlay needs: the detector returns boxes in the full buffer's pixel
+    /// space, but the preview shows only a centre crop of that buffer. Scaling a
+    /// box by `previewSize / bufferSize` — the obvious-looking thing — is wrong
+    /// whenever the two aspect ratios differ, and it is wrong by a *translation*
+    /// as well as a scale, so boxes drift toward the centre rather than simply
+    /// being the wrong size.
+    ///
+    /// Worked through with the sizes this app actually produces:
+    ///
+    /// ```
+    /// buffer 720x1280 (0.5625), preview 393x852 (0.4613)
+    ///   buffer is relatively wider -> its sides are cropped
+    ///   visible width = 0.4613/0.5625 = 0.820  ->  x from 0.090 to 0.910
+    /// a box at buffer x = 360 (dead centre) maps to preview x = 196.5 (centre)
+    /// a box at buffer x =  36 (5% in)      maps off-screen, negative
+    /// ```
+    ///
+    /// The result is deliberately **not** clamped: a detection on an object the
+    /// preview has cropped away really is off-screen, and clamping would pin a
+    /// box to the edge as if the object were there. Callers clip instead.
+    static func previewRect(
+        forBufferPixelRect pixelRect: CGRect,
+        bufferSize: CGSize,
+        previewSize: CGSize
+    ) -> CGRect {
+        guard bufferSize.width > 0, bufferSize.height > 0,
+              previewSize.width > 0, previewSize.height > 0
+        else { return .null }
+
+        let visible = visibleRect(bufferSize: bufferSize, previewSize: previewSize)
+        guard visible.width > 0, visible.height > 0 else { return .null }
+
+        // Buffer pixels -> normalised buffer.
+        let normalizedX = pixelRect.minX / bufferSize.width
+        let normalizedY = pixelRect.minY / bufferSize.height
+        let normalizedWidth = pixelRect.width / bufferSize.width
+        let normalizedHeight = pixelRect.height / bufferSize.height
+
+        // Normalised buffer -> normalised visible region -> preview points.
+        return CGRect(
+            x: (normalizedX - visible.minX) / visible.width * previewSize.width,
+            y: (normalizedY - visible.minY) / visible.height * previewSize.height,
+            width: normalizedWidth / visible.width * previewSize.width,
+            height: normalizedHeight / visible.height * previewSize.height
+        )
+    }
+
     /// Converts a normalised buffer rect to pixel coordinates, rounded to whole
     /// pixels so it can index a `CVPixelBuffer` directly.
     static func pixelRect(fromNormalized rect: CGRect, bufferSize: CGSize) -> CGRect {

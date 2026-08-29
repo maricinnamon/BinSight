@@ -35,9 +35,15 @@ which is why GPL-licensed apps have been removed from the store before. Being
 the app's author does not resolve it: the constraint comes from Ultralytics'
 copyright in the base weights, not from ours.
 
-## The three honest routes
+## Decision taken: route 3
 
-There is no code change that removes this. It is a decision.
+**BinSight is not published to the App Store.** It is an open-source portfolio
+project, installed from source via Xcode. Under that distribution AGPL-3.0 is
+fully satisfied — public source accompanied by the licence text is exactly what
+the licence asks for — and the incompatibility described above never arises.
+
+Nothing is outstanding. The alternatives below are recorded for the future, not
+as pending work.
 
 **1 — Buy an Ultralytics Enterprise Licence.** This is precisely what Ultralytics
 sells it for: it lifts the AGPL obligation for commercial and closed
@@ -51,21 +57,18 @@ produce an unencumbered model. This is real work — retraining, re-export,
 re-verification of parity — and accuracy would have to be re-measured, not
 assumed to carry over. Every script needed to do it is in `scripts/`.
 
-**3 — Do not publish to the App Store.** Keep BinSight as an open-source
-portfolio project, installed via Xcode or TestFlight. The AGPL question largely
-evaporates, and nothing else about the app changes.
+**3 — Do not publish to the App Store.** ← **chosen.** Keep BinSight as an
+open-source portfolio project, installed via Xcode or TestFlight. The AGPL
+question does not arise, and nothing else about the app changes.
 
-## Where this sits relative to "App Store ready"
+## Where this leaves the project
 
-The engineering is done. What remains are two *purchases*, not two tasks:
+Compliant and complete. The engineering for App Store submission was finished
+before the decision was taken, and `docs/app-store/` retains the full
+preparation — metadata, privacy answers, age rating, release checklist — so the
+route stays open if the licensing question is ever resolved differently.
 
-| Remaining step | Category |
-|---|---|
-| Apple Developer Program membership | paid account |
-| Ultralytics Enterprise Licence *(only if route 1 is chosen)* | paid licence |
-
-Both are account-level commercial actions outside the codebase, and both are
-recorded in `docs/app-store/RELEASE-CHECKLIST.md`.
+Keeping that work is deliberate: it is part of what the project demonstrates.
 
 ## Third-party attribution
 

@@ -1,5 +1,15 @@
 # Release checklist
 
+> ## Status: prepared, not being submitted
+>
+> BinSight ships as an **open-source portfolio project**, not through the App
+> Store. That decision resolves the licensing question — see
+> [`LICENSING.md`](../../LICENSING.md) — because AGPL-3.0 is satisfied outright
+> by public source plus the licence text.
+>
+> Everything below was completed and verified before the decision was taken, and
+> is kept so the route remains open. Nothing here is outstanding work.
+
 State as of the last verification run. Everything marked ✅ was checked, not
 assumed; the command or evidence is given.
 

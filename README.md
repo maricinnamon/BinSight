@@ -20,8 +20,15 @@ non-maximum suppression anywhere in the app.
 
 ## 🎥 Demo
 
-Not yet recorded. A screenshot or capture will be added once the app has been
-filmed on a physical device; nothing is linked here that does not exist.
+Not yet recorded. A capture will be added once the app has been filmed on a
+physical device; nothing is linked here that does not exist.
+
+BinSight runs on a real iPhone — a signed build is installed and working — but it
+is a **portfolio project and is not published to the App Store**. The reason is
+licensing rather than readiness: the detector inherits AGPL-3.0 from Ultralytics'
+pretrained weights, and AGPL is incompatible with App Store terms. Build it from
+source with Xcode. See [`LICENSING.md`](LICENSING.md); the App Store preparation
+that was completed beforehand is kept in [`docs/app-store/`](docs/app-store/).
 
 ---
 

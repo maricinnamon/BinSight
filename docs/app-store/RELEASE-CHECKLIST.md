@@ -3,35 +3,33 @@
 State as of the last verification run. Everything marked ✅ was checked, not
 assumed; the command or evidence is given.
 
-## ⚠️ Read this first — the one genuine blocker
+## ⚠️ Read this first — the licensing position
 
-**The bundled model inherits AGPL-3.0 from Ultralytics, and that is a real
-obstacle to App Store distribution — not a paperwork detail.**
+**BinSight is AGPL-3.0, inherited from the model's weights**, and that has a real
+consequence for the App Store. The repository now carries the full licence text
+in `LICENSE`, and `LICENSING.md` sets out the position in detail. Verified from
+the installed package, not assumed: `ultralytics` declares `License: AGPL-3.0`,
+and the exporter stamps `AGPL-3.0 License` with `author: Ultralytics` into the
+CoreML package metadata.
 
-`BinSightYOLO26n.mlpackage` is a fine-tune of Ultralytics' COCO-pretrained
-`yolo26n.pt`. The exported package records the licence in its own metadata:
-`AGPL-3.0 License (https://ultralytics.com/license)`. AGPL-3.0 obligations follow
-the derived weights.
+AGPL-3.0 §10 forbids a distributor adding restrictions beyond the licence, and
+Apple's App Store terms impose exactly such restrictions. GPL-licensed apps have
+been removed from the store on those grounds. Being the app's author does not
+resolve it — the constraint comes from Ultralytics' copyright in the base
+weights.
 
-Two consequences:
+**This is a purchase or a decision, not an engineering task.** There is no code
+change that removes it. The three routes are in `LICENSING.md`:
 
-1. **AGPL and the App Store are widely held to be incompatible.** The App Store
-   terms impose usage restrictions that GPL-family licences forbid an
-   distributor from adding. Apple has removed GPL-licensed apps before on those
-   grounds.
-2. Ultralytics sells an **Enterprise Licence** precisely to remove this
-   obligation for commercial and closed distribution.
+1. Buy an Ultralytics Enterprise Licence and ship as-is
+2. Retrain on a permissively licensed architecture (the dataset is CC BY 4.0 and
+   is not the problem; every script needed is in `scripts/`)
+3. Do not publish to the App Store — keep BinSight open-source and installed via
+   Xcode or TestFlight
 
-Resolving this is a **decision, not a task**, and there are three honest routes:
-
-- Buy an Ultralytics Enterprise Licence, and ship as-is.
-- Retrain the detector from a permissively licensed architecture (e.g. an
-  Apache-2.0 or BSD detector) and re-export. The dataset itself is CC BY 4.0 and
-  poses no problem.
-- Do not publish to the App Store; keep BinSight as a portfolio and TestFlight
-  project, where the AGPL question is far less fraught.
-
-Nothing else in this checklist is blocked on money or on Apple. This item is.
+Route 1 puts this in the same category as the Apple Developer membership: a paid
+account-level action outside the codebase. Route 2 is genuine ML work and would
+require re-measuring accuracy rather than assuming it carries over.
 
 ---
 
@@ -53,6 +51,7 @@ Nothing else in this checklist is blocked on money or on Apple. This item is.
 | Orientation | ✅ | Locked to portrait, matching the camera pipeline's actual assumption |
 | Encryption declaration | ⬜ | Set `ITSAppUsesNonExemptEncryption = NO` in Info.plist or answer in App Store Connect |
 | Bundle identifier | ✅ | `com.marynaantonevych.BinSight` — unchanged |
+| Licence text present | ✅ | `LICENSE` (AGPL-3.0, 661 lines, verbatim from the Ultralytics distribution) and `LICENSING.md` |
 | Version / build | ⬜ | Currently `1.0 (1)`. See the versioning note below. |
 
 ## Deferred — needs a paid Apple Developer membership
@@ -66,11 +65,11 @@ None of these can be done or tested without the paid programme. They are the
 | App Store Connect record | Cannot be created without membership. |
 | TestFlight | Same. |
 | Archive + upload validation | `xcodebuild archive -exportOptionsPlist` with `method: app-store` needs a distribution profile. |
-| App Store screenshots | Can be captured now (see `SCREENSHOT-PLAN.md`) but cannot be uploaded. |
+| App Store screenshots | Need a **physical iPhone pointed at real objects** — the Simulator has no camera, so every screen there shows "Camera unavailable". Faking them with the DEBUG pinned states would misrepresent the app. Plan in `SCREENSHOT-PLAN.md`. |
 
 ## Before the first submission
 
-- [ ] Resolve the AGPL question above — this gates everything else
+- [ ] Choose a licensing route (see `LICENSING.md`) — this gates App Store distribution
 - [ ] Publish `PRIVACY.md` at an HTTPS URL and put it in App Store Connect
 - [ ] Provide a Support URL
 - [ ] Capture screenshots for 6.9" and 6.5" iPhone (see `SCREENSHOT-PLAN.md`)

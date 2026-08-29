@@ -461,6 +461,11 @@ The dataset is third-party and separately licensed — see
 [Source and attribution](#source-and-attribution) and
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-⚖️ Ultralytics YOLO26 and the weights derived from it are **AGPL-3.0**, which the
-exported CoreML package inherits. That is a genuine constraint on redistributing
-this app, and it is recorded rather than glossed over.
+⚖️ **This project is licensed AGPL-3.0** — see [`LICENSE`](LICENSE). It did not
+choose to be: the licence is inherited from Ultralytics' pretrained weights, which
+the detector is fine-tuned from, and the obligation follows the derived model into
+the app.
+
+That has a real consequence — AGPL is widely held to be incompatible with App
+Store distribution — and [`LICENSING.md`](LICENSING.md) sets out what it means and
+the three honest ways forward, rather than glossing over it.

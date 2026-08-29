@@ -114,7 +114,7 @@ struct ResultCard: View {
                 .padding(.bottom, 2)
 
             Label {
-                Text("Generic guidance · local rules vary")
+                Text(L("result.guidance.disclaimer"))
                     .font(BinSightTheme.rounded(.caption2, weight: .semibold))
             } icon: {
                 Image(systemName: "info.circle")
@@ -129,7 +129,7 @@ struct ResultCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Generic guidance, local rules vary. \(category.disposalGuidance)")
+        .accessibilityLabel(L("result.guidance.accessibility", category.disposalGuidance))
     }
 
     private var notSureRow: some View {

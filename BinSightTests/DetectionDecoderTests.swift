@@ -224,6 +224,62 @@ struct DetectionDecoderTests {
         #expect(detections.count == 10)
     }
 
+    @Test("Capping keeps the strongest detections, not the first ones seen")
+    func capKeepsStrongest() {
+        // Row order is only *approximately* descending, so a weak row can
+        // precede a strong one. Taking the first N would then throw away the
+        // better detection — which is exactly the failure that matters when the
+        // app shows only one box.
+        var configuration = DetectionConfiguration.default
+        configuration.maximumDisplayedDetections = 2
+        let values = row(0, 0, 50, 50, 0.30, 0)       // weak, first
+            + row(60, 60, 110, 110, 0.95, 1)          // strongest, last
+            + row(120, 120, 170, 170, 0.80, 2)
+        let detections = DetectionDecoder.decode(values: values, transform: squareTransform,
+                                                 configuration: configuration)
+        #expect(detections.count == 2)
+        #expect(detections.map(\.detectedClass) == [.plastic, .metal])
+        #expect(detections[0].confidence == 0.95)
+    }
+
+    @Test("A cap of one yields the single most confident detection")
+    func capOfOnePicksTheBest() {
+        // The shipping display policy: one box, and it must be the best one.
+        var configuration = DetectionConfiguration.default
+        configuration.maximumDisplayedDetections = 1
+        let values = row(0, 0, 50, 50, 0.41, 0)
+            + row(60, 60, 110, 110, 0.88, 2)
+            + row(120, 120, 170, 170, 0.62, 1)
+        let detections = DetectionDecoder.decode(values: values, transform: squareTransform,
+                                                 configuration: configuration)
+        #expect(detections.count == 1)
+        #expect(detections[0].detectedClass == .metal)
+        #expect(detections[0].confidence == 0.88)
+    }
+
+    @Test("Equally confident detections keep their original order")
+    func tiesAreStable() {
+        // Unstable ordering would let two equal detections swap between frames
+        // and make the overlay flicker.
+        var configuration = DetectionConfiguration.default
+        configuration.maximumDisplayedDetections = 2
+        let values = row(0, 0, 50, 50, 0.70, 0)
+            + row(60, 60, 110, 110, 0.70, 1)
+            + row(120, 120, 170, 170, 0.70, 2)
+        for _ in 0..<5 {
+            let detections = DetectionDecoder.decode(values: values, transform: squareTransform,
+                                                     configuration: configuration)
+            #expect(detections.map(\.detectedClass) == [.paper, .plastic])
+        }
+    }
+
+    @Test("Single-object mode is on by default")
+    func singleObjectModeDefault() {
+        // The app surfaces one box; the decoder still reports what the model
+        // said. LiveDetectionEngine applies the policy.
+        #expect(DetectionConfiguration.default.singleObjectMode)
+    }
+
     @Test("Rows beyond maxDetections are never read")
     func maxDetectionsRespected() {
         var configuration = DetectionConfiguration.default
@@ -257,7 +313,9 @@ struct DetectionDecoderTests {
     func labelFormatting() {
         let detection = Detection(detectedClass: .plastic, confidence: 0.819,
                                   boundingBox: CGRect(x: 0, y: 0, width: 1, height: 1))
-        #expect(detection.label == "Plastic 82%")
+        // Asserts the shape of the label, not one language's spelling of it.
+        #expect(detection.label.contains(DetectedClass.plastic.displayName))
+        #expect(detection.label.contains("82"))
     }
 
     @Test("Detection classes map onto the existing palette")

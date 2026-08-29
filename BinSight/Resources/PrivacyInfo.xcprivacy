@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- BinSight does not track. There is no networking in the app at all: no
+	     URLSession, no analytics SDK, no crash reporter, no third-party
+	     dependency of any kind. -->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+
+	<!-- Nothing is collected. Camera frames are read into memory, resized,
+	     passed to the on-device CoreML model, and released. No frame is written
+	     to disk, added to Photos, or transmitted. -->
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<!-- ProcessInfo.processInfo.systemUptime, used in ScannerView to
+			     throttle VoiceOver announcements. A monotonic clock is required
+			     here: Date() can jump backwards when the system clock changes,
+			     which would either silence announcements or fire a burst. -->
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+		<dict>
+			<!-- UserDefaults, used only to remember the chosen interface
+			     language. The value is an ISO code such as "uk"; it never leaves
+			     the app and is not used to identify anyone. -->
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

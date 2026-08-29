@@ -42,5 +42,21 @@ struct DetectionConfiguration: Equatable, Sendable {
     /// Boxes thinner than this in source pixels are dropped as noise.
     var minimumBoxSide: CGFloat = 2
 
+    /// Surface only the single most confident detection.
+    ///
+    /// A **display policy, not a model property.** The detector always emits 300
+    /// rows and cannot be trained to produce exactly one; this decides how many
+    /// of them the app is willing to stand behind.
+    ///
+    /// It is on because showing every box above 0.25 shows the model's mistakes
+    /// too: test precision at that threshold is 0.682, so roughly one shown box
+    /// in three is wrong. The single highest-confidence detection is
+    /// substantially more likely to be right, which is what the person holding
+    /// the phone actually experiences as accuracy.
+    ///
+    /// The cost is real and deliberate: a frame containing paper *and* a can
+    /// will name only one of them.
+    var singleObjectMode: Bool = true
+
     static let `default` = DetectionConfiguration()
 }

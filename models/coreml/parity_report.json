@@ -19,33 +19,26 @@
   },
   "matching": "greedy highest-IoU on geometry alone; class compared afterwards",
   "totals": {
-    "torch_detections": 27,
-    "coreml_detections": 29,
-    "matched": 27,
-    "class_agreement_pct": 96.3,
-    "class_agreements": 26,
-    "class_flips": 1,
-    "mean_iou": 0.9928,
-    "min_iou": 0.9771,
-    "mean_abs_conf_delta": 0.01717,
-    "max_abs_conf_delta": 0.09654,
-    "unmatched_torch": 0,
-    "unmatched_coreml": 2
-  },
-  "class_disagreements": [
-    {
-      "image": "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg",
-      "iou": 0.986,
-      "torch": {
-        "class": "paper",
-        "confidence": 0.27766
-      },
-      "coreml": {
-        "class": "plastic",
-        "confidence": 0.28418
-      }
+    "torch_detections": 40,
+    "coreml_detections": 40,
+    "matched": 38,
+    "class_agreement_pct": 100.0,
+    "class_agreements": 38,
+    "class_flips": 0,
+    "mean_iou": 0.9924,
+    "min_iou": 0.9685,
+    "mean_abs_conf_delta_paired": 0.03424,
+    "max_abs_conf_delta_paired": 0.38717,
+    "mean_abs_conf_delta_distribution": 0.01683,
+    "max_abs_conf_delta_distribution": 0.16194,
+    "unmatched_torch": 2,
+    "unmatched_coreml": 2,
+    "near_duplicate_boxes": {
+      "torch": 2,
+      "coreml": 2
     }
-  ],
+  },
+  "class_disagreements": [],
   "result": "PASS",
   "failures": [],
   "per_image": [
@@ -54,17 +47,22 @@
       "torch": 8,
       "coreml": 9,
       "matched": 8,
-      "mean_iou": 0.9891,
+      "max_distribution_conf_delta": 0.04723,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 1
+      },
+      "mean_iou": 0.9919,
       "unmatched_torch": [],
       "unmatched_coreml": [
         {
           "class_id": 1,
           "class_name": "plastic",
-          "confidence": 0.29199,
+          "confidence": 0.25146,
           "bbox_xyxy": [
-            4.71,
-            0.0,
-            410.15,
+            105.3,
+            144.71,
+            273.0,
             413.07
           ]
         }
@@ -72,10 +70,15 @@
     },
     {
       "image": "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg",
-      "torch": 0,
-      "coreml": 0,
-      "matched": 0,
-      "mean_iou": null,
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "max_distribution_conf_delta": 0.02988,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9929,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
@@ -84,7 +87,12 @@
       "torch": 1,
       "coreml": 1,
       "matched": 1,
-      "mean_iou": 0.9974,
+      "max_distribution_conf_delta": 0.00122,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9961,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
@@ -93,25 +101,52 @@
       "torch": 1,
       "coreml": 1,
       "matched": 1,
-      "mean_iou": 0.9935,
+      "max_distribution_conf_delta": 0.00186,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9978,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
     {
       "image": "plastic92_jpg.rf.80ff2ef902acd67cad017d715f225230.jpg",
-      "torch": 1,
+      "torch": 2,
       "coreml": 1,
       "matched": 1,
-      "mean_iou": 0.9975,
-      "unmatched_torch": [],
+      "max_distribution_conf_delta": 0.16194,
+      "near_duplicate_boxes": {
+        "torch": 1,
+        "coreml": 0
+      },
+      "mean_iou": 0.9974,
+      "unmatched_torch": [
+        {
+          "class_id": 1,
+          "class_name": "plastic",
+          "confidence": 0.76238,
+          "bbox_xyxy": [
+            0.0,
+            4.19,
+            412.12,
+            412.91
+          ]
+        }
+      ],
       "unmatched_coreml": []
     },
     {
       "image": "plastic510_jpg.rf.f45cf2c491141e41ec6963057b294535.jpg",
-      "torch": 3,
-      "coreml": 3,
-      "matched": 3,
-      "mean_iou": 0.9933,
+      "torch": 4,
+      "coreml": 4,
+      "matched": 4,
+      "max_distribution_conf_delta": 0.02201,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9969,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
@@ -120,46 +155,78 @@
       "torch": 1,
       "coreml": 1,
       "matched": 1,
-      "mean_iou": 0.9977,
+      "max_distribution_conf_delta": 0.00068,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9986,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
     {
       "image": "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg",
-      "torch": 0,
-      "coreml": 0,
-      "matched": 0,
-      "mean_iou": null,
+      "torch": 1,
+      "coreml": 1,
+      "matched": 1,
+      "max_distribution_conf_delta": 0.01081,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9987,
       "unmatched_torch": [],
       "unmatched_coreml": []
     },
     {
       "image": "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg",
-      "torch": 11,
-      "coreml": 12,
-      "matched": 11,
-      "mean_iou": 0.9935,
-      "unmatched_torch": [],
+      "torch": 19,
+      "coreml": 19,
+      "matched": 18,
+      "max_distribution_conf_delta": 0.03383,
+      "near_duplicate_boxes": {
+        "torch": 1,
+        "coreml": 1
+      },
+      "mean_iou": 0.9897,
+      "unmatched_torch": [
+        {
+          "class_id": 2,
+          "class_name": "metal",
+          "confidence": 0.39513,
+          "bbox_xyxy": [
+            19.95,
+            51.56,
+            55.88,
+            142.15
+          ]
+        }
+      ],
       "unmatched_coreml": [
         {
           "class_id": 2,
           "class_name": "metal",
-          "confidence": 0.25195,
+          "confidence": 0.2854,
           "bbox_xyxy": [
-            47.17,
-            0.69,
-            174.53,
-            106.03
+            320.61,
+            138.29,
+            416.0,
+            409.18
           ]
         }
       ]
     },
     {
       "image": "plastic823_jpg.rf.6956a1b3b790a58668edc24e981014e2.jpg",
-      "torch": 1,
-      "coreml": 1,
-      "matched": 1,
-      "mean_iou": 0.9973,
+      "torch": 2,
+      "coreml": 2,
+      "matched": 2,
+      "max_distribution_conf_delta": 0.00236,
+      "near_duplicate_boxes": {
+        "torch": 0,
+        "coreml": 0
+      },
+      "mean_iou": 0.9965,
       "unmatched_torch": [],
       "unmatched_coreml": []
     }
@@ -169,102 +236,114 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.35571,
+        "confidence": 0.67945,
         "bbox_xyxy": [
-          33.38,
-          306.96,
-          178.76,
-          415.65
+          334.36,
+          2.02,
+          415.68,
+          278.93
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.35177,
+        "confidence": 0.46254,
         "bbox_xyxy": [
-          13.48,
+          4.33,
+          0.9,
+          164.37,
+          201.29
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.38343,
+        "bbox_xyxy": [
           0.0,
-          414.06,
-          414.29
+          98.98,
+          162.99,
+          408.49
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.34809,
+        "confidence": 0.3754,
         "bbox_xyxy": [
-          0.35,
-          109.09,
-          155.21,
-          409.87
+          14.81,
+          0.16,
+          391.92,
+          416.0
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.34109,
+        "confidence": 0.34967,
         "bbox_xyxy": [
-          103.99,
-          161.94,
-          268.94,
-          414.38
+          24.63,
+          0.52,
+          164.29,
+          182.1
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.32142,
+        "confidence": 0.34514,
         "bbox_xyxy": [
-          13.29,
+          1.57,
+          84.91,
+          242.11,
+          382.22
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.34146,
+        "bbox_xyxy": [
+          2.13,
           0.0,
-          163.7,
-          185.92
+          255.34,
+          351.22
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.29858,
+        "confidence": 0.31025,
         "bbox_xyxy": [
-          6.51,
-          0.0,
-          252.38,
-          291.74
-        ]
-      },
-      {
-        "class_id": 1,
-        "class_name": "plastic",
-        "confidence": 0.28101,
-        "bbox_xyxy": [
-          334.63,
-          1.39,
-          415.74,
-          284.86
-        ]
-      },
-      {
-        "class_id": 1,
-        "class_name": "plastic",
-        "confidence": 0.28032,
-        "bbox_xyxy": [
-          2.33,
-          0.0,
-          163.02,
-          197.89
+          104.49,
+          160.06,
+          267.72,
+          414.63
         ]
       }
     ],
-    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [],
+    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.40127,
+        "bbox_xyxy": [
+          161.75,
+          0.43,
+          270.9,
+          147.49
+        ]
+      }
+    ],
     "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg": [
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.95098,
+        "confidence": 0.97974,
         "bbox_xyxy": [
-          14.85,
-          56.24,
-          355.54,
+          21.78,
+          59.95,
+          349.45,
           416.0
         ]
       }
@@ -273,12 +352,12 @@
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.96112,
+        "confidence": 0.97891,
         "bbox_xyxy": [
-          68.59,
-          61.31,
-          291.35,
-          415.13
+          71.3,
+          60.71,
+          276.06,
+          416.0
         ]
       }
     ],
@@ -286,12 +365,23 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.91387,
+        "confidence": 0.76238,
         "bbox_xyxy": [
           0.0,
-          0.0,
-          409.64,
-          411.32
+          4.19,
+          412.12,
+          412.91
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.53715,
+        "bbox_xyxy": [
+          2.38,
+          2.79,
+          413.68,
+          413.27
         ]
       }
     ],
@@ -299,34 +389,45 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.56453,
+        "confidence": 0.86698,
         "bbox_xyxy": [
-          42.16,
-          21.24,
-          365.85,
-          163.59
+          38.99,
+          214.98,
+          362.58,
+          397.52
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.78838,
+        "bbox_xyxy": [
+          40.61,
+          25.67,
+          362.98,
+          163.97
         ]
       },
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.49866,
+        "confidence": 0.33799,
         "bbox_xyxy": [
-          44.16,
-          21.43,
-          365.17,
-          163.7
+          276.71,
+          248.41,
+          363.4,
+          328.69
         ]
       },
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.27766,
+        "confidence": 0.29195,
         "bbox_xyxy": [
-          43.15,
-          215.05,
-          364.14,
-          396.71
+          195.59,
+          56.64,
+          334.43,
+          137.84
         ]
       }
     ],
@@ -334,136 +435,236 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.96163,
+        "confidence": 0.98457,
         "bbox_xyxy": [
-          93.64,
-          57.0,
-          370.06,
-          412.94
+          97.42,
+          56.77,
+          370.17,
+          415.07
         ]
       }
     ],
-    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [],
+    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.83893,
+        "bbox_xyxy": [
+          87.41,
+          22.43,
+          391.12,
+          368.04
+        ]
+      }
+    ],
     "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg": [
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.72341,
+        "confidence": 0.68697,
         "bbox_xyxy": [
-          1.02,
-          0.53,
-          61.42,
-          56.38
+          6.08,
+          139.37,
+          73.6,
+          180.72
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.62388,
+        "confidence": 0.65849,
         "bbox_xyxy": [
-          117.95,
-          192.92,
-          177.63,
-          273.28
+          77.14,
+          235.65,
+          118.61,
+          337.06
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.57909,
+        "confidence": 0.53391,
         "bbox_xyxy": [
-          21.5,
-          50.6,
-          57.31,
-          142.81
+          69.46,
+          1.89,
+          174.85,
+          60.3
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.45522,
+        "confidence": 0.53232,
         "bbox_xyxy": [
-          67.4,
-          1.09,
-          173.04,
-          60.36
+          118.35,
+          192.91,
+          177.45,
+          273.96
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.44026,
+        "confidence": 0.43885,
         "bbox_xyxy": [
-          2.7,
-          138.7,
-          70.86,
-          181.41
+          236.83,
+          59.08,
+          329.53,
+          340.14
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.38754,
+        "confidence": 0.43736,
         "bbox_xyxy": [
-          257.1,
-          343.88,
-          323.46,
-          392.59
+          154.47,
+          47.46,
+          226.89,
+          164.42
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.37779,
+        "confidence": 0.40869,
         "bbox_xyxy": [
-          298.12,
-          133.86,
-          415.26,
-          414.54
+          4.77,
+          0.21,
+          148.0,
+          37.81
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.36429,
+        "confidence": 0.40785,
         "bbox_xyxy": [
-          280.04,
-          129.09,
-          412.21,
-          412.49
+          7.28,
+          199.34,
+          50.65,
+          289.99
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.3076,
+        "confidence": 0.40164,
         "bbox_xyxy": [
-          159.84,
-          47.03,
-          279.37,
-          323.5
+          0.52,
+          0.09,
+          61.62,
+          57.33
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.30192,
+        "confidence": 0.39513,
         "bbox_xyxy": [
-          57.02,
-          110.74,
-          115.38,
-          200.26
+          19.95,
+          51.56,
+          55.88,
+          142.15
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.25928,
+        "confidence": 0.39077,
         "bbox_xyxy": [
-          96.7,
-          126.68,
-          158.38,
-          215.94
+          58.0,
+          158.52,
+          113.25,
+          200.8
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.35487,
+        "bbox_xyxy": [
+          209.48,
+          107.68,
+          351.35,
+          405.24
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.3016,
+        "bbox_xyxy": [
+          66.82,
+          113.14,
+          98.6,
+          159.72
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.28206,
+        "bbox_xyxy": [
+          95.69,
+          132.65,
+          142.41,
+          179.25
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.27432,
+        "bbox_xyxy": [
+          126.01,
+          37.92,
+          205.61,
+          86.51
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.26999,
+        "bbox_xyxy": [
+          52.98,
+          45.16,
+          93.25,
+          104.94
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.26473,
+        "bbox_xyxy": [
+          90.89,
+          83.7,
+          127.71,
+          131.67
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25971,
+        "bbox_xyxy": [
+          148.93,
+          46.26,
+          227.73,
+          189.05
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25828,
+        "bbox_xyxy": [
+          69.79,
+          1.9,
+          173.76,
+          60.22
         ]
       }
     ],
@@ -471,12 +672,23 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.96011,
+        "confidence": 0.96936,
         "bbox_xyxy": [
-          94.82,
-          162.16,
-          302.8,
-          322.75
+          94.55,
+          164.24,
+          303.12,
+          322.92
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.92586,
+        "bbox_xyxy": [
+          135.05,
+          211.06,
+          233.07,
+          284.3
         ]
       }
     ]
@@ -486,113 +698,125 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.37109,
+        "confidence": 0.66846,
         "bbox_xyxy": [
-          104.24,
-          163.31,
-          269.1,
-          414.38
+          334.43,
+          1.87,
+          415.68,
+          279.18
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.36719,
+        "confidence": 0.43506,
         "bbox_xyxy": [
-          33.31,
-          307.29,
-          178.91,
-          416.0
+          25.23,
+          0.45,
+          164.29,
+          179.72
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.34375,
+        "confidence": 0.43066,
         "bbox_xyxy": [
-          0.41,
-          108.88,
-          154.86,
-          409.5
+          4.83,
+          1.06,
+          164.29,
+          201.34
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.32617,
+        "confidence": 0.38013,
         "bbox_xyxy": [
-          12.03,
           0.0,
-          407.88,
+          98.39,
+          163.64,
+          407.55
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.37256,
+        "bbox_xyxy": [
+          14.62,
+          0.0,
+          392.6,
           416
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.3252,
+        "confidence": 0.34619,
         "bbox_xyxy": [
-          12.72,
-          0.0,
-          163.96,
-          186.22
+          1.71,
+          84.17,
+          243.59,
+          383.5
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.30176,
+        "confidence": 0.33691,
         "bbox_xyxy": [
-          6.83,
+          2.11,
           0.0,
-          252.69,
-          294.45
+          256.1,
+          353.28
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.29297,
+        "confidence": 0.2688,
         "bbox_xyxy": [
-          335.4,
-          1.38,
-          415.68,
-          287.46
+          104.49,
+          158.6,
+          267.8,
+          414.7
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.29199,
+        "confidence": 0.25146,
         "bbox_xyxy": [
-          4.71,
-          0.0,
-          410.15,
+          105.3,
+          144.71,
+          273.0,
           413.07
-        ]
-      },
-      {
-        "class_id": 1,
-        "class_name": "plastic",
-        "confidence": 0.28809,
-        "bbox_xyxy": [
-          2.15,
-          0.0,
-          163.56,
-          198.25
         ]
       }
     ],
-    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [],
+    "paper1009_jpg.rf.34ca46307dfd229c7196789aec07df4c.jpg": [
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.43115,
+        "bbox_xyxy": [
+          161.2,
+          0.45,
+          270.73,
+          147.55
+        ]
+      }
+    ],
     "paper2300_jpg.rf.f935733dabaad3bb86780b11f2c2e1a9.jpg": [
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.94922,
+        "confidence": 0.97852,
         "bbox_xyxy": [
-          14.46,
-          56.39,
-          355.88,
+          22.1,
+          59.88,
+          350.35,
           416
         ]
       }
@@ -601,12 +825,12 @@
       {
         "class_id": 0,
         "class_name": "paper",
-        "confidence": 0.95801,
+        "confidence": 0.97705,
         "bbox_xyxy": [
-          68.33,
-          61.43,
-          292.34,
-          415.35
+          71.26,
+          60.61,
+          276.41,
+          416
         ]
       }
     ],
@@ -614,12 +838,12 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.91504,
+        "confidence": 0.92432,
         "bbox_xyxy": [
-          0.0,
-          0.0,
-          410.15,
-          410.8
+          2.44,
+          2.68,
+          414.05,
+          412.75
         ]
       }
     ],
@@ -627,34 +851,45 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.58594,
+        "confidence": 0.86719,
         "bbox_xyxy": [
-          41.76,
-          21.21,
-          365.95,
-          163.72
-        ]
-      },
-      {
-        "class_id": 0,
-        "class_name": "paper",
-        "confidence": 0.49609,
-        "bbox_xyxy": [
-          43.55,
-          21.29,
-          365.3,
-          163.72
+          39.0,
+          215.15,
+          362.7,
+          397.48
         ]
       },
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.28418,
+        "confidence": 0.77588,
         "bbox_xyxy": [
-          42.09,
-          214.99,
-          362.7,
-          397.8
+          40.62,
+          25.72,
+          363.03,
+          164.21
+        ]
+      },
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.34277,
+        "bbox_xyxy": [
+          276.57,
+          248.3,
+          363.35,
+          328.57
+        ]
+      },
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.31396,
+        "bbox_xyxy": [
+          195.49,
+          56.63,
+          334.1,
+          137.8
         ]
       }
     ],
@@ -662,147 +897,236 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.96191,
+        "confidence": 0.98389,
         "bbox_xyxy": [
-          93.44,
-          57.28,
+          97.09,
+          56.79,
           370.18,
-          413.07
+          415.03
         ]
       }
     ],
-    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [],
+    "paper1134_jpg.rf.c54f9f56861672f989d40041ab7c90f3.jpg": [
+      {
+        "class_id": 0,
+        "class_name": "paper",
+        "confidence": 0.82812,
+        "bbox_xyxy": [
+          87.42,
+          22.51,
+          391.3,
+          367.9
+        ]
+      }
+    ],
     "metal581_jpeg.rf.9e750c85b99f8c1d26b9fcbca51522d5.jpg": [
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.73535,
+        "confidence": 0.68652,
         "bbox_xyxy": [
-          1.0,
-          0.51,
-          61.47,
-          56.51
+          6.13,
+          139.51,
+          73.69,
+          180.86
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.60352,
+        "confidence": 0.66162,
         "bbox_xyxy": [
-          118.14,
-          193.05,
-          177.78,
-          273.16
+          76.42,
+          235.46,
+          118.71,
+          337.03
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.58008,
+        "confidence": 0.51318,
         "bbox_xyxy": [
-          21.45,
-          50.62,
-          57.32,
-          142.84
+          118.38,
+          192.89,
+          177.61,
+          273.81
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.44043,
+        "confidence": 0.49878,
         "bbox_xyxy": [
-          279.82,
-          129.11,
-          412.1,
-          412.43
+          69.59,
+          1.89,
+          173.88,
+          60.21
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.42383,
+        "confidence": 0.44214,
         "bbox_xyxy": [
-          2.64,
-          138.69,
-          70.89,
-          181.19
+          236.76,
+          59.23,
+          329.55,
+          340.6
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.4082,
+        "confidence": 0.42163,
         "bbox_xyxy": [
-          257.24,
-          343.85,
-          323.38,
-          392.6
+          154.05,
+          47.86,
+          227.18,
+          164.94
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.40039,
+        "confidence": 0.41919,
         "bbox_xyxy": [
-          67.32,
-          1.08,
-          173.22,
-          60.0
+          7.21,
+          199.39,
+          50.7,
+          289.74
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.32617,
+        "confidence": 0.39429,
         "bbox_xyxy": [
-          57.04,
-          110.83,
-          115.29,
-          200.36
+          4.63,
+          0.18,
+          148.12,
+          37.72
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.30957,
+        "confidence": 0.3894,
         "bbox_xyxy": [
-          159.49,
-          47.29,
-          279.18,
-          322.24
+          0.57,
+          0.0,
+          61.63,
+          57.28
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.28125,
+        "confidence": 0.36304,
         "bbox_xyxy": [
-          297.54,
-          134.14,
-          415.35,
-          414.05
+          209.3,
+          107.49,
+          351.98,
+          405.28
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.2627,
+        "confidence": 0.36279,
         "bbox_xyxy": [
-          96.85,
-          126.91,
-          158.6,
-          215.64
+          58.01,
+          158.93,
+          113.34,
+          200.85
         ]
       },
       {
         "class_id": 2,
         "class_name": "metal",
-        "confidence": 0.25195,
+        "confidence": 0.32104,
         "bbox_xyxy": [
-          47.17,
-          0.69,
-          174.53,
-          106.03
+          69.23,
+          1.95,
+          175.01,
+          60.37
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.29321,
+        "bbox_xyxy": [
+          95.63,
+          132.6,
+          143.81,
+          179.24
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.28784,
+        "bbox_xyxy": [
+          66.71,
+          113.02,
+          98.64,
+          160.14
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.2854,
+        "bbox_xyxy": [
+          320.61,
+          138.29,
+          416.0,
+          409.18
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.27271,
+        "bbox_xyxy": [
+          148.85,
+          46.68,
+          227.99,
+          188.5
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.2605,
+        "bbox_xyxy": [
+          126.26,
+          38.11,
+          205.56,
+          86.45
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25928,
+        "bbox_xyxy": [
+          52.93,
+          45.42,
+          93.19,
+          105.06
+        ]
+      },
+      {
+        "class_id": 2,
+        "class_name": "metal",
+        "confidence": 0.25073,
+        "bbox_xyxy": [
+          90.84,
+          83.93,
+          127.81,
+          131.62
         ]
       }
     ],
@@ -810,12 +1134,23 @@
       {
         "class_id": 1,
         "class_name": "plastic",
-        "confidence": 0.95898,
+        "confidence": 0.96875,
         "bbox_xyxy": [
-          94.9,
-          162.26,
-          302.9,
-          322.56
+          94.49,
+          164.29,
+          303.55,
+          322.89
+        ]
+      },
+      {
+        "class_id": 1,
+        "class_name": "plastic",
+        "confidence": 0.92822,
+        "bbox_xyxy": [
+          135.2,
+          211.09,
+          233.19,
+          284.38
         ]
       }
     ]

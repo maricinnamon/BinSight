@@ -60,7 +60,7 @@ final class LiveDetectionEngine {
     private(set) var metrics = DetectionMetrics()
     #endif
 
-    @ObservationIgnored private let detector: YOLODetectionService?
+    @ObservationIgnored private var detector: YOLODetectionService?
     @ObservationIgnored private let configuration: DetectionConfiguration
     @ObservationIgnored private let logger = Logger(
         subsystem: "com.marynaantonevych.BinSight",
@@ -81,21 +81,43 @@ final class LiveDetectionEngine {
         #endif
     }
 
-    /// Builds the detector, reporting failure as state rather than throwing.
+    /// An engine with no detector yet, reporting `.loading`.
     ///
-    /// A missing or malformed model is a build problem, and the screen says so
-    /// honestly instead of showing an empty overlay that looks like "nothing is
-    /// in view".
+    /// Constructing `YOLODetectionService` costs hundreds of milliseconds — it
+    /// compiles the model, builds a `CIContext` and allocates a pixel-buffer
+    /// pool. Doing that inside `View.init`, as this used to, froze the launch
+    /// screen before the first frame was ever drawn. `loadDetector()` moves it
+    /// off the main actor and lets the screen show its loading state meanwhile.
     static func makeDefault(configuration: DetectionConfiguration = .default) -> LiveDetectionEngine {
-        let logger = Logger(subsystem: "com.marynaantonevych.BinSight", category: "detection")
-        do {
-            let service = try YOLODetectionService(configuration: configuration)
-            logger.notice("YOLO26 detector loaded from the app bundle.")
-            return LiveDetectionEngine(detector: service, configuration: configuration)
-        } catch {
-            logger.error("Detector unavailable: \(String(describing: error), privacy: .public)")
-            return LiveDetectionEngine(detector: nil, configuration: configuration)
+        let engine = LiveDetectionEngine(detector: nil, configuration: configuration)
+        engine.status = .loading
+        return engine
+    }
+
+    /// Loads the model off the main actor. Idempotent.
+    ///
+    /// Reports failure as `.unavailable(.modelUnavailable)` rather than throwing:
+    /// a missing or malformed model is a build problem, and the screen says so
+    /// honestly instead of showing an empty overlay that reads as "nothing is in
+    /// view".
+    func loadDetector() async {
+        guard detector == nil, status == .loading else { return }
+        let configuration = self.configuration
+        let loaded = await Task.detached(priority: .userInitiated) {
+            try? YOLODetectionService(configuration: configuration)
+        }.value
+
+        guard let loaded else {
+            logger.error("Detector unavailable: model could not be loaded")
+            status = .unavailable(.modelUnavailable)
+            return
         }
+        detector = loaded
+        status = .idle
+        logger.notice("YOLO26 detector loaded from the app bundle.")
+        #if DEBUG
+        metrics.detectorLoaded = true
+        #endif
     }
 
     /// A pinned engine for previews and UI tests. Runs nothing.
@@ -167,7 +189,14 @@ final class LiveDetectionEngine {
         let started = ContinuousClock.now
 
         do {
-            let found = try await detector.detect(frame)
+            var found = try await detector.detect(frame)
+            // Display policy, applied here rather than in the decoder so the
+            // decoder keeps reporting what the model actually said — the unit
+            // tests and the CoreML parity record are written against that.
+            if configuration.singleObjectMode,
+               let strongest = found.max(by: { $0.confidence < $1.confidence }) {
+                found = [strongest]
+            }
             let elapsed = (ContinuousClock.now - started).seconds
 
             // The run may have been invalidated while we were awaiting.

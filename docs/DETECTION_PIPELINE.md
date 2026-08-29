@@ -35,11 +35,18 @@ second stage and no `WasteClassifying` implementation in the production path.
 
 **No segmentation.** Detect head only — boxes, not masks.
 
+**One box on screen, by policy.** The decoder returns everything above
+threshold; `LiveDetectionEngine` then surfaces only the strongest detection
+(`singleObjectMode`). This is a *display* decision, not a model property — a
+detector cannot be trained to emit exactly one box. It exists because test
+precision at the 0.25 threshold is 0.7533, so roughly one shown box in four would
+otherwise be wrong.
+
 **No NMS.** YOLO26 is end-to-end (`end2end = True` in the package metadata, a
 one-to-one head in the checkpoint), so the rows are already deduplicated.
 Ultralytics *forces* `nms=False` when exporting such a model. Adding NMS on the
 app side would suppress genuinely overlapping objects — the evaluation set has an
-image with 11 valid overlapping `metal` boxes.
+image with 19 valid overlapping `metal` boxes.
 
 **No manual normalisation.** The exported input layer carries `scale = 1/255`
 and `bias = [0,0,0]`. Dividing by 255 in Swift would hand the model a
@@ -56,18 +63,19 @@ during the CoreML export phase.
 |---|---|
 | Bundled at (**the committed copy**) | `BinSight/Resources/Models/BinSightYOLO26n.mlpackage` |
 | Export output (not committed) | `models/coreml/BinSightYOLO26n.mlpackage` |
-| PyTorch release artifact | `models/pytorch/BinSightYOLO26n.pt` (byte-identical to `best.pt`) |
-| Training run (not committed) | `runs/detect/binsight_yolo26n_pretrained_final/` |
+| PyTorch release artifact | `models/pytorch/BinSightYOLO26n.pt` — sha256 `f6ca7233…276c96` |
+| Training run (not committed) | `runs/detect/binsight_yolo26n_continued/` |
 | Format | `.mlpackage`, ML Program, spec v6 (iOS 16+), FP16, 4.8 MB |
 | Input | `image`, 640x640 RGB, `scale = 1/255` built in |
 | Output | one MultiArray, `[1, 300, 6]`, FP32 |
 | Classes | `0 paper · 1 plastic · 2 metal` |
 | Threshold | 0.25 (`DetectionConfiguration.confidenceThreshold`) |
+| Displayed boxes | 1 — `DetectionConfiguration.singleObjectMode` |
 
 `scripts/export_yolo26n_coreml.py` writes to `models/coreml/`, which is the
 export workspace; the package is then copied into `BinSight/Resources/Models/`,
 which is what Xcode compiles and bundles. The two were verified byte-identical by
-content hash (`161cad1b…9e088`), and **only the app's copy is committed** —
+content hash (`afab107f…7a1a45`), and **only the app's copy is committed** —
 tracking both would put two identical 4.8 MB blobs in Git. `models/coreml/` keeps
 its `export_summary.json` and `parity_report.json`, which are small and are the
 verification record.
@@ -184,9 +192,9 @@ On the iOS Simulator (no Neural Engine), 720x1280 input:
 
 | | |
 |---|---|
-| Letterbox (CoreImage) | ~3–4 ms |
-| CoreML inference | ~58–136 ms |
-| End-to-end | ~116–191 ms (≈ 5.2–8.6 /s) |
+| Letterbox (CoreImage) | ~2–4 ms |
+| CoreML inference | ~32–136 ms |
+| End-to-end | ~42–191 ms (≈ 5.2–23.9 /s) |
 
 Comfortably above the 4 fps the pipeline asks for, and the simulator is the
 pessimistic case — a physical device runs the model on the Neural Engine.

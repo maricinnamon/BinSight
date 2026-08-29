@@ -27,12 +27,13 @@ enum DetectedClass: Int, CaseIterable, Identifiable, Sendable {
         }
     }
 
-    /// Title-case for the overlay.
+    /// Title-case for the overlay. Localized; `modelLabel` above is not, because
+    /// that one is the model's own contract.
     var displayName: String {
         switch self {
-        case .paper: "Paper"
-        case .plastic: "Plastic"
-        case .metal: "Metal"
+        case .paper: L("detected.paper.name")
+        case .plastic: L("detected.plastic.name")
+        case .metal: L("detected.metal.name")
         }
     }
 
@@ -89,7 +90,17 @@ struct Detection: Identifiable, Equatable, Sendable {
     }
 
     /// e.g. `"Plastic 81%"`. Rounded, not truncated — 0.819 reads as 82%.
+    ///
+    /// The percentage goes through `FormatStyle` rather than string
+    /// interpolation with a literal `%`: several locales put the sign before the
+    /// number or separate it with a non-breaking space, and Ukrainian is one of
+    /// the ones that does not match the English convention.
     var label: String {
-        "\(detectedClass.displayName) \(Int((confidence * 100).rounded()))%"
+        L("detection.label", detectedClass.displayName, Self.percent(confidence))
+    }
+
+    /// Locale-aware percentage, shared by the overlay and the summary card.
+    static func percent(_ confidence: Float) -> String {
+        Double(confidence).formatted(.percent.precision(.fractionLength(0)))
     }
 }

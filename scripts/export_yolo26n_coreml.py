@@ -79,7 +79,8 @@ def tree_digest(root: pathlib.Path) -> tuple[str, int, int]:
     return h.hexdigest(), total, count
 
 
-def verify_source(model, weights: pathlib.Path) -> dict:
+def verify_source(model, weights: pathlib.Path, expected_sha: str,
+                  allow_any_name: bool = False) -> dict:
     """Refuses to export anything that is not the accepted detector."""
     from ultralytics.nn.modules.head import Classify, Detect, OBB, Pose, Segment
     from ultralytics.nn.tasks import DetectionModel
@@ -90,10 +91,10 @@ def verify_source(model, weights: pathlib.Path) -> dict:
     digest = sha256_file(weights)
     failures = []
 
-    if weights.name != "best.pt":
+    if weights.name != "best.pt" and not allow_any_name:
         failures.append(f"source is {weights.name!r}, not best.pt")
-    if digest != EXPECTED_SHA256:
-        failures.append(f"SHA-256 {digest} != accepted {EXPECTED_SHA256}")
+    if digest != expected_sha:
+        failures.append(f"SHA-256 {digest} != expected {expected_sha}")
     if model.task != "detect":
         failures.append(f"task is {model.task!r}, not 'detect'")
     if not isinstance(core, DetectionModel):
@@ -175,6 +176,15 @@ def main() -> int:
     parser.add_argument("--weights", default=DEFAULT_WEIGHTS)
     parser.add_argument("--dest", default=DEFAULT_DEST)
     parser.add_argument("--imgsz", type=int, default=640)
+    parser.add_argument("--expect-sha256", default=EXPECTED_SHA256,
+                        help="SHA-256 the source checkpoint must have. Defaults to "
+                             "the currently accepted model, so exporting the wrong "
+                             "file stays an error rather than a surprise. Pass the "
+                             "new digest deliberately when a different checkpoint "
+                             "has been accepted.")
+    parser.add_argument("--allow-any-name", action="store_true",
+                        help="accept a source filename other than best.pt, e.g. a "
+                             "checkpoint already copied into models/pytorch/.")
     args = parser.parse_args()
 
     weights = (ROOT / args.weights).resolve()
@@ -187,7 +197,7 @@ def main() -> int:
 
     print("=== source verification ===")
     model = YOLO(str(weights))
-    source = verify_source(model, weights)
+    source = verify_source(model, weights, args.expect_sha256, args.allow_any_name)
     for k, v in source.items():
         print(f"  {k}: {v}")
 

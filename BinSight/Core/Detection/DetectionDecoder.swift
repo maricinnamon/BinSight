@@ -47,8 +47,8 @@ enum DetectionDecoder {
     ///   - transform: the letterbox used to build the input, so boxes can be
     ///     mapped back to the frame they came from.
     ///   - configuration: thresholds and the expected tensor shape.
-    /// - Returns: detections above threshold, strongest first, capped at
-    ///   `maximumDisplayedDetections`.
+    /// - Returns: detections above threshold, capped at
+    ///   `maximumDisplayedDetections`, keeping the strongest ones when capped.
     static func decode(
         values: [Float],
         transform: LetterboxTransform,
@@ -106,10 +106,26 @@ enum DetectionDecoder {
                           confidence: confidence,
                           boundingBox: sourceRect)
             )
-
-            if detections.count >= configuration.maximumDisplayedDetections { break }
         }
 
-        return detections
+        // Take the *strongest* N, not the first N. Row order is documented as
+        // only approximately descending, so stopping at the first N above
+        // threshold can discard a stronger detection further down — which
+        // matters most when N is small.
+        //
+        // Ties keep their original row order: `sorted(by:)` is not stable, and
+        // without the index tiebreak two equally confident detections could
+        // swap places between frames and make the overlay flicker.
+        guard detections.count > configuration.maximumDisplayedDetections else {
+            return detections
+        }
+        return detections.enumerated()
+            .sorted { left, right in
+                left.element.confidence == right.element.confidence
+                    ? left.offset < right.offset
+                    : left.element.confidence > right.element.confidence
+            }
+            .prefix(configuration.maximumDisplayedDetections)
+            .map(\.element)
     }
 }

@@ -18,37 +18,31 @@ enum ScannerUnavailableReason: String, CaseIterable, Equatable, Sendable {
 
         var title: String {
             switch self {
-            case .retry: "Try again"
-            case .openSettings: "Open Settings"
+            case .retry: L("recovery.retry.title")
+            case .openSettings: L("recovery.openSettings.title")
             }
         }
     }
 
     var title: String {
         switch self {
-        case .permissionDenied: "Camera access needed"
-        case .permissionRestricted: "Camera not allowed"
-        case .cameraUnavailable: "Camera unavailable"
-        case .interrupted: "Camera paused"
-        case .captureFailed: "Camera stopped"
-        case .modelUnavailable: "Classifier unavailable"
+        case .permissionDenied: L("unavailable.permissionDenied.title")
+        case .permissionRestricted: L("unavailable.permissionRestricted.title")
+        case .cameraUnavailable: L("unavailable.cameraUnavailable.title")
+        case .interrupted: L("unavailable.interrupted.title")
+        case .captureFailed: L("unavailable.captureFailed.title")
+        case .modelUnavailable: L("unavailable.modelUnavailable.title")
         }
     }
 
     var message: String {
         switch self {
-        case .permissionDenied:
-            "BinSight needs the camera to look at an item. Nothing is recorded or uploaded."
-        case .permissionRestricted:
-            "Camera access is turned off by a restriction on this device, such as Screen Time."
-        case .cameraUnavailable:
-            "No camera is available on this device right now."
-        case .interrupted:
-            "Something else is using the camera. It will resume on its own when that finishes."
-        case .captureFailed:
-            "The camera stopped unexpectedly."
-        case .modelUnavailable:
-            "The on-device model could not be loaded, so nothing can be classified yet."
+        case .permissionDenied: L("unavailable.permissionDenied.message")
+        case .permissionRestricted: L("unavailable.permissionRestricted.message")
+        case .cameraUnavailable: L("unavailable.cameraUnavailable.message")
+        case .interrupted: L("unavailable.interrupted.message")
+        case .captureFailed: L("unavailable.captureFailed.message")
+        case .modelUnavailable: L("unavailable.modelUnavailable.message")
         }
     }
 
@@ -104,15 +98,19 @@ enum ScannerDisplayState: Equatable, Sendable {
     }
 
     /// Shown verbatim whenever confidence falls under the threshold.
-    static let notSureMessage = "Not sure — try a clearer angle"
+    ///
+    /// Computed rather than `static let`: the language can change while the app
+    /// is running, and a stored constant would freeze the string at whatever
+    /// language was active when the type was first touched.
+    static var notSureMessage: String { L("state.notSure.message") }
 
     var title: String {
         switch self {
-        case .ready: "Ready when you are"
-        case .modelLoading: "Getting the model ready…"
-        case .scanning: "Reading the item…"
-        case .result: "Best match"
-        case .notSure: "No confident match"
+        case .ready: L("state.ready.title")
+        case .modelLoading: L("state.modelLoading.title")
+        case .scanning: L("state.scanning.title")
+        case .result: L("state.result.title")
+        case .notSure: L("state.notSure.title")
         case .unavailable(let reason): reason.title
         }
     }
@@ -121,13 +119,13 @@ enum ScannerDisplayState: Equatable, Sendable {
     /// the detail.
     var supportingText: String? {
         switch self {
-        case .ready: "Hold steady and let one item fill the frame."
-        case .modelLoading: "This happens once, on this device."
-        case .scanning: "Working it out on this iPhone."
+        case .ready: L("state.ready.supporting")
+        case .modelLoading: L("state.modelLoading.supporting")
+        case .scanning: L("state.scanning.supporting")
         case .result: nil
         // Actionable, and deliberately generic - the three things that most
         // often fix a low-confidence reading on a handheld phone.
-        case .notSure: "More light, move closer, or use a plainer background."
+        case .notSure: L("state.notSure.supporting")
         case .unavailable(let reason): reason.message
         }
     }

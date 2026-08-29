@@ -16,7 +16,10 @@ enum BinSightTheme {
     static let ink = Color(hex: 0x171717)
     static let lime = Color(hex: 0xD7FF5F)
     static let coral = Color(hex: 0xFF5C8A)
-    static let violet = Color(hex: 0x8B5CF6)
+    /// Lightened from #8B5CF6, which measured 3.9:1 on `ink` and 3.7:1 on
+    /// `surface` — under the 4.5:1 that the metal confidence figure and the
+    /// detection-box label need. #A78BFA clears both.
+    static let violet = Color(hex: 0xA78BFA)
     static let mint = Color(hex: 0x5DE2B8)
     /// Two extensions to the starting palette, because six classes need six
     /// distinguishable accents. Both are tuned to clear 4.5:1 against `ink`.

@@ -303,14 +303,29 @@ actor YOLODetectionService {
             scratch = [Float](repeating: 0, count: needed)
         }
 
+        var overran = false
         array.withUnsafeBufferPointer(ofType: Float.self) { source in
             for row in 0..<usableRows {
                 let sourceBase = row * rowStride
+                // The strides come from the model, not from us. A padded layout
+                // — legal for MLMultiArray, and the reason this code honours
+                // strides at all — can put the last element of the last row past
+                // the end of the buffer. In Release the subscript is not
+                // bounds-checked, so this would be a silent out-of-bounds read
+                // producing plausible-looking garbage boxes.
+                let lastIndex = sourceBase + (configuration.valuesPerDetection - 1) * valueStride
+                guard lastIndex < source.count else { overran = true; return }
                 let destinationBase = row * configuration.valuesPerDetection
                 for value in 0..<configuration.valuesPerDetection {
                     scratch[destinationBase + value] = source[sourceBase + value * valueStride]
                 }
             }
+        }
+
+        if overran {
+            throw DetectionError.invalidOutput(
+                "output strides \(strides) overrun a \(array.count)-element buffer for shape \(shape)"
+            )
         }
 
         // Zero any tail left over from a previous, longer frame so stale rows

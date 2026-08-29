@@ -17,12 +17,12 @@ enum WasteCategory: String, CaseIterable, Identifiable, Sendable {
 
     var displayName: String {
         switch self {
-        case .cardboard: "Cardboard"
-        case .glass: "Glass"
-        case .metal: "Metal"
-        case .paper: "Paper"
-        case .plastic: "Plastic"
-        case .generalWaste: "General waste"
+        case .cardboard: L("waste.cardboard.name")
+        case .glass: L("waste.glass.name")
+        case .metal: L("waste.metal.name")
+        case .paper: L("waste.paper.name")
+        case .plastic: L("waste.plastic.name")
+        case .generalWaste: L("waste.generalWaste.name")
         }
     }
 
@@ -42,12 +42,12 @@ enum WasteCategory: String, CaseIterable, Identifiable, Sendable {
     /// it as generic so it is never mistaken for local law.
     var disposalGuidance: String {
         switch self {
-        case .cardboard: "Flatten it and keep it dry."
-        case .glass: "Empty and rinse it. Lids usually go separately."
-        case .metal: "Rinse it out. Labels can normally stay on."
-        case .paper: "Keep it clean and dry — no food-soiled paper."
-        case .plastic: "Empty and rinse it, then put the cap back on."
-        case .generalWaste: "No recycling stream fits this one."
+        case .cardboard: L("waste.cardboard.guidance")
+        case .glass: L("waste.glass.guidance")
+        case .metal: L("waste.metal.guidance")
+        case .paper: L("waste.paper.guidance")
+        case .plastic: L("waste.plastic.guidance")
+        case .generalWaste: L("waste.generalWaste.guidance")
         }
     }
 }

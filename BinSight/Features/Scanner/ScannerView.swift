@@ -28,6 +28,12 @@ struct ScannerView: View {
     @State private var announcer = ResultAnnouncer()
     /// Last set of class ids announced, so VoiceOver is not spammed per frame.
     @State private var lastAnnouncedMaterials: Set<Int> = []
+    /// Monotonic timestamp of that announcement.
+    @State private var lastAnnouncedAt: TimeInterval = 0
+    @State private var localization = LocalizationStore.shared
+
+    /// Matches `ResultAnnouncer`'s throttle, so both voices pace the same.
+    private static let announcementInterval: TimeInterval = 1.5
 
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -53,7 +59,10 @@ struct ScannerView: View {
 
     /// True while the live detector is the thing on screen.
     private var isLive: Bool {
-        manualState == nil && camera.unavailableReason == nil && camera.state.isRunning
+        manualState == nil
+            && camera.unavailableReason == nil
+            && camera.state.isRunning
+            && engine.status.isRunning
     }
 
     /// The pinned/unavailable presentation state.
@@ -69,6 +78,12 @@ struct ScannerView: View {
         }
         if case .unavailable(let reason) = engine.status {
             return .unavailable(reason)
+        }
+        // `.modelLoading` finally has a producer. It was declared, given copy,
+        // and never assigned — the screen used to jump straight from launch to
+        // scanning while the main thread was blocked loading CoreML.
+        if engine.status == .loading {
+            return .modelLoading
         }
         return camera.state.isRunning ? .scanning : .ready
     }
@@ -103,17 +118,37 @@ struct ScannerView: View {
                 .ignoresSafeArea()
                 .allowsHitTesting(false)
 
-            VStack(spacing: BinSightTheme.spacing) {
-                topBar
-                scannerArea
-                resultSurface
+            // ScrollView, not a bare VStack. At accessibility text sizes on a
+            // 375pt screen the unavailable-state card alone exceeds the safe
+            // area, and SwiftUI clips the bottom — which is exactly where the
+            // "Open Settings" button lives. A person who denies camera access
+            // and uses large text would have had no way back.
+            //
+            // `.scrollBounceBehavior(.basedOnSize)` keeps it feeling like a
+            // fixed screen at normal sizes: no rubber-banding unless the
+            // content genuinely overflows.
+            ScrollView {
+                VStack(spacing: BinSightTheme.spacing) {
+                    topBar
+                    scannerArea
+                    resultSurface
+                }
+                .padding(.horizontal, BinSightTheme.screenPadding)
+                .padding(.top, 4)
+                .padding(.bottom, 8)
+                // Fills the screen at normal text sizes so the layout still
+                // reads as a fixed screen; grows past it, and scrolls, only when
+                // the content genuinely needs more room.
+                .containerRelativeFrame(.vertical, alignment: .top)
             }
-            .padding(.horizontal, BinSightTheme.screenPadding)
-            .padding(.top, 4)
-            .padding(.bottom, 8)
+            .scrollBounceBehavior(.basedOnSize)
         }
         .animation(reduceMotion ? nil : .snappy(duration: 0.35), value: displayState)
         .task {
+            // Model first, then the camera: loading it is what the "Getting the
+            // model ready…" state is describing, and starting the session
+            // underneath would only compete for the CPU while it happens.
+            await engine.loadDetector()
             await camera.activate()
             // Also sync here: relying only on `onChange` loses the transition
             // when the camera settles before the observer is installed.
@@ -196,7 +231,9 @@ struct ScannerView: View {
 
                 Spacer(minLength: 8)
 
-                PrivacyChip(text: "ON-DEVICE AI", systemImage: "cpu", isCompact: true)
+                PrivacyChip(text: L("chip.onDeviceAI"), systemImage: "cpu", isCompact: true)
+
+                LanguageMenu(store: localization)
 
                 #if DEBUG
                 DebugStateMenu(state: manualStateBinding)
@@ -227,7 +264,7 @@ struct ScannerView: View {
                 Spacer(minLength: 0)
             }
 
-            Text(isLive ? "Point at paper, plastic or metal" : "Point at one item")
+            Text(isLive ? L("scanner.instruction.live") : L("scanner.instruction.pinned"))
                 .font(BinSightTheme.rounded(.subheadline, weight: .semibold))
                 .foregroundStyle(BinSightTheme.onCamera)
                 .multilineTextAlignment(.center)
@@ -236,7 +273,9 @@ struct ScannerView: View {
                 // Its own scrim: this sits mid-screen where the top and bottom
                 // gradients do not reach, and a camera frame can be any
                 // brightness. Light text plus a shadow is not enough.
-                .background(Capsule().fill(BinSightTheme.ink.opacity(0.45)))
+                // 0.65, not 0.45. Over a white wall the lighter scrim left
+                // cream-on-grey at about 3.7:1, under the 4.5:1 this text needs.
+                .background(Capsule().fill(BinSightTheme.ink.opacity(0.65)))
                 // Fade it once boxes are on screen: the overlay is the answer,
                 // and a standing instruction competes with it.
                 .opacity(engine.detections.isEmpty ? 1 : 0.55)
@@ -270,7 +309,7 @@ struct ScannerView: View {
                         handle(recovery)
                     }
                 }
-                PrivacyChip(text: "Frames stay on this iPhone.", systemImage: "lock.fill")
+                PrivacyChip(text: L("chip.framesStayOnPhone"), systemImage: "lock.fill")
             }
         }
     }
@@ -301,9 +340,23 @@ struct ScannerView: View {
     /// fires when the answer actually changes.
     private func announceDetections(_ detections: [Detection]) {
         let materials = Set(detections.map(\.classID))
-        guard materials != lastAnnouncedMaterials else { return }
-        lastAnnouncedMaterials = materials
+
+        // An empty set is a gap, not an answer. Recording it as "last announced"
+        // was the bug: a bottle flickering just under threshold produced
+        // {plastic} -> {} -> {plastic}, and because the empty set had been
+        // stored, the second {plastic} counted as a change and was announced
+        // again. At 4 fps that is VoiceOver talking over itself continuously.
         guard !materials.isEmpty else { return }
+        guard materials != lastAnnouncedMaterials else { return }
+
+        // Even a genuine change is throttled. Panning across a cluttered table
+        // legitimately changes the answer several times a second, and speaking
+        // each one makes the app unusable with VoiceOver on.
+        let now = ProcessInfo.processInfo.systemUptime
+        guard now - lastAnnouncedAt >= Self.announcementInterval else { return }
+
+        lastAnnouncedMaterials = materials
+        lastAnnouncedAt = now
 
         let names = DetectedClass.allCases
             .filter { materials.contains($0.rawValue) }

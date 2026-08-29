@@ -1,8 +1,8 @@
 {
   "source": {
-    "weights": "runs/detect/binsight_yolo26n_pretrained_final/weights/best.pt",
-    "sha256": "958e49a5fc8358442497bcb9ce98ca9b8e48a6a1da3bfb92539ac9d14f58ed67",
-    "size_bytes": 5385157,
+    "weights": "runs/detect/binsight_yolo26n_continued/weights/best.pt",
+    "sha256": "f6ca723341610b4d5f19856fcecbb30528193e2f7bed47c5d21deda539276c96",
+    "size_bytes": 5387013,
     "task": "detect",
     "model_class": "DetectionModel",
     "head_class": "Detect",
@@ -61,24 +61,24 @@
     "author": "Ultralytics",
     "license": "AGPL-3.0 License (https://ultralytics.com/license)",
     "user_defined_metadata": {
-      "com.github.apple.coremltools.source_dialect": "TorchScript",
-      "stride": "32",
-      "date": "2026-08-09T21:59:50.762427",
-      "batch": "1",
+      "com.github.apple.coremltools.source": "torch==2.13.0",
       "end2end": "True",
-      "imgsz": "[640, 640]",
-      "task": "detect",
-      "com.github.apple.coremltools.conversion_date": "2026-08-09",
-      "args": "{'batch': 1, 'half': True, 'int8': False, 'dynamic': False, 'nms': False}",
       "docs": "https://docs.ultralytics.com",
+      "stride": "32",
+      "task": "detect",
+      "batch": "1",
+      "com.github.apple.coremltools.source_dialect": "TorchScript",
+      "args": "{'batch': 1, 'half': True, 'int8': False, 'dynamic': False, 'nms': False}",
       "channels": "3",
-      "com.github.apple.coremltools.version": "9.0",
+      "com.github.apple.coremltools.conversion_date": "2026-08-29",
       "names": "{0: 'paper', 1: 'plastic', 2: 'metal'}",
-      "com.github.apple.coremltools.source": "torch==2.13.0"
+      "date": "2026-08-29T21:28:39.390457",
+      "com.github.apple.coremltools.version": "9.0",
+      "imgsz": "[640, 640]"
     },
-    "tree_sha256": "161cad1b14ff12238129636d06d03ffc0c9a0648ac5e6d286572e82b5969e088",
+    "tree_sha256": "afab107f10d987dd81b609e2a6639c3316021d8f1601d9946cd202c1d87a1a45",
     "size_bytes": 5005354,
     "file_count": 3
   },
-  "ultralytics_wrote": "runs/detect/binsight_yolo26n_pretrained_final/weights/best.mlpackage"
+  "ultralytics_wrote": "runs/detect/binsight_yolo26n_continued/weights/best.mlpackage"
 }

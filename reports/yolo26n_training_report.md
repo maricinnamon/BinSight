@@ -182,3 +182,81 @@ restored weights, EMA, optimizer state and epoch counter correctly.
 ## Not done here
 
 No CoreML export, no TFLite export, no iOS integration, nothing committed.
+
+---
+
+# Continuation run — 40 further epochs
+
+The run above stopped at its epoch limit, not at convergence: its best epoch was
+its 25th and last, and mAP50-95 had risen 0.0235 over the final five epochs. A
+40-epoch continuation was therefore trained from its `best.pt`.
+
+`resume=True` was not usable — a completed Ultralytics run stores `epoch: -1` and
+refuses to resume — so the continuation started from the finished checkpoint as
+initial weights, with a fresh schedule. **Transferred 708/708 items**, as opposed
+to 606/708 in the first stage, because the head was already 3-class.
+
+| | |
+|---|---|
+| Starting weights | `models/pytorch/BinSightYOLO26n.pt` (the 25-epoch model) |
+| Epochs | 40 / 40 completed, no early stopping |
+| Best epoch | **40** — again the last, so still not converged |
+| Batch / imgsz | 4 / 640 |
+| close_mosaic | 10 (mosaic disabled from epoch 31) |
+| Duration | 2.86 h |
+| Peak process RSS | 1,943 MB · peak swap 2.19 GB |
+| Result | `runs/detect/binsight_yolo26n_continued/weights/best.pt` |
+| SHA-256 | `f6ca723341610b4d5f19856fcecbb30528193e2f7bed47c5d21deda539276c96` |
+
+## Held-out test — the reportable comparison
+
+| Metric | 25-epoch model | **65-epoch model** | Δ |
+|---|---:|---:|---:|
+| Precision | 0.6817 | **0.7533** | **+0.0716** |
+| Recall | 0.5777 | **0.5744** | −0.0033 |
+| mAP50 | 0.6480 | **0.6740** | +0.0260 |
+| mAP75 | 0.4809 | **0.5266** | +0.0457 |
+| mAP50-95 | 0.4620 | **0.4976** | +0.0356 |
+
+Per class, AP50-95: paper 0.4386 → **0.4578**, plastic 0.4349 → **0.4781**,
+metal 0.5126 → **0.5568**. All three improved.
+
+The gain is concentrated in **precision** — the model became markedly more
+selective at essentially unchanged recall. `paper` recall actually fell, 0.5000 →
+0.4693, which is the cost side of that trade.
+
+## Two predictions that were wrong
+
+**The restart hurt before it helped.** Starting a fresh learning-rate schedule on
+a converged model knocked validation mAP50-95 from 0.5070 down to 0.3683 by
+epoch 3. It took until epoch 27 to pass the old model. Anyone repeating this
+should expect the dip and not stop early because of it.
+
+**Disabling mosaic did nothing here.** The first run's jump at `close_mosaic`
+(+0.0110 in one epoch) suggested that would be the decisive moment again. It was
+not: the model passed the old checkpoint at epoch 27 with mosaic still on, and
+the epoch mosaic was actually disabled moved mAP50-95 by **−0.0012**.
+
+## Progression
+
+| epoch | mAP50 | mAP50-95 | |
+|---:|---:|---:|---|
+| 1 | 0.6242 | 0.4423 |  |
+| 3 | 0.5540 | 0.3683 | lowest point |
+| 10 | 0.5977 | 0.4175 |  |
+| 20 | 0.6593 | 0.4774 |  |
+| 25 | 0.6720 | 0.4968 |  |
+| 27 | 0.7060 | 0.5176 | passes the 25-epoch model |
+| 30 | 0.7057 | 0.5281 |  |
+| 31 | 0.7069 | 0.5268 | mosaic disabled |
+| 35 | 0.7059 | 0.5325 |  |
+| 40 | 0.7161 | 0.5427 | best |
+
+Validation mAP50-95 finished at 0.5425 against the previous model's 0.5070.
+
+## Status
+
+This checkpoint is the accepted release model. It replaced the previous one in
+both `models/pytorch/BinSightYOLO26n.pt` and the app's bundled CoreML package,
+after passing the parity check in `reports/coreml_export_report.md` and the full
+iOS test suite (178 tests).

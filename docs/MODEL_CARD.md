@@ -15,9 +15,9 @@ carried over from an earlier experiment.
 | **Classes** | 3 — `0 paper`, `1 plastic`, `2 metal` |
 | **Input** | 640×640 RGB |
 | **Deployed format** | CoreML `.mlpackage`, ML Program, FP16, spec v6 (iOS 16+), 4.8 MB |
-| **PyTorch release artifact** | `models/pytorch/BinSightYOLO26n.pt` — 5,385,157 bytes, SHA-256 `958e49a5fc8358442497bcb9ce98ca9b8e48a6a1da3bfb92539ac9d14f58ed67` |
+| **PyTorch release artifact** | `models/pytorch/BinSightYOLO26n.pt` — 5,387,013 bytes, SHA-256 `f6ca723341610b4d5f19856fcecbb30528193e2f7bed47c5d21deda539276c96` |
 | **CoreML release artifact** | `BinSight/Resources/Models/BinSightYOLO26n.mlpackage` — 4.8 MB |
-| **Provenance** | byte-identical copy of the training run's `best.pt`; `runs/` itself is not committed |
+| **Provenance** | byte-identical copy of the continuation run's `best.pt`; `runs/` itself is not committed |
 | **Framework at training** | PyTorch 2.13.0, MPS (Apple M1) |
 
 ### End-to-end / NMS-free
@@ -67,17 +67,23 @@ validation reports 0 corrupt images, 0 invalid labels and 0 cross-split leakage.
 
 | | |
 |---|---|
-| Epochs | 25 (completed; no early stopping) |
-| Best epoch | 25 |
+| Epochs | **65 total** — 25 initial + 40 continuation (both completed; no early stopping) |
+| Best epoch | 40 of the continuation run — i.e. its last, so still improving |
 | Batch | 4 |
 | Image size | 640 |
 | Optimizer | AdamW (auto), cosine decay |
-| Augmentation | mosaic 0.3, disabled for the final 5 epochs (`close_mosaic=5`) |
+| Augmentation | mosaic 0.3, disabled for the final epochs (`close_mosaic=5` initial, `10` continuation) |
 | Seed | 42 |
-| Duration | 6.85 h |
+| Duration | 6.85 h + 2.86 h |
 
-606 of 708 tensors transferred from the pretrained checkpoint; the 102 skipped
-are the class-count-dependent head, adapted 80 → 3.
+606 of 708 tensors transferred from COCO in the first stage; the 102 skipped are
+the class-count-dependent head, adapted 80 → 3. The continuation started from the
+first stage's own checkpoint, so it transferred 708/708 — the head was already
+3-class.
+
+Disabling mosaic did **not** cause the continuation's gain, contrary to what the
+first run suggested: the model passed the old checkpoint at epoch 27, while
+mosaic was still on, and the epoch mosaic was disabled moved mAP50-95 by −0.0012.
 
 ## Evaluation
 
@@ -86,19 +92,22 @@ reportable figure**.
 
 | Metric | Validation | **Held-out test** |
 |---|---:|---:|
-| Precision | 0.7086 | **0.6817** |
-| Recall | 0.6045 | **0.5777** |
-| mAP50 | 0.6779 | **0.6480** |
-| mAP75 | 0.5450 | **0.4809** |
-| mAP50-95 | 0.5070 | **0.4620** |
+| Precision | 0.7502 | **0.7533** |
+| Recall | 0.6485 | **0.5744** |
+| mAP50 | 0.7159 | **0.6740** |
+| mAP75 | 0.5897 | **0.5266** |
+| mAP50-95 | 0.5425 | **0.4976** |
+
+Against the 25-epoch model the continuation gained **+0.0716 precision** at
+essentially unchanged recall (−0.0033), and +0.0356 mAP50-95.
 
 Per class, held-out test (508 images, 1,666 instances):
 
 | Class | Precision | Recall | F1 | AP50 | AP50-95 |
 |---|---:|---:|---:|---:|---:|
-| paper | 0.6519 | 0.5000 | 0.5660 | 0.5713 | 0.4386 |
-| plastic | 0.6822 | 0.5629 | 0.6169 | 0.6568 | 0.4349 |
-| metal | 0.7108 | 0.6700 | 0.6898 | 0.7159 | 0.5126 |
+| paper | 0.7395 | 0.4693 | 0.5742 | 0.5818 | 0.4578 |
+| plastic | 0.7421 | 0.5873 | 0.6557 | 0.7001 | 0.4781 |
+| metal | 0.7784 | 0.6667 | 0.7182 | 0.7402 | 0.5568 |
 
 Evaluation threshold: confidence 0.25 — the same value the app ships with.
 
@@ -109,18 +118,22 @@ compared afterwards:
 
 | | |
 |---|---|
-| PyTorch detections | 27 |
-| CoreML detections | 29 |
-| Geometry-matched | 27 / 27 |
-| Class agreement | 96.30% (26/27) |
-| Mean matched-box IoU | 0.9928 (min 0.9771) |
-| Mean confidence delta | 0.017 (max 0.097) |
+| PyTorch detections | 40 |
+| CoreML detections | 40 |
+| Geometry-matched | 38 / 40 |
+| Class agreement | 100% (38/38) |
+| Mean matched-box IoU | 0.9924 (min 0.9685) |
+| Mean confidence delta (distribution) | 0.0168 (max 0.1619) |
 
-The single class disagreement is a translucent plastic bag at IoU 0.986 —
-`paper 0.278` in PyTorch, `plastic 0.284` in CoreML — a genuine near-tie tipped
-by FP16 rounding. Both extra CoreML detections sit within 0.04 of the threshold.
-Confident detections reproduce at IoU ≥ 0.9967 with confidence deltas below
-0.0005, so export error is confined to the low-confidence band.
+No class disagreements. Confidence is compared as a *distribution* rather than
+pairwise, because in dense scenes — one test image yields 19 boxes overlapping at
+IoU > 0.99 — no geometry-only matcher can decide which box corresponds to which
+twin, and pairwise deltas then measure the arbitrariness of the pairing.
+
+The one outlier (0.1619) was traced: PyTorch emitted two near-identical boxes on
+a single bottle, splitting its confidence across 0.762 and 0.537, while CoreML
+suppressed the duplicate into one 0.924 detection. Same object, same class, boxes
+agreeing at IoU 0.985.
 
 ## Performance
 
@@ -129,9 +142,9 @@ latency has **not** been measured.
 
 | | |
 |---|---|
-| Letterbox (CoreImage) | 3–4 ms |
-| CoreML inference | 58–136 ms |
-| End-to-end | 116–191 ms (≈ 5.2–8.6 /s) |
+| Letterbox (CoreImage) | 2–4 ms |
+| CoreML inference | 32–136 ms |
+| End-to-end | 42–191 ms (≈ 5.2–23.9 /s) |
 
 The range is wide because the Simulator shares the host CPU; it is reported as a
 range rather than a single figure because a single figure would be a fiction.
@@ -142,12 +155,15 @@ range rather than a single figure because a single figure would be a fiction.
 taxonomy. Cardboard is the sharpest risk: it is visually adjacent to paper and
 was deliberately excluded, so cardboard in frame may be detected as `paper`.
 
-**Recall is 0.578 on held-out test.** Roughly two in five annotated objects are
-missed at the 0.25 threshold.
+**Recall is 0.574 on held-out test.** Roughly two in five annotated objects are
+missed at the 0.25 threshold. The app compounds this deliberately by showing only
+the single strongest detection, so a frame containing two materials names one.
 
-**`paper` is the weakest class** (AP50-95 0.4386, recall exactly 0.50). It is
+**`paper` is the weakest class** (AP50-95 0.4578, recall 0.4693). It is
 deformable, often crumpled, and shades into both cardboard and translucent
-plastic.
+plastic — and its recall *fell* in the continuation run even as precision rose.
+
+**The model is not converged.** Both training stages ended on their best epoch.
 
 **Domain shift is the dominant limitation.** The training imagery is
 product-style photography at 416×416 — largely single objects, clean
@@ -157,8 +173,8 @@ performance should be expected to fall short of the test figures, and the test
 figures should not be quoted as in-app accuracy.
 
 **Crowded scenes produce many overlapping boxes.** This is correct behaviour for
-an NMS-free detector — one evaluation image legitimately contains 11 overlapping
-`metal` detections — but the app caps the overlay at 10 boxes for legibility.
+an NMS-free detector — one evaluation image legitimately contains 19 overlapping
+`metal` detections — but the app surfaces only the single strongest box.
 
 **Not evaluated for fairness or demographic bias.** The subject matter is objects
 rather than people, but no analysis of geographic or packaging-market bias in the

@@ -16,6 +16,10 @@ final class ScannerScreenUITests: XCTestCase {
     private func launch(_ scenario: String) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments += ["-BinSightUITestScenario", scenario]
+        // Pin the interface language. These tests assert on visible English
+        // copy, so without this they assert against whatever language the
+        // Simulator is set to and fail on a Ukrainian machine.
+        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         return app
     }

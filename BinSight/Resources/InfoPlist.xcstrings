@@ -1,0 +1,23 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "NSCameraUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BinSight uses the camera to recognise paper, plastic and metal in front of you. Everything runs on this iPhone — no frame is stored or uploaded."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BinSight використовує камеру, щоб розпізнавати папір, пластик і метал перед вами. Усе працює на цьому iPhone — жоден кадр не зберігається й не надсилається."
+          }
+        }
+      }
+    }
+  }
+}

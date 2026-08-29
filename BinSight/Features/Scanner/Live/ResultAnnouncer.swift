@@ -72,9 +72,9 @@ struct ResultAnnouncer {
 
     private static func phrase(for state: ScannerDisplayState) -> String? {
         switch state {
-        case .ready: "Ready to scan"
+        case .ready: L("announce.readyToScan")
         case .scanning, .modelLoading: nil
-        case .result(let result): "\(result.category.displayName), \(result.confidencePercent) percent confidence"
+        case .result(let result): L("announce.result", result.category.displayName, result.confidenceText)
         case .notSure: ScannerDisplayState.notSureMessage
         case .unavailable(let reason): reason.title
         }

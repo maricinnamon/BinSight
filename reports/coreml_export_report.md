@@ -1,5 +1,42 @@
 # BinSight YOLO26n — CoreML export report
 
+> ## Superseded — re-exported after a 40-epoch continuation run
+>
+> The figures below describe the **first** export, from the 25-epoch model
+> (`958e49a5…f58ed67`). The shipped model is now the 65-epoch continuation
+> (`f6ca7233…276c96`), re-exported with the same script and the same options.
+>
+> The exported **contract is unchanged**: input `image` 640×640 RGB with
+> `scale = 1/255`, one MultiArray output `[1, 300, 6]` of
+> `[x1, y1, x2, y2, confidence, class_id]`, end2end and NMS-free. No Swift code
+> needed changing.
+>
+> Current parity, from `models/coreml/parity_report.json`:
+>
+> | | first export | **current** |
+> |---|---:|---:|
+> | PyTorch / CoreML detections | 27 / 29 | 40 / 40 |
+> | Geometry-matched | 27 / 27 | 38 / 40 |
+> | Class agreement | 96.30% | **100%** |
+> | Mean matched-box IoU | 0.9928 | 0.9924 (min 0.9685) |
+> | Mean confidence delta | 0.017 paired | **0.0168 distribution** |
+>
+> Two measurement flaws were found and fixed while verifying the new export, and
+> both are worth knowing before reading the numbers below:
+>
+> 1. **Greedy matching is wrong in dense scenes.** With 19 boxes overlapping at
+>    IoU > 0.99 on a pile of screws, it paired detections with the wrong twin and
+>    invented confidence deltas of 0.24. Replaced with optimal assignment.
+> 2. **Pairwise confidence delta is not a sound metric at all there.** Optimal
+>    assignment made it *worse* (0.24 → 0.39), because many assignments score
+>    almost the same total IoU. Confidence is now compared as a sorted
+>    distribution, which is immune to which twin was paired with which.
+>
+> The single remaining outlier (0.1619) is real and benign: PyTorch emitted two
+> near-identical boxes on one bottle, splitting confidence across 0.762 and
+> 0.537, where CoreML suppressed the duplicate into one 0.924 detection.
+
+
 ## Source model
 
 | | |

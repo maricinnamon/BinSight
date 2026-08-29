@@ -87,8 +87,10 @@ struct ClassificationResult: Equatable, Sendable {
         Int((confidence * 100).rounded())
     }
 
+    /// Locale-aware — the percent sign is not always a suffix, and not always
+    /// separated the same way.
     var confidenceText: String {
-        "\(confidencePercent)%"
+        Double(confidence).formatted(.percent.precision(.fractionLength(0)))
     }
 
     /// Gap between the best and second-best class.

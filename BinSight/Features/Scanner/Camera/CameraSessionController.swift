@@ -53,7 +53,17 @@ final class CameraSessionController: NSObject, @unchecked Sendable {
 
     /// Fires when the session is interrupted, resumes, or hits a runtime error.
     /// The model turns these into UI state.
-    var onStatusEvent: (@Sendable (StatusEvent) -> Void)?
+    var onStatusEvent: (@Sendable (StatusEvent) -> Void)? {
+        get { statusLock.withLock { _onStatusEvent } }
+        set { statusLock.withLock { _onStatusEvent = newValue } }
+    }
+
+    /// Written on the main actor when the model wires itself up, read on
+    /// AVFoundation's notification thread. Unlike `framesContinuation` this was
+    /// previously unsynchronised, which made the type's `@unchecked Sendable`
+    /// claim untrue.
+    private var _onStatusEvent: (@Sendable (StatusEvent) -> Void)?
+    private let statusLock = NSLock()
 
     enum StatusEvent: Equatable, Sendable {
         case interrupted

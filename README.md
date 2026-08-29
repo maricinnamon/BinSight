@@ -12,8 +12,8 @@ The detector localises *and* classifies in a single pass. There is no second
 classification stage, no segmentation, and — because YOLO26 is end-to-end — no
 non-maximum suppression anywhere in the app.
 
-> 🎯 **Held-out test mAP@50:** 0.6480 · **mAP@50-95:** 0.4620
-> 📐 **PyTorch → CoreML mean box IoU:** 0.9928
+> 🎯 **Held-out test mAP@50:** 0.6740 · **mAP@50-95:** 0.4976
+> 📐 **PyTorch → CoreML mean box IoU:** 0.9924
 > 🔒 **Deployment:** fully on-device CoreML inference, no network
 
 ---
@@ -28,7 +28,9 @@ filmed on a physical device; nothing is linked here that does not exist.
 ## ✨ Features
 
 - 📷 **Live camera detection** — ~4 inferences/second from the video feed
-- 🏷️ **Boxes, class and confidence** — drawn as an overlay (`Plastic 81%`)
+- 🎯 **One box, the confident one** — the app surfaces only the single strongest
+  detection, because at the 0.25 threshold roughly one box in four is wrong
+- 🏷️ **Class and confidence** — drawn as an overlay (`Plastic 81%`)
 - 📦 **Three material classes** — paper, plastic and metal
 - 🍎 **Fully on-device CoreML** — no network, no server, no account
 - 🧊 **Bounded memory** — one inference in flight, newest frame only, no backlog
@@ -118,9 +120,17 @@ are, so the dataset can be rebuilt. See [Reproducing the ML work](#reproducing-t
 |---|---|
 | Architecture | YOLO26n Detect (Ultralytics 8.4.9), 2.5 M parameters |
 | Initialisation | `yolo26n.pt`, 80-class COCO — **606/708 tensors transferred**, head adapted 80 → 3 |
-| Training | 25 epochs, batch 4, imgsz 640, AdamW, seed 42, MPS (Apple M1) |
-| Best epoch | 25 (no early stopping; 22 of 25 epochs set a new best) |
-| Duration | 6.85 h |
+| Training | **65 epochs total** — 25 initial + 40 continuation, batch 4, imgsz 640, AdamW, seed 42, MPS (Apple M1) |
+| Best epoch | 40 of the continuation run (no early stopping) |
+| Duration | 6.85 h + 2.86 h |
+
+Training ran in two stages. The first stopped at its 25-epoch limit while the
+model was still improving — its best epoch *was* its last, and mAP50-95 had risen
+0.0235 over the final five epochs. A 40-epoch continuation from that checkpoint
+recovered from the inevitable dip caused by restarting the learning-rate schedule
+and then went well past it, lifting held-out test mAP50-95 from 0.4620 to 0.4976.
+The continuation's best epoch was again its last, so the model is *still* not
+fully converged.
 
 🛡️ The training script refuses to start unless the checkpoint is genuinely
 pretrained: it asserts the checkpoint dict is present, the head is `Detect`, and
@@ -137,29 +147,33 @@ Validation guided checkpoint selection, so **the held-out test split is the
 headline number** — quoting validation as final performance would report a figure
 the model was selected on.
 
-| Metric | Validation | **Held-out test** |
-|---|---:|---:|
-| Precision | 0.7086 | **0.6817** |
-| Recall | 0.6045 | **0.5777** |
-| mAP50 | 0.6779 | **0.6480** |
-| mAP75 | 0.5450 | **0.4809** |
-| mAP50-95 | 0.5070 | **0.4620** |
+| Metric | Validation | **Held-out test** | Test Δ vs 25-epoch model |
+|---|---:|---:|---:|
+| Precision | 0.7502 | **0.7533** | +0.0716 |
+| Recall | 0.6485 | **0.5744** | −0.0033 |
+| mAP50 | 0.7159 | **0.6740** | +0.0260 |
+| mAP75 | 0.5897 | **0.5266** | +0.0457 |
+| mAP50-95 | 0.5425 | **0.4976** | +0.0356 |
 
 Per class, on the held-out test split:
 
 | Class | Precision | Recall | AP50 | AP50-95 |
 |---|---:|---:|---:|---:|
-| paper | 0.6519 | 0.5000 | 0.5713 | 0.4386 |
-| plastic | 0.6822 | 0.5629 | 0.6568 | 0.4349 |
-| metal | 0.7108 | 0.6700 | 0.7159 | **0.5126** |
+| paper | 0.7395 | 0.4693 | 0.5818 | 0.4578 |
+| plastic | 0.7421 | 0.5873 | 0.7001 | 0.4781 |
+| metal | 0.7784 | 0.6667 | 0.7402 | **0.5568** |
 
-The val→test drop (mAP50-95 0.5070 → 0.4620) is about 0.045 — modest, and
+The largest gain is **precision, +0.0716**, at essentially unchanged recall. That
+is the most useful direction of improvement for this app: it shows one box, so
+what matters is how often that box is right.
+
+The val→test drop (mAP50-95 0.5425 → 0.4976) is about 0.045 — modest, and
 consistent with mild selection bias rather than overfitting.
 
 🥇 `metal` is the strongest class on both splits: cans and foil have hard edges
-and consistent specular highlights. `paper` is the weakest, with recall of
-exactly 0.50 — it is deformable, often crumpled, and shades into cardboard, a
-class the taxonomy deliberately excludes.
+and consistent specular highlights. `paper` is the weakest, and its recall
+actually fell to 0.4693 — it is deformable, often crumpled, and shades into
+cardboard, a class the taxonomy deliberately excludes.
 
 ---
 
@@ -172,22 +186,33 @@ same 10 deterministic held-out images:
 
 | | |
 |---|---|
-| PyTorch detections | 27 |
-| CoreML detections | 29 |
-| Geometry-matched | **27 / 27** |
-| Class agreement | **96.30%** (26/27) |
-| Mean matched-box IoU | **0.9928** (min 0.9771) |
-| Mean confidence delta | 0.017 (max 0.097) |
+| PyTorch detections | 40 |
+| CoreML detections | 40 |
+| Geometry-matched | **38 / 40** |
+| Class agreement | **100%** (38/38) |
+| Mean matched-box IoU | **0.9924** (min 0.9685) |
+| Mean confidence delta | 0.0168 (max 0.1619) |
 
 Matching is on **geometry alone**, with class compared afterwards. Requiring the
 class to agree *before* pairing would make "class agreement" tautologically 100%
-— a disagreeing pair simply never becomes a pair. The one disagreement is a
-translucent plastic bag labelled `paper 0.278` by PyTorch and `plastic 0.284` by
-CoreML: the same box, a genuine near-tie tipped by FP16 rounding. The two extra
-CoreML detections both sit within 0.04 of the 0.25 threshold.
+— a disagreeing pair simply never becomes a pair.
 
-✅ Confident detections are unaffected — the strongest example of each class
-reproduces at IoU ≥ 0.9967 with confidence deltas under 0.0005.
+Two measurement details are worth stating, because both were wrong at first:
+
+- **Assignment is optimal, not greedy.** On an image of a pile of screws with 19
+  boxes overlapping at IoU > 0.99, greedy pairing matched detections to the wrong
+  twin and invented confidence deltas of 0.24.
+- **Confidence is compared as a distribution, not pairwise.** Even optimal
+  assignment is ambiguous when many boxes are near-identical — switching to it
+  made the paired delta *worse* (0.24 → 0.39), which is the tell. Comparing
+  sorted confidences rank-for-rank answers the real question and is immune to
+  which twin got paired with which.
+
+The one remaining outlier, 0.1619, was traced rather than waved away: PyTorch
+emitted **two** near-identical boxes on a single bottle (IoU 0.986 with each
+other), splitting its confidence across 0.762 and 0.537, while CoreML suppressed
+the duplicate into one 0.924 detection. Same object, same class, boxes agreeing
+at IoU 0.985 — CoreML was the cleaner of the two.
 
 📄 Full detail: [`reports/coreml_export_report.md`](reports/coreml_export_report.md).
 
@@ -217,7 +242,7 @@ Four things that are easy to get wrong, and how this app handles them:
 
 - 🚫 **No app-side NMS.** YOLO26 is end-to-end (`end2end = True`); the rows are
   already deduplicated and Ultralytics forces `nms=False` when exporting. Adding
-  NMS would suppress genuinely overlapping objects — one evaluation image has 11
+  NMS would suppress genuinely overlapping objects — one evaluation image has 19
   valid overlapping `metal` boxes.
 - 🔢 **No manual normalisation.** The exported input layer carries `scale = 1/255`.
   Dividing again in Swift would hand the model a near-black image.
@@ -247,9 +272,9 @@ a warm-up), on an M1 host:
 
 | | |
 |---|---|
-| Letterbox (CoreImage) | 3–4 ms |
-| CoreML inference | 58–136 ms |
-| End-to-end | 116–191 ms (≈ 5.2–8.6 /s) |
+| Letterbox (CoreImage) | 2–4 ms |
+| CoreML inference | 32–136 ms |
+| End-to-end | 42–191 ms (≈ 5.2–23.9 /s) |
 
 The spread is wide because the Simulator shares the host CPU with whatever else
 is running; the faster end of the range is the less contended case.
@@ -302,8 +327,8 @@ Two, both committed, and they are the only two:
 | **CoreML** | `BinSight/Resources/Models/BinSightYOLO26n.mlpackage` | 4.8 MB | what the iOS app bundles and runs |
 
 `models/pytorch/BinSightYOLO26n.pt` is byte-identical to the training run's
-`best.pt` — SHA-256 `958e49a5fc8358442497bcb9ce98ca9b8e48a6a1da3bfb92539ac9d14f58ed67`,
-5,385,157 bytes. It is copied out of the run directory so the release model
+`best.pt` — SHA-256 `f6ca723341610b4d5f19856fcecbb30528193e2f7bed47c5d21deda539276c96`,
+5,387,013 bytes. It is copied out of the run directory so the release model
 survives in Git without the 460 MB of training output around it. With it
 committed, CoreML can be re-exported, and the model re-evaluated, **without
 retraining**.
@@ -400,11 +425,14 @@ xcodebuild -workspace BinSight.xcworkspace -scheme BinSight -destination 'platfo
   force them into one of the three classes.
 - ⚖️ **This is not a recycling authority.** Guidance shown in the app is generic
   material advice, never a particular council's rules.
-- 🎯 **Recall is 0.578 on the held-out test split.** Roughly two in five annotated
+- 🎯 **Recall is 0.574 on the held-out test split.** Roughly two in five annotated
   objects are missed at the 0.25 threshold. It finds things reliably; it does not
-  find everything.
-- 📄 **Paper is the hardest class** (AP50-95 0.4386, recall 0.50) and is the one
+  find everything — and the app shows only one box, so a frame with two materials
+  names one of them.
+- 📄 **Paper is the hardest class** (AP50-95 0.4578, recall 0.4693) and is the one
   most often confused with plastic on translucent or crumpled items.
+- 📈 **The model is still not converged.** Both training stages ended on their
+  best epoch, so more epochs would likely still help.
 - 🔀 **Domain gap.** Training imagery is product-style photography at 416×416, not
   handheld camera frames at arm's length under kitchen lighting. Live performance
   can be expected to fall short of the test figures.
@@ -418,6 +446,8 @@ xcodebuild -workspace BinSight.xcworkspace -scheme BinSight -destination 'platfo
 
 ## 🔮 Future work
 
+- 🏋️ Train longer — both stages ended on their best epoch, so the model has not
+  plateaued
 - 🧩 Expand the taxonomy — cardboard and glass are the obvious next two
 - 📸 Collect real handheld camera-domain images to close the domain gap
 - ⚡ Measure and optimise latency on device; consider INT8 if it is justified

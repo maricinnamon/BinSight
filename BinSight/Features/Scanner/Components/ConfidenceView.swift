@@ -15,7 +15,7 @@ struct ConfidenceView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("\(result.confidenceText) confidence")
+            Text(L("confidence.label", result.confidenceText))
                 .font(BinSightTheme.rounded(.footnote, weight: .medium))
                 .monospacedDigit()
                 .foregroundStyle(BinSightTheme.onSurface.opacity(0.65))
@@ -35,8 +35,8 @@ struct ConfidenceView: View {
             .animation(reduceMotion ? nil : .snappy(duration: 0.4), value: result)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Confidence")
-        .accessibilityValue("\(result.confidencePercent) percent")
+        .accessibilityLabel(L("confidence.accessibilityLabel"))
+        .accessibilityValue(result.confidenceText)
         .accessibilityIdentifier("result.confidence")
     }
 }

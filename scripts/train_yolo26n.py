@@ -129,6 +129,15 @@ def main() -> int:
     parser.add_argument("--epochs", type=int, default=CONFIG["epochs"])
     parser.add_argument("--patience", type=int, default=CONFIG["patience"])
     parser.add_argument("--close-mosaic", type=int, default=CONFIG["close_mosaic"])
+    parser.add_argument("--weights", default=PRETRAINED,
+                        help="starting weights. Defaults to the COCO-pretrained "
+                             "yolo26n.pt; pass an already-fine-tuned BinSight "
+                             "checkpoint to continue training it further.")
+    parser.add_argument("--lr0", type=float, default=None,
+                        help="initial learning rate. Leave unset for Ultralytics' "
+                             "auto choice; lower it when continuing from an "
+                             "already-converged checkpoint so the first epochs do "
+                             "not undo what the model has already learned.")
     args = parser.parse_args()
 
     import torch
@@ -164,7 +173,7 @@ def main() -> int:
         pretrained_info = {"resumed_from": args.resume, "from_scratch": False}
     else:
         # THE critical line: .pt weights, never .yaml.
-        model = YOLO(PRETRAINED)
+        model = YOLO(args.weights)
         pretrained_info = assert_pretrained(model)
         print("pretrained verification passed:")
         for k, v in pretrained_info.items():
@@ -175,6 +184,12 @@ def main() -> int:
         kwargs["epochs"] = args.epochs
         kwargs["patience"] = args.patience
         kwargs["close_mosaic"] = args.close_mosaic
+        if args.lr0 is not None:
+            # `optimizer="auto"` overrides lr0 outright — Ultralytics logs
+            # "ignoring 'lr0=...'" and picks its own. Pinning the optimizer is
+            # what makes the flag actually take effect.
+            kwargs["lr0"] = args.lr0
+            kwargs["optimizer"] = "AdamW"
         kwargs["data"] = str(ROOT / CONFIG["data"])
         kwargs["project"] = str(ROOT / CONFIG["project"])
 
@@ -213,6 +228,7 @@ def main() -> int:
     summary = {
         "training_type": "transfer learning / fine-tuning from official pretrained "
                          "yolo26n.pt detection weights — NOT trained from scratch",
+        "starting_weights": args.weights,
         "pretrained": pretrained_info,
         "config": {**{k: v for k, v in CONFIG.items()}, "batch": args.batch,
                    "name": args.name, "epochs": args.epochs,

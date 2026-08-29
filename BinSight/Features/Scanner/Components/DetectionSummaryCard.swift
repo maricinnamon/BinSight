@@ -45,18 +45,20 @@ struct DetectionSummaryCard: View {
     }
 
     private var title: String {
-        if !isRunning { return "Getting the camera ready…" }
-        if grouped.isEmpty { return "Point at an item" }
-        return grouped.count == 1 ? "Found 1 material" : "Found \(grouped.count) materials"
+        if !isRunning { return L("summary.cameraStarting") }
+        if grouped.isEmpty { return L("summary.pointAtItem") }
+        // Plural form comes from the string catalog, not a ternary: Ukrainian
+        // has three, and "1 материал / 2 материали / 5 матеріалів" cannot be
+        // expressed by branching on `count == 1`.
+        return L("summary.foundMaterials", grouped.count)
     }
 
     private var supporting: String? {
         if !isRunning { return nil }
         if grouped.isEmpty {
-            return "Paper, plastic and metal are recognised on this iPhone."
+            return L("summary.recognisedOnDevice")
         }
-        let boxes = detections.count
-        return boxes == 1 ? "1 object detected" : "\(boxes) objects detected"
+        return L("summary.objectsDetected", detections.count)
     }
 
     private var header: some View {
@@ -74,6 +76,9 @@ struct DetectionSummaryCard: View {
         }
         .fixedSize(horizontal: false, vertical: true)
         .frame(maxWidth: .infinity, alignment: .leading)
+        // One swipe stop, not two: "Found 2 materials" and "3 objects detected"
+        // are one thought.
+        .accessibilityElement(children: .combine)
     }
 
     private func row(for detection: Detection) -> some View {
@@ -96,14 +101,24 @@ struct DetectionSummaryCard: View {
 
             Spacer(minLength: 8)
 
-            Text("\(Int((detection.confidence * 100).rounded()))%")
+            Text(Detection.percent(detection.confidence))
                 .font(BinSightTheme.rounded(.subheadline, weight: .bold))
                 .monospacedDigit()
                 .foregroundStyle(category.accent)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(detection.detectedClass.displayName), \(Int((detection.confidence * 100).rounded())) percent")
+        .accessibilityElement(children: .ignore)
+        // `.ignore`, not `.combine` with an overriding label. `.combine` merges
+        // the children and then the label *replaces* the merge — which silently
+        // dropped `disposalGuidance`, the one actionable sentence on this
+        // screen, from VoiceOver entirely. Building the label explicitly makes
+        // what is spoken visible in the code.
+        .accessibilityLabel(
+            L("summary.row.accessibility",
+              detection.detectedClass.displayName,
+              Detection.percent(detection.confidence))
+            + ". " + category.disposalGuidance
+        )
     }
 }
 

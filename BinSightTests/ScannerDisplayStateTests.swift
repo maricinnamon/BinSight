@@ -60,6 +60,12 @@ struct ScannerDisplayStateTests {
 
     @Test("The low-confidence message is the exact copy the design calls for")
     func notSureMessageCopy() {
+        // Pins English explicitly. Without this the test asserts whatever
+        // language the simulator happens to be set to, which is how it started
+        // failing once the app was localized — the copy was fine, the test was
+        // reading the Ukrainian translation.
+        Localizer.setLanguage(.english)
+        defer { Localizer.setLanguage(.system) }
         #expect(ScannerDisplayState.notSureMessage == "Not sure — try a clearer angle")
     }
 }

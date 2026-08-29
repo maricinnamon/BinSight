@@ -12,7 +12,9 @@ struct ResultAnnouncerTests {
     func announcesConfidentResult() {
         var announcer = ResultAnnouncer()
         let phrase = announcer.announcement(for: .classified(.samplePlastic), at: 0)
-        #expect(phrase?.contains("Plastic") == true)
+        // Language-agnostic: the announcement must name the category and the
+        // number, whatever language those are rendered in.
+        #expect(phrase?.contains(WasteCategory.plastic.displayName) == true)
         #expect(phrase?.contains("94") == true)
     }
 
@@ -42,7 +44,7 @@ struct ResultAnnouncerTests {
         var announcer = ResultAnnouncer()
         _ = announcer.announcement(for: .classified(.samplePlastic), at: 0)
         let phrase = announcer.announcement(for: .classified(.sampleGlass), at: 10)
-        #expect(phrase?.contains("Glass") == true)
+        #expect(phrase?.contains(WasteCategory.glass.displayName) == true)
     }
 
     @Test("Changes arriving faster than the throttle are suppressed")

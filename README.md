@@ -20,15 +20,39 @@ non-maximum suppression anywhere in the app.
 
 ## 🎥 Demo
 
-Not yet recorded. A capture will be added once the app has been filmed on a
-physical device; nothing is linked here that does not exist.
+Real captures from an iPhone 15. Not a simulator, not a mockup — the Simulator
+has no camera, so it can only ever show the "camera unavailable" state.
 
-BinSight runs on a real iPhone — a signed build is installed and working — but it
-is a **portfolio project and is not published to the App Store**. The reason is
-licensing rather than readiness: the detector inherits AGPL-3.0 from Ultralytics'
+| 🧴 Plastic | 📄 Paper | 🥫 Metal |
+|---|---|---|
+| <img src="docs/screenshots/detection-plastic.png" width="240"> | <img src="docs/screenshots/detection-paper.png" width="240"> | <img src="docs/screenshots/detection-metal.png" width="240"> |
+| Bottle · `Plastic 89%` | Tissue · `Paper 94%` | Laptop lid · `Metal 97%` |
+
+<img src="docs/screenshots/detection-plastic-bag.png" width="200" align="right">
+
+The metal example is an aluminium laptop lid rather than a can. The model is
+right — that surface *is* metal — but it is worth noting that BinSight answers
+"what material is this?", not "is this rubbish?". It has no concept of whether an
+object belongs in a bin.
+
+**The dark panel is a DEBUG overlay, not part of the shipping app.** It is left in
+these captures deliberately, because it is where the on-device timings in
+[Performance](#-performance) come from: `infer 8.2ms`, `e2e 11.7ms`,
+`74 ok · 0 dropped`. It is compiled out of Release builds entirely.
+
+<br clear="right">
+
+<img src="docs/screenshots/home-screen-icon.png" width="150" align="left">
+
+Installed on the Home Screen from a signed build.
+
+BinSight is a **portfolio project and is not published to the App Store** —
+licensing, not readiness. The detector inherits AGPL-3.0 from Ultralytics'
 pretrained weights, and AGPL is incompatible with App Store terms. Build it from
 source with Xcode. See [`LICENSING.md`](LICENSING.md); the App Store preparation
-that was completed beforehand is kept in [`docs/app-store/`](docs/app-store/).
+completed beforehand is kept in [`docs/app-store/`](docs/app-store/).
+
+<br clear="left">
 
 ---
 
@@ -271,24 +295,41 @@ unit test exists specifically to prove the naive version is wrong.
 
 ## ⚡ Performance
 
-> ⚠️ **Measured on the iOS Simulator, which has no Neural Engine.** These are not
-> iPhone figures. Physical-device latency has not been measured yet.
+### 📱 On device — iPhone 15
 
-Observed across several runs of the `inferenceLatency` test (10 iterations after
-a warm-up), on an M1 host:
+Read from the DEBUG overlay across six live captures:
+
+| | |
+|---|---|
+| Letterbox (CoreImage) | **1.9 – 4.0 ms** |
+| CoreML inference | **7.6 – 9.5 ms** |
+| End-to-end | **11.2 – 14.8 ms** |
+| p95 | 14.8 – 31.7 ms |
+| Frames dropped | **0**, across 74 / 252 / 311 / 356 / 138 / 9 frames |
+
+Inference is roughly **4× faster on the phone than in the Simulator** — the
+Neural Engine doing exactly what it exists for.
+
+One number needs care: the overlay's `rate` (62–93/s) is capacity, computed as
+`1 / average latency`. It is not the rate the app runs at. BinSight deliberately
+throttles to **4 inferences per second** at the capture boundary, because more
+than that burns battery without making the reading feel any more live. The
+headroom is what guarantees zero dropped frames.
+
+### 💻 In the Simulator — for comparison
+
+> ⚠️ The Simulator has no Neural Engine. These are **not** iPhone figures, and
+> are kept only to show the gap.
 
 | | |
 |---|---|
 | Letterbox (CoreImage) | 2–4 ms |
 | CoreML inference | 32–136 ms |
-| End-to-end | 42–191 ms (≈ 5.2–23.9 /s) |
+| End-to-end | 42–191 ms |
 
-The spread is wide because the Simulator shares the host CPU with whatever else
-is running; the faster end of the range is the less contended case.
-
-The pipeline targets 4 inferences/second, so even the simulator has headroom.
-The model, `CIContext`, pixel-buffer pool and output buffer are created once and
-reused; nothing is allocated per frame.
+The spread is wide because the Simulator shares the host CPU. The model,
+`CIContext`, pixel-buffer pool and output buffer are created once and reused;
+nothing is allocated per frame.
 
 ---
 
@@ -443,11 +484,10 @@ xcodebuild -workspace BinSight.xcworkspace -scheme BinSight -destination 'platfo
 - 🔀 **Domain gap.** Training imagery is product-style photography at 416×416, not
   handheld camera frames at arm's length under kitchen lighting. Live performance
   can be expected to fall short of the test figures.
-- ⏱️ **Device latency is unmeasured.** The numbers above are simulator numbers.
-- 👁️ **Live behaviour has been confirmed only qualitatively.** A signed build was
-  run on an iPhone 15: boxes appear, track objects, stay aligned near the frame
-  edges, and paper/plastic/metal are labelled correctly. No quantitative
-  device-side accuracy or latency measurement has been taken.
+- 👁️ **Live accuracy has not been measured on device.** Latency has (see
+  [Performance](#-performance)), but no held-out accuracy figure exists for
+  handheld camera frames — only for the test split. The screenshots show
+  successes, not a success *rate*.
 
 ---
 

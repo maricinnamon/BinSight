@@ -190,11 +190,22 @@ python scripts/make_ios_test_fixtures.py
 
 On the iOS Simulator (no Neural Engine), 720x1280 input:
 
+**iPhone 15** (DEBUG overlay, six live captures):
+
+| | |
+|---|---|
+| Letterbox (CoreImage) | 1.9 – 4.0 ms |
+| CoreML inference | 7.6 – 9.5 ms |
+| End-to-end | 11.2 – 14.8 ms |
+| Frames dropped | 0 |
+
+**Simulator** (no Neural Engine), for comparison:
+
 | | |
 |---|---|
 | Letterbox (CoreImage) | ~2–4 ms |
 | CoreML inference | ~32–136 ms |
-| End-to-end | ~42–191 ms (≈ 5.2–23.9 /s) |
+| End-to-end | ~42–191 ms |
 
 Comfortably above the 4 fps the pipeline asks for, and the simulator is the
 pessimistic case — a physical device runs the model on the Neural Engine.

@@ -1,10 +1,15 @@
 # BinSight — physical device testing
 
-> ## Status: FUNCTIONAL CHECK PASSED — quantitative measurements still pending
+> ## Status: FUNCTIONAL CHECK PASSED · LATENCY MEASURED
 >
-> A signed Debug build was run on an **iPhone 15** and the detection path was
-> confirmed working by direct observation. **No timing or accuracy has been
-> measured on device**, so every number below is still a blank.
+> A signed Debug build was run on an **iPhone 15**. The detection path was
+> confirmed working by direct observation, and latency was read from the in-app
+> DEBUG overlay across six live captures — see **Measured** below.
+>
+> Still missing is **accuracy on handheld frames**. The only accuracy figures
+> that exist are for the held-out test split; nobody has counted how often the
+> app is right when pointed at real objects, and the screenshots show successes
+> rather than a success rate.
 >
 > The two blockers that previously prevented a session are both resolved:
 >
@@ -15,9 +20,9 @@
 > 2. ~~Device signing is not configured.~~ **Resolved.** `DEVELOPMENT_TEAM` is
 >    set and automatic provisioning signs the target.
 >
-> Latency in this file must be measured on the device. The Simulator figures in
-> the README (58–136 ms model, 116–191 ms end-to-end) are Simulator figures and
-> may not be copied here.
+> Simulator figures (32–136 ms model, 42–191 ms end-to-end) must never be copied
+> into this file. They measure a machine without a Neural Engine and are roughly
+> 4× slower than the device.
 >
 > ### Functional check — iPhone 15, signed Debug build
 >
@@ -37,9 +42,30 @@
 > un-letterbox and preview projection all agree with what the camera sees — but
 > it is not a measurement. Nothing here should be quoted as device accuracy.
 >
+> ### Measured — iPhone 15, signed Debug build
+>
+> Read from the in-app DEBUG overlay across six live captures.
+>
+> | Metric | Range |
+> |---|---|
+> | Letterbox (CoreImage) | 1.9 – 4.0 ms |
+> | CoreML inference | 7.6 – 9.5 ms |
+> | End-to-end | 11.2 – 14.8 ms |
+> | avg / median | 10.7 – 16.0 ms / 10.4 – 14.8 ms |
+> | p95 | 14.8 – 31.7 ms |
+> | Frames processed · dropped | 74·0, 252·0, 311·0, 356·0, 138·0, 9·0 |
+>
+> **Zero dropped frames in every capture.** The `rate` the overlay shows
+> (62–93/s) is capacity — `1 / average latency` — not the rate the app runs at.
+> BinSight throttles to 4 inferences per second at the capture boundary by
+> design; the headroom is what keeps the queue empty.
+>
+> Inference is roughly 4× faster than in the Simulator (32–136 ms), which is the
+> Neural Engine doing its job.
+>
 > ### Still outstanding
 >
-> - on-device inference latency and sustained frame rate
+> - accuracy on handheld camera frames — only the test split has been measured
 > - thermal behaviour over a long session
 > - battery drain
 > - behaviour in poor light and at distance
@@ -58,10 +84,10 @@ differ, and averaging across them hides both.
 | iOS version | `PENDING` |
 | Build configuration | `PENDING` (Release for latency; Debug distorts it) |
 | Model file | `PENDING` |
-| Model SHA256 | `PENDING` (from `ml/artifacts/checksums.sha256`) |
+| Model SHA256 | `PENDING` (from `models/coreml/export_summary.json`) |
 | Model size | `PENDING` |
 | Quantisation | `PENDING` |
-| LiteRT runtime version | `PENDING` |
+| CoreML compute units | `PENDING` (the app requests `.all`) |
 | `ScannerConfiguration` used | `PENDING` (record any deviation from defaults) |
 | Session length | `PENDING` |
 | Ambient conditions | `PENDING` |
@@ -83,27 +109,28 @@ disappointing, which half is at fault changes what to do about it.
 | Dropped frames | `PENDING` |
 | Thermal state at end | `PENDING` |
 
-CPU only — no Core ML or GPU delegate. That is deliberate: establish a correct
-CPU baseline first, then measure whether a delegate is worth its complexity.
+`computeUnits = .all`, so CoreML uses the Neural Engine where available. The
+~4× gap against the Simulator is what that buys.
 
 ## Per-class behaviour
 
 One row per class actually tested. **Leave a row blank rather than inventing a
 sample** — a class with no representative item to hand is untested, not passing.
 
-| Class | Item used | Recognised? | Typical smoothed confidence | Stability | Notes |
-|---|---|---|---|---|---|
-| cardboard | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
-| glass | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
-| metal | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
-| paper | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
-| plastic | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
-| general_waste | `PENDING` | `PENDING` | `PENDING` | `PENDING` | |
+The detector has three classes. `cardboard`, `glass` and `general_waste` were
+part of the retired classifier's taxonomy and are not detected at all.
+
+| Class | Item used | Recognised? | Confidence seen | Notes |
+|---|---|---|---|---|
+| paper | tissue | yes | 94% | also 93% on a receipt, 91% on plain paper |
+| plastic | water bottle | yes | 89% | also 90% on a bagged water-cooler bottle |
+| metal | aluminium laptop lid | yes | 97% | correct — but a laptop is not waste; the model answers "what material", not "is this rubbish" |
 
 ## Hard scenes
 
-These are where the TrashNet domain shift shows up. Expect worse results than
-the test-split accuracy, and record what actually happens rather than what the
+This is where the domain shift shows up: the model trained on product-style
+photography at 416×416 and runs on handheld frames. Expect worse results than the
+test-split accuracy, and record what actually happens rather than what the
 metrics predicted.
 
 | Scenario | Observed | Notes |

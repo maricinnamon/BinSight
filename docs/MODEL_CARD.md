@@ -137,17 +137,26 @@ agreeing at IoU 0.985.
 
 ## Performance
 
-Measured on the **iOS Simulator**, which has no Neural Engine. Physical-device
-latency has **not** been measured.
+**On device — iPhone 15**, read from the DEBUG overlay across six live captures:
+
+| | |
+|---|---|
+| Letterbox (CoreImage) | 1.9 – 4.0 ms |
+| CoreML inference | **7.6 – 9.5 ms** |
+| End-to-end | 11.2 – 14.8 ms |
+| p95 | 14.8 – 31.7 ms |
+| Frames dropped | 0 |
+
+**In the Simulator**, which has no Neural Engine, for comparison only:
 
 | | |
 |---|---|
 | Letterbox (CoreImage) | 2–4 ms |
 | CoreML inference | 32–136 ms |
-| End-to-end | 42–191 ms (≈ 5.2–23.9 /s) |
+| End-to-end | 42–191 ms |
 
-The range is wide because the Simulator shares the host CPU; it is reported as a
-range rather than a single figure because a single figure would be a fiction.
+Inference is about 4× faster on the phone. The app throttles to 4 inferences per
+second regardless; the headroom is why no frame is dropped.
 
 ## Limitations
 

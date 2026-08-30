@@ -23,14 +23,12 @@ non-maximum suppression anywhere in the app.
 Real captures from an iPhone 15. Not a simulator, not a mockup — the Simulator
 has no camera, so it can only ever show the "camera unavailable" state.
 
-| 🧴 Plastic | 📄 Paper | 🥫 Metal |
-|---|---|---|
-| <img src="docs/screenshots/detection-plastic.png" width="240"> | <img src="docs/screenshots/detection-paper.png" width="240"> | <img src="docs/screenshots/detection-metal.png" width="240"> |
-| Bottle · `Plastic 89%` | Tissue · `Paper 94%` | Laptop lid · `Metal 97%` |
+| 🧴 Plastic | 📄 Paper | 🥫 Metal | 💧 Plastic |
+|---|---|---|---|
+| <img src="docs/screenshots/detection-plastic.png" width="200"> | <img src="docs/screenshots/detection-paper.png" width="200"> | <img src="docs/screenshots/detection-metal.png" width="200"> | <img src="docs/screenshots/detection-plastic-bag.png" width="200"> |
+| Bottle · `89%` | Tissue · `94%` | Tablet lid · `97%` | Bagged water bottle · `90%` |
 
-<img src="docs/screenshots/detection-plastic-bag.png" width="200" align="right">
-
-The metal example is an aluminium laptop lid rather than a can. The model is
+The metal example is an aluminium tablet lid rather than a can. The model is
 right — that surface *is* metal — but it is worth noting that BinSight answers
 "what material is this?", not "is this rubbish?". It has no concept of whether an
 object belongs in a bin.
@@ -39,8 +37,6 @@ object belongs in a bin.
 these captures deliberately, because it is where the on-device timings in
 [Performance](#-performance) come from: `infer 8.2ms`, `e2e 11.7ms`,
 `74 ok · 0 dropped`. It is compiled out of Release builds entirely.
-
-<br clear="right">
 
 <img src="docs/screenshots/home-screen-icon.png" width="150" align="left">
 

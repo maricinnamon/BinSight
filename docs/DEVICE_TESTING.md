@@ -124,7 +124,7 @@ part of the retired classifier's taxonomy and are not detected at all.
 |---|---|---|---|---|
 | paper | tissue | yes | 94% | also 93% on a receipt, 91% on plain paper |
 | plastic | water bottle | yes | 89% | also 90% on a bagged water-cooler bottle |
-| metal | aluminium laptop lid | yes | 97% | correct — but a laptop is not waste; the model answers "what material", not "is this rubbish" |
+| metal | aluminium tablet lid | yes | 97% | correct — but a tablet is not waste; the model answers "what material", not "is this rubbish" |
 
 ## Hard scenes
 
